@@ -403,12 +403,12 @@ namespace SocketServer
         private TextBox textBox_Config6;
         private TextBox textBox_Config5;
         private TextBox textBox_Config4;
-        private TextBox textBox_Config7;
         private Label label_Config13;
         private TextBox textBox_Config13;
         private Button button30;
         private Button button_OpenFolder;
         private CheckBox checkBox_DeleteCommand;
+        private TextBox textBox_Config7;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -727,7 +727,6 @@ namespace SocketServer
             this.textBox_Config6 = new System.Windows.Forms.TextBox();
             this.textBox_Config5 = new System.Windows.Forms.TextBox();
             this.textBox_Config4 = new System.Windows.Forms.TextBox();
-            this.textBox_Config7 = new System.Windows.Forms.TextBox();
             this.label_Config13 = new System.Windows.Forms.Label();
             this.textBox_Config13 = new System.Windows.Forms.TextBox();
             this.button30 = new System.Windows.Forms.Button();
@@ -911,6 +910,7 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
+            this.textBox_Config7 = new System.Windows.Forms.TextBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1658,9 +1658,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.groupBox_LoadedConfig);
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3247,19 +3247,6 @@ namespace SocketServer
             this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.toolTip3.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.textBox_Config4.TextChanged += new System.EventHandler(this.textBox_Config4_TextChanged);
-            // 
-            // textBox_Config7
-            // 
-            this.textBox_Config7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config7.Location = new System.Drawing.Point(351, 503);
-            this.textBox_Config7.Name = "textBox_Config7";
-            this.textBox_Config7.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config7.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.toolTip2.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.textBox_Config7.Visible = false;
-            this.textBox_Config7.TextChanged += new System.EventHandler(this.textBox_Config7_TextChanged);
             // 
             // label_Config13
             // 
@@ -5187,6 +5174,19 @@ namespace SocketServer
             this.groupBox_PhoneNumber.TabStop = false;
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
+            // 
+            // textBox_Config7
+            // 
+            this.textBox_Config7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config7.Location = new System.Drawing.Point(351, 503);
+            this.textBox_Config7.Name = "textBox_Config7";
+            this.textBox_Config7.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config7.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.toolTip2.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.toolTip3.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.textBox_Config7.Visible = false;
+            this.textBox_Config7.TextChanged += new System.EventHandler(this.textBox_Config7_TextChanged);
             // 
             // Form1
             // 
