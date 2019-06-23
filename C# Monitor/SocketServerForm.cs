@@ -1565,7 +1565,7 @@ namespace SocketServer
             // 
             // button_OpenFolder
             // 
-            this.button_OpenFolder.Location = new System.Drawing.Point(591, 17);
+            this.button_OpenFolder.Location = new System.Drawing.Point(626, 18);
             this.button_OpenFolder.Name = "button_OpenFolder";
             this.button_OpenFolder.Size = new System.Drawing.Size(108, 26);
             this.button_OpenFolder.TabIndex = 76;
@@ -1608,11 +1608,11 @@ namespace SocketServer
             this.checkBox_S1RecordLog.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1RecordLog.AutoSize = true;
             this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(705, 17);
+            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(740, 18);
             this.checkBox_S1RecordLog.Name = "checkBox_S1RecordLog";
-            this.checkBox_S1RecordLog.Size = new System.Drawing.Size(121, 26);
+            this.checkBox_S1RecordLog.Size = new System.Drawing.Size(86, 26);
             this.checkBox_S1RecordLog.TabIndex = 69;
-            this.checkBox_S1RecordLog.Text = "Record S1 Log";
+            this.checkBox_S1RecordLog.Text = "Log to file";
             this.checkBox_S1RecordLog.UseVisualStyleBackColor = true;
             this.checkBox_S1RecordLog.CheckedChanged += new System.EventHandler(this.checkBox_S1RecordLog_CheckedChanged);
             // 
