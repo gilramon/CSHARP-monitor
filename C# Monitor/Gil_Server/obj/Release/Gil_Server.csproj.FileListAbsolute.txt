@@ -1,0 +1,10 @@
+C:\Gil - projects\C# client server\c# server - Copy\Gil_Server\bin\Release\Gil_Server.dll
+C:\Gil - projects\C# client server\c# server - Copy\Gil_Server\bin\Release\Gil_Server.pdb
+C:\Gil - projects\C# client server\c# server - Copy\Gil_Server\obj\Release\ResolveAssemblyReference.cache
+C:\Gil - projects\C# client server\c# server - Copy\Gil_Server\obj\Release\Gil_Server.dll
+C:\Gil - projects\C# client server\c# server - Copy\Gil_Server\obj\Release\Gil_Server.pdb
+C:\Gil - projects\C# client server\c# server\Gil_Server\bin\Release\Gil_Server.dll
+C:\Gil - projects\C# client server\c# server\Gil_Server\bin\Release\Gil_Server.pdb
+C:\Gil - projects\C# client server\c# server\Gil_Server\obj\Release\ResolveAssemblyReference.cache
+C:\Gil - projects\C# client server\c# server\Gil_Server\obj\Release\Gil_Server.dll
+C:\Gil - projects\C# client server\c# server\Gil_Server\obj\Release\Gil_Server.pdb

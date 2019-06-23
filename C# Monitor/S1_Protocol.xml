@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>S1_Protocol</name>
+    </assembly>
+    <members>
+        <member name="T:S1_Protocol.Builder_Parser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.FrameParser(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="i_RequestResponse"></param>
+            <returns> if Exception Occured return Null</returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.FrameBuilder(System.String,System.Collections.ArrayList)">
+            <summary>
+            Builds the S1 Protocol frame.
+            
+            for example:
+             ArrayList S1frame = new ArrayList();
+             S1frame.Add(S1_Protocol.S1_Protocol.Message_TimeDateConfig(DateTime.Now));
+             S1frame.Add(S1_Protocol.S1_Protocol.Message_GetStatus());
+             S1frame.Add(S1_Protocol.S1_Protocol.Message_GetTripInformation());
+             S1frame.Add(S1_Protocol.S1_Protocol.Message_HardwareOutputActivation(1,1));
+             S1frame.Add(S1_Protocol.S1_Protocol.Message_SubscribersNumber("+972506945345","",""));
+             S1_Protocol.S1_Protocol.FrameBuilder("S1BM", S1frame);
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SubscribersNumber(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_FreeText(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SMSControl(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SMSPassword(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_InputConfig(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_OutputConfig(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_VehicleBatteryConfig(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_TimeDateConfig(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_AlarmPolicy(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SleepPolicy(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_RFPairing(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_TowingConfig(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_TiltConfig(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_ShockConfig(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_HitSensitivity(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_TiltTowSensitivity(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_OdomemterConfig(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_BlockEngineDuringDriving(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_DispatchSpeedLevelAlert(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SpeedLevelAlertLevels(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_StatusMessageDurationInterval(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_StatusMessageDurationIntervalOnSleep(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_ModemConfig(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_HomeNetworkAPN(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_ForgienNetworkAPN(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_GetStatus">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_GetPosition">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_GetSettings1">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_GetSettings2">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_GetTripInformation">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_HardwareOutputActivation(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_ArmDisarmUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_UnitReset(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.ReturnMessage_SpeedLimit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S1_Protocol.Builder_Parser.Parse_Status(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

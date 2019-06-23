@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gil_Server</name>
+    </assembly>
+    <members>
+        <member name="T:Gil_Server.Server">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gil_Server.Server.stringEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gil_Server.Server.stringEventArgs.StrData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gil_Server.Server.DataEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gil_Server.Server.DataEventArgs.BytesData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gil_Server.Server.DataEventArgs.ConnectionNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Gil_Server.Server.DataRecievedNotifyDelegate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.OnDataReceived(Gil_Server.Server.DataEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Gil_Server.Server.InformationNotifyDelegate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.OnInformationNotify(Gil_Server.Server.stringEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Gil_Server.Server.IsServerActive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gil_Server.Server.IsConnectedToClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.Open_Server">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.Close_Server">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gil_Server.Server.NumberOfOpenConnections">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gil_Server.Server.GetAllOpenConnections">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gil_Server.Server.WriteDataToServer(System.String,System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="i_Connection"></param>
+            <param name="i_SendData"></param>
+        </member>
+    </members>
+</doc>
