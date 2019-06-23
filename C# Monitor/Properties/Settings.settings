@@ -6,7 +6,7 @@
       <Value Profile="(Default)">2002</Value>
     </Setting>
     <Setting Name="Default_Server_Message" Type="System.String" Scope="User">
-      <Value Profile="(Default)">;&lt;1234&gt;STAT?,;</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PhoneBook" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -16,7 +16,7 @@
       <Value Profile="(Default)">COM1</Value>
     </Setting>
     <Setting Name="Comport_BaudRate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">38400</Value>
+      <Value Profile="(Default)">115200</Value>
     </Setting>
     <Setting Name="Comport_Parity" Type="System.String" Scope="User">
       <Value Profile="(Default)">None</Value>
@@ -26,9 +26,6 @@
     </Setting>
     <Setting Name="Comport_StopBit" Type="System.String" Scope="User">
       <Value Profile="(Default)">One</Value>
-    </Setting>
-    <Setting Name="SystemPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">S1BM</Value>
     </Setting>
     <Setting Name="SMS_Commands" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -85,7 +82,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LastSaveSMSTime" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">03/25/2015 16:07:00</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

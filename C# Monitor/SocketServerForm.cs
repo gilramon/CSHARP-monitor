@@ -338,18 +338,6 @@ namespace SocketServer
         private TextBox textBox_Config32;
         private Label label_Config31;
         private TextBox textBox_Config31;
-        private GroupBox groupBox31;
-        private CheckBox checkBox_config_Bit10;
-        private CheckBox checkBox_config_Bit9;
-        private CheckBox checkBox_config_Bit8;
-        private CheckBox checkBox_config_Bit7;
-        private CheckBox checkBox_config_Bit6;
-        private CheckBox checkBox_config_Bit5;
-        private CheckBox checkBox_config_Bit4;
-        private CheckBox checkBox_config_Bit3;
-        private CheckBox checkBox_config_Bit2;
-        private CheckBox checkBox_config_Bit1;
-        private CheckBox checkBox_config_Bit0;
         private TextBox textBox_ConfigUnitID;
         private Label label_Config30;
         private Label label4;
@@ -409,6 +397,18 @@ namespace SocketServer
         private Button button_OpenFolder;
         private CheckBox checkBox_DeleteCommand;
         private TextBox textBox_Config7;
+        private GroupBox groupBox31;
+        private CheckBox checkBox_config_Bit10;
+        private CheckBox checkBox_config_Bit9;
+        private CheckBox checkBox_config_Bit8;
+        private CheckBox checkBox_config_Bit7;
+        private CheckBox checkBox_config_Bit6;
+        private CheckBox checkBox_config_Bit5;
+        private CheckBox checkBox_config_Bit4;
+        private CheckBox checkBox_config_Bit3;
+        private CheckBox checkBox_config_Bit2;
+        private CheckBox checkBox_config_Bit1;
+        private CheckBox checkBox_config_Bit0;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -727,6 +727,7 @@ namespace SocketServer
             this.textBox_Config6 = new System.Windows.Forms.TextBox();
             this.textBox_Config5 = new System.Windows.Forms.TextBox();
             this.textBox_Config4 = new System.Windows.Forms.TextBox();
+            this.textBox_Config7 = new System.Windows.Forms.TextBox();
             this.label_Config13 = new System.Windows.Forms.Label();
             this.textBox_Config13 = new System.Windows.Forms.TextBox();
             this.button30 = new System.Windows.Forms.Button();
@@ -910,7 +911,6 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
-            this.textBox_Config7 = new System.Windows.Forms.TextBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1652,11 +1652,12 @@ namespace SocketServer
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.groupBox_UseConfig);
             this.tabPage6.Controls.Add(this.button32);
             this.tabPage6.Controls.Add(this.groupBox38);
-            this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Controls.Add(this.groupBox_LoadedConfig);
             this.tabPage6.Controls.Add(this.button30);
+            this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
@@ -1669,7 +1670,7 @@ namespace SocketServer
             // button32
             // 
             this.button32.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button32.Location = new System.Drawing.Point(718, 102);
+            this.button32.Location = new System.Drawing.Point(154, 264);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(140, 27);
             this.button32.TabIndex = 96;
@@ -1685,7 +1686,7 @@ namespace SocketServer
             this.groupBox38.Controls.Add(this.button3);
             this.groupBox38.Controls.Add(this.textBox_SourceConfig);
             this.groupBox38.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox38.Location = new System.Drawing.Point(59, 7);
+            this.groupBox38.Location = new System.Drawing.Point(4, 5);
             this.groupBox38.Name = "groupBox38";
             this.groupBox38.Size = new System.Drawing.Size(505, 123);
             this.groupBox38.TabIndex = 102;
@@ -1754,7 +1755,7 @@ namespace SocketServer
             "AVL",
             "AVL CAN",
             "Cellular Alarm"});
-            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(864, 102);
+            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(300, 264);
             this.comboBox_SystemConfigType.Name = "comboBox_SystemConfigType";
             this.comboBox_SystemConfigType.Size = new System.Drawing.Size(193, 27);
             this.comboBox_SystemConfigType.TabIndex = 33;
@@ -1762,13 +1763,12 @@ namespace SocketServer
             // 
             // groupBox_LoadedConfig
             // 
-            this.groupBox_LoadedConfig.Controls.Add(this.groupBox_UseConfig);
             this.groupBox_LoadedConfig.Controls.Add(this.groupBox_Configuration);
             this.groupBox_LoadedConfig.Controls.Add(this.textBox_Config7);
             this.groupBox_LoadedConfig.Controls.Add(this.label_Config13);
             this.groupBox_LoadedConfig.Controls.Add(this.textBox_Config13);
             this.groupBox_LoadedConfig.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_LoadedConfig.Location = new System.Drawing.Point(49, 136);
+            this.groupBox_LoadedConfig.Location = new System.Drawing.Point(4, 287);
             this.groupBox_LoadedConfig.Name = "groupBox_LoadedConfig";
             this.groupBox_LoadedConfig.Size = new System.Drawing.Size(1294, 633);
             this.groupBox_LoadedConfig.TabIndex = 27;
@@ -1783,9 +1783,9 @@ namespace SocketServer
             this.groupBox_UseConfig.Controls.Add(this.textBox_GenerateConfigFile);
             this.groupBox_UseConfig.Controls.Add(this.button29);
             this.groupBox_UseConfig.Controls.Add(this.button2);
-            this.groupBox_UseConfig.Location = new System.Drawing.Point(539, 503);
+            this.groupBox_UseConfig.Location = new System.Drawing.Point(511, 15);
             this.groupBox_UseConfig.Name = "groupBox_UseConfig";
-            this.groupBox_UseConfig.Size = new System.Drawing.Size(743, 103);
+            this.groupBox_UseConfig.Size = new System.Drawing.Size(743, 114);
             this.groupBox_UseConfig.TabIndex = 32;
             this.groupBox_UseConfig.TabStop = false;
             this.groupBox_UseConfig.Text = "Set / Save Configuration";
@@ -1794,7 +1794,7 @@ namespace SocketServer
             // 
             this.button_SetConfigSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_SetConfigSMS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SetConfigSMS.Location = new System.Drawing.Point(315, 16);
+            this.button_SetConfigSMS.Location = new System.Drawing.Point(320, 18);
             this.button_SetConfigSMS.Name = "button_SetConfigSMS";
             this.button_SetConfigSMS.Size = new System.Drawing.Size(98, 32);
             this.button_SetConfigSMS.TabIndex = 65;
@@ -1807,7 +1807,7 @@ namespace SocketServer
             // 
             this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.Location = new System.Drawing.Point(419, 16);
+            this.button28.Location = new System.Drawing.Point(424, 18);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(98, 32);
             this.button28.TabIndex = 61;
@@ -1821,7 +1821,7 @@ namespace SocketServer
             this.textBox_GenerateConfigFile.Location = new System.Drawing.Point(16, 56);
             this.textBox_GenerateConfigFile.Name = "textBox_GenerateConfigFile";
             this.textBox_GenerateConfigFile.ReadOnly = true;
-            this.textBox_GenerateConfigFile.Size = new System.Drawing.Size(722, 42);
+            this.textBox_GenerateConfigFile.Size = new System.Drawing.Size(722, 51);
             this.textBox_GenerateConfigFile.TabIndex = 64;
             this.textBox_GenerateConfigFile.Text = "";
             // 
@@ -1829,7 +1829,7 @@ namespace SocketServer
             // 
             this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(628, 16);
+            this.button29.Location = new System.Drawing.Point(633, 18);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(98, 32);
             this.button29.TabIndex = 63;
@@ -1841,7 +1841,7 @@ namespace SocketServer
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(524, 16);
+            this.button2.Location = new System.Drawing.Point(529, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 32);
             this.button2.TabIndex = 62;
@@ -3248,6 +3248,19 @@ namespace SocketServer
             this.toolTip3.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.textBox_Config4.TextChanged += new System.EventHandler(this.textBox_Config4_TextChanged);
             // 
+            // textBox_Config7
+            // 
+            this.textBox_Config7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config7.Location = new System.Drawing.Point(351, 503);
+            this.textBox_Config7.Name = "textBox_Config7";
+            this.textBox_Config7.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config7.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.toolTip2.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.toolTip3.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.textBox_Config7.Visible = false;
+            this.textBox_Config7.TextChanged += new System.EventHandler(this.textBox_Config7_TextChanged);
+            // 
             // label_Config13
             // 
             this.label_Config13.AutoSize = true;
@@ -3277,7 +3290,7 @@ namespace SocketServer
             // button30
             // 
             this.button30.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button30.Location = new System.Drawing.Point(572, 103);
+            this.button30.Location = new System.Drawing.Point(8, 265);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(140, 27);
             this.button30.TabIndex = 87;
@@ -5175,19 +5188,6 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // textBox_Config7
-            // 
-            this.textBox_Config7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config7.Location = new System.Drawing.Point(351, 503);
-            this.textBox_Config7.Name = "textBox_Config7";
-            this.textBox_Config7.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config7.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.toolTip2.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.textBox_Config7.Visible = false;
-            this.textBox_Config7.TextChanged += new System.EventHandler(this.textBox_Config7_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
@@ -6635,7 +6635,7 @@ namespace SocketServer
 
                 //Spetrotec.Properties.Settings.Default.Save();
 
-                txtDataTx.Text = string.Format(";<{0}>STAT?,;", Spetrotec.Properties.Settings.Default.SystemPassword);
+            //    txtDataTx.Text = string.Format(";<{0}>STAT?,;", Spetrotec.Properties.Settings.Default.SystemPassword);
 
                 txtPortNo.Text = Spetrotec.Properties.Settings.Default.Start_Port;
                 txtDataTx.Text = Spetrotec.Properties.Settings.Default.Default_Server_Message;
@@ -8626,7 +8626,7 @@ namespace SocketServer
 
 
                        //txtDataTx.Text = ";<1234>STARTFOTA=," + (Math.Ceiling((decimal)length / 1280)).ToString() + "," + length.ToString() + ",;";
-                       string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
+                       string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", "", textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
                        txtDataTx.Text = StartFota;
                        richTextBox_TextSendSMS.Text = StartFota;
                         //AddCommandToCommands(StartFota);
@@ -9554,7 +9554,7 @@ namespace SocketServer
                     string val = form.Password;            //values preserved after close
                     //Do something here with these values
 
-                    Spetrotec.Properties.Settings.Default.SystemPassword = val;
+              //      Spetrotec.Properties.Settings.Default.SystemPassword = val;
 
                     Spetrotec.Properties.Settings.Default.Save();
 
@@ -9593,7 +9593,7 @@ namespace SocketServer
         {
             System_Password form = (System_Password)sender;
             form.ConnectionNumbers.DataSource = comboBox_ConnectionNumber.DataSource;
-            form.PasswordText.Text = Spetrotec.Properties.Settings.Default.SystemPassword;
+            form.PasswordText.Text = "";
         }
 
         string GenerateConfigCommand()
@@ -10828,7 +10828,7 @@ namespace SocketServer
             if (textBox_TotalFrames1280Bytes.Text.Length > 0 && textBox_TotalFileLength.Text.Length > 0)
             {
                 //txtDataTx.Text = ";<1234>ENDFOTA=," + textBox_TotalFrames1280Bytes.Text + "," + textBox_TotalFileLength.Text + ",;";
-                txtDataTx.Text = string.Format(";<{0}>ENDFOT=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
+                txtDataTx.Text = string.Format(";<{0}>ENDFOT=,{1},{2},;", "", textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
             }
         }
 
@@ -11085,7 +11085,7 @@ namespace SocketServer
 
         private void button34_Click_1(object sender, EventArgs e)
         {
-            string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
+            string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", "", textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
             txtDataTx.Text = StartFota;
             richTextBox_TextSendSMS.Text = StartFota;
         }
