@@ -288,17 +288,11 @@ namespace SocketServer
         private TextBox textBox_TimerTime;
         private GroupBox groupBox38;
         private Button button6;
-        private Button button_GetConfigSMS;
         private Button button31;
-        private Button button3;
         private RichTextBox textBox_SourceConfig;
         private Button button32;
         private ComboBox comboBox_SystemConfigType;
         private GroupBox groupBox_LoadedConfig;
-        private GroupBox groupBox_UseConfig;
-        private Button button_SetConfigSMS;
-        private Button button28;
-        private RichTextBox textBox_GenerateConfigFile;
         private Button button29;
         private Button button2;
         private GroupBox groupBox_Configuration;
@@ -610,18 +604,12 @@ namespace SocketServer
             this.txtS1_Clear = new System.Windows.Forms.Button();
             this.txtS1 = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.groupBox_UseConfig = new System.Windows.Forms.GroupBox();
-            this.button_SetConfigSMS = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.textBox_GenerateConfigFile = new System.Windows.Forms.RichTextBox();
             this.button29 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button_GetConfigSMS = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox_SourceConfig = new System.Windows.Forms.RichTextBox();
             this.groupBox_LoadedConfig = new System.Windows.Forms.GroupBox();
             this.groupBox_Configuration = new System.Windows.Forms.GroupBox();
@@ -920,7 +908,6 @@ namespace SocketServer
             this.gbPortSettings.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.groupBox_UseConfig.SuspendLayout();
             this.groupBox38.SuspendLayout();
             this.groupBox_LoadedConfig.SuspendLayout();
             this.groupBox_Configuration.SuspendLayout();
@@ -1646,75 +1633,25 @@ namespace SocketServer
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.groupBox_UseConfig);
             this.tabPage6.Controls.Add(this.button32);
             this.tabPage6.Controls.Add(this.groupBox38);
             this.tabPage6.Controls.Add(this.groupBox_LoadedConfig);
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
-            // groupBox_UseConfig
-            // 
-            this.groupBox_UseConfig.Controls.Add(this.button_SetConfigSMS);
-            this.groupBox_UseConfig.Controls.Add(this.button28);
-            this.groupBox_UseConfig.Controls.Add(this.textBox_GenerateConfigFile);
-            this.groupBox_UseConfig.Controls.Add(this.button29);
-            this.groupBox_UseConfig.Controls.Add(this.button2);
-            this.groupBox_UseConfig.Location = new System.Drawing.Point(511, 15);
-            this.groupBox_UseConfig.Name = "groupBox_UseConfig";
-            this.groupBox_UseConfig.Size = new System.Drawing.Size(743, 114);
-            this.groupBox_UseConfig.TabIndex = 32;
-            this.groupBox_UseConfig.TabStop = false;
-            this.groupBox_UseConfig.Text = "Set / Save Configuration";
-            // 
-            // button_SetConfigSMS
-            // 
-            this.button_SetConfigSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SetConfigSMS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SetConfigSMS.Location = new System.Drawing.Point(320, 18);
-            this.button_SetConfigSMS.Name = "button_SetConfigSMS";
-            this.button_SetConfigSMS.Size = new System.Drawing.Size(98, 32);
-            this.button_SetConfigSMS.TabIndex = 65;
-            this.button_SetConfigSMS.Text = "SMS";
-            this.button_SetConfigSMS.UseVisualStyleBackColor = true;
-            this.button_SetConfigSMS.Visible = false;
-            this.button_SetConfigSMS.Click += new System.EventHandler(this.button_SetConfigSMS_Click);
-            // 
-            // button28
-            // 
-            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.Location = new System.Drawing.Point(424, 18);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(98, 32);
-            this.button28.TabIndex = 61;
-            this.button28.Text = "Server";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Visible = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click_1);
-            // 
-            // textBox_GenerateConfigFile
-            // 
-            this.textBox_GenerateConfigFile.Location = new System.Drawing.Point(16, 56);
-            this.textBox_GenerateConfigFile.Name = "textBox_GenerateConfigFile";
-            this.textBox_GenerateConfigFile.ReadOnly = true;
-            this.textBox_GenerateConfigFile.Size = new System.Drawing.Size(722, 51);
-            this.textBox_GenerateConfigFile.TabIndex = 64;
-            this.textBox_GenerateConfigFile.Text = "";
-            // 
             // button29
             // 
             this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(633, 18);
+            this.button29.Location = new System.Drawing.Point(129, 58);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(98, 32);
             this.button29.TabIndex = 63;
@@ -1726,18 +1663,18 @@ namespace SocketServer
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(529, 18);
+            this.button2.Location = new System.Drawing.Point(6, 58);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 32);
+            this.button2.Size = new System.Drawing.Size(120, 32);
             this.button2.TabIndex = 62;
-            this.button2.Text = "Serial Port";
+            this.button2.Text = "Set Serial Port";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button32
             // 
             this.button32.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button32.Location = new System.Drawing.Point(154, 264);
+            this.button32.Location = new System.Drawing.Point(661, 149);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(140, 27);
             this.button32.TabIndex = 96;
@@ -1747,45 +1684,34 @@ namespace SocketServer
             // 
             // groupBox38
             // 
+            this.groupBox38.Controls.Add(this.button29);
             this.groupBox38.Controls.Add(this.button6);
-            this.groupBox38.Controls.Add(this.button_GetConfigSMS);
+            this.groupBox38.Controls.Add(this.button2);
             this.groupBox38.Controls.Add(this.button31);
-            this.groupBox38.Controls.Add(this.button3);
             this.groupBox38.Controls.Add(this.textBox_SourceConfig);
             this.groupBox38.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox38.Location = new System.Drawing.Point(4, 5);
             this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(505, 123);
+            this.groupBox38.Size = new System.Drawing.Size(505, 175);
             this.groupBox38.TabIndex = 102;
             this.groupBox38.TabStop = false;
-            this.groupBox38.Text = "Get \\ Load Configuration";
+            this.groupBox38.Text = "Configuration control";
             // 
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(109, 25);
+            this.button6.Location = new System.Drawing.Point(6, 24);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 32);
+            this.button6.Size = new System.Drawing.Size(120, 32);
             this.button6.TabIndex = 25;
-            this.button6.Text = "Serial Port";
+            this.button6.Text = "Get Serial Port";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_2);
-            // 
-            // button_GetConfigSMS
-            // 
-            this.button_GetConfigSMS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_GetConfigSMS.Location = new System.Drawing.Point(317, 25);
-            this.button_GetConfigSMS.Name = "button_GetConfigSMS";
-            this.button_GetConfigSMS.Size = new System.Drawing.Size(98, 32);
-            this.button_GetConfigSMS.TabIndex = 101;
-            this.button_GetConfigSMS.Text = "SMS";
-            this.button_GetConfigSMS.UseVisualStyleBackColor = true;
-            this.button_GetConfigSMS.Visible = false;
             // 
             // button31
             // 
             this.button31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button31.Location = new System.Drawing.Point(213, 25);
+            this.button31.Location = new System.Drawing.Point(129, 25);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(98, 32);
             this.button31.TabIndex = 22;
@@ -1793,26 +1719,15 @@ namespace SocketServer
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(5, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 32);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "Server";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_2);
-            // 
             // textBox_SourceConfig
             // 
-            this.textBox_SourceConfig.Location = new System.Drawing.Point(4, 63);
+            this.textBox_SourceConfig.Location = new System.Drawing.Point(2, 95);
             this.textBox_SourceConfig.Name = "textBox_SourceConfig";
             this.textBox_SourceConfig.ReadOnly = true;
-            this.textBox_SourceConfig.Size = new System.Drawing.Size(497, 54);
+            this.textBox_SourceConfig.Size = new System.Drawing.Size(496, 62);
             this.textBox_SourceConfig.TabIndex = 28;
             this.textBox_SourceConfig.Text = "";
+            this.textBox_SourceConfig.TextChanged += new System.EventHandler(this.textBox_SourceConfig_TextChanged);
             // 
             // groupBox_LoadedConfig
             // 
@@ -1821,7 +1736,7 @@ namespace SocketServer
             this.groupBox_LoadedConfig.Controls.Add(this.label_Config13);
             this.groupBox_LoadedConfig.Controls.Add(this.textBox_Config13);
             this.groupBox_LoadedConfig.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_LoadedConfig.Location = new System.Drawing.Point(4, 287);
+            this.groupBox_LoadedConfig.Location = new System.Drawing.Point(4, 186);
             this.groupBox_LoadedConfig.Name = "groupBox_LoadedConfig";
             this.groupBox_LoadedConfig.Size = new System.Drawing.Size(1294, 633);
             this.groupBox_LoadedConfig.TabIndex = 27;
@@ -3167,7 +3082,7 @@ namespace SocketServer
             // button30
             // 
             this.button30.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button30.Location = new System.Drawing.Point(8, 265);
+            this.button30.Location = new System.Drawing.Point(515, 150);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(140, 27);
             this.button30.TabIndex = 87;
@@ -3183,7 +3098,7 @@ namespace SocketServer
             "AVL",
             "AVL CAN",
             "Cellular Alarm"});
-            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(300, 264);
+            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(807, 149);
             this.comboBox_SystemConfigType.Name = "comboBox_SystemConfigType";
             this.comboBox_SystemConfigType.Size = new System.Drawing.Size(193, 27);
             this.comboBox_SystemConfigType.TabIndex = 33;
@@ -5105,7 +5020,6 @@ namespace SocketServer
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.groupBox_UseConfig.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
             this.groupBox_LoadedConfig.ResumeLayout(false);
             this.groupBox_LoadedConfig.PerformLayout();
@@ -6495,7 +6409,7 @@ namespace SocketServer
 
         Logger LogGeneral;
         Logger LogS1;
-        Logger LogIWatcher;
+     //   Logger LogIWatcher;
         Logger LogSMS;
         PhoneBook MyPhoneBook;
        // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
@@ -7609,16 +7523,16 @@ namespace SocketServer
 
                if (IwatcherPrint == true)
                {
-                   LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                   if (i_Contact != null)
-                   {
-                       LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                   }
-                   else
-                   {
-                       LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                   }
-                   LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nPOSITION Message Received: ", New_Line = false, Show_Time = false);
+                   //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                   //if (i_Contact != null)
+                   //{
+                   //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                   //}
+                   //else
+                   //{
+                   //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                   //}
+                   //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nPOSITION Message Received: ", New_Line = false, Show_Time = false);
 
                    string PositionString =
                        "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
@@ -7637,7 +7551,7 @@ namespace SocketServer
                    //  "\n GPRS MESSAGE  NUMBER = " + PosStrings[15];
 
                    //string.Format("\n UNIT ID = {0} \n STATE = {1}\n GSM LINK QUALITY = {2}", PosStrings[0].Replace(";",""), Key[1], PosStrings[2]); 
-                   LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
+                   //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
                }
 
                //string ret = "";
@@ -7698,16 +7612,16 @@ namespace SocketServer
                {
                    if (IwatcherPrint == true)
                    {
-                       LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                       if (i_Contact != null)
-                       {
-                           LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                       }
-                       else
-                       {
-                           LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                       }
-                       LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nSTATUS Message Received: ", New_Line = false, Show_Time = false);
+                       //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                       //if (i_Contact != null)
+                       //{
+                       //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                       //}
+                       //else
+                       //{
+                       //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                       //}
+                       //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nSTATUS Message Received: ", New_Line = false, Show_Time = false);
 
                        string PositionString =
                            "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
@@ -7734,7 +7648,7 @@ namespace SocketServer
                            "\n TOWING EVENT = " + ParseStrings[21] +
                            "\n TILT EVENT = " + ParseStrings[22];
 
-                       LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
+                       //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
                    }
                }
                else
@@ -7742,16 +7656,16 @@ namespace SocketServer
                    {
                        if (IwatcherPrint == true)
                        {
-                           LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                           if (i_Contact != null)
-                           {
-                               LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                           }
-                           else
-                           {
-                               LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                           }
-                           LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG: Message Received: ", New_Line = false, Show_Time = false);
+                           //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                           //if (i_Contact != null)
+                           //{
+                           //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                           //}
+                           //else
+                           //{
+                           //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                           //}
+                           //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG: Message Received: ", New_Line = false, Show_Time = false);
 
                            // ,,, ,N/A,N/A;
 
@@ -7777,7 +7691,7 @@ namespace SocketServer
                                "\n GPRS reconnection = " + ParseStrings[19] +
                                "\n Satellite type = " + ParseStrings[20];
 
-                           LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
+                           //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
                        }
                    }
                    else
@@ -7785,16 +7699,16 @@ namespace SocketServer
                        {
                            if (IwatcherPrint == true)
                            {
-                               LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                               if (i_Contact != null)
-                               {
-                                   LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                               }
-                               else
-                               {
-                                   LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                               }
-                               LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG2 Message Received: ", New_Line = false, Show_Time = false);
+                               //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                               //if (i_Contact != null)
+                               //{
+                               //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                               //}
+                               //else
+                               //{
+                               //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                               //}
+                               //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG2 Message Received: ", New_Line = false, Show_Time = false);
 
                                //  , , , ,  fota access point name, N/A ,software version, GPS num of used satellites,GPS last timestamp,;
 
@@ -7809,7 +7723,7 @@ namespace SocketServer
                                    "\n GPS num of used satellites = " + ParseStrings[8] +
                                    "\n GPS last timestamp  = " + ParseStrings[9];
 
-                               LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
+                               //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
                            }
                        }
        }
@@ -8740,8 +8654,8 @@ namespace SocketServer
 
                if (IsAllGreen == false)
                {
-                   textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
-                   textBox_GenerateConfigFile.BackColor = Color.Red;
+                   //textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
+                   //textBox_GenerateConfigFile.BackColor = Color.Red;
                    return;
                }
                else
@@ -8791,12 +8705,12 @@ namespace SocketServer
                
 
                //textBox_GenerateConfigFile.BackColor = Color.Green;
-               textBox_GenerateConfigFile.Text = "File has been saved: \n" + saveFileDialog1.FileName ;
-               textBox_GenerateConfigFile.BackColor = Color.LightGreen;
+               //textBox_GenerateConfigFile.Text = "File has been saved: \n" + saveFileDialog1.FileName ;
+               //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
            }
            catch (Exception ex)
            {
-               textBox_GenerateConfigFile.Text = ex.ToString();
+               //textBox_GenerateConfigFile.Text = ex.ToString();
            }
        }
 
@@ -9510,11 +9424,11 @@ namespace SocketServer
         }
 
 
-        void CleartextBox_GenerateConfigFile()
-        {
-            textBox_GenerateConfigFile.Text = "";
-            textBox_GenerateConfigFile.BackColor = default(Color);
-        }
+        //void CleartextBox_GenerateConfigFile()
+        //{
+        //    textBox_GenerateConfigFile.Text = "";
+        //    textBox_GenerateConfigFile.BackColor = default(Color);
+        //}
 
         private void button28_Click_1(object sender, EventArgs e)
         {
@@ -9526,13 +9440,13 @@ namespace SocketServer
 
                 if (IsAllGreen == false)
                 {
-                    textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
-                    textBox_GenerateConfigFile.BackColor = Color.Red;
+                    //textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
+                    //textBox_GenerateConfigFile.BackColor = Color.Red;
                     return;
                 }
                 else
                 {
-                    textBox_GenerateConfigFile.BackColor = Color.LightGreen;
+                    //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
                 }
 
                 string UnitID = textBox_ConfigUnitID.Text;
@@ -9565,13 +9479,13 @@ namespace SocketServer
                             byte[] byData = System.Text.Encoding.ASCII.GetBytes(objData.ToString());
                             SendDataToServer(form.ConnectionNumbers.SelectedItem.ToString(), byData);
 
-                            textBox_GenerateConfigFile.Text = "Message has been sent";
-                            textBox_GenerateConfigFile.BackColor = Color.LightGreen;
+                            //textBox_GenerateConfigFile.Text = "Message has been sent";
+                            //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
                         }
                         catch (Exception ex)
                         {
-                            textBox_GenerateConfigFile.Text = ex.ToString();
-                            textBox_GenerateConfigFile.BackColor = Color.Red;
+                            //textBox_GenerateConfigFile.Text = ex.ToString();
+                            //textBox_GenerateConfigFile.BackColor = Color.Red;
                         }
 
 
@@ -9595,7 +9509,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                textBox_GenerateConfigFile.Text = ex.ToString();
+                //textBox_GenerateConfigFile.Text = ex.ToString();
             }
         }
 
@@ -9608,8 +9522,8 @@ namespace SocketServer
 
                 if (IsAllGreen == false)
                 {
-                    textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
-                    textBox_GenerateConfigFile.BackColor = Color.Red;
+                    //textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
+                    //textBox_GenerateConfigFile.BackColor = Color.Red;
                     return;
                 }
                 else
@@ -9642,8 +9556,8 @@ namespace SocketServer
 
                     if (IsSent == true)
                     {
-                        textBox_GenerateConfigFile.BackColor = Color.Yellow;
-                        textBox_GenerateConfigFile.Text = "Config has been sent";
+                        //textBox_GenerateConfigFile.BackColor = Color.Yellow;
+                        //textBox_GenerateConfigFile.Text = "Config has been sent";
 
                     }
                     
@@ -9652,7 +9566,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                textBox_GenerateConfigFile.Text = ex.ToString();
+                //textBox_GenerateConfigFile.Text = ex.ToString();
             }
         }
 
@@ -9684,20 +9598,20 @@ namespace SocketServer
 
         void textBox_GenerateConfigFile_Text(string i_Text,Color i_BackColor)
         {
-            textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
-            {
-                textBox_GenerateConfigFile.Text = i_Text;
-                textBox_GenerateConfigFile.BackColor = i_BackColor;
-            }));
+            //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
+            //{
+            //    textBox_GenerateConfigFile.Text = i_Text;
+            //    textBox_GenerateConfigFile.BackColor = i_BackColor;
+            //}));
         }
 
         void textBox_GenerateConfigFile_Clear()
         {
-            textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
-                {
-                    textBox_GenerateConfigFile.Text = "";
-                    textBox_GenerateConfigFile.BackColor = default(Color);
-                }));
+            //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
+            //    {
+            //        textBox_GenerateConfigFile.Text = "";
+            //        textBox_GenerateConfigFile.BackColor = default(Color);
+            //    }));
         }
 
         void UpdateSpeedLimitTextBoxs(int i_SpeedLimit1, int i_SpeedLimit2, int i_SpeedLimit3)
@@ -11144,16 +11058,16 @@ namespace SocketServer
 
             if (textBox_Config38.Text == "1")
             {
-                textBox_GenerateConfigFile.Text = "Serial Port Baudrate 9600! ";
-                textBox_GenerateConfigFile.BackColor = Color.Orange;
+                //textBox_GenerateConfigFile.Text = "Serial Port Baudrate 9600! ";
+                //textBox_GenerateConfigFile.BackColor = Color.Orange;
                 textBox_Config33.Text = "9999";
                 textBox_Config33.Enabled = false;
             }
 
             if (textBox_Config38.Text == "0")
             {
-                textBox_GenerateConfigFile.Text = "Serial Port Baudrate 38400!";
-                textBox_GenerateConfigFile.BackColor = Color.Orange;
+                //textBox_GenerateConfigFile.Text = "Serial Port Baudrate 38400!";
+                //textBox_GenerateConfigFile.BackColor = Color.Orange;
                 textBox_Config33.Enabled = true;
             }
         }
@@ -11492,6 +11406,11 @@ namespace SocketServer
             //    textBox_SendSerialPort.Text = textBox_SendSerialPort.Text.Replace("/n",Environment.NewLine);
             textBox_SendSerialPort.SelectionStart = textBox_SendSerialPort.Text.Length;
             textBox_SendSerialPort.SelectionLength = 0;
+        }
+
+        private void textBox_SourceConfig_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         void ResetTimer()
