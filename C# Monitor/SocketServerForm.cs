@@ -208,7 +208,6 @@ namespace SocketServer
         private TextBox textBox_SMSPhoneNumber;
         private GroupBox groupBox_PhoneNumber;
         private ToolTip toolTip2;
-        private ToolTip toolTip3;
         private CheckBox checkBox_EchoResponse;
         private CheckBox checkBox_ShowURL;
         private GroupBox groupBox_FOTA;
@@ -611,6 +610,12 @@ namespace SocketServer
             this.txtS1_Clear = new System.Windows.Forms.Button();
             this.txtS1 = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox_UseConfig = new System.Windows.Forms.GroupBox();
+            this.button_SetConfigSMS = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.textBox_GenerateConfigFile = new System.Windows.Forms.RichTextBox();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -618,14 +623,7 @@ namespace SocketServer
             this.button31 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox_SourceConfig = new System.Windows.Forms.RichTextBox();
-            this.comboBox_SystemConfigType = new System.Windows.Forms.ComboBox();
             this.groupBox_LoadedConfig = new System.Windows.Forms.GroupBox();
-            this.groupBox_UseConfig = new System.Windows.Forms.GroupBox();
-            this.button_SetConfigSMS = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.textBox_GenerateConfigFile = new System.Windows.Forms.RichTextBox();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox_Configuration = new System.Windows.Forms.GroupBox();
             this.label_Config42 = new System.Windows.Forms.Label();
             this.textBox_Config42 = new System.Windows.Forms.TextBox();
@@ -731,6 +729,7 @@ namespace SocketServer
             this.label_Config13 = new System.Windows.Forms.Label();
             this.textBox_Config13 = new System.Windows.Forms.TextBox();
             this.button30 = new System.Windows.Forms.Button();
+            this.comboBox_SystemConfigType = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBox_ParseMessages = new System.Windows.Forms.CheckBox();
             this.textBox_IDKey = new System.Windows.Forms.RichTextBox();
@@ -909,7 +908,6 @@ namespace SocketServer
             this.groupBox36 = new System.Windows.Forms.GroupBox();
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -922,9 +920,9 @@ namespace SocketServer
             this.gbPortSettings.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.groupBox_UseConfig.SuspendLayout();
             this.groupBox38.SuspendLayout();
             this.groupBox_LoadedConfig.SuspendLayout();
-            this.groupBox_UseConfig.SuspendLayout();
             this.groupBox_Configuration.SuspendLayout();
             this.groupBox31.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1268,9 +1266,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
-            this.toolTip3.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1494,7 +1491,7 @@ namespace SocketServer
             "6",
             "7",
             "8"});
-            this.cmbDataBits.Location = new System.Drawing.Point(221, 29);
+            this.cmbDataBits.Location = new System.Drawing.Point(220, 29);
             this.cmbDataBits.Name = "cmbDataBits";
             this.cmbDataBits.Size = new System.Drawing.Size(60, 23);
             this.cmbDataBits.TabIndex = 7;
@@ -1575,33 +1572,30 @@ namespace SocketServer
             // 
             // textBox_SerialPortRecognizePattern3
             // 
-            this.textBox_SerialPortRecognizePattern3.Location = new System.Drawing.Point(254, 17);
+            this.textBox_SerialPortRecognizePattern3.Location = new System.Drawing.Point(252, 17);
             this.textBox_SerialPortRecognizePattern3.Name = "textBox_SerialPortRecognizePattern3";
             this.textBox_SerialPortRecognizePattern3.Size = new System.Drawing.Size(117, 21);
             this.textBox_SerialPortRecognizePattern3.TabIndex = 75;
-            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
-            this.toolTip3.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
+            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
             // 
             // textBox_SerialPortRecognizePattern2
             // 
-            this.textBox_SerialPortRecognizePattern2.Location = new System.Drawing.Point(131, 17);
+            this.textBox_SerialPortRecognizePattern2.Location = new System.Drawing.Point(129, 18);
             this.textBox_SerialPortRecognizePattern2.Name = "textBox_SerialPortRecognizePattern2";
             this.textBox_SerialPortRecognizePattern2.Size = new System.Drawing.Size(117, 21);
             this.textBox_SerialPortRecognizePattern2.TabIndex = 74;
-            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
-            this.toolTip3.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
+            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
             // 
             // textBox_SerialPortRecognizePattern
             // 
-            this.textBox_SerialPortRecognizePattern.Location = new System.Drawing.Point(8, 17);
+            this.textBox_SerialPortRecognizePattern.Location = new System.Drawing.Point(6, 18);
             this.textBox_SerialPortRecognizePattern.Name = "textBox_SerialPortRecognizePattern";
             this.textBox_SerialPortRecognizePattern.Size = new System.Drawing.Size(117, 21);
             this.textBox_SerialPortRecognizePattern.TabIndex = 73;
-            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
-            this.toolTip3.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
+            this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
             // 
             // checkBox_S1RecordLog
             // 
@@ -1659,13 +1653,86 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
+            // 
+            // groupBox_UseConfig
+            // 
+            this.groupBox_UseConfig.Controls.Add(this.button_SetConfigSMS);
+            this.groupBox_UseConfig.Controls.Add(this.button28);
+            this.groupBox_UseConfig.Controls.Add(this.textBox_GenerateConfigFile);
+            this.groupBox_UseConfig.Controls.Add(this.button29);
+            this.groupBox_UseConfig.Controls.Add(this.button2);
+            this.groupBox_UseConfig.Location = new System.Drawing.Point(511, 15);
+            this.groupBox_UseConfig.Name = "groupBox_UseConfig";
+            this.groupBox_UseConfig.Size = new System.Drawing.Size(743, 114);
+            this.groupBox_UseConfig.TabIndex = 32;
+            this.groupBox_UseConfig.TabStop = false;
+            this.groupBox_UseConfig.Text = "Set / Save Configuration";
+            // 
+            // button_SetConfigSMS
+            // 
+            this.button_SetConfigSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_SetConfigSMS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SetConfigSMS.Location = new System.Drawing.Point(320, 18);
+            this.button_SetConfigSMS.Name = "button_SetConfigSMS";
+            this.button_SetConfigSMS.Size = new System.Drawing.Size(98, 32);
+            this.button_SetConfigSMS.TabIndex = 65;
+            this.button_SetConfigSMS.Text = "SMS";
+            this.button_SetConfigSMS.UseVisualStyleBackColor = true;
+            this.button_SetConfigSMS.Visible = false;
+            this.button_SetConfigSMS.Click += new System.EventHandler(this.button_SetConfigSMS_Click);
+            // 
+            // button28
+            // 
+            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button28.Location = new System.Drawing.Point(424, 18);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(98, 32);
+            this.button28.TabIndex = 61;
+            this.button28.Text = "Server";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Visible = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click_1);
+            // 
+            // textBox_GenerateConfigFile
+            // 
+            this.textBox_GenerateConfigFile.Location = new System.Drawing.Point(16, 56);
+            this.textBox_GenerateConfigFile.Name = "textBox_GenerateConfigFile";
+            this.textBox_GenerateConfigFile.ReadOnly = true;
+            this.textBox_GenerateConfigFile.Size = new System.Drawing.Size(722, 51);
+            this.textBox_GenerateConfigFile.TabIndex = 64;
+            this.textBox_GenerateConfigFile.Text = "";
+            // 
+            // button29
+            // 
+            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.Location = new System.Drawing.Point(633, 18);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(98, 32);
+            this.button29.TabIndex = 63;
+            this.button29.Text = "Save File";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(529, 18);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 32);
+            this.button2.TabIndex = 62;
+            this.button2.Text = "Serial Port";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button32
             // 
@@ -1747,20 +1814,6 @@ namespace SocketServer
             this.textBox_SourceConfig.TabIndex = 28;
             this.textBox_SourceConfig.Text = "";
             // 
-            // comboBox_SystemConfigType
-            // 
-            this.comboBox_SystemConfigType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_SystemConfigType.FormattingEnabled = true;
-            this.comboBox_SystemConfigType.Items.AddRange(new object[] {
-            "AVL",
-            "AVL CAN",
-            "Cellular Alarm"});
-            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(300, 264);
-            this.comboBox_SystemConfigType.Name = "comboBox_SystemConfigType";
-            this.comboBox_SystemConfigType.Size = new System.Drawing.Size(193, 27);
-            this.comboBox_SystemConfigType.TabIndex = 33;
-            this.comboBox_SystemConfigType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
             // groupBox_LoadedConfig
             // 
             this.groupBox_LoadedConfig.Controls.Add(this.groupBox_Configuration);
@@ -1775,79 +1828,6 @@ namespace SocketServer
             this.groupBox_LoadedConfig.TabStop = false;
             this.groupBox_LoadedConfig.Text = "Loaded Configuration";
             this.groupBox_LoadedConfig.Enter += new System.EventHandler(this.groupBox_LoadedConfig_Enter);
-            // 
-            // groupBox_UseConfig
-            // 
-            this.groupBox_UseConfig.Controls.Add(this.button_SetConfigSMS);
-            this.groupBox_UseConfig.Controls.Add(this.button28);
-            this.groupBox_UseConfig.Controls.Add(this.textBox_GenerateConfigFile);
-            this.groupBox_UseConfig.Controls.Add(this.button29);
-            this.groupBox_UseConfig.Controls.Add(this.button2);
-            this.groupBox_UseConfig.Location = new System.Drawing.Point(511, 15);
-            this.groupBox_UseConfig.Name = "groupBox_UseConfig";
-            this.groupBox_UseConfig.Size = new System.Drawing.Size(743, 114);
-            this.groupBox_UseConfig.TabIndex = 32;
-            this.groupBox_UseConfig.TabStop = false;
-            this.groupBox_UseConfig.Text = "Set / Save Configuration";
-            // 
-            // button_SetConfigSMS
-            // 
-            this.button_SetConfigSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SetConfigSMS.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SetConfigSMS.Location = new System.Drawing.Point(320, 18);
-            this.button_SetConfigSMS.Name = "button_SetConfigSMS";
-            this.button_SetConfigSMS.Size = new System.Drawing.Size(98, 32);
-            this.button_SetConfigSMS.TabIndex = 65;
-            this.button_SetConfigSMS.Text = "SMS";
-            this.button_SetConfigSMS.UseVisualStyleBackColor = true;
-            this.button_SetConfigSMS.Visible = false;
-            this.button_SetConfigSMS.Click += new System.EventHandler(this.button_SetConfigSMS_Click);
-            // 
-            // button28
-            // 
-            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.Location = new System.Drawing.Point(424, 18);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(98, 32);
-            this.button28.TabIndex = 61;
-            this.button28.Text = "Server";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Visible = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click_1);
-            // 
-            // textBox_GenerateConfigFile
-            // 
-            this.textBox_GenerateConfigFile.Location = new System.Drawing.Point(16, 56);
-            this.textBox_GenerateConfigFile.Name = "textBox_GenerateConfigFile";
-            this.textBox_GenerateConfigFile.ReadOnly = true;
-            this.textBox_GenerateConfigFile.Size = new System.Drawing.Size(722, 51);
-            this.textBox_GenerateConfigFile.TabIndex = 64;
-            this.textBox_GenerateConfigFile.Text = "";
-            // 
-            // button29
-            // 
-            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(633, 18);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(98, 32);
-            this.button29.TabIndex = 63;
-            this.button29.Text = "Save File";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(529, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 32);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Serial Port";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // groupBox_Configuration
             // 
@@ -1958,11 +1938,9 @@ namespace SocketServer
             this.label_Config42.Size = new System.Drawing.Size(67, 15);
             this.label_Config42.TabIndex = 124;
             this.label_Config42.Text = "Uart Listen";
-            this.toolTip2.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
-        "00\r\n38400\r\n115200");
-            this.toolTip3.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
-        "00\r\n38400\r\n115200");
             this.toolTip1.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
+        "00\r\n38400\r\n115200");
+            this.toolTip2.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
         "00\r\n38400\r\n115200");
             // 
             // textBox_Config42
@@ -1972,12 +1950,10 @@ namespace SocketServer
             this.textBox_Config42.Name = "textBox_Config42";
             this.textBox_Config42.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config42.TabIndex = 123;
-            this.toolTip1.SetToolTip(this.textBox_Config42, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
-        "xamples:\r\n0 or 1");
             this.toolTip2.SetToolTip(this.textBox_Config42, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
         "xamples:\r\n0 or 1");
-            this.toolTip3.SetToolTip(this.textBox_Config42, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
-        "xamples:\r\n0 or 1\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config42, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
+        "xamples:\r\n0 or 1");
             this.textBox_Config42.TextChanged += new System.EventHandler(this.textBox_Config42_TextChanged);
             // 
             // label_Config41
@@ -1989,9 +1965,8 @@ namespace SocketServer
             this.label_Config41.Size = new System.Drawing.Size(70, 15);
             this.label_Config41.TabIndex = 122;
             this.label_Config41.Text = "Lock Engine";
-            this.toolTip2.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config41
             // 
@@ -2000,12 +1975,10 @@ namespace SocketServer
             this.textBox_Config41.Name = "textBox_Config41";
             this.textBox_Config41.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config41.TabIndex = 121;
-            this.toolTip1.SetToolTip(this.textBox_Config41, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
-        "xamples:\r\n0 or 1");
             this.toolTip2.SetToolTip(this.textBox_Config41, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
         "xamples:\r\n0 or 1");
-            this.toolTip3.SetToolTip(this.textBox_Config41, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
-        "xamples:\r\n0 or 1\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config41, "Description:\r\nEnable or Disable the Engine cut speed feature\r\nFormat:\r\nBoolean\r\nE" +
+        "xamples:\r\n0 or 1");
             this.textBox_Config41.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label_Config40
@@ -2017,9 +1990,8 @@ namespace SocketServer
             this.label_Config40.Size = new System.Drawing.Size(99, 15);
             this.label_Config40.TabIndex = 120;
             this.label_Config40.Text = "Engine cut speed";
-            this.toolTip2.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config40
             // 
@@ -2028,12 +2000,10 @@ namespace SocketServer
             this.textBox_Config40.Name = "textBox_Config40";
             this.textBox_Config40.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config40.TabIndex = 119;
-            this.toolTip1.SetToolTip(this.textBox_Config40, "Description:\r\n\r\nCut off Speed Engine.\r\nThe Speed that the engine is cutting off.\r" +
-        "\n0-20 - set the speed to cut off\r\n255 - disable\r\n\r\nValid data:\r\n0-20 ,255\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config40, "Description:\r\n\r\nCut off Speed Engine.\r\nThe Speed that the engine is cutting off.\r" +
         "\n0-20 - set the speed to cut off\r\n255 - disable\r\n\r\nValid data:\r\n0-20 ,255\r\n\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config40, "Description:\r\n\r\nCut off Speed Engine.\r\nThe Speed that the engine is cutting off.\r" +
-        "\n0-20 - set the speed to cut off\r\n255 - disable\r\n\r\nValid data:\r\n0-20 ,255\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config40, "Description:\r\n\r\nCut off Speed Engine.\r\nThe Speed that the engine is cutting off.\r" +
+        "\n0-20 - set the speed to cut off\r\n255 - disable\r\n\r\nValid data:\r\n0-20 ,255\r\n\r\n");
             this.textBox_Config40.TextChanged += new System.EventHandler(this.textBox_Config40_TextChanged);
             // 
             // label_Config39
@@ -2045,9 +2015,8 @@ namespace SocketServer
             this.label_Config39.Size = new System.Drawing.Size(98, 15);
             this.label_Config39.TabIndex = 118;
             this.label_Config39.Text = "Ring\\SMS Enable";
-            this.toolTip2.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config39
             // 
@@ -2056,12 +2025,10 @@ namespace SocketServer
             this.textBox_Config39.Name = "textBox_Config39";
             this.textBox_Config39.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config39.TabIndex = 117;
-            this.toolTip1.SetToolTip(this.textBox_Config39, "Description:\r\nRing to subscribers\r\nValid data:\r\n0-2\r\n\r\n0-\tSMS ONLY\r\n1-\tRING ONLY\r" +
-        "\n2-\tSMS  + RING\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config39, "Description:\r\nRing to subscribers\r\nValid data:\r\n0-2\r\n\r\n0-\tSMS ONLY\r\n1-\tRING ONLY\r" +
         "\n2-\tSMS  + RING\r\n\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config39, "Description:\r\nRing to subscribers\r\nValid data:\r\n0-2\r\n\r\n0-\tSMS ONLY\r\n1-\tRING ONLY\r" +
-        "\n2-\tSMS  + RING\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config39, "Description:\r\nRing to subscribers\r\nValid data:\r\n0-2\r\n\r\n0-\tSMS ONLY\r\n1-\tRING ONLY\r" +
+        "\n2-\tSMS  + RING\r\n\r\n");
             this.textBox_Config39.TextChanged += new System.EventHandler(this.textBox_Config39_TextChanged);
             // 
             // textBox_UnitVersion
@@ -2092,11 +2059,9 @@ namespace SocketServer
             this.textBox_SpeedLimit3.Size = new System.Drawing.Size(37, 27);
             this.textBox_SpeedLimit3.TabIndex = 114;
             this.textBox_SpeedLimit3.Text = "0";
-            this.toolTip1.SetToolTip(this.textBox_SpeedLimit3, "Description:\r\nSet high speed limit threshold. \r\nSpeed beep enable field Should be" +
-        " enable.\r\nValid data:\r\n0-255");
             this.toolTip2.SetToolTip(this.textBox_SpeedLimit3, "Description:\r\nSet high speed limit threshold. \r\nSpeed beep enable field Should be" +
         " enable.\r\nValid data:\r\n0-255");
-            this.toolTip3.SetToolTip(this.textBox_SpeedLimit3, "Description:\r\nSet high speed limit threshold. \r\nSpeed beep enable field Should be" +
+            this.toolTip1.SetToolTip(this.textBox_SpeedLimit3, "Description:\r\nSet high speed limit threshold. \r\nSpeed beep enable field Should be" +
         " enable.\r\nValid data:\r\n0-255");
             this.textBox_SpeedLimit3.TextChanged += new System.EventHandler(this.textBox_SpeedLimit3_TextChanged);
             // 
@@ -2108,11 +2073,9 @@ namespace SocketServer
             this.textBox_SpeedLimit2.Size = new System.Drawing.Size(37, 27);
             this.textBox_SpeedLimit2.TabIndex = 113;
             this.textBox_SpeedLimit2.Text = "0";
-            this.toolTip1.SetToolTip(this.textBox_SpeedLimit2, "Description:\r\nSet Medium speed limit threshold. \r\nSpeed beep enable field Should " +
-        "be enable.\r\nValid data:\r\n0-255");
             this.toolTip2.SetToolTip(this.textBox_SpeedLimit2, "Description:\r\nSet Medium speed limit threshold. \r\nSpeed beep enable field Should " +
         "be enable.\r\nValid data:\r\n0-255");
-            this.toolTip3.SetToolTip(this.textBox_SpeedLimit2, "Description:\r\nSet Medium speed limit threshold. \r\nSpeed beep enable field Should " +
+            this.toolTip1.SetToolTip(this.textBox_SpeedLimit2, "Description:\r\nSet Medium speed limit threshold. \r\nSpeed beep enable field Should " +
         "be enable.\r\nValid data:\r\n0-255");
             this.textBox_SpeedLimit2.TextChanged += new System.EventHandler(this.textBox_SpeedLimit2_TextChanged);
             // 
@@ -2124,12 +2087,10 @@ namespace SocketServer
             this.textBox_SpeedLimit1.Size = new System.Drawing.Size(37, 27);
             this.textBox_SpeedLimit1.TabIndex = 112;
             this.textBox_SpeedLimit1.Text = "0";
-            this.toolTip1.SetToolTip(this.textBox_SpeedLimit1, "Description:\r\nSet low speed limit threshold. \r\nSpeed beep enable field Should be " +
-        "enable.\r\nValid data:\r\n0-255\r\n");
             this.toolTip2.SetToolTip(this.textBox_SpeedLimit1, "Description:\r\nSet low speed limit threshold. \r\nSpeed beep enable field Should be " +
         "enable.\r\nValid data:\r\n0-255");
-            this.toolTip3.SetToolTip(this.textBox_SpeedLimit1, "Description:\r\nSet low speed limit threshold. \r\nSpeed beep enable field Should be " +
-        "enable.\r\nValid data:\r\n0-255");
+            this.toolTip1.SetToolTip(this.textBox_SpeedLimit1, "Description:\r\nSet low speed limit threshold. \r\nSpeed beep enable field Should be " +
+        "enable.\r\nValid data:\r\n0-255\r\n");
             this.textBox_SpeedLimit1.TextChanged += new System.EventHandler(this.textBox_SpeedLimit1_TextChanged);
             // 
             // label_Config38
@@ -2141,9 +2102,8 @@ namespace SocketServer
             this.label_Config38.Size = new System.Drawing.Size(86, 15);
             this.label_Config38.TabIndex = 111;
             this.label_Config38.Text = "Garmin Enable";
-            this.toolTip2.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config38
             // 
@@ -2152,9 +2112,8 @@ namespace SocketServer
             this.textBox_Config38.Name = "textBox_Config38";
             this.textBox_Config38.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config38.TabIndex = 110;
-            this.toolTip1.SetToolTip(this.textBox_Config38, "Description:\r\nEnable Gramin communication\r\nValid data:\r\n0,1\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config38, "Description:\r\nEnable Gramin communication\r\nValid data:\r\n0,1\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config38, "Description:\r\nEnable Gramin communication\r\nValid data:\r\n0,1\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config38, "Description:\r\nEnable Gramin communication\r\nValid data:\r\n0,1\r\n");
             this.textBox_Config38.TextChanged += new System.EventHandler(this.textBox_Config38_TextChanged);
             // 
             // label_Config37
@@ -2175,11 +2134,9 @@ namespace SocketServer
             this.textBox_Config37.Name = "textBox_Config37";
             this.textBox_Config37.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config37.TabIndex = 108;
-            this.toolTip1.SetToolTip(this.textBox_Config37, "Description:\r\nan option to make a beep while enter sleep.\r\nValid data:\r\nboolean");
             this.toolTip2.SetToolTip(this.textBox_Config37, "Description:\r\nan option to make a beep while enter sleep.\r\nValid data:\r\nboolean\r\n" +
         "");
-            this.toolTip3.SetToolTip(this.textBox_Config37, "Description:\r\nan option to make a beep while enter sleep.\r\nValid data:\r\nboolean\r\n" +
-        "");
+            this.toolTip1.SetToolTip(this.textBox_Config37, "Description:\r\nan option to make a beep while enter sleep.\r\nValid data:\r\nboolean");
             this.textBox_Config37.TextChanged += new System.EventHandler(this.textBox_Config37_TextChanged);
             // 
             // label_Config36
@@ -2209,11 +2166,9 @@ namespace SocketServer
             this.textBox_Config36.Name = "textBox_Config36";
             this.textBox_Config36.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config36.TabIndex = 105;
-            this.toolTip1.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring");
             this.toolTip2.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
         "lar provider operator. \r\nValid Data:\r\nstring");
-            this.toolTip3.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
+            this.toolTip1.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
         "lar provider operator. \r\nValid Data:\r\nstring");
             this.textBox_Config36.TextChanged += new System.EventHandler(this.textBox_Config36_TextChanged);
             // 
@@ -2224,12 +2179,10 @@ namespace SocketServer
             this.textBox_Config35.Name = "textBox_Config35";
             this.textBox_Config35.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config35.TabIndex = 104;
-            this.toolTip1.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
         "lar provider operator. \r\nValid Data:\r\nstring");
-            this.toolTip3.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring");
+            this.toolTip1.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
+        "lar provider operator. \r\nValid Data:\r\nstring\r\n");
             this.textBox_Config35.TextChanged += new System.EventHandler(this.textBox_Config35_TextChanged);
             // 
             // label_Config34
@@ -2241,9 +2194,8 @@ namespace SocketServer
             this.label_Config34.Size = new System.Drawing.Size(122, 15);
             this.label_Config34.TabIndex = 103;
             this.label_Config34.Text = "Arm\\Disarm method";
-            this.toolTip2.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config34
             // 
@@ -2252,11 +2204,9 @@ namespace SocketServer
             this.textBox_Config34.Name = "textBox_Config34";
             this.textBox_Config34.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config34.TabIndex = 33;
-            this.toolTip1.SetToolTip(this.textBox_Config34, "Description:\r\nArm accessory in order to arm and disarm the system\r\nValid data:\r\n0" +
-        "-2\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config34, "Description:\r\nArm accessory in order to arm and disarm the system\r\nValid data:\r\n0" +
         "-2\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config34, "Description:\r\nArm accessory in order to arm and disarm the system\r\nValid data:\r\n0" +
+            this.toolTip1.SetToolTip(this.textBox_Config34, "Description:\r\nArm accessory in order to arm and disarm the system\r\nValid data:\r\n0" +
         "-2\r\n");
             this.textBox_Config34.TextChanged += new System.EventHandler(this.textBox_Config34_TextChanged);
             // 
@@ -2289,15 +2239,12 @@ namespace SocketServer
             this.textBox_Config2.Name = "textBox_Config2";
             this.textBox_Config2.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config2.TabIndex = 24;
-            this.toolTip1.SetToolTip(this.textBox_Config2, "Description:\r\nSubscriber 2 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
-        "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config2, "Description:\r\nSubscriber 2 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
         "23577894\r\n0\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config2, "Description:\r\nSubscriber 2 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
+            this.toolTip1.SetToolTip(this.textBox_Config2, "Description:\r\nSubscriber 2 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0\r\n\r\n");
+        "23577894\r\n0\r\n");
             this.textBox_Config2.TextChanged += new System.EventHandler(this.textBox_Config2_TextChanged);
             // 
             // label_Config33
@@ -2309,11 +2256,9 @@ namespace SocketServer
             this.label_Config33.Size = new System.Drawing.Size(74, 15);
             this.label_Config33.TabIndex = 101;
             this.label_Config33.Text = "Disarm code";
-            this.toolTip2.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
-        "xamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
-        "xamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
+        "xamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
         "xamples:\r\n0\r\n5");
             // 
             // label_Config3
@@ -2334,15 +2279,12 @@ namespace SocketServer
             this.textBox_Config1.Name = "textBox_Config1";
             this.textBox_Config1.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config1.TabIndex = 23;
-            this.toolTip1.SetToolTip(this.textBox_Config1, "Description:\r\nSubscriber 1 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
-        "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0");
             this.toolTip2.SetToolTip(this.textBox_Config1, "Description:\r\nSubscriber 1 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
         "23577894\r\n0\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config1, "Description:\r\nSubscriber 1 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
+            this.toolTip1.SetToolTip(this.textBox_Config1, "Description:\r\nSubscriber 1 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0\r\n");
+        "23577894\r\n0");
             this.textBox_Config1.TextChanged += new System.EventHandler(this.textBox_Config1_TextChanged);
             // 
             // textBox_Config3
@@ -2352,15 +2294,12 @@ namespace SocketServer
             this.textBox_Config3.Name = "textBox_Config3";
             this.textBox_Config3.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config3.TabIndex = 25;
-            this.toolTip1.SetToolTip(this.textBox_Config3, "Description:\r\nSubscriber 3 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
-        "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config3, "Description:\r\nSubscriber 3 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
         "23577894\r\n0\r\n\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config3, "Description:\r\nSubscriber 3 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
+            this.toolTip1.SetToolTip(this.textBox_Config3, "Description:\r\nSubscriber 3 to respond to SMS\'s\r\nFormat:\r\nstring 0-9 Max 20 charac" +
         "ters must starts with +.\r\nFor deleting the subscriber fill 0.\r\nExamples:\r\n+97250" +
-        "23577894\r\n0");
+        "23577894\r\n0\r\n\r\n");
             this.textBox_Config3.TextChanged += new System.EventHandler(this.textBox_Config3_TextChanged);
             // 
             // textBox_Config33
@@ -2370,13 +2309,10 @@ namespace SocketServer
             this.textBox_Config33.Name = "textBox_Config33";
             this.textBox_Config33.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config33.TabIndex = 32;
-            this.toolTip1.SetToolTip(this.textBox_Config33, "Description:\r\nan option to configure the code for Arm/Disarm process for Wireless" +
-        " keypad or for keypad which installed in the vehicle. \r\nValid data:\r\n4 digits co" +
-        "de, 1111-5555");
             this.toolTip2.SetToolTip(this.textBox_Config33, "Description:\r\nan option to configure the code for Arm/Disarm process for Wireless" +
         " keypad or for keypad which installed in the vehicle. \r\nValid data:\r\n4 digits co" +
         "de, 1111-5555");
-            this.toolTip3.SetToolTip(this.textBox_Config33, "Description:\r\nan option to configure the code for Arm/Disarm process for Wireless" +
+            this.toolTip1.SetToolTip(this.textBox_Config33, "Description:\r\nan option to configure the code for Arm/Disarm process for Wireless" +
         " keypad or for keypad which installed in the vehicle. \r\nValid data:\r\n4 digits co" +
         "de, 1111-5555");
             this.textBox_Config33.TextChanged += new System.EventHandler(this.textBox_Config33_TextChanged);
@@ -2390,9 +2326,8 @@ namespace SocketServer
             this.label_Config32.Size = new System.Drawing.Size(64, 15);
             this.label_Config32.TabIndex = 99;
             this.label_Config32.Text = "GNSS type";
-            this.toolTip2.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.label_Config32.Click += new System.EventHandler(this.label_Config32_Click);
             // 
             // textBox_Config32
@@ -2402,11 +2337,9 @@ namespace SocketServer
             this.textBox_Config32.Name = "textBox_Config32";
             this.textBox_Config32.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config32.TabIndex = 22;
-            this.toolTip1.SetToolTip(this.textBox_Config32, "Description:\r\nan option to configure satellite type calculation. \r\nvalid Data:\r\nn" +
-        "umber 0-2\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config32, "Description:\r\nan option to configure satellite type calculation. \r\nvalid Data:\r\nn" +
         "umber 0-2\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config32, "Description:\r\nan option to configure satellite type calculation. \r\nvalid Data:\r\nn" +
+            this.toolTip1.SetToolTip(this.textBox_Config32, "Description:\r\nan option to configure satellite type calculation. \r\nvalid Data:\r\nn" +
         "umber 0-2\r\n");
             this.textBox_Config32.TextChanged += new System.EventHandler(this.textBox_Config32_TextChanged);
             // 
@@ -2419,9 +2352,8 @@ namespace SocketServer
             this.label_Config31.Size = new System.Drawing.Size(75, 15);
             this.label_Config31.TabIndex = 97;
             this.label_Config31.Text = "Passive ARM";
-            this.toolTip2.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.label_Config31.Click += new System.EventHandler(this.label_Config31_Click);
             // 
             // textBox_Config31
@@ -2431,15 +2363,12 @@ namespace SocketServer
             this.textBox_Config31.Name = "textBox_Config31";
             this.textBox_Config31.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config31.TabIndex = 31;
-            this.toolTip1.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
-        " activating by accessory device of Spetrotec Company or by original key of the v" +
-        "ehicle. \r\nValid data:\r\n2-300");
             this.toolTip2.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
         " activating by accessory device of Spetrotec Company or by original key of the v" +
         "ehicle. \r\nValid data:\r\n2-300\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
+            this.toolTip1.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
         " activating by accessory device of Spetrotec Company or by original key of the v" +
-        "ehicle. \r\nValid data:\r\n2-300\r\n");
+        "ehicle. \r\nValid data:\r\n2-300");
             this.textBox_Config31.TextChanged += new System.EventHandler(this.textBox_Config31_TextChanged);
             // 
             // groupBox31
@@ -2602,9 +2531,8 @@ namespace SocketServer
             this.label_Config30.Size = new System.Drawing.Size(101, 15);
             this.label_Config30.TabIndex = 94;
             this.label_Config30.Text = "Doors filter delay";
-            this.toolTip2.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
-            this.toolTip3.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip1.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip2.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // label4
             // 
@@ -2645,11 +2573,9 @@ namespace SocketServer
             this.textBox_Config30.Name = "textBox_Config30";
             this.textBox_Config30.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config30.TabIndex = 30;
-            this.toolTip1.SetToolTip(this.textBox_Config30, "Description:\r\nan option to configure the neglecting time of the Door after Arm wa" +
-        "s pressed. \r\nValid data:\r\nnumber\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config30, "Description:\r\nan option to configure the neglecting time of the Door after Arm wa" +
         "s pressed. \r\nValid data:\r\nnumber\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config30, "Description:\r\nan option to configure the neglecting time of the Door after Arm wa" +
+            this.toolTip1.SetToolTip(this.textBox_Config30, "Description:\r\nan option to configure the neglecting time of the Door after Arm wa" +
         "s pressed. \r\nValid data:\r\nnumber\r\n");
             this.textBox_Config30.TextChanged += new System.EventHandler(this.textBox_Config30_TextChanged);
             // 
@@ -2660,11 +2586,9 @@ namespace SocketServer
             this.textBox_Config29.Name = "textBox_Config29";
             this.textBox_Config29.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config29.TabIndex = 29;
-            this.toolTip1.SetToolTip(this.textBox_Config29, "Description:\r\nan option to activate/deactivate the siren during the Alarm state. " +
-        "\r\nValid data:\r\n0-1\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config29, "Description:\r\nan option to activate/deactivate the siren during the Alarm state. " +
         "\r\nValid data:\r\n0-1\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config29, "Description:\r\nan option to activate/deactivate the siren during the Alarm state. " +
+            this.toolTip1.SetToolTip(this.textBox_Config29, "Description:\r\nan option to activate/deactivate the siren during the Alarm state. " +
         "\r\nValid data:\r\n0-1\r\n");
             this.textBox_Config29.TextChanged += new System.EventHandler(this.textBox_Config29_TextChanged);
             // 
@@ -2675,9 +2599,8 @@ namespace SocketServer
             this.textBox_Config28.Name = "textBox_Config28";
             this.textBox_Config28.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config28.TabIndex = 28;
-            this.toolTip1.SetToolTip(this.textBox_Config28, "Description:\r\nAn option to set CAN car type\r\nValid data:\r\nnumber\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config28, "Description:\r\nAn option to set CAN car type\r\nValid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config28, "Description:\r\nAn option to set CAN car type\r\nValid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config28, "Description:\r\nAn option to set CAN car type\r\nValid data:\r\nnumber\r\n");
             this.textBox_Config28.TextChanged += new System.EventHandler(this.textBox_Config28_TextChanged);
             // 
             // label_Config27
@@ -2750,12 +2673,10 @@ namespace SocketServer
             this.label_Config21.Size = new System.Drawing.Size(99, 15);
             this.label_Config21.TabIndex = 80;
             this.label_Config21.Text = "Position distance";
-            this.toolTip2.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
-        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
-            this.toolTip3.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
-        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
             this.toolTip1.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
         "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000");
+            this.toolTip2.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
+        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
             // 
             // label_Config20
             // 
@@ -2766,12 +2687,10 @@ namespace SocketServer
             this.label_Config20.Size = new System.Drawing.Size(83, 15);
             this.label_Config20.TabIndex = 79;
             this.label_Config20.Text = "Position angle";
-            this.toolTip2.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
-        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
-            this.toolTip3.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
-        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
             this.toolTip1.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
         "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n");
+            this.toolTip2.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
+        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
             // 
             // label_Config19
             // 
@@ -2802,12 +2721,10 @@ namespace SocketServer
             this.label_Config17.Size = new System.Drawing.Size(61, 15);
             this.label_Config17.TabIndex = 76;
             this.label_Config17.Text = "Tow angle";
-            this.toolTip2.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
-        "Examples:\r\n0\r\n90\r\n\r\n");
-            this.toolTip3.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
-        "Examples:\r\n0\r\n90\r\n\r\n");
             this.toolTip1.SetToolTip(this.label_Config17, "Tow Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\nE" +
         "xamples:\r\n0\r\n90\r\n\r\n");
+            this.toolTip2.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
+        "Examples:\r\n0\r\n90\r\n\r\n");
             // 
             // label_Config16
             // 
@@ -2942,11 +2859,9 @@ namespace SocketServer
             this.textBox_Config27.Name = "textBox_Config27";
             this.textBox_Config27.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config27.TabIndex = 27;
-            this.toolTip1.SetToolTip(this.textBox_Config27, "Description:\r\nan option to make the reconnection of GPRS socket in case of not re" +
-        "ceiving the ACK from the server. \r\nValid data:\r\nnumber");
             this.toolTip2.SetToolTip(this.textBox_Config27, "Description:\r\nan option to make the reconnection of GPRS socket in case of not re" +
         "ceiving the ACK from the server. \r\nValid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config27, "Description:\r\nan option to make the reconnection of GPRS socket in case of not re" +
+            this.toolTip1.SetToolTip(this.textBox_Config27, "Description:\r\nan option to make the reconnection of GPRS socket in case of not re" +
         "ceiving the ACK from the server. \r\nValid data:\r\nnumber");
             this.textBox_Config27.TextChanged += new System.EventHandler(this.textBox_Config27_TextChanged);
             // 
@@ -2957,11 +2872,9 @@ namespace SocketServer
             this.textBox_Config26.Name = "textBox_Config26";
             this.textBox_Config26.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config26.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.textBox_Config26, "Description:\r\nan option to configure the sensitivity of the Anti Jamming detectio" +
-        "n. \r\nValid data:\r\n20-70");
             this.toolTip2.SetToolTip(this.textBox_Config26, "Description:\r\nan option to configure the sensitivity of the Anti Jamming detectio" +
         "n. \r\nValid data:\r\n20-70");
-            this.toolTip3.SetToolTip(this.textBox_Config26, "Description:\r\nan option to configure the sensitivity of the Anti Jamming detectio" +
+            this.toolTip1.SetToolTip(this.textBox_Config26, "Description:\r\nan option to configure the sensitivity of the Anti Jamming detectio" +
         "n. \r\nValid data:\r\n20-70");
             this.textBox_Config26.TextChanged += new System.EventHandler(this.textBox_Config26_TextChanged);
             // 
@@ -2972,12 +2885,10 @@ namespace SocketServer
             this.textBox_Config25.Name = "textBox_Config25";
             this.textBox_Config25.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config25.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.textBox_Config25, "Description:\r\nan option to set the value of initial odometer. \r\nValid data:\r\nFloa" +
-        "t number\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config25, "Description:\r\nan option to set the value of initial odometer. \r\nValid data:\r\nFloa" +
         "t number\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config25, "Description:\r\nan option to set the value of initial odometer. \r\nValid data:\r\nFloa" +
-        "t number\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config25, "Description:\r\nan option to set the value of initial odometer. \r\nValid data:\r\nFloa" +
+        "t number\r\n\r\n");
             this.textBox_Config25.TextChanged += new System.EventHandler(this.textBox_Config25_TextChanged);
             // 
             // textBox_Config19
@@ -2987,11 +2898,9 @@ namespace SocketServer
             this.textBox_Config19.Name = "textBox_Config19";
             this.textBox_Config19.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config19.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.textBox_Config19, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
-        "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config19, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
         "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config19, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
+            this.toolTip1.SetToolTip(this.textBox_Config19, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
         "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const\r\n");
             this.textBox_Config19.TextChanged += new System.EventHandler(this.textBox_Config19_TextChanged);
             // 
@@ -3002,9 +2911,8 @@ namespace SocketServer
             this.textBox_Config18.Name = "textBox_Config18";
             this.textBox_Config18.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config18.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.toolTip2.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.textBox_Config18.TextChanged += new System.EventHandler(this.textBox_Config18_TextChanged);
             // 
             // textBox_Config17
@@ -3014,9 +2922,8 @@ namespace SocketServer
             this.textBox_Config17.Name = "textBox_Config17";
             this.textBox_Config17.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config17.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
             this.textBox_Config17.TextChanged += new System.EventHandler(this.textBox_Config17_TextChanged);
             // 
             // textBox_Config24
@@ -3026,12 +2933,10 @@ namespace SocketServer
             this.textBox_Config24.Name = "textBox_Config24";
             this.textBox_Config24.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config24.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.textBox_Config24, "Description:\r\nan option enable/disable anti jamming detection. In this case outpu" +
-        "t 1 will be activated. \r\nValid data:\r\n0-1");
             this.toolTip2.SetToolTip(this.textBox_Config24, "Description:\r\nan option enable/disable anti jamming detection. In this case outpu" +
         "t 1 will be activated. \r\nValid data:\r\n0-1\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config24, "Description:\r\nan option enable/disable anti jamming detection. In this case outpu" +
-        "t 1 will be activated. \r\nValid data:\r\n0-1\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config24, "Description:\r\nan option enable/disable anti jamming detection. In this case outpu" +
+        "t 1 will be activated. \r\nValid data:\r\n0-1");
             this.textBox_Config24.TextChanged += new System.EventHandler(this.textBox_Config24_TextChanged);
             // 
             // textBox_Config23
@@ -3041,9 +2946,8 @@ namespace SocketServer
             this.textBox_Config23.Name = "textBox_Config23";
             this.textBox_Config23.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config23.TabIndex = 21;
-            this.toolTip1.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n");
             this.textBox_Config23.TextChanged += new System.EventHandler(this.textBox_Config23_TextChanged);
             // 
             // textBox_Config22
@@ -3053,12 +2957,10 @@ namespace SocketServer
             this.textBox_Config22.Name = "textBox_Config22";
             this.textBox_Config22.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config22.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
-        "nt to remote server. \r\nValid data:\r\nnumber\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
         "nt to remote server. \r\nValid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
-        "nt to remote server. \r\nValid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
+        "nt to remote server. \r\nValid data:\r\nnumber\r\n");
             this.textBox_Config22.TextChanged += new System.EventHandler(this.textBox_Config22_TextChanged);
             // 
             // textBox_Config21
@@ -3068,11 +2970,9 @@ namespace SocketServer
             this.textBox_Config21.Name = "textBox_Config21";
             this.textBox_Config21.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config21.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
-        "lid data:\r\nnumber");
             this.toolTip2.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
         "lid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
+            this.toolTip1.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
         "lid data:\r\nnumber");
             this.textBox_Config21.TextChanged += new System.EventHandler(this.textBox_Config21_TextChanged);
             // 
@@ -3083,12 +2983,10 @@ namespace SocketServer
             this.textBox_Config20.Name = "textBox_Config20";
             this.textBox_Config20.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config20.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
-        "it will send position message. \r\nValid data:\r\n0-360");
             this.toolTip2.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
         "it will send position message. \r\nValid data:\r\n0-360\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
-        "it will send position message. \r\nValid data:\r\n0-360\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
+        "it will send position message. \r\nValid data:\r\n0-360");
             this.textBox_Config20.TextChanged += new System.EventHandler(this.textBox_Config20_TextChanged);
             // 
             // textBox_Config16
@@ -3098,12 +2996,10 @@ namespace SocketServer
             this.textBox_Config16.Name = "textBox_Config16";
             this.textBox_Config16.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config16.TabIndex = 17;
-            this.toolTip1.SetToolTip(this.textBox_Config16, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
-        "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
             this.toolTip2.SetToolTip(this.textBox_Config16, "Description:\r\nThe sensitivity of the sensor. \r\n 1 - High sensitivity \r\n 25 - Mi" +
         "ddle sensitivity \r\n 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
-            this.toolTip3.SetToolTip(this.textBox_Config16, "Description:\r\nThe sensitivity of the sensor. \r\n 1 - High sensitivity \r\n 25 - Mi" +
-        "ddle sensitivity \r\n 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
+            this.toolTip1.SetToolTip(this.textBox_Config16, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
+        "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
             this.textBox_Config16.TextChanged += new System.EventHandler(this.textBox_Config16_TextChanged);
             // 
             // textBox_Config15
@@ -3113,9 +3009,8 @@ namespace SocketServer
             this.textBox_Config15.Name = "textBox_Config15";
             this.textBox_Config15.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config15.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.toolTip2.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
-            this.toolTip3.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.textBox_Config15.TextChanged += new System.EventHandler(this.textBox_Config15_TextChanged);
             // 
             // textBox_Config14
@@ -3125,9 +3020,8 @@ namespace SocketServer
             this.textBox_Config14.Name = "textBox_Config14";
             this.textBox_Config14.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config14.TabIndex = 15;
-            this.toolTip1.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360");
-            this.toolTip3.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360");
+            this.toolTip1.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360\r\n");
             this.textBox_Config14.TextChanged += new System.EventHandler(this.textBox_Config14_TextChanged);
             // 
             // textBox_Config12
@@ -3137,12 +3031,10 @@ namespace SocketServer
             this.textBox_Config12.Name = "textBox_Config12";
             this.textBox_Config12.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config12.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
         "lid Port 0-99999\r\n\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999\r\n\r\n");
             this.textBox_Config12.TextChanged += new System.EventHandler(this.textBox_Config12_TextChanged);
             // 
             // textBox_Config11
@@ -3152,12 +3044,10 @@ namespace SocketServer
             this.textBox_Config11.Name = "textBox_Config11";
             this.textBox_Config11.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config11.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
         "P address");
-            this.toolTip3.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address");
+            this.toolTip1.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address\r\n");
             this.textBox_Config11.TextChanged += new System.EventHandler(this.textBox_Config11_TextChanged);
             // 
             // textBox_Config10
@@ -3167,12 +3057,10 @@ namespace SocketServer
             this.textBox_Config10.Name = "textBox_Config10";
             this.textBox_Config10.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config10.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
         "P address\r\n\r\n\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address\r\n\r\n");
             this.textBox_Config10.TextChanged += new System.EventHandler(this.textBox_Config10_TextChanged);
             // 
             // textBox_Config9
@@ -3182,11 +3070,9 @@ namespace SocketServer
             this.textBox_Config9.Name = "textBox_Config9";
             this.textBox_Config9.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config9.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
-        "erator. \r\nValid Data:\r\nstring");
             this.toolTip2.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
         "erator. \r\nValid Data:\r\nstring");
-            this.toolTip3.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
+            this.toolTip1.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
         "erator. \r\nValid Data:\r\nstring");
             this.textBox_Config9.TextChanged += new System.EventHandler(this.textBox_Config9_TextChanged);
             // 
@@ -3197,11 +3083,9 @@ namespace SocketServer
             this.textBox_Config8.Name = "textBox_Config8";
             this.textBox_Config8.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config8.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
-        " to remote server. \r\nValid data:\r\nnumber\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
         " to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
+            this.toolTip1.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
         " to remote server. \r\nValid data:\r\nnumber\r\n");
             this.textBox_Config8.TextChanged += new System.EventHandler(this.textBox_Config8_TextChanged);
             // 
@@ -3212,12 +3096,10 @@ namespace SocketServer
             this.textBox_Config6.Name = "textBox_Config6";
             this.textBox_Config6.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config6.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
         "lid Port 0-99999");
-            this.toolTip3.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999");
+            this.toolTip1.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999\r\n\r\n");
             this.textBox_Config6.TextChanged += new System.EventHandler(this.textBox_Config6_TextChanged);
             // 
             // textBox_Config5
@@ -3227,11 +3109,9 @@ namespace SocketServer
             this.textBox_Config5.Name = "textBox_Config5";
             this.textBox_Config5.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config5.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.textBox_Config5, "Description:\r\nan option to configure vehicle\'s thresholds for low level battery. " +
-        "\r\nValid data:\r\n0-9\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config5, "Description:\r\nan option to configure vehicle\'s thresholds for low level battery. " +
         "\r\nValid data:\r\n0-9\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config5, "Description:\r\nan option to configure vehicle\'s thresholds for low level battery. " +
+            this.toolTip1.SetToolTip(this.textBox_Config5, "Description:\r\nan option to configure vehicle\'s thresholds for low level battery. " +
         "\r\nValid data:\r\n0-9\r\n");
             this.textBox_Config5.TextChanged += new System.EventHandler(this.textBox_Config5_TextChanged);
             // 
@@ -3242,10 +3122,9 @@ namespace SocketServer
             this.textBox_Config4.Name = "textBox_Config4";
             this.textBox_Config4.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config4.TabIndex = 0;
+            this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15\r\n\r\n\r" +
         "\n");
-            this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
-            this.toolTip3.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.textBox_Config4.TextChanged += new System.EventHandler(this.textBox_Config4_TextChanged);
             // 
             // textBox_Config7
@@ -3255,9 +3134,8 @@ namespace SocketServer
             this.textBox_Config7.Name = "textBox_Config7";
             this.textBox_Config7.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config7.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
             this.toolTip2.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
-            this.toolTip3.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config7, "Description:\r\nto set the speed limit threshold. \r\nValid data:\r\n40-350\r\n");
             this.textBox_Config7.Visible = false;
             this.textBox_Config7.TextChanged += new System.EventHandler(this.textBox_Config7_TextChanged);
             // 
@@ -3281,9 +3159,8 @@ namespace SocketServer
             this.textBox_Config13.Name = "textBox_Config13";
             this.textBox_Config13.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config13.TabIndex = 43;
-            this.toolTip1.SetToolTip(this.textBox_Config13, resources.GetString("textBox_Config13.ToolTip"));
-            this.toolTip2.SetToolTip(this.textBox_Config13, resources.GetString("textBox_Config13.ToolTip1"));
-            this.toolTip3.SetToolTip(this.textBox_Config13, resources.GetString("textBox_Config13.ToolTip2"));
+            this.toolTip2.SetToolTip(this.textBox_Config13, resources.GetString("textBox_Config13.ToolTip"));
+            this.toolTip1.SetToolTip(this.textBox_Config13, resources.GetString("textBox_Config13.ToolTip1"));
             this.textBox_Config13.Visible = false;
             this.textBox_Config13.TextChanged += new System.EventHandler(this.textBox_Config13_TextChanged);
             // 
@@ -3297,6 +3174,20 @@ namespace SocketServer
             this.button30.Text = "Clear Config";
             this.button30.UseVisualStyleBackColor = true;
             this.button30.Click += new System.EventHandler(this.button30_Click_1);
+            // 
+            // comboBox_SystemConfigType
+            // 
+            this.comboBox_SystemConfigType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_SystemConfigType.FormattingEnabled = true;
+            this.comboBox_SystemConfigType.Items.AddRange(new object[] {
+            "AVL",
+            "AVL CAN",
+            "Cellular Alarm"});
+            this.comboBox_SystemConfigType.Location = new System.Drawing.Point(300, 264);
+            this.comboBox_SystemConfigType.Name = "comboBox_SystemConfigType";
+            this.comboBox_SystemConfigType.Size = new System.Drawing.Size(193, 27);
+            this.comboBox_SystemConfigType.TabIndex = 33;
+            this.comboBox_SystemConfigType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // tabPage1
             // 
@@ -3384,9 +3275,8 @@ namespace SocketServer
             this.textBox_TotalFileLength.ReadOnly = true;
             this.textBox_TotalFileLength.Size = new System.Drawing.Size(57, 23);
             this.textBox_TotalFileLength.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
             this.toolTip2.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
-            this.toolTip3.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
+            this.toolTip1.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
             // 
             // textBox_MaximumNumberReceivedRequest
             // 
@@ -3425,9 +3315,8 @@ namespace SocketServer
             this.textBox_TotalFrames1280Bytes.ReadOnly = true;
             this.textBox_TotalFrames1280Bytes.Size = new System.Drawing.Size(57, 23);
             this.textBox_TotalFrames1280Bytes.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
             this.toolTip2.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
-            this.toolTip3.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
+            this.toolTip1.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
             this.textBox_TotalFrames1280Bytes.TextChanged += new System.EventHandler(this.textBox_TotalFrames256Bytes_TextChanged);
             // 
             // textBox_FOTA
@@ -3759,9 +3648,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
-            this.toolTip3.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3861,9 +3749,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
-            this.toolTip3.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3874,9 +3761,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
-            this.toolTip3.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -5149,9 +5035,8 @@ namespace SocketServer
             this.textBox_SMSPhoneNumber.Name = "textBox_SMSPhoneNumber";
             this.textBox_SMSPhoneNumber.Size = new System.Drawing.Size(156, 23);
             this.textBox_SMSPhoneNumber.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
             this.toolTip2.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
-            this.toolTip3.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
+            this.toolTip1.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
             // 
             // openFileDialog1
             // 
@@ -5220,10 +5105,10 @@ namespace SocketServer
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.groupBox_UseConfig.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
             this.groupBox_LoadedConfig.ResumeLayout(false);
             this.groupBox_LoadedConfig.PerformLayout();
-            this.groupBox_UseConfig.ResumeLayout(false);
             this.groupBox_Configuration.ResumeLayout(false);
             this.groupBox_Configuration.PerformLayout();
             this.groupBox31.ResumeLayout(false);
