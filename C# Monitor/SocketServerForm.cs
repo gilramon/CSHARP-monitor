@@ -402,6 +402,9 @@ namespace SocketServer
         private CheckBox checkBox_config_Bit2;
         private CheckBox checkBox_config_Bit1;
         private CheckBox checkBox_config_Bit0;
+        private TextBox textBox_SendNumberOfTimes;
+        private TextBox textBox_SendSerialDiff;
+        private Button button_StartSendTimer;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -576,6 +579,9 @@ namespace SocketServer
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button_StartSendTimer = new System.Windows.Forms.Button();
+            this.textBox_SendNumberOfTimes = new System.Windows.Forms.TextBox();
+            this.textBox_SendSerialDiff = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
             this.button_SerialPortAdd = new System.Windows.Forms.Button();
             this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
@@ -604,11 +610,11 @@ namespace SocketServer
             this.txtS1_Clear = new System.Windows.Forms.Button();
             this.txtS1 = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.button29 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.textBox_SourceConfig = new System.Windows.Forms.RichTextBox();
             this.groupBox_LoadedConfig = new System.Windows.Forms.GroupBox();
@@ -1293,6 +1299,9 @@ namespace SocketServer
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button_StartSendTimer);
+            this.groupBox4.Controls.Add(this.textBox_SendNumberOfTimes);
+            this.groupBox4.Controls.Add(this.textBox_SendSerialDiff);
             this.groupBox4.Controls.Add(this.checkBox_DeleteCommand);
             this.groupBox4.Controls.Add(this.button_SerialPortAdd);
             this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
@@ -1300,10 +1309,39 @@ namespace SocketServer
             this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox4.Location = new System.Drawing.Point(4, 63);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(343, 129);
+            this.groupBox4.Size = new System.Drawing.Size(343, 207);
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Send Data";
+            // 
+            // button_StartSendTimer
+            // 
+            this.button_StartSendTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_StartSendTimer.Location = new System.Drawing.Point(9, 168);
+            this.button_StartSendTimer.Name = "button_StartSendTimer";
+            this.button_StartSendTimer.Size = new System.Drawing.Size(105, 24);
+            this.button_StartSendTimer.TabIndex = 109;
+            this.button_StartSendTimer.Text = "Start Send";
+            this.button_StartSendTimer.Click += new System.EventHandler(this.button_StartSendTimer_Click);
+            // 
+            // textBox_SendNumberOfTimes
+            // 
+            this.textBox_SendNumberOfTimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_SendNumberOfTimes.Location = new System.Drawing.Point(111, 128);
+            this.textBox_SendNumberOfTimes.Name = "textBox_SendNumberOfTimes";
+            this.textBox_SendNumberOfTimes.Size = new System.Drawing.Size(94, 31);
+            this.textBox_SendNumberOfTimes.TabIndex = 107;
+            this.toolTip1.SetToolTip(this.textBox_SendNumberOfTimes, "how many times to send.");
+            // 
+            // textBox_SendSerialDiff
+            // 
+            this.textBox_SendSerialDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_SendSerialDiff.Location = new System.Drawing.Point(9, 128);
+            this.textBox_SendSerialDiff.Name = "textBox_SendSerialDiff";
+            this.textBox_SendSerialDiff.Size = new System.Drawing.Size(96, 31);
+            this.textBox_SendSerialDiff.TabIndex = 106;
+            this.toolTip1.SetToolTip(this.textBox_SendSerialDiff, "send Time Frequncy in 100ms resolution");
+            this.textBox_SendSerialDiff.TextChanged += new System.EventHandler(this.textBox_SendSerialDiff_TextChanged);
             // 
             // checkBox_DeleteCommand
             // 
@@ -1441,6 +1479,7 @@ namespace SocketServer
             this.cmbBaudRate.Size = new System.Drawing.Size(69, 23);
             this.cmbBaudRate.TabIndex = 3;
             this.cmbBaudRate.Text = "115200";
+            this.cmbBaudRate.SelectedIndexChanged += new System.EventHandler(this.cmbBaudRate_SelectedIndexChanged);
             // 
             // cmbStopBits
             // 
@@ -1639,37 +1678,13 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
-            // 
-            // button29
-            // 
-            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(129, 58);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(98, 32);
-            this.button29.TabIndex = 63;
-            this.button29.Text = "Save File";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 32);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Set Serial Port";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button32
             // 
@@ -1697,6 +1712,18 @@ namespace SocketServer
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "Configuration control";
             // 
+            // button29
+            // 
+            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.Location = new System.Drawing.Point(129, 58);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(98, 32);
+            this.button29.TabIndex = 63;
+            this.button29.Text = "Save File";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1707,6 +1734,18 @@ namespace SocketServer
             this.button6.Text = "Get Serial Port";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_2);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(6, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 32);
+            this.button2.TabIndex = 62;
+            this.button2.Text = "Set Serial Port";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button31
             // 
@@ -4999,7 +5038,7 @@ namespace SocketServer
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Spetrotec i-Watcher Service Tool";
+            this.Text = "Monitor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox_ServerSettings.ResumeLayout(false);
             this.groupBox_ServerSettings.PerformLayout();
@@ -6418,7 +6457,8 @@ namespace SocketServer
             try
             {
                 textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
-
+                textBox_SendSerialDiff.KeyPress += TextBox_SendSerialDiff_KeyPress;
+                textBox_SendNumberOfTimes.KeyPress += TextBox_SendNumberOfTimes_KeyPress;
                 //tabControl1.TabPages.RemoveAt(2);
                 UpdatePhoneBook();
                 UpdateSMSCommands();
@@ -6579,6 +6619,22 @@ namespace SocketServer
                 LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
             
+        }
+
+        private void TextBox_SendNumberOfTimes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_SendSerialDiff_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         void SaveCommandsAndContacts()
@@ -7052,9 +7108,11 @@ namespace SocketServer
         /// <summary>
         /// 
         /// </summary>
-       public int TimeOutKeepAlivein100ms = 3000000;
+         int Timer_100ms = 0;
+        public int TimeOutKeepAlivein100ms = 3000000;
        private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
        {
+            Timer_100ms++;
            if (stopwatch.IsRunning == true)
            {
                textBox_StopWatch.Text = PrintTimeSpan(stopwatch.Elapsed);
@@ -7113,6 +7171,34 @@ namespace SocketServer
                    LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
                }
            }
+
+           if(SendTimerEnable == true)
+            {
+                int SendTimerFreq = 0;
+                int HowManyTimes = 0;
+                
+                if (Int32.TryParse(textBox_SendSerialDiff.Text, out SendTimerFreq) && Int32.TryParse(textBox_SendNumberOfTimes.Text, out HowManyTimes))
+                {
+                    // you know that the parsing attempt
+                    // was successful
+                    if (SendTimerFreq > 0 && HowManyTimes > 0)
+                    {
+                        if (Timer_100ms % SendTimerFreq == 0)
+                        {
+                            button_SendSerialPort.PerformClick();
+
+                            if (HowManyTimes > 0)
+                            {
+                                HowManyTimes--;
+                            }
+                            textBox_SendNumberOfTimes.Text = HowManyTimes.ToString();
+
+                        }
+                    }
+
+                }
+
+            }
 
 
 
@@ -7346,6 +7432,12 @@ namespace SocketServer
                    // Set the port's settings
                
                    serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
+
+                    if (cmbBaudRate.Items.Contains(cmbBaudRate.Text) == false)
+                    {
+                        cmbBaudRate.Items.Add(cmbBaudRate.Text);
+                    }
+
                    serialPort.DataBits = int.Parse(cmbDataBits.Text);
                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
                    serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
@@ -11409,6 +11501,41 @@ namespace SocketServer
         }
 
         private void textBox_SourceConfig_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBaudRate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBox_SendTimer_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        bool SendTimerEnable = false;
+        private void button_StartSendTimer_Click(object sender, EventArgs e)
+        {
+            if (SendTimerEnable == false)
+            {
+                SendTimerEnable = true;
+                button_StartSendTimer.BackColor = Color.LightGreen;
+
+                textBox_SendSerialDiff.Enabled = true;
+                textBox_SendNumberOfTimes.Enabled = true;
+            }
+            else
+            {
+                SendTimerEnable = false;
+                button_StartSendTimer.BackColor = default(Color);
+
+                textBox_SendSerialDiff.Enabled = false;
+                textBox_SendNumberOfTimes.Enabled = false;
+            }
+        }
+
+        private void textBox_SendSerialDiff_TextChanged(object sender, EventArgs e)
         {
 
         }
