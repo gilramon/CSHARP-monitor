@@ -1326,6 +1326,7 @@ namespace SocketServer
             // 
             // textBox_SendNumberOfTimes
             // 
+            this.textBox_SendNumberOfTimes.Enabled = false;
             this.textBox_SendNumberOfTimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_SendNumberOfTimes.Location = new System.Drawing.Point(111, 128);
             this.textBox_SendNumberOfTimes.Name = "textBox_SendNumberOfTimes";
@@ -1335,6 +1336,7 @@ namespace SocketServer
             // 
             // textBox_SendSerialDiff
             // 
+            this.textBox_SendSerialDiff.Enabled = false;
             this.textBox_SendSerialDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_SendSerialDiff.Location = new System.Drawing.Point(9, 128);
             this.textBox_SendSerialDiff.Name = "textBox_SendSerialDiff";
