@@ -19,6 +19,7 @@ using System.Configuration;
 using Spetrotec;
 using System.Xml.Serialization;
 using System.Diagnostics;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SocketServer
 {
@@ -405,6 +406,10 @@ namespace SocketServer
         private TextBox textBox_SendNumberOfTimes;
         private TextBox textBox_SendSerialDiff;
         private Button button_StartSendTimer;
+        private TabPage tabPage3;
+        private TabPage tabPage8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Button button_ScreenShot;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -549,6 +554,9 @@ namespace SocketServer
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -785,6 +793,9 @@ namespace SocketServer
             this.button_RemoveContact = new System.Windows.Forms.Button();
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.S1_Configuration = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -903,6 +914,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
+            this.button_ScreenShot = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -928,6 +940,8 @@ namespace SocketServer
             this.groupBox34.SuspendLayout();
             this.GrooupBox_Encryption.SuspendLayout();
             this.groupBox33.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.S1_Configuration.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -1163,6 +1177,8 @@ namespace SocketServer
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1326,7 +1342,6 @@ namespace SocketServer
             // 
             // textBox_SendNumberOfTimes
             // 
-            this.textBox_SendNumberOfTimes.Enabled = false;
             this.textBox_SendNumberOfTimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_SendNumberOfTimes.Location = new System.Drawing.Point(111, 128);
             this.textBox_SendNumberOfTimes.Name = "textBox_SendNumberOfTimes";
@@ -1336,7 +1351,6 @@ namespace SocketServer
             // 
             // textBox_SendSerialDiff
             // 
-            this.textBox_SendSerialDiff.Enabled = false;
             this.textBox_SendSerialDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_SendSerialDiff.Location = new System.Drawing.Point(9, 128);
             this.textBox_SendSerialDiff.Name = "textBox_SendSerialDiff";
@@ -3832,6 +3846,42 @@ namespace SocketServer
             this.checkedListBox_PhoneBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedListBox_PhoneBook_KeyDown);
             this.checkedListBox_PhoneBook.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedListBox_PhoneBook_MouseDown);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button_ScreenShot);
+            this.tabPage3.Controls.Add(this.chart1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage3.TabIndex = 7;
+            this.tabPage3.Text = "Graphs";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(133, 0);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1201, 769);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage8.TabIndex = 8;
+            this.tabPage8.Text = "Errors";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.S1_Configuration);
@@ -5029,6 +5079,16 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
+            // button_ScreenShot
+            // 
+            this.button_ScreenShot.Location = new System.Drawing.Point(4, 15);
+            this.button_ScreenShot.Name = "button_ScreenShot";
+            this.button_ScreenShot.Size = new System.Drawing.Size(123, 23);
+            this.button_ScreenShot.TabIndex = 1;
+            this.button_ScreenShot.Text = "Take screen shot";
+            this.button_ScreenShot.UseVisualStyleBackColor = true;
+            this.button_ScreenShot.Click += new System.EventHandler(this.button_ScreenShot_Click);
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
@@ -5085,6 +5145,8 @@ namespace SocketServer
             this.GrooupBox_Encryption.ResumeLayout(false);
             this.GrooupBox_Encryption.PerformLayout();
             this.groupBox33.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.S1_Configuration.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
@@ -6453,11 +6515,27 @@ namespace SocketServer
      //   Logger LogIWatcher;
         Logger LogSMS;
         PhoneBook MyPhoneBook;
-       // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
+
+        System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
+        {
+            Name = "Series1",
+            Color = System.Drawing.Color.Green,
+            IsVisibleInLegend = false,
+            IsXValueIndexed = true,
+            ChartType = SeriesChartType.Line
+        };
+        // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
+                chart1.Series.Clear();
+
+
+                this.chart1.Series.Add(series1);
+
+
+                tabControl1.DrawItem += TabControl1_DrawItem1;
                 textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
                 textBox_SendSerialDiff.KeyPress += TextBox_SendSerialDiff_KeyPress;
                 textBox_SendNumberOfTimes.KeyPress += TextBox_SendNumberOfTimes_KeyPress;
@@ -6621,6 +6699,40 @@ namespace SocketServer
                 LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
             
+        }
+
+        Color Tab0Color = default(Color);
+        Color Tab1Color = default(Color);
+        Color Tab2Color = default(Color);
+        Color Tab3Color = default(Color);
+        private void TabControl1_DrawItem1(object sender, DrawItemEventArgs e)
+        {
+            TabPage page = tabControl1.TabPages[e.Index];
+            switch(e.Index)
+            {
+                case 0:
+                    e.Graphics.FillRectangle(new SolidBrush(Tab0Color), e.Bounds);
+                 break;
+                case 1:
+                    e.Graphics.FillRectangle(new SolidBrush(Tab1Color), e.Bounds);
+                    break;
+                case 2:
+                    e.Graphics.FillRectangle(new SolidBrush(Tab2Color), e.Bounds);
+                    break;
+                case 3:
+                    e.Graphics.FillRectangle(new SolidBrush(Tab3Color), e.Bounds);
+                    break;
+                default:
+                    e.Graphics.FillRectangle(new SolidBrush(page.BackColor), e.Bounds);
+                    break;
+            }
+
+
+
+            Rectangle paddedBounds = e.Bounds;
+            int yOffset = (e.State == DrawItemState.Selected) ? -2 : 1;
+            paddedBounds.Offset(1, yOffset);
+            TextRenderer.DrawText(e.Graphics, page.Text, Font, paddedBounds, page.ForeColor);
         }
 
         private void TextBox_SendNumberOfTimes_KeyPress(object sender, KeyPressEventArgs e)
@@ -7079,6 +7191,7 @@ namespace SocketServer
        {
 
        }
+        int ChartCntX = 0, ChartCntY = 0;
 /// <summary>
 /// 
 /// </summary>
@@ -7111,7 +7224,8 @@ namespace SocketServer
         /// 
         /// </summary>
          int Timer_100ms = 0;
-        public int TimeOutKeepAlivein100ms = 3000000;
+
+        private int TimeOutKeepAlivein100ms = 3000000;
        private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
        {
             Timer_100ms++;
@@ -7174,7 +7288,7 @@ namespace SocketServer
                }
            }
 
-           if(SendTimerEnable == true)
+           if(button_StartSendTimer.BackColor == Color.LightGreen)
             {
                 int SendTimerFreq = 0;
                 int HowManyTimes = 0;
@@ -7201,14 +7315,41 @@ namespace SocketServer
                 }
 
             }
+            
+            series1.Points.AddXY(ChartCntX, ChartCntY);
+            ChartCntX++;
+            ChartCntY = ChartCntY + rnd.Next(-1, 2);
+
+            if(ChartCntX > 100)
+            {
+                ChartCntX = 0;
+                series1.Points.Clear();
+            }
+
+            chart1.Refresh();
+            chart1.Invalidate();
+
+        }
+
+        private void TakeCroppedScreenShot()
+        {
+            string FileLocation = @".\MyPanelImage.bmp";
+            Bitmap bmp = new Bitmap(chart1.Width, chart1.Height);
+            chart1.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            bmp.Save(FileLocation);
+
+            var filePath = FileLocation;
+            ProcessStartInfo Info = new ProcessStartInfo()
+            {
+                FileName = "mspaint.exe",
+                WindowStyle = ProcessWindowStyle.Maximized,
+                Arguments = filePath
+            };
+            Process.Start(Info);
+        }
 
 
-
-          
-       }
-
-
-       private void tabPage6_Click(object sender, EventArgs e)
+        private void tabPage6_Click(object sender, EventArgs e)
        {
 
        }
@@ -7238,7 +7379,19 @@ namespace SocketServer
        //uint IntervalTimeBetweenTransmitions = 1;
        private void timer_General_Tick(object sender, EventArgs e)
        {
-           if (IsTimerRunning == true)
+            Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Tab0Color = randomColor;
+
+            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Tab1Color = randomColor;
+
+            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Tab2Color = randomColor;
+
+            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Tab3Color = randomColor;
+            tabControl1.Invalidate();
+            if (IsTimerRunning == true)
            {
                int Result = 0;
                int.TryParse(textBox_TimerTime.Text, out Result);
@@ -11524,22 +11677,40 @@ namespace SocketServer
                 SendTimerEnable = true;
                 button_StartSendTimer.BackColor = Color.LightGreen;
 
-                textBox_SendSerialDiff.Enabled = true;
-                textBox_SendNumberOfTimes.Enabled = true;
+                //textBox_SendSerialDiff.Enabled = true;
+                //textBox_SendNumberOfTimes.Enabled = true;
             }
             else
             {
                 SendTimerEnable = false;
                 button_StartSendTimer.BackColor = default(Color);
 
-                textBox_SendSerialDiff.Enabled = false;
-                textBox_SendNumberOfTimes.Enabled = false;
+                //textBox_SendSerialDiff.Enabled = false;
+                //textBox_SendNumberOfTimes.Enabled = false;
             }
         }
 
         private void textBox_SendSerialDiff_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private Random rnd = new Random();
+
+        private void button_ScreenShot_Click(object sender, EventArgs e)
+        {
+            TakeCroppedScreenShot();
+
+            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+
+            chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+
+        }
+
+        private void button3_Click_3(object sender, EventArgs e)
+        {
+            Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            Tab0Color = randomColor;
         }
 
         void ResetTimer()
