@@ -247,7 +247,6 @@ namespace SocketServer
         private RichTextBox textBox_MaximumNumberReceivedRequest;
         private TextBox textBox_TotalFileLength;
         private GroupBox groupBox39;
-        private ListBox listBox_SMSCommands;
         private Button button37;
         private Button button38;
         private Button button39;
@@ -410,6 +409,8 @@ namespace SocketServer
         private TabPage tabPage8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Button button_ScreenShot;
+        private ListBox listBox_SMSCommands;
+        private Button button3;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -554,9 +555,9 @@ namespace SocketServer
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -794,6 +795,7 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_ScreenShot = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -914,7 +916,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
-            this.button_ScreenShot = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -3403,15 +3405,14 @@ namespace SocketServer
             // 
             // listBox_SMSCommands
             // 
-            this.listBox_SMSCommands.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBox_SMSCommands.FormattingEnabled = true;
             this.listBox_SMSCommands.ItemHeight = 15;
-            this.listBox_SMSCommands.Location = new System.Drawing.Point(7, 19);
+            this.listBox_SMSCommands.Location = new System.Drawing.Point(6, 17);
             this.listBox_SMSCommands.Name = "listBox_SMSCommands";
-            this.listBox_SMSCommands.Size = new System.Drawing.Size(302, 334);
+            this.listBox_SMSCommands.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox_SMSCommands.Size = new System.Drawing.Size(303, 334);
             this.listBox_SMSCommands.TabIndex = 6;
-            this.listBox_SMSCommands.SelectedIndexChanged += new System.EventHandler(this.listBox_SMSCommands_SelectedIndexChanged);
-            this.listBox_SMSCommands.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox_SMSCommands_KeyDown);
+            this.listBox_SMSCommands.SelectedIndexChanged += new System.EventHandler(this.listBox_SMSCommands_SelectedIndexChanged_1);
             // 
             // button37
             // 
@@ -3848,6 +3849,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
@@ -3857,18 +3859,28 @@ namespace SocketServer
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button_ScreenShot
+            // 
+            this.button_ScreenShot.Location = new System.Drawing.Point(4, 15);
+            this.button_ScreenShot.Name = "button_ScreenShot";
+            this.button_ScreenShot.Size = new System.Drawing.Size(123, 23);
+            this.button_ScreenShot.TabIndex = 1;
+            this.button_ScreenShot.Text = "Take screen shot";
+            this.button_ScreenShot.UseVisualStyleBackColor = true;
+            this.button_ScreenShot.Click += new System.EventHandler(this.button_ScreenShot_Click);
+            // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(133, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1201, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5079,15 +5091,15 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // button_ScreenShot
+            // button3
             // 
-            this.button_ScreenShot.Location = new System.Drawing.Point(4, 15);
-            this.button_ScreenShot.Name = "button_ScreenShot";
-            this.button_ScreenShot.Size = new System.Drawing.Size(123, 23);
-            this.button_ScreenShot.TabIndex = 1;
-            this.button_ScreenShot.Text = "Take screen shot";
-            this.button_ScreenShot.UseVisualStyleBackColor = true;
-            this.button_ScreenShot.Click += new System.EventHandler(this.button_ScreenShot_Click);
+            this.button3.Location = new System.Drawing.Point(4, 47);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_4);
             // 
             // Form1
             // 
@@ -6520,7 +6532,16 @@ namespace SocketServer
         {
             Name = "Series1",
             Color = System.Drawing.Color.Green,
-            IsVisibleInLegend = false,
+            IsVisibleInLegend = true,
+            IsXValueIndexed = true,
+            ChartType = SeriesChartType.Line
+        };
+
+        System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
+        {
+            Name = "Series2",
+            Color = System.Drawing.Color.Blue,
+            IsVisibleInLegend = true,
             IsXValueIndexed = true,
             ChartType = SeriesChartType.Line
         };
@@ -6530,9 +6551,12 @@ namespace SocketServer
             try
             {
                 chart1.Series.Clear();
-
-
-                this.chart1.Series.Add(series1);
+                chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+             //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+                chart1.Series.Add(series1);
+                chart1.Series.Add(series2);
+                chart1.Series["Series1"].BorderWidth = 4;
+                chart1.Series["Series2"].BorderWidth = 4;
 
 
                 tabControl1.DrawItem += TabControl1_DrawItem1;
@@ -7191,7 +7215,7 @@ namespace SocketServer
        {
 
        }
-        int ChartCntX = 0, ChartCntY = 0;
+        int ChartCntX = 0, ChartCntY = 0, ChartCntY2 = 0;
 /// <summary>
 /// 
 /// </summary>
@@ -7315,20 +7339,43 @@ namespace SocketServer
                 }
 
             }
-            
+
+            GraphPrint();
+
+
+
+
+        }
+        private const int MOVING_AVARAGE_SIZE = 30;
+        void GraphPrint()
+        {
             series1.Points.AddXY(ChartCntX, ChartCntY);
+
+            ChartCntY2 = 0;
+
+                int cnt = 0;
+                for (int i = series1.Points.Count -1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
+                {
+                    cnt++;
+                    ChartCntY2 += (int)series1.Points[i].YValues[0];
+                }
+                ChartCntY2 = ChartCntY2 / cnt;
+
+
+            series2.Points.AddXY(ChartCntX, ChartCntY2);
             ChartCntX++;
             ChartCntY = ChartCntY + rnd.Next(-1, 2);
+          //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
-            if(ChartCntX > 100)
+            if (ChartCntX > 1000)
             {
                 ChartCntX = 0;
                 series1.Points.Clear();
+                series2.Points.Clear();
             }
 
             chart1.Refresh();
             chart1.Invalidate();
-
         }
 
         private void TakeCroppedScreenShot()
@@ -11701,10 +11748,36 @@ namespace SocketServer
         {
             TakeCroppedScreenShot();
 
-            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
 
-            chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+        }
+        bool serias2 = true;
+        private void button3_Click_4(object sender, EventArgs e)
+        {
+            serias2 = !serias2;
 
+            if(serias2 == true)
+            {
+                chart1.Series.Add(series2);
+            }
+            else
+            {
+                chart1.Series.Remove(series2);
+            }
+            
+
+        }
+
+        private void listBox_SMSCommands_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+            for (int i = 0; i < listBox_SMSCommands.Items.Count; i++)
+            {
+                if (listBox_SMSCommands.GetSelected(i) == true)
+                {
+                    LogSMS.LogMessage(Color.Black, Color.White,"[" + listBox_SMSCommands.Items[i].ToString() + "]", New_Line = true, Show_Time = false);   
+                }
+            }
+            LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = true, Show_Time = false);
         }
 
         private void button3_Click_3(object sender, EventArgs e)
