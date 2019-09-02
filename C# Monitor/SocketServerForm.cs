@@ -555,9 +555,9 @@ namespace SocketServer
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1317,6 +1317,7 @@ namespace SocketServer
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox4.Controls.Add(this.button_StartSendTimer);
             this.groupBox4.Controls.Add(this.textBox_SendNumberOfTimes);
             this.groupBox4.Controls.Add(this.textBox_SendSerialDiff);
@@ -1324,7 +1325,6 @@ namespace SocketServer
             this.groupBox4.Controls.Add(this.button_SerialPortAdd);
             this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
             this.groupBox4.Controls.Add(this.button_SendSerialPort);
-            this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox4.Location = new System.Drawing.Point(4, 63);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(343, 207);
@@ -3867,16 +3867,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(133, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(1201, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -7215,7 +7215,8 @@ namespace SocketServer
        {
 
        }
-        int ChartCntX = 0, ChartCntY = 0, ChartCntY2 = 0;
+        int ChartCntX = 0, ChartCntY = 0;
+        double ChartCntY2 = 0;
 /// <summary>
 /// 
 /// </summary>
