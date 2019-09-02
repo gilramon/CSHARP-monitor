@@ -7215,8 +7215,8 @@ namespace SocketServer
        {
 
        }
-        int ChartCntX = 0, ChartCntY = 0;
-        double ChartCntY2 = 0;
+        Double ChartCntX = 0, ChartCntY = 0;
+        Double ChartCntY2 = 0;
 /// <summary>
 /// 
 /// </summary>
@@ -7347,6 +7347,7 @@ namespace SocketServer
 
 
         }
+        Random rand = new Random();
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
         {
@@ -7365,7 +7366,9 @@ namespace SocketServer
 
             series2.Points.AddXY(ChartCntX, ChartCntY2);
             ChartCntX++;
-            ChartCntY = ChartCntY + rnd.Next(-1, 2);
+            double temp =  rand.Next(-1, 2);
+            temp = temp * rand.NextDouble();
+            ChartCntY = ChartCntY + temp;
           //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
             if (ChartCntX > 1000)
@@ -7377,6 +7380,14 @@ namespace SocketServer
 
             chart1.Refresh();
             chart1.Invalidate();
+        }
+
+        static float NextFloat(Random random)
+        {
+            double mantissa = (random.NextDouble() * 2.0) - 1.0;
+            // choose -149 instead of -126 to also generate subnormal floats (*)
+            double exponent = Math.Pow(2.0, random.Next(-126, 128));
+            return (float)(mantissa * exponent);
         }
 
         private void TakeCroppedScreenShot()
