@@ -555,9 +555,9 @@ namespace SocketServer
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -588,6 +588,7 @@ namespace SocketServer
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.button_StartSendTimer = new System.Windows.Forms.Button();
             this.textBox_SendNumberOfTimes = new System.Windows.Forms.TextBox();
             this.textBox_SendSerialDiff = new System.Windows.Forms.TextBox();
@@ -916,7 +917,6 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
-            this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1331,6 +1331,20 @@ namespace SocketServer
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Send Data";
+            // 
+            // textBox_SendSerialPort
+            // 
+            this.textBox_SendSerialPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox_SendSerialPort.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox_SendSerialPort.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_SendSerialPort.Location = new System.Drawing.Point(15, 55);
+            this.textBox_SendSerialPort.Name = "textBox_SendSerialPort";
+            this.textBox_SendSerialPort.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_SendSerialPort.Size = new System.Drawing.Size(322, 31);
+            this.textBox_SendSerialPort.TabIndex = 0;
+            this.textBox_SendSerialPort.Text = "String_To_Send";
+            this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
+            this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.textBox_SendSerialPort_TextChanged);
             // 
             // button_StartSendTimer
             // 
@@ -3867,25 +3881,25 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(133, 0);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1201, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage8.Size = new System.Drawing.Size(1337, 774);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -5086,20 +5100,6 @@ namespace SocketServer
             this.groupBox_PhoneNumber.TabStop = false;
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
-            // 
-            // textBox_SendSerialPort
-            // 
-            this.textBox_SendSerialPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_SendSerialPort.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox_SendSerialPort.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_SendSerialPort.Location = new System.Drawing.Point(15, 55);
-            this.textBox_SendSerialPort.Name = "textBox_SendSerialPort";
-            this.textBox_SendSerialPort.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_SendSerialPort.Size = new System.Drawing.Size(322, 31);
-            this.textBox_SendSerialPort.TabIndex = 0;
-            this.textBox_SendSerialPort.Text = "String_To_Send";
-            this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
-            this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.textBox_SendSerialPort_TextChanged);
             // 
             // Form1
             // 
@@ -6555,8 +6555,8 @@ namespace SocketServer
              //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                 chart1.Series.Add(series1);
                 chart1.Series.Add(series2);
-                chart1.Series["Series1"].BorderWidth = 4;
-                chart1.Series["Series2"].BorderWidth = 4;
+                //chart1.Series["Series1"].BorderWidth = 4;
+                //chart1.Series["Series2"].BorderWidth = 4;
 
 
                 tabControl1.DrawItem += TabControl1_DrawItem1;
