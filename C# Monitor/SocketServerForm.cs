@@ -20,6 +20,9 @@ using Spetrotec;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Runtime.InteropServices;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.CSharp;
 
 namespace SocketServer
 {
@@ -401,16 +404,16 @@ namespace SocketServer
         private CheckBox checkBox_config_Bit2;
         private CheckBox checkBox_config_Bit1;
         private CheckBox checkBox_config_Bit0;
-        private TextBox textBox_SendNumberOfTimes;
-        private TextBox textBox_SendSerialDiff;
-        private Button button_StartSendTimer;
         private TabPage tabPage3;
         private TabPage tabPage8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Button button_ScreenShot;
         private ListBox listBox_SMSCommands;
-        private Button button3;
         private TextBox textBox_SendSerialPort;
+        private TextBox textBox_graph_XY;
+        private ListBox listBox1;
+        private Button button_ResetGraphs;
+        private Button Button_Export_excel;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -589,9 +592,6 @@ namespace SocketServer
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
-            this.button_StartSendTimer = new System.Windows.Forms.Button();
-            this.textBox_SendNumberOfTimes = new System.Windows.Forms.TextBox();
-            this.textBox_SendSerialDiff = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
             this.button_SerialPortAdd = new System.Windows.Forms.Button();
             this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
@@ -795,7 +795,9 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_ResetGraphs = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox_graph_XY = new System.Windows.Forms.TextBox();
             this.button_ScreenShot = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -917,6 +919,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
+            this.Button_Export_excel = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1318,9 +1321,6 @@ namespace SocketServer
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
-            this.groupBox4.Controls.Add(this.button_StartSendTimer);
-            this.groupBox4.Controls.Add(this.textBox_SendNumberOfTimes);
-            this.groupBox4.Controls.Add(this.textBox_SendSerialDiff);
             this.groupBox4.Controls.Add(this.checkBox_DeleteCommand);
             this.groupBox4.Controls.Add(this.button_SerialPortAdd);
             this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
@@ -1345,35 +1345,6 @@ namespace SocketServer
             this.textBox_SendSerialPort.Text = "String_To_Send";
             this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
             this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.textBox_SendSerialPort_TextChanged);
-            // 
-            // button_StartSendTimer
-            // 
-            this.button_StartSendTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_StartSendTimer.Location = new System.Drawing.Point(9, 168);
-            this.button_StartSendTimer.Name = "button_StartSendTimer";
-            this.button_StartSendTimer.Size = new System.Drawing.Size(105, 24);
-            this.button_StartSendTimer.TabIndex = 109;
-            this.button_StartSendTimer.Text = "Start Send";
-            this.button_StartSendTimer.Click += new System.EventHandler(this.button_StartSendTimer_Click);
-            // 
-            // textBox_SendNumberOfTimes
-            // 
-            this.textBox_SendNumberOfTimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_SendNumberOfTimes.Location = new System.Drawing.Point(111, 128);
-            this.textBox_SendNumberOfTimes.Name = "textBox_SendNumberOfTimes";
-            this.textBox_SendNumberOfTimes.Size = new System.Drawing.Size(94, 31);
-            this.textBox_SendNumberOfTimes.TabIndex = 107;
-            this.toolTip1.SetToolTip(this.textBox_SendNumberOfTimes, "how many times to send.");
-            // 
-            // textBox_SendSerialDiff
-            // 
-            this.textBox_SendSerialDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_SendSerialDiff.Location = new System.Drawing.Point(9, 128);
-            this.textBox_SendSerialDiff.Name = "textBox_SendSerialDiff";
-            this.textBox_SendSerialDiff.Size = new System.Drawing.Size(96, 31);
-            this.textBox_SendSerialDiff.TabIndex = 106;
-            this.toolTip1.SetToolTip(this.textBox_SendSerialDiff, "send Time Frequncy in 100ms resolution");
-            this.textBox_SendSerialDiff.TextChanged += new System.EventHandler(this.textBox_SendSerialDiff_TextChanged);
             // 
             // checkBox_DeleteCommand
             // 
@@ -3849,25 +3820,46 @@ namespace SocketServer
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.Button_Export_excel);
+            this.tabPage3.Controls.Add(this.button_ResetGraphs);
+            this.tabPage3.Controls.Add(this.listBox1);
+            this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage3.Size = new System.Drawing.Size(1337, 772);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button_ResetGraphs
             // 
-            this.button3.Location = new System.Drawing.Point(4, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_4);
+            this.button_ResetGraphs.Location = new System.Drawing.Point(4, 46);
+            this.button_ResetGraphs.Name = "button_ResetGraphs";
+            this.button_ResetGraphs.Size = new System.Drawing.Size(123, 23);
+            this.button_ResetGraphs.TabIndex = 6;
+            this.button_ResetGraphs.Text = "Reset Graphs";
+            this.button_ResetGraphs.UseVisualStyleBackColor = true;
+            this.button_ResetGraphs.Click += new System.EventHandler(this.button_ResetGraphs_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(4, 215);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(185, 304);
+            this.listBox1.TabIndex = 5;
+            // 
+            // textBox_graph_XY
+            // 
+            this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 75);
+            this.textBox_graph_XY.Multiline = true;
+            this.textBox_graph_XY.Name = "textBox_graph_XY";
+            this.textBox_graph_XY.Size = new System.Drawing.Size(185, 68);
+            this.textBox_graph_XY.TabIndex = 4;
             // 
             // button_ScreenShot
             // 
@@ -3885,13 +3877,13 @@ namespace SocketServer
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(133, 0);
+            this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1201, 769);
+            this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -5101,6 +5093,16 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
+            // Button_Export_excel
+            // 
+            this.Button_Export_excel.Location = new System.Drawing.Point(4, 149);
+            this.Button_Export_excel.Name = "Button_Export_excel";
+            this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
+            this.Button_Export_excel.TabIndex = 7;
+            this.Button_Export_excel.Text = "Export to excel";
+            this.Button_Export_excel.UseVisualStyleBackColor = true;
+            this.Button_Export_excel.Click += new System.EventHandler(this.Button_Export_excel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
@@ -5158,6 +5160,7 @@ namespace SocketServer
             this.GrooupBox_Encryption.PerformLayout();
             this.groupBox33.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.S1_Configuration.ResumeLayout(false);
@@ -6528,23 +6531,60 @@ namespace SocketServer
         Logger LogSMS;
         PhoneBook MyPhoneBook;
 
-        System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
+        Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
-            Name = "Series1",
-            Color = System.Drawing.Color.Green,
+            Name = "Raw Data",
+        //    Color = System.Drawing.Color.Green,
             IsVisibleInLegend = true,
             IsXValueIndexed = true,
             ChartType = SeriesChartType.Line
         };
 
-        System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
+        Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
-            Name = "Series2",
-            Color = System.Drawing.Color.Blue,
+            Name = "Moving Avarage 30",
+        //    Color = System.Drawing.Color.Blue,
             IsVisibleInLegend = true,
             IsXValueIndexed = true,
             ChartType = SeriesChartType.Line
         };
+
+        Point? prevPosition = null;
+        ToolTip tooltip = new ToolTip();
+
+        void Chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            var pos = e.Location;
+            if (prevPosition.HasValue && pos == prevPosition.Value)
+                return;
+            tooltip.RemoveAll();
+            prevPosition = pos;
+            var results = chart1.HitTest(pos.X, pos.Y, false,
+                                            ChartElementType.DataPoint);
+            foreach (var result in results)
+            {
+                if (result.ChartElementType == ChartElementType.DataPoint)
+                {
+                    var prop = result.Object as DataPoint;
+                    if (prop != null)
+                    {
+                        var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
+                        var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
+
+                        // check if the cursor is really close to the point (2 pixels around the point)
+                        if (Math.Abs(pos.X - pointXPixel) < 3 &&
+                            Math.Abs(pos.Y - pointYPixel) < 3)
+                        {
+                            textBox_graph_XY.Text = "Chart=" + result.Series.Name + "\n, X=" + prop.XValue.ToString() + ", Y=" + prop.YValues[0].ToString();
+
+                            tooltip.Show("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
+                                            pos.X, pos.Y - 15);
+                        }
+                    }
+                }
+            }
+        }
+
         // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -6555,14 +6595,14 @@ namespace SocketServer
              //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                 chart1.Series.Add(series1);
                 chart1.Series.Add(series2);
-                chart1.Series["Series1"].BorderWidth = 4;
-                chart1.Series["Series2"].BorderWidth = 4;
+                chart1.Series[0].BorderWidth = 2;
+                chart1.Series[1].BorderWidth = 2;
+                chart1.MouseMove += Chart1_MouseMove;
 
 
                 tabControl1.DrawItem += TabControl1_DrawItem1;
                 textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
-                textBox_SendSerialDiff.KeyPress += TextBox_SendSerialDiff_KeyPress;
-                textBox_SendNumberOfTimes.KeyPress += TextBox_SendNumberOfTimes_KeyPress;
+
                 //tabControl1.TabPages.RemoveAt(2);
                 UpdatePhoneBook();
                 UpdateSMSCommands();
@@ -6724,6 +6764,7 @@ namespace SocketServer
             }
             
         }
+
 
         Color Tab0Color = default(Color);
         Color Tab1Color = default(Color);
@@ -7313,33 +7354,6 @@ namespace SocketServer
                }
            }
 
-           if(button_StartSendTimer.BackColor == Color.LightGreen)
-            {
-                int SendTimerFreq = 0;
-                int HowManyTimes = 0;
-                
-                if (Int32.TryParse(textBox_SendSerialDiff.Text, out SendTimerFreq) && Int32.TryParse(textBox_SendNumberOfTimes.Text, out HowManyTimes))
-                {
-                    // you know that the parsing attempt
-                    // was successful
-                    if (SendTimerFreq > 0 && HowManyTimes > 0)
-                    {
-                        if (Timer_100ms % SendTimerFreq == 0)
-                        {
-                            button_SendSerialPort.PerformClick();
-
-                            if (HowManyTimes > 0)
-                            {
-                                HowManyTimes--;
-                            }
-                            textBox_SendNumberOfTimes.Text = HowManyTimes.ToString();
-
-                        }
-                    }
-
-                }
-
-            }
 
             GraphPrint();
 
@@ -11728,26 +11742,6 @@ namespace SocketServer
         {
 
         }
-        bool SendTimerEnable = false;
-        private void button_StartSendTimer_Click(object sender, EventArgs e)
-        {
-            if (SendTimerEnable == false)
-            {
-                SendTimerEnable = true;
-                button_StartSendTimer.BackColor = Color.LightGreen;
-
-                //textBox_SendSerialDiff.Enabled = true;
-                //textBox_SendNumberOfTimes.Enabled = true;
-            }
-            else
-            {
-                SendTimerEnable = false;
-                button_StartSendTimer.BackColor = default(Color);
-
-                //textBox_SendSerialDiff.Enabled = false;
-                //textBox_SendNumberOfTimes.Enabled = false;
-            }
-        }
 
         private void textBox_SendSerialDiff_TextChanged(object sender, EventArgs e)
         {
@@ -11755,6 +11749,7 @@ namespace SocketServer
         }
 
         private Random rnd = new Random();
+        private object xlApp;
 
         private void button_ScreenShot_Click(object sender, EventArgs e)
         {
@@ -11762,22 +11757,7 @@ namespace SocketServer
 
 
         }
-        bool serias2 = true;
-        private void button3_Click_4(object sender, EventArgs e)
-        {
-            serias2 = !serias2;
 
-            if(serias2 == true)
-            {
-                chart1.Series.Add(series2);
-            }
-            else
-            {
-                chart1.Series.Remove(series2);
-            }
-            
-
-        }
 
         private void listBox_SMSCommands_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -11790,6 +11770,121 @@ namespace SocketServer
                 }
             }
             LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = true, Show_Time = false);
+        }
+
+        private void button_ResetGraphs_Click(object sender, EventArgs e)
+        {
+            foreach(var ser in chart1.Series)
+            {
+                ser.Points.Clear();
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public System.Data.DataTable ExportToExcel()
+        {
+            System.Data.DataTable table = new System.Data.DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Sex", typeof(string));
+            table.Columns.Add("Subject1", typeof(int));
+            table.Columns.Add("Subject2", typeof(int));
+            table.Columns.Add("Subject3", typeof(int));
+            table.Columns.Add("Subject4", typeof(int));
+            table.Columns.Add("Subject5", typeof(int));
+            table.Columns.Add("Subject6", typeof(int));
+            table.Rows.Add(1, "Amar", "M", 78, 59, 72, 95, 83, 77);
+            table.Rows.Add(2, "Mohit", "M", 76, 65, 85, 87, 72, 90);
+            table.Rows.Add(3, "Garima", "F", 77, 73, 83, 64, 86, 63);
+            table.Rows.Add(4, "jyoti", "F", 55, 77, 85, 69, 70, 86);
+            table.Rows.Add(5, "Avinash", "M", 87, 73, 69, 75, 67, 81);
+            table.Rows.Add(6, "Devesh", "M", 92, 87, 78, 73, 75, 72);
+            return table;
+        }
+
+        private void Button_Export_excel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook worKbooK;
+            Microsoft.Office.Interop.Excel.Worksheet worKsheeT;
+            Microsoft.Office.Interop.Excel.Range celLrangE;
+
+            try
+            {
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+                worKbooK = excel.Workbooks.Add(Type.Missing);
+
+
+                worKsheeT = (Microsoft.Office.Interop.Excel.Worksheet)worKbooK.ActiveSheet;
+                worKsheeT.Name = "StudentRepoertCard";
+
+                worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[1, 8]].Merge();
+                worKsheeT.Cells[1, 1] = "Student Report Card";
+                worKsheeT.Cells.Font.Size = 15;
+
+
+                int rowcount = 2;
+
+                foreach (DataRow datarow in ExportToExcel().Rows)
+                {
+                    rowcount += 1;
+                    for (int i = 1; i <= ExportToExcel().Columns.Count; i++)
+                    {
+
+                        if (rowcount == 3)
+                        {
+                            worKsheeT.Cells[2, i] = ExportToExcel().Columns[i - 1].ColumnName;
+                            worKsheeT.Cells.Font.Color = System.Drawing.Color.Black;
+
+                        }
+
+                        worKsheeT.Cells[rowcount, i] = datarow[i - 1].ToString();
+
+                        if (rowcount > 3)
+                        {
+                            if (i == ExportToExcel().Columns.Count)
+                            {
+                                if (rowcount % 2 == 0)
+                                {
+                                    celLrangE = worKsheeT.Range[worKsheeT.Cells[rowcount, 1], worKsheeT.Cells[rowcount, ExportToExcel().Columns.Count]];
+                                }
+
+                            }
+                        }
+
+                    }
+
+                }
+
+                celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[rowcount, ExportToExcel().Columns.Count]];
+                celLrangE.EntireColumn.AutoFit();
+                Microsoft.Office.Interop.Excel.Borders border = celLrangE.Borders;
+                border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                border.Weight = 2d;
+
+                celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[2, ExportToExcel().Columns.Count]];
+
+                worKbooK.SaveAs(@"c:\gil_test.xlsx");
+                worKbooK.Close();
+                excel.Quit();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                worKsheeT = null;
+                celLrangE = null;
+                worKbooK = null;
+            }
         }
 
         private void button3_Click_3(object sender, EventArgs e)
