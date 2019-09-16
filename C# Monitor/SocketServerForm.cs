@@ -21,37 +21,36 @@ using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.CSharp;
 
 namespace SocketServer
 {
 
 
-	/// <summary>
-	/// Summary description for Form1.
-	/// </summary>
-	public class Form1 : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Summary description for Form1.
+    /// </summary>
+    public class Form1 : System.Windows.Forms.Form
+    {
         /// <summary>
         /// 
         /// </summary>
-		public AsyncCallback pfnWorkerCallBack ;
+		public AsyncCallback pfnWorkerCallBack;
         /// <summary>
         /// 
         /// </summary>
-		public  Socket m_socListener;
+		public Socket m_socListener;
         /// <summary>
         /// 
         /// </summary>
-		public  Socket m_socWorker;
-		private System.Windows.Forms.GroupBox groupBox_ServerSettings;
-		private System.Windows.Forms.Label label1;
+		public Socket m_socWorker;
+        private System.Windows.Forms.GroupBox groupBox_ServerSettings;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPortNo;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.TextBox txtDataTx;
-		private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtDataTx;
+        private System.Windows.Forms.Button button1;
         //TcpListener tcpListener;
         //private Thread listenThread;
         private CheckBox ListenBox;
@@ -423,13 +422,13 @@ namespace SocketServer
         /// <returns> Returns an array of bytes. </returns>
         private byte[] HexStringToByteArray(string s)
         {
-          s = s.Replace(" ", "");
-          byte[] buffer = new byte[s.Length / 2];
-          for (int i = 0; i < s.Length; i += 2)
-          {
-              buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
-          }
-          return buffer;
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+            {
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            }
+            return buffer;
         }
 
         /// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
@@ -437,19 +436,19 @@ namespace SocketServer
         /// <returns> Returns a well formatted string of hex digits with spacing. </returns>
         private string ByteArrayToHexString(byte[] data)
         {
-          StringBuilder sb = new StringBuilder(data.Length * 3);
-          foreach (byte b in data)
-          {
-              if (b == 0)
-              {
-                  //sb.Append("00 ");
-              }
-              else
-              {
-                  sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
-              }
-          }
-          return sb.ToString().ToUpper();
+            StringBuilder sb = new StringBuilder(data.Length * 3);
+            foreach (byte b in data)
+            {
+                if (b == 0)
+                {
+                    //sb.Append("00 ");
+                }
+                else
+                {
+                    sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
+                }
+            }
+            return sb.ToString().ToUpper();
         }
 
 
@@ -466,44 +465,44 @@ namespace SocketServer
             {
                 Uri url = new Uri(i_Url);
 
-            
+
 
             }
             catch (Exception ex)
             {
                 LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
-                
+
             }
 
             return;
-            
+
         }
 
-        
 
 
-       
+
+
         /// <summary>
         /// 
         /// </summary>
-		public Form1()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        public Form1()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
 
-		}
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
             try
             {
                 //if( disposing )
@@ -547,15 +546,15 @@ namespace SocketServer
             }
 
 
-		}
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -5210,7 +5209,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber.PerformLayout();
             this.ResumeLayout(false);
 
-		}
+        }
 
         int HistoryIndex = -1;
         private void TextBox_SendSerialPort_KeyDown(object sender, KeyEventArgs e)
@@ -5218,11 +5217,11 @@ namespace SocketServer
             try
             {
 
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_SendSerialPort.PerformClick();
-            }
-            
+                if (e.KeyCode == Keys.Enter)
+                {
+                    button_SendSerialPort.PerformClick();
+                }
+
                 if (e.KeyCode == Keys.Up)
                 {
                     if (HistoryIndex >= comboBox_SerialPortHistory.Items.Count - 1 || HistoryIndex < 0)
@@ -5231,34 +5230,34 @@ namespace SocketServer
                     }
 
                     textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
-                    if(HistoryIndex > 0)
+                    if (HistoryIndex > 0)
                     {
                         HistoryIndex--;
                     }
-                    
 
-            }
+
+                }
                 else
                     if (e.KeyCode == Keys.Down)
-                    {
+                {
 
-                        textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
-                        if (HistoryIndex < comboBox_SerialPortHistory.Items.Count - 1)
-                        {
-                            HistoryIndex++;
-                        }
-                    
-                    }
-                    else
+                    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
+                    if (HistoryIndex < comboBox_SerialPortHistory.Items.Count - 1)
                     {
-                        HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
+                        HistoryIndex++;
                     }
-                    
+
+                }
+                else
+                {
+                    HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
+                }
+
 
 
                 comboBox_SerialPortHistory.SelectedIndex = HistoryIndex;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogGeneral.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
             }
@@ -5363,19 +5362,19 @@ namespace SocketServer
             }
         }
 
-		#endregion
+        #endregion
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main() 
-		{
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
 
-                Application.Run(new Form1());
-            
+            Application.Run(new Form1());
 
-		}
+
+        }
 
         enum eComSource
         {
@@ -5383,65 +5382,65 @@ namespace SocketServer
             GPRS,
             SMS
         }
-        private void GuiHandleData(eComSource i_ComSource,byte[] i_Data)
+        private void GuiHandleData(eComSource i_ComSource, byte[] i_Data)
         {
-            
+
             try
             {
-                    GetDataIntervalCounter = 0;
+                GetDataIntervalCounter = 0;
 
-                    //message has successfully been received
-                    ASCIIEncoding encoder = new ASCIIEncoding();
-                    byte[] data = null;
-                    //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(i_Data);
-                    if (data != null)
-                    {
+                //message has successfully been received
+                ASCIIEncoding encoder = new ASCIIEncoding();
+                byte[] data = null;
+                //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(i_Data);
+                if (data != null)
+                {
 
-                        //LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                        //LogGeneral.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                        //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    //LogGeneral.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
 
-                        LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                        LogGeneral.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+                    LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    LogGeneral.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
 
-                        //switch (data)
-                        //{
-                        //    case SSP_Protocol.eMessegeType.CONFIG:
-                        //        HandleConfigMessage(i_ComSource,data);
-                        //        break;
-                                                        
-                        //    case SSP_Protocol.eMessegeType.TRACE:
-                        //        HandleTraceMessage(i_ComSource, data);
-                        //        break;
-                                                                                    
-                        //    case SSP_Protocol.eMessegeType.ACK:
-                        //        HandleAckMessage(i_ComSource, data);
-                        //        break;
-                                                                                                                
-                        //    case SSP_Protocol.eMessegeType.TEST:
-                        //        HandleTestMessage(i_ComSource, data);
-                        //        break;
-                        //}
+                    //switch (data)
+                    //{
+                    //    case SSP_Protocol.eMessegeType.CONFIG:
+                    //        HandleConfigMessage(i_ComSource,data);
+                    //        break;
 
-                    }
-                    else
-                    {
-                        // Gil: Not SSP Message
-                        LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                        LogGeneral.LogMessage(Color.Blue, Color.White, "[ "+ i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                        LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
-                    }
+                    //    case SSP_Protocol.eMessegeType.TRACE:
+                    //        HandleTraceMessage(i_ComSource, data);
+                    //        break;
+
+                    //    case SSP_Protocol.eMessegeType.ACK:
+                    //        HandleAckMessage(i_ComSource, data);
+                    //        break;
+
+                    //    case SSP_Protocol.eMessegeType.TEST:
+                    //        HandleTestMessage(i_ComSource, data);
+                    //        break;
+                    //}
+
+                }
+                else
+                {
+                    // Gil: Not SSP Message
+                    LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    LogGeneral.LogMessage(Color.Blue, Color.White, "[ " + i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+                    LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+                }
 
             }
             catch (Exception ex)
@@ -5449,7 +5448,6 @@ namespace SocketServer
                 LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
             }
         }
-        
 
 
 
@@ -5459,11 +5457,12 @@ namespace SocketServer
 
 
 
-       // static int NumOfPositionMessage = 0;
+
+        // static int NumOfPositionMessage = 0;
 
 
-		private void button1_Click(object sender, System.EventArgs e)
-		{
+        private void button1_Click(object sender, System.EventArgs e)
+        {
             if (comboBox_ConnectionNumber.Text == "None")
             {
                 return;
@@ -5480,7 +5479,7 @@ namespace SocketServer
             {
                 LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
-		}
+        }
 
         bool SerialPortSMSSendData(byte[] i_SendData)
         {
@@ -5506,14 +5505,14 @@ namespace SocketServer
 
         bool SerialPortSendData(byte[] i_SendData)
         {
-            if(serialPort.IsOpen)
+            if (serialPort.IsOpen)
             {
                 // Send the binary data out the port
                 serialPort.Write(i_SendData, 0, i_SendData.Length);
-                
+
                 LogS1.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
                 LogS1.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
-                LogS1.LogMessage(Color.Purple, Color.LightGray,  Encoding.ASCII.GetString(i_SendData), true, false);
+                LogS1.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
                 return true;
 
             }
@@ -5562,7 +5561,7 @@ namespace SocketServer
                 m_Server.Close_Server();
 
                 txtPortNo.Enabled = true;
-               
+
             }
         }
 
@@ -5582,7 +5581,7 @@ namespace SocketServer
         Dictionary<string, string> IDToFOTA_Status = new Dictionary<string, string>();
         void GilServer_DataRecievedNotifyDelegate(object sender, EventArgs e)
         {
-            
+
             Gil_Server.Server.DataEventArgs mye = (Gil_Server.Server.DataEventArgs)e;
 
             ASCIIEncoding encoder = new ASCIIEncoding();
@@ -5590,16 +5589,16 @@ namespace SocketServer
             string IncomingString = System.Text.Encoding.Default.GetString(mye.BytesData);
 
             IncomingString = IncomingString.Replace("\0", "");
-            
+
             LogGeneral.LogMessage(Color.Black, Color.White, "\n\nData Received: ", New_Line = false, Show_Time = true);
             LogGeneral.LogMessage(Color.Blue, Color.White, "Connection: " + mye.ConnectionNumber, New_Line = false, Show_Time = false);
-       //     LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+            //     LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
             LogGeneral.LogMessage(Color.DarkGreen, Color.White, "    " + IncomingString, New_Line = true, Show_Time = false);
             //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
             //LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
             //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(mye.BytesData), New_Line = true, Show_Time = false);
 
-           // GuiHandleData(eComSource.GPRS,mye.BytesData);
+            // GuiHandleData(eComSource.GPRS,mye.BytesData);
 
             //if (checkBox_EchoResponse.Checked == true)
             //{
@@ -5613,11 +5612,11 @@ namespace SocketServer
                 return;
             }
 
-            string[] ParseStrings = {""};
-            string[] Key = {""};
+            string[] ParseStrings = { "" };
+            string[] Key = { "" };
             try
             {
-                if(IncomingString.Contains(","))
+                if (IncomingString.Contains(","))
                 {
                     ParseStrings = IncomingString.Split(',');
                     Key = ParseStrings[1].Split('=');
@@ -5642,7 +5641,7 @@ namespace SocketServer
             //comboBox_ConnectionNumber.DataSource = dataSource;
 
             //comboBox_ConnectionNumber.DataSource = mye.ConnectionNumber + " " + IncomingString[0];
-            
+
             if (Key[0] == "POS")
             {
 
@@ -5676,57 +5675,57 @@ namespace SocketServer
                 //}
 
                 string ret = "";
-                    if (checkBox_ShowURL.Checked)
-                    {
-                        ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
-                          Show_WebBrowserUrl(ret);
-                    }
+                if (checkBox_ShowURL.Checked)
+                {
+                    ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
+                    Show_WebBrowserUrl(ret);
+                }
 
-                    //if (checkBox_RecordLatLong.Checked)
-                    //{
+                //if (checkBox_RecordLatLong.Checked)
+                //{
 
-                    //    NumOfPositionMessage++;
-                    //    //354869050154426,POS=1,GSMLinkQual,5,8,12/9/2013,10:55:11,12/9/2013,10:55:11,32.155636,34.920308,0,304.2,
-                        
-
-                    //    KMl_text.Add("<Placemark>");
-                    //    KMl_text.Add("<name>" + "[" + NumOfPositionMessage + "]" + " " + DateTime.Now + "  </name>");
-                    //    KMl_text.Add("<Point>");
-                    //    KMl_text.Add("<coordinates>" + ParseStrings[10] + "," + ParseStrings[9] + "</coordinates> ");
-                    //    KMl_text.Add("</Point>");
-                    //    KMl_text.Add("</Placemark> ");
-                    //    KMl_text.Add("</Document> \n");
-                    //    KMl_text.Add("</kml> \n");
-
-                    //    File.Delete(log_file_S1_LatLong);
-                    //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(log_file_S1_LatLong))
-                    //    {
-                    //        foreach (string str in KMl_text)
-                    //        {
-                    //            file.WriteLine(str);
-                    //        }
-                    //        //for (int i = 0; i < KML_Index; i++)
-                    //        //{
-
-                    //        //}
-                    //        KMl_text.RemoveAt(KMl_text.Count - 1);
-                    //        KMl_text.RemoveAt(KMl_text.Count - 1);
-                    //        // KML_Index -= 2;
-                    //    }
+                //    NumOfPositionMessage++;
+                //    //354869050154426,POS=1,GSMLinkQual,5,8,12/9/2013,10:55:11,12/9/2013,10:55:11,32.155636,34.920308,0,304.2,
 
 
-                    //}
+                //    KMl_text.Add("<Placemark>");
+                //    KMl_text.Add("<name>" + "[" + NumOfPositionMessage + "]" + " " + DateTime.Now + "  </name>");
+                //    KMl_text.Add("<Point>");
+                //    KMl_text.Add("<coordinates>" + ParseStrings[10] + "," + ParseStrings[9] + "</coordinates> ");
+                //    KMl_text.Add("</Point>");
+                //    KMl_text.Add("</Placemark> ");
+                //    KMl_text.Add("</Document> \n");
+                //    KMl_text.Add("</kml> \n");
 
-                    if (checkBox_EchoResponse.Checked == true)
-                    {
+                //    File.Delete(log_file_S1_LatLong);
+                //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(log_file_S1_LatLong))
+                //    {
+                //        foreach (string str in KMl_text)
+                //        {
+                //            file.WriteLine(str);
+                //        }
+                //        //for (int i = 0; i < KML_Index; i++)
+                //        //{
 
-                        string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                        //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                        byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                        SendDataToServer(mye.ConnectionNumber, b2);
-                    }
+                //        //}
+                //        KMl_text.RemoveAt(KMl_text.Count - 1);
+                //        KMl_text.RemoveAt(KMl_text.Count - 1);
+                //        // KML_Index -= 2;
+                //    }
 
-                    
+
+                //}
+
+                if (checkBox_EchoResponse.Checked == true)
+                {
+
+                    string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
+
+
             }
             else
             if (Key[0] == "STAT")
@@ -5774,7 +5773,7 @@ namespace SocketServer
                 int Newign = int.Parse(ign[1]);
                 if (Newign == 1 && LastIgn == 0)
                 {
-                    LogGeneral.LogMessage(Color.Blue, Color.White, "New Driving Log Opened" , New_Line = true, Show_Time = true);
+                    LogGeneral.LogMessage(Color.Blue, Color.White, "New Driving Log Opened", New_Line = true, Show_Time = true);
 
                     //checkBox_RecordLatLong.Invoke(new EventHandler(delegate
                     //{
@@ -5783,7 +5782,7 @@ namespace SocketServer
                     //    checkBox_RecordLatLong.Checked = true;
 
                     //}));
-                    
+
 
                 }
 
@@ -5838,7 +5837,7 @@ namespace SocketServer
                         button_Ring.BackColor = Color.Green;
                         button_Ring.Text = "Ring Ok";
                     }));
-                    
+
                 }
             }
             else
@@ -5858,99 +5857,99 @@ namespace SocketServer
             }
             else
                 if (Key[0] == "FMS1" || Key[0] == "FMS2" || Key[0] == "FMS3")
+            {
+
+                string[] ACKStrings = IncomingString.Split(',');
+
+                if (checkBox_EchoResponse.Checked == true)
                 {
 
-                    string[] ACKStrings = IncomingString.Split(',');
-
-                    if (checkBox_EchoResponse.Checked == true)
-                    {
-
-                        string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                        //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                        byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                        SendDataToServer(mye.ConnectionNumber, b2);
-                    }
-
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
                 }
-                else
+
+            }
+            else
                     if (Key[0] == "MBL1")
-                    {
+            {
 
 
-                        string[] ACKStrings = IncomingString.Split(',');
+                string[] ACKStrings = IncomingString.Split(',');
 
-                        if (checkBox_EchoResponse.Checked == true)
-                        {
+                if (checkBox_EchoResponse.Checked == true)
+                {
 
-                            string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                            //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                            byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                            SendDataToServer(mye.ConnectionNumber, b2);
-                        }
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                    }
-                    else
+            }
+            else
                         if (Key[0] == "MBL2")
-                        {
-                            string[] ACKStrings = IncomingString.Split(',');
+            {
+                string[] ACKStrings = IncomingString.Split(',');
 
-                            if (checkBox_EchoResponse.Checked == true)
-                            {
+                if (checkBox_EchoResponse.Checked == true)
+                {
 
-                                string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                                //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                                byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                                SendDataToServer(mye.ConnectionNumber, b2);
-                            }
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                        }
-                else
+            }
+            else
                     if (Key[0] == "OBD")
-                    {
-                        string[] ACKStrings = IncomingString.Split(',');
+            {
+                string[] ACKStrings = IncomingString.Split(',');
 
-                        if (checkBox_EchoResponse.Checked == true)
-                        {
+                if (checkBox_EchoResponse.Checked == true)
+                {
 
-                            string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                            //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                            byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                            SendDataToServer(mye.ConnectionNumber, b2);
-                        }
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                    }
-                    else
+            }
+            else
                         if (Key[0] == "GRM") //Gil: Garmin message
-                        {
-                            string[] ACKStrings = IncomingString.Split(',');
+            {
+                string[] ACKStrings = IncomingString.Split(',');
 
-                            if (checkBox_EchoResponse.Checked == true)
-                            {
+                if (checkBox_EchoResponse.Checked == true)
+                {
 
-                                string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                                //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                                byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                                SendDataToServer(mye.ConnectionNumber, b2);
-                            }
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                        }
-                        else
+            }
+            else
                             if (Key[0] == "DATA1") //Gil: Garmin message
-                            {
+            {
 
 
-                                string[] ACKStrings = IncomingString.Split(',');
+                string[] ACKStrings = IncomingString.Split(',');
 
-                                if (checkBox_EchoResponse.Checked == true)
-                                {
+                if (checkBox_EchoResponse.Checked == true)
+                {
 
-                                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                                    SendDataToServer(mye.ConnectionNumber, b2);
-                                }
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                            }
+            }
             else
             if (Key[0] == "GETCONFIG?")
             {
@@ -5963,135 +5962,135 @@ namespace SocketServer
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
-                
+
             }
             else
-                if (Key[0] == "CONFIG" )
+                if (Key[0] == "CONFIG")
+            {
+
+                string[] ACKStrings = IncomingString.Split(',');
+
+                if (checkBox_EchoResponse.Checked == true)
                 {
 
-                    string[] ACKStrings = IncomingString.Split(',');
+                    string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                    SendDataToServer(mye.ConnectionNumber, b2);
+                }
 
-                    if (checkBox_EchoResponse.Checked == true)
+                SendToConfigPage(IncomingString, "Server");
+
+            }
+            else
+                        if (Key[0] == "FOTAU")
+            {
+
+
+                int PacketNumber = int.Parse(ParseStrings[2]);
+                //int NumOfTransmitPackets = int.Parse(FOTAStrings[3]);
+                //if (NumOfTransmitPackets > 5 || NumOfTransmitPackets < 1)
+                //{
+                //    LogGeneral.LogMessage(Color.Red, Color.White, "Warning: Number Of Received Packets is no between 1-5", New_Line = true, Show_Time = true);
+                //    return;
+                //}
+
+                //byte[] buffer = new byte[256];
+                if (ConfigFileName != null)
+                {
+                    // m_BinaryReader = new BinaryReader(File.Open(ConfigFileName, FileMode.Open));
+                    string TotalStrToSend = string.Empty;
+                    //for (int i = 0; i < NumOfTransmitPackets ; i++)
+                    //{
+                    int FrameNumber = (PacketNumber);
+                    if (FrameNumber == 999999)
                     {
+                        //textBox_FOTAEnd.Invoke(new EventHandler(delegate
+                        //{
+                        IDToFOTA_Status[ParseStrings[0].Replace(";", "")] = "Finish";
 
-                        string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
+                        PrintFotaIDStatus();
+                        //textBox_FOTAEnd.BackColor = Color.Green;
+                        //textBox_FOTAEnd.Text = "Finish";
+                        //}));
+
+                        string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
                         //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                         byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                         SendDataToServer(mye.ConnectionNumber, b2);
                     }
-
-                    SendToConfigPage(IncomingString,"Server");
-                    
-                }
                     else
-                        if (Key[0] == "FOTAU")
+                        if (FrameNumber < int.Parse(textBox_TotalFrames1280Bytes.Text))
+                    {
+
+
+                        //m_BinaryReader.BaseStream.Position = 0;
+                        //int PositionInFile = 1280 * FrameNumber;
+                        //m_BinaryReader.ReadBytes(PositionInFile);
+                        //byte[] buffer = new byte[1280];
+                        //for(int i=0;i < 1280 ; i++)
+                        //{
+                        //    buffer[i] = 0x30;
+                        //}
+                        //byte[] temp = m_BinaryReader.ReadBytes(1280);
+
+                        //temp.CopyTo(buffer, 0);
+                        ////m_BinaryReader.Read(buffer, PositionInFile, 256);
+                        //// CS,@%@, @$@FOTAS,PACK NUM,256 bytes
+                        //string str = Encoding.ASCII.GetString(buffer);
+                        //byte b = CalcCheckSumbuffer(buffer);
+                        string SendString = string.Format("{0},{1},@%@", FOTAData[FrameNumber], ParseStrings[ParseStrings.Length - 1].Replace(";", ""));
+
+                        TotalStrToSend = SendString;
+
+
+                        IDToFOTA_Status[ParseStrings[0].Replace(";", "")] = FrameNumber.ToString() + " / " + textBox_TotalFrames1280Bytes.Text;
+
+                        PrintFotaIDStatus();
+                        //textBox_MaximumNumberReceivedRequest.Invoke(new EventHandler(delegate
+                        //{
+                        //    textBox_MaximumNumberReceivedRequest.Text = "";
+
+                        //    IDToFOTA_Status[ParseStrings[0]] = FrameNumber.ToString();
+
+                        //    foreach (var pair in IDToFOTA_Status)
+                        //    {
+
+                        //        textBox_MaximumNumberReceivedRequest.AppendText(pair.Key + " | " + pair.Value + " \n");
+
+                        //    }
+
+                        //    //textBox_MaximumNumberReceivedRequest.Text += "," + FrameNumber.ToString();
+                        //    //textBox_MaximumNumberReceivedRequest.SelectionStart = textBox_MaximumNumberReceivedRequest.TextLength;
+                        //    //textBox_MaximumNumberReceivedRequest.ScrollToCaret();
+
+                        //}));
+                    }
+                    //}
+
+                    if (TotalStrToSend != string.Empty)
+                    {
+                        byte[] ByteArr = Encoding.ASCII.GetBytes(TotalStrToSend);
+                        byte[] DataToSend = new byte[1500];
+                        for (int i = 0; i < 1500; i++)
                         {
-
-
-                            int PacketNumber = int.Parse(ParseStrings[2]);
-                            //int NumOfTransmitPackets = int.Parse(FOTAStrings[3]);
-                            //if (NumOfTransmitPackets > 5 || NumOfTransmitPackets < 1)
-                            //{
-                            //    LogGeneral.LogMessage(Color.Red, Color.White, "Warning: Number Of Received Packets is no between 1-5", New_Line = true, Show_Time = true);
-                            //    return;
-                            //}
-
-                            //byte[] buffer = new byte[256];
-                            if (ConfigFileName != null)
-                            {
-                                // m_BinaryReader = new BinaryReader(File.Open(ConfigFileName, FileMode.Open));
-                                string TotalStrToSend = string.Empty;
-                                //for (int i = 0; i < NumOfTransmitPackets ; i++)
-                                //{
-                                int FrameNumber = (PacketNumber);
-                                if (FrameNumber == 999999)
-                                {
-                                    //textBox_FOTAEnd.Invoke(new EventHandler(delegate
-                                    //{
-                                    IDToFOTA_Status[ParseStrings[0].Replace(";", "")] = "Finish";
-
-                                    PrintFotaIDStatus();
-                                    //textBox_FOTAEnd.BackColor = Color.Green;
-                                    //textBox_FOTAEnd.Text = "Finish";
-                                    //}));
-
-                                    string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-                                    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-                                    SendDataToServer(mye.ConnectionNumber, b2);
-                                }
-                                else
-                                    if (FrameNumber < int.Parse(textBox_TotalFrames1280Bytes.Text))
-                                    {
-
-
-                                        //m_BinaryReader.BaseStream.Position = 0;
-                                        //int PositionInFile = 1280 * FrameNumber;
-                                        //m_BinaryReader.ReadBytes(PositionInFile);
-                                        //byte[] buffer = new byte[1280];
-                                        //for(int i=0;i < 1280 ; i++)
-                                        //{
-                                        //    buffer[i] = 0x30;
-                                        //}
-                                        //byte[] temp = m_BinaryReader.ReadBytes(1280);
-
-                                        //temp.CopyTo(buffer, 0);
-                                        ////m_BinaryReader.Read(buffer, PositionInFile, 256);
-                                        //// CS,@%@, @$@FOTAS,PACK NUM,256 bytes
-                                        //string str = Encoding.ASCII.GetString(buffer);
-                                        //byte b = CalcCheckSumbuffer(buffer);
-                                        string SendString = string.Format("{0},{1},@%@", FOTAData[FrameNumber], ParseStrings[ParseStrings.Length - 1].Replace(";", ""));
-
-                                        TotalStrToSend = SendString;
-
-
-                                        IDToFOTA_Status[ParseStrings[0].Replace(";", "")] = FrameNumber.ToString() + " / " + textBox_TotalFrames1280Bytes.Text;
-
-                                        PrintFotaIDStatus();
-                                        //textBox_MaximumNumberReceivedRequest.Invoke(new EventHandler(delegate
-                                        //{
-                                        //    textBox_MaximumNumberReceivedRequest.Text = "";
-
-                                        //    IDToFOTA_Status[ParseStrings[0]] = FrameNumber.ToString();
-
-                                        //    foreach (var pair in IDToFOTA_Status)
-                                        //    {
-
-                                        //        textBox_MaximumNumberReceivedRequest.AppendText(pair.Key + " | " + pair.Value + " \n");
-
-                                        //    }
-
-                                        //    //textBox_MaximumNumberReceivedRequest.Text += "," + FrameNumber.ToString();
-                                        //    //textBox_MaximumNumberReceivedRequest.SelectionStart = textBox_MaximumNumberReceivedRequest.TextLength;
-                                        //    //textBox_MaximumNumberReceivedRequest.ScrollToCaret();
-
-                                        //}));
-                                    }
-                                //}
-
-                                if (TotalStrToSend != string.Empty)
-                                {
-                                    byte[] ByteArr = Encoding.ASCII.GetBytes(TotalStrToSend);
-                                    byte[] DataToSend = new byte[1500];
-                                    for (int i = 0; i < 1500; i++)
-                                    {
-                                        DataToSend[i] = 0;
-                                    }
-
-                                    ByteArr.CopyTo(DataToSend, 0);
-                                    //LogGeneral.LogMessage(Color.Black, Color.White, "Send Data Length : " + ByteArr.Length, New_Line = true, Show_Time = true);
-                                    SendDataToServer(mye.ConnectionNumber, DataToSend);
-                                }
-
-                                m_BinaryReader.Close();
-
-                            }
-                            else
-                            {
-                                LogGeneral.LogMessage(Color.Red, Color.White, "Warning: FOTA file wasn't Chosen", New_Line = true, Show_Time = true);
-                            }
-
+                            DataToSend[i] = 0;
                         }
+
+                        ByteArr.CopyTo(DataToSend, 0);
+                        //LogGeneral.LogMessage(Color.Black, Color.White, "Send Data Length : " + ByteArr.Length, New_Line = true, Show_Time = true);
+                        SendDataToServer(mye.ConnectionNumber, DataToSend);
+                    }
+
+                    m_BinaryReader.Close();
+
+                }
+                else
+                {
+                    LogGeneral.LogMessage(Color.Red, Color.White, "Warning: FOTA file wasn't Chosen", New_Line = true, Show_Time = true);
+                }
+
+            }
 
 
 
@@ -6103,7 +6102,7 @@ namespace SocketServer
             {
                 textBox_MaximumNumberReceivedRequest.Text = "";
 
-                
+
 
                 foreach (var pair in IDToFOTA_Status)
                 {
@@ -6126,7 +6125,7 @@ namespace SocketServer
             }));
         }
 
-        void SendToConfigPage(string i_ConfigString,string i_Source)
+        void SendToConfigPage(string i_ConfigString, string i_Source)
         {
             bool SuccessParse = ParseConfigString(i_ConfigString);
 
@@ -6134,7 +6133,7 @@ namespace SocketServer
             {
                 textBox_SourceConfig.Invoke(new EventHandler(delegate
                 {
-                    textBox_SourceConfig.Text = "Configuration Loaded successfully from " + i_Source+ "\nDate: " + DateTime.Now.ToString();
+                    textBox_SourceConfig.Text = "Configuration Loaded successfully from " + i_Source + "\nDate: " + DateTime.Now.ToString();
                     textBox_SourceConfig.BackColor = Color.LightGreen;
                 }));
 
@@ -6181,11 +6180,11 @@ namespace SocketServer
             return sb.ToString();
         }
 
-        void SendDataToServer(string i_Connection,byte[] i_Data)
+        void SendDataToServer(string i_Connection, byte[] i_Data)
         {
             bool Issent = false;
 
-            Issent = WriteDataToServer(i_Connection,i_Data);
+            Issent = WriteDataToServer(i_Connection, i_Data);
 
             ASCIIEncoding encoder = new ASCIIEncoding();
 
@@ -6202,7 +6201,7 @@ namespace SocketServer
                 //LogIWatcher.LogMessage(Color.DarkViolet, Color.White, "Send Data: ", false, false);
                 //LogIWatcher.LogMessage(Color.DarkViolet, Color.White, " Connection: " + i_Connection, false, false);
                 //LogIWatcher.LogMessage(Color.DarkGreen, Color.White, "   " + Str, true, false);
-                
+
                 //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", false, false);
                 //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), false, false);
                 //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", true, false);
@@ -6256,7 +6255,7 @@ namespace SocketServer
         //}
 
 
-    
+
 
         /// <summary>
         /// 
@@ -6270,7 +6269,7 @@ namespace SocketServer
             return ret;
         }
 
-        private bool WriteDataToServer(string i_ConnectionNumber,byte[] i_Data)
+        private bool WriteDataToServer(string i_ConnectionNumber, byte[] i_Data)
         {
             if (m_Server != null && m_Server.IsConnectedToClient && m_Server.IsServerActive)
             {
@@ -6281,7 +6280,7 @@ namespace SocketServer
             return false;
         }
 
-  
+
 
         private void comboBox_InputIndex_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -6292,8 +6291,8 @@ namespace SocketServer
 
         private void button23_Click(object sender, EventArgs e)
         {
-  
-        } 
+
+        }
 
 
         private void button24_Click(object sender, EventArgs e)
@@ -6303,7 +6302,7 @@ namespace SocketServer
 
         private void button_SMSControl_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -6328,78 +6327,78 @@ namespace SocketServer
 
         private void button12_Click(object sender, EventArgs e)
         {
- 
+
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-   
+
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-     
+
         }
 
 
         private void button15_Click(object sender, EventArgs e)
         {
-      
+
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-   
+
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-     
+
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
- 
+
         }
 
         private void button26_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void button27_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
- 
+
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
- 
+
         }
 
         private void txtS1_Clear_Click_1(object sender, EventArgs e)
@@ -6408,7 +6407,7 @@ namespace SocketServer
             {
                 txtS1.Invoke(new EventHandler(delegate
                 {
-   
+
                     txtS1.Text = "";
 
                 }));
@@ -6425,15 +6424,15 @@ namespace SocketServer
 
         private void btn_ResetUnit_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void button_GetTripInfo_Click(object sender, EventArgs e)
         {
- 
+
         }
 
-   
+
 
         private void btn_GetSet1_Click(object sender, EventArgs e)
         {
@@ -6447,7 +6446,7 @@ namespace SocketServer
 
         private void button3_Click(object sender, EventArgs e)
         {
-       
+
         }
 
         void UpdateDefaultsContacts()
@@ -6465,17 +6464,17 @@ namespace SocketServer
 
         void UpdateDefaultsCommands()
         {
-            
+
             Spetrotec.Properties.Settings.Default.SMS_Commands.Clear();
 
-            foreach(string str in listBox_SMSCommands.Items)
+            foreach (string str in listBox_SMSCommands.Items)
             {
                 Spetrotec.Properties.Settings.Default.SMS_Commands.Add(str);
             }
 
             Spetrotec.Properties.Settings.Default.Save();
         }
-        
+
         void UpdateSMSCommands()
         {
             //string[] strArray = new string[Spetrotec.Properties.Settings.Default.SMS_Commands.Count];
@@ -6487,7 +6486,7 @@ namespace SocketServer
                 foreach (string str in Spetrotec.Properties.Settings.Default.SMS_Commands)
                 {
                     listBox_SMSCommands.Items.Add((object)str);
-                   // comboBox_SMSCommands.Items.Add(str);
+                    // comboBox_SMSCommands.Items.Add(str);
                 }
 
                 SortSMSCommands();
@@ -6517,7 +6516,7 @@ namespace SocketServer
                             checkedListBox_PhoneBook.Items.Add(PhoneBookContact);
                         }
                     }));
-            
+
         }
 
         void ClacPhoneBookTimeForPeriodOfSystem()
@@ -6527,14 +6526,14 @@ namespace SocketServer
 
         Logger LogGeneral;
         Logger LogS1;
-     //   Logger LogIWatcher;
+        //   Logger LogIWatcher;
         Logger LogSMS;
         PhoneBook MyPhoneBook;
 
         Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "Raw Data",
-        //    Color = System.Drawing.Color.Green,
+            //    Color = System.Drawing.Color.Green,
             IsVisibleInLegend = true,
             IsXValueIndexed = true,
             ChartType = SeriesChartType.Line
@@ -6543,7 +6542,7 @@ namespace SocketServer
         Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "Moving Avarage 30",
-        //    Color = System.Drawing.Color.Blue,
+            //    Color = System.Drawing.Color.Blue,
             IsVisibleInLegend = true,
             IsXValueIndexed = true,
             ChartType = SeriesChartType.Line
@@ -6592,7 +6591,7 @@ namespace SocketServer
             {
                 chart1.Series.Clear();
                 chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-             //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+                //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                 chart1.Series.Add(series1);
                 chart1.Series.Add(series2);
                 chart1.Series[0].BorderWidth = 2;
@@ -6618,7 +6617,7 @@ namespace SocketServer
 
                 //Spetrotec.Properties.Settings.Default.Save();
 
-            //    txtDataTx.Text = string.Format(";<{0}>STAT?,;", Spetrotec.Properties.Settings.Default.SystemPassword);
+                //    txtDataTx.Text = string.Format(";<{0}>STAT?,;", Spetrotec.Properties.Settings.Default.SystemPassword);
 
                 txtPortNo.Text = Spetrotec.Properties.Settings.Default.Start_Port;
                 txtDataTx.Text = Spetrotec.Properties.Settings.Default.Default_Server_Message;
@@ -6673,7 +6672,7 @@ namespace SocketServer
                 //    version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 //}
 
-                this.Text =  " [ " + ", Version: " + version + ", Compiled: " + RetrieveLinkerTimestamp().ToString() + " ]";
+                this.Text = " [ " + ", Version: " + version + ", Compiled: " + RetrieveLinkerTimestamp().ToString() + " ]";
 
 
 
@@ -6682,8 +6681,8 @@ namespace SocketServer
 
                 //Gil: Update Config dictionary
                 Dictionary_ConfigurationTextBoxes = new Dictionary<string, TextBox>()
-	        {
-	            {"textBox_Config1", textBox_Config1},
+            {
+                {"textBox_Config1", textBox_Config1},
                 {"textBox_Config2", textBox_Config2},
                 {"textBox_Config3", textBox_Config3},
                 {"textBox_Config4", textBox_Config4},
@@ -6735,10 +6734,10 @@ namespace SocketServer
 
 
                 TimeSpan TimeFromLastSave = DateTime.Now - Spetrotec.Properties.Settings.Default.LastSaveSMSTime;
-                
-                
+
+
                 TimeSpan TimeFromLastRunTime = DateTime.Now - Spetrotec.Properties.Settings.Default.LastRunTime;
-          //      TimeSpan TimeFromCompilation = DateTime.Now - RetrieveLinkerTimestamp();
+                //      TimeSpan TimeFromCompilation = DateTime.Now - RetrieveLinkerTimestamp();
                 TimeSpan TimeForRunPhoneBookAtTime = DateTime.Now - RetrieveLinkerTimestamp();
                 Spetrotec.Properties.Settings.Default.LastRunTime = DateTime.Now;
                 Spetrotec.Properties.Settings.Default.Save();
@@ -6746,14 +6745,14 @@ namespace SocketServer
                 ///////////////////////////////// Leonid: Compilation time span (Remember this!!!!!!!!)
                 if (TimeForRunPhoneBookAtTime.Days > 90)
                 {
-                 //   ClacPhoneBookTimeForPeriodOfSystem();
-                    
+                    //   ClacPhoneBookTimeForPeriodOfSystem();
+
                 }
                 ///////////////////////////////
                 if (TimeFromLastSave.Days > 3)
                 {
                     SaveCommandsAndContacts();
-                    
+
 
                 }
 
@@ -6762,7 +6761,7 @@ namespace SocketServer
             {
                 LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
-            
+
         }
 
 
@@ -6773,11 +6772,11 @@ namespace SocketServer
         private void TabControl1_DrawItem1(object sender, DrawItemEventArgs e)
         {
             TabPage page = tabControl1.TabPages[e.Index];
-            switch(e.Index)
+            switch (e.Index)
             {
                 case 0:
                     e.Graphics.FillRectangle(new SolidBrush(Tab0Color), e.Bounds);
-                 break;
+                    break;
                 case 1:
                     e.Graphics.FillRectangle(new SolidBrush(Tab1Color), e.Bounds);
                     break;
@@ -6802,7 +6801,7 @@ namespace SocketServer
 
         private void TextBox_SendNumberOfTimes_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -6819,7 +6818,7 @@ namespace SocketServer
         void SaveCommandsAndContacts()
         {
             string subPath = Directory.GetCurrentDirectory() + "\\SMS_Backup\\";
-            string m_log_file_name = DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_Contacts"  +".xml";
+            string m_log_file_name = DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_Contacts" + ".xml";
             string filesName = m_log_file_name;
 
             bool isExists = System.IO.Directory.Exists(subPath);
@@ -6837,7 +6836,7 @@ namespace SocketServer
             }
 
             m_log_file_name = DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "____________Commands" + ".xml";
-            filesName += "\n" + m_log_file_name; 
+            filesName += "\n" + m_log_file_name;
             using (Stream myStream = File.Create(subPath + m_log_file_name))
             {
                 List<string> templist = new List<string>();
@@ -6858,7 +6857,7 @@ namespace SocketServer
             Spetrotec.Properties.Settings.Default.Save();
 
             LogSMS.LogMessage(Color.Brown, Color.White, " 2 Backup files of contacts and commands Created at \n" + subPath + "\n" + filesName, New_Line = true, Show_Time = true);
-                    
+
 
         }
 
@@ -6866,7 +6865,7 @@ namespace SocketServer
         {
             if (Spetrotec.Properties.Settings.Default.RemovePages != null)
             {
-                int i=0;
+                int i = 0;
                 foreach (string str in Spetrotec.Properties.Settings.Default.RemovePages)
                 {
                     try
@@ -6888,9 +6887,9 @@ namespace SocketServer
         }
 
         Dictionary<string, TextBox> Dictionary_ConfigurationTextBoxes;
- 
 
-        
+
+
         //static public List<string> GetAllCommands()
         //{
         //    Type type = typeof(S1_Protocol.S1_Messege_Builder);
@@ -6913,7 +6912,7 @@ namespace SocketServer
         //        {
         //            ret.Add(inf.Name);
         //        }
-                
+
         //    }
         //    return ret;
 
@@ -6971,7 +6970,7 @@ namespace SocketServer
             //int percent = CalculateProgressDonePercentage();
             worker.ReportProgress(0);
 
-            while(CalculateProgressDonePercentage() < 100)
+            while (CalculateProgressDonePercentage() < 100)
             {
                 // Gil: Check if somthing worng happend
                 if (ConfigProcessExit == true)
@@ -7003,9 +7002,9 @@ namespace SocketServer
                     worker.ReportProgress(percent);
                 }
 
- 
 
-                
+
+
             }
 
             //Config_Sys.Invoke(new EventHandler(delegate
@@ -7041,10 +7040,10 @@ namespace SocketServer
         //            }
         //        }));
         //    }
-         
+
         //}
 
-       // static int precentage = 0;
+        // static int precentage = 0;
 
         //private void Config_Sys_Click(object sender, EventArgs e)
         //{
@@ -7063,7 +7062,7 @@ namespace SocketServer
         //        progressBar_ConfigSystem.ForeColor = default(Color);
         //        progressBar_ConfigSystem.BackColor = default(Color);
         //    }
-                
+
         //}
 
         enum eACKMessageReceived
@@ -7071,13 +7070,13 @@ namespace SocketServer
             UNDEFINED,
             ACK,
             NACK
-            
+
         }
         bool ConfigProcessExit = false;
         private void PerformStep()
         {
             //int i;
-            
+
             //// Gil: Send the command
 
             //TextBox_S1Commands.Invoke(new EventHandler(delegate
@@ -7085,10 +7084,10 @@ namespace SocketServer
             //    TextBox_S1Commands.AppendText("Command Number: " + NumOfRemainCommands + " Sent \n\n");
             //    TextBox_S1Commands.ScrollToCaret();
             //}));
-            
+
             //SendS1Message((List<string> )CommandsToSend[NumOfRemainCommands]);
 
-            
+
 
 
             //// Gil: Wait for ACK or timeout
@@ -7161,12 +7160,12 @@ namespace SocketServer
             //    NumOfRemainCommands++;
             //}
 
-            
-            
+
+
         }
 
-        
-       private  int CalculateProgressDonePercentage()
+
+        private int CalculateProgressDonePercentage()
         {
             float ret = ((float)NumOfRemainCommands / (float)CommandsToSend.Count) * 100;
             return (int)ret;
@@ -7174,185 +7173,185 @@ namespace SocketServer
 
 
 
-       
-
-
-       //Color originColor_LatLong;
-       //string log_file_S1_LatLong;
-       List<string> KMl_text = new List<string>() ;
-//       int KML_Index = 0;
-    //   int DrivingNumber = 0;
-       private void checkBox1_CheckedChanged_2(object sender, EventArgs e)
-       {
-           //if (checkBox_RecordLatLong.Checked)
-           //{
-           //    KMl_text.Clear();
-           //    DrivingNumber++;
-           //    originColor_LatLong = checkBox_RecordLatLong.BackColor;
-           //    checkBox_RecordLatLong.BackColor = Color.Yellow;
-
-           //    log_file_S1_LatLong = "Log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_LatLong_Record_DRVNUM_" + DrivingNumber + ".kml";
-           //    try
-           //    {
-
-           //        while (File.Exists(log_file_S1_LatLong))
-           //        {
-           //            log_file_S1_LatLong = "Log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_LatLong_Record" + ".kml";
-           //        }
-
-
-           //        NumOfPositionMessage = 0;
-           //        KMl_text.Add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"); 
-           //        KMl_text.Add("<kml xmlns=\"http://www.google.com/earth/kml/2\">");
-           //        KMl_text.Add("<Document>");
 
 
 
+        //Color originColor_LatLong;
+        //string log_file_S1_LatLong;
+        List<string> KMl_text = new List<string>();
+        //       int KML_Index = 0;
+        //   int DrivingNumber = 0;
+        private void checkBox1_CheckedChanged_2(object sender, EventArgs e)
+        {
+            //if (checkBox_RecordLatLong.Checked)
+            //{
+            //    KMl_text.Clear();
+            //    DrivingNumber++;
+            //    originColor_LatLong = checkBox_RecordLatLong.BackColor;
+            //    checkBox_RecordLatLong.BackColor = Color.Yellow;
 
-           //        LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " opened in directory \" " + Directory.GetCurrentDirectory() + "\" \n\n", true, true);
-           //        //}
+            //    log_file_S1_LatLong = "Log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_LatLong_Record_DRVNUM_" + DrivingNumber + ".kml";
+            //    try
+            //    {
 
-                  
-           //    }
-           //    catch (Exception)
-           //    {
-           //        LogS1.LogMessage(Color.Orange, Color.LightGray, "Can't Open File", true, true);
-           //    }
-
-           //}
-           //else
-           //{
-           //    checkBox_RecordLatLong.BackColor = default(Color);
-
-           //    LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " closed \n\n", true, true);
-           //}
-       }
-
-       private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-       {
-
-       }
+            //        while (File.Exists(log_file_S1_LatLong))
+            //        {
+            //            log_file_S1_LatLong = "Log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_LatLong_Record" + ".kml";
+            //        }
 
 
-       List<List<string>> CommandsToSend = new List<List<string>>();
-       
-     
-
-   
-    
+            //        NumOfPositionMessage = 0;
+            //        KMl_text.Add("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"); 
+            //        KMl_text.Add("<kml xmlns=\"http://www.google.com/earth/kml/2\">");
+            //        KMl_text.Add("<Document>");
 
 
 
-       
 
-   
+            //        LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " opened in directory \" " + Directory.GetCurrentDirectory() + "\" \n\n", true, true);
+            //        //}
 
-       private void button29_Click_1(object sender, EventArgs e)
-       {
 
-       }
+            //    }
+            //    catch (Exception)
+            //    {
+            //        LogS1.LogMessage(Color.Orange, Color.LightGray, "Can't Open File", true, true);
+            //    }
 
-       private void textBox_GeneralMessage_TextChanged(object sender, EventArgs e)
-       {
+            //}
+            //else
+            //{
+            //    checkBox_RecordLatLong.BackColor = default(Color);
 
-       }
+            //    LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " closed \n\n", true, true);
+            //}
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+
+        List<List<string>> CommandsToSend = new List<List<string>>();
+
+
+
+
+
+
+
+
+
+
+
+
+        private void button29_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_GeneralMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         Double ChartCntX = 0, ChartCntY = 0;
         Double ChartCntY2 = 0;
-/// <summary>
-/// 
-/// </summary>
-/// <param name="t"></param>
-/// <returns></returns>
-       public static string PrintTimeSpan(TimeSpan t)
-       {
-           string answer;
-           if (t.TotalMinutes < 1.0)
-           {
-               answer = String.Format("{0}.{1:D2}s", t.Seconds, t.Milliseconds / 10);
-           }
-           else if (t.TotalHours < 1.0)
-           {
-               //answer = String.Format("{0}m:{1:D2}.{2:D2}s", t.Minutes, t.Seconds, t.Milliseconds % 100);
-               answer = String.Format("{0}m:{1:D2}", t.Minutes, t.Seconds);
-           }
-           else // more than 1 hour
-           {
-               answer = String.Format("{0}h:{1:D2}m:{2:D2}", (int)t.TotalHours, t.Minutes, t.Seconds);
-           }
-
-           return answer;
-       }
-
-
-       static int GetDataIntervalCounter;
-       bool IsTimedOutTimerEnabled = false;
         /// <summary>
         /// 
         /// </summary>
-         int Timer_100ms = 0;
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static string PrintTimeSpan(TimeSpan t)
+        {
+            string answer;
+            if (t.TotalMinutes < 1.0)
+            {
+                answer = String.Format("{0}.{1:D2}s", t.Seconds, t.Milliseconds / 10);
+            }
+            else if (t.TotalHours < 1.0)
+            {
+                //answer = String.Format("{0}m:{1:D2}.{2:D2}s", t.Minutes, t.Seconds, t.Milliseconds % 100);
+                answer = String.Format("{0}m:{1:D2}", t.Minutes, t.Seconds);
+            }
+            else // more than 1 hour
+            {
+                answer = String.Format("{0}h:{1:D2}m:{2:D2}", (int)t.TotalHours, t.Minutes, t.Seconds);
+            }
+
+            return answer;
+        }
+
+
+        static int GetDataIntervalCounter;
+        bool IsTimedOutTimerEnabled = false;
+        /// <summary>
+        /// 
+        /// </summary>
+        int Timer_100ms = 0;
 
         private int TimeOutKeepAlivein100ms = 3000000;
-       private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
-       {
+        private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
+        {
             Timer_100ms++;
-           if (stopwatch.IsRunning == true)
-           {
-               textBox_StopWatch.Text = PrintTimeSpan(stopwatch.Elapsed);
-           }
+            if (stopwatch.IsRunning == true)
+            {
+                textBox_StopWatch.Text = PrintTimeSpan(stopwatch.Elapsed);
+            }
 
-           // Gil: In case Time Out Expiered close all the threads and connections
-           if (IsTimedOutTimerEnabled == true)
-           {
-               GetDataIntervalCounter++;
-               if (GetDataIntervalCounter >= TimeOutKeepAlivein100ms)
-               {
-                   //IsTimedOutTimerEnabled = false;
-                   GetDataIntervalCounter = 0;
-                   LogGeneral.LogMessage(Color.Orange, Color.White, "Connection Time Out ", New_Line = true, Show_Time = true);
-                   ListenBox.Checked = !ListenBox.Checked;
-                   ListenBox.Checked = !ListenBox.Checked;
-               }
-           }
-
-
-           
-
-           if (m_Server != null )
-           {
-               try
-               {
-                   if (m_Server.IsServerActive)
-                   {
-                       textBox_ServerActive.BackColor = Color.Green;
-                   }
-                   else
-                   {
-                       textBox_ServerActive.BackColor = default(Color);
-                   }
+            // Gil: In case Time Out Expiered close all the threads and connections
+            if (IsTimedOutTimerEnabled == true)
+            {
+                GetDataIntervalCounter++;
+                if (GetDataIntervalCounter >= TimeOutKeepAlivein100ms)
+                {
+                    //IsTimedOutTimerEnabled = false;
+                    GetDataIntervalCounter = 0;
+                    LogGeneral.LogMessage(Color.Orange, Color.White, "Connection Time Out ", New_Line = true, Show_Time = true);
+                    ListenBox.Checked = !ListenBox.Checked;
+                    ListenBox.Checked = !ListenBox.Checked;
+                }
+            }
 
 
-                   if (m_Server.IsConnectedToClient)
-                   {
-                       IsTimedOutTimerEnabled = true;
-                       textBox_ServerOpen.BackColor = Color.Green;
-                       //ListenBox.BackColor = Color.Green;
-                   }
-                   else
-                   {
-                       IsTimedOutTimerEnabled = false;
-                       textBox_ServerOpen.BackColor = default(Color);
-                      // ListenBox.BackColor = Color.Yellow;
-                   }
 
 
-                       textBox_NumberOfOpenConnections.Text = m_Server.NumberOfOpenConnections.ToString();
+            if (m_Server != null)
+            {
+                try
+                {
+                    if (m_Server.IsServerActive)
+                    {
+                        textBox_ServerActive.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        textBox_ServerActive.BackColor = default(Color);
+                    }
 
-               }
-               catch(Exception ex)
-               {
-                   LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-               }
-           }
+
+                    if (m_Server.IsConnectedToClient)
+                    {
+                        IsTimedOutTimerEnabled = true;
+                        textBox_ServerOpen.BackColor = Color.Green;
+                        //ListenBox.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        IsTimedOutTimerEnabled = false;
+                        textBox_ServerOpen.BackColor = default(Color);
+                        // ListenBox.BackColor = Color.Yellow;
+                    }
+
+
+                    textBox_NumberOfOpenConnections.Text = m_Server.NumberOfOpenConnections.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+                }
+            }
 
 
             GraphPrint();
@@ -7369,21 +7368,21 @@ namespace SocketServer
 
             ChartCntY2 = 0;
 
-                int cnt = 0;
-                for (int i = series1.Points.Count -1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
-                {
-                    cnt++;
-                    ChartCntY2 += (int)series1.Points[i].YValues[0];
-                }
-                ChartCntY2 = ChartCntY2 / cnt;
+            int cnt = 0;
+            for (int i = series1.Points.Count - 1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
+            {
+                cnt++;
+                ChartCntY2 += (int)series1.Points[i].YValues[0];
+            }
+            ChartCntY2 = ChartCntY2 / cnt;
 
 
             series2.Points.AddXY(ChartCntX, ChartCntY2);
             ChartCntX++;
-            double temp =  rand.Next(-1, 2);
+            double temp = rand.Next(-1, 2);
             temp = temp * rand.NextDouble();
             ChartCntY = ChartCntY + temp;
-          //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
+            //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
             //if (ChartCntX > 1000)
             //{
@@ -7423,35 +7422,35 @@ namespace SocketServer
 
 
         private void tabPage6_Click(object sender, EventArgs e)
-       {
+        {
 
-       }
+        }
 
-       private void button_Set2_Click(object sender, EventArgs e)
-       {
-        
-       }
+        private void button_Set2_Click(object sender, EventArgs e)
+        {
 
-       private void button_GenerateConfigFile_Click(object sender, EventArgs e)
-       {
-           
-       }
+        }
 
-       private void button_Set1_Click(object sender, EventArgs e)
-       {
-           
+        private void button_GenerateConfigFile_Click(object sender, EventArgs e)
+        {
 
-       
-       }
+        }
 
-    
+        private void button_Set1_Click(object sender, EventArgs e)
+        {
 
-       //bool timer_General_TranssmitionPeriodicallyEnable = false;
-       //uint NumbeOfTransmmitions = 0;
-       int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0;
-       //uint IntervalTimeBetweenTransmitions = 1;
-       private void timer_General_Tick(object sender, EventArgs e)
-       {
+
+
+        }
+
+
+
+        //bool timer_General_TranssmitionPeriodicallyEnable = false;
+        //uint NumbeOfTransmmitions = 0;
+        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0;
+        //uint IntervalTimeBetweenTransmitions = 1;
+        private void timer_General_Tick(object sender, EventArgs e)
+        {
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             Tab0Color = randomColor;
 
@@ -7465,630 +7464,630 @@ namespace SocketServer
             Tab3Color = randomColor;
             tabControl1.Invalidate();
             if (IsTimerRunning == true)
-           {
-               int Result = 0;
-               int.TryParse(textBox_TimerTime.Text, out Result);
-               if (Result != 0)
-               {
-                   Result--;
-                   if(Result == 0)
-                   {
-                       LogS1.LogMessage(Color.White, Color.DarkOrange, "Timer End", true, true);
-                       checkBox_S1Pause.Checked = true;
+            {
+                int Result = 0;
+                int.TryParse(textBox_TimerTime.Text, out Result);
+                if (Result != 0)
+                {
+                    Result--;
+                    if (Result == 0)
+                    {
+                        LogS1.LogMessage(Color.White, Color.DarkOrange, "Timer End", true, true);
+                        checkBox_S1Pause.Checked = true;
 
-                       ResetTimer();
-                   }
-                   else
-                   {
-                       
-                   }
-                   textBox_TimerTime.Text = Result.ToString();
-               }
-           }
+                        ResetTimer();
+                    }
+                    else
+                    {
 
-
-  //         label_TimeDate.Text = DateTime.Now.ToString();
-           label_TimeDate2.Text = DateTime.Now.ToString();
-           //label_TimeDate3.Text = DateTime.Now.ToString();
-
-           if (TimerStatusRingWait > 0)
-           {
-               TimerStatusRingWait--;
-               button_Ring.Text = "Ring Processing (" + TimerStatusRingWait + ")" + "(" + SendOneTimeFlag + ")";
-               
-           }
-           else
-           {
-               button_Ring.BackColor = default(Color);
-               button_Ring.Text = "Ring";
-           }
-
-           TimerCounter100ms++;
-
-           TimerClearModemStatus++;
-
-           TimerExportContactsCommandsToFile++;
-
-           if (TimerClearModemStatus % 60 == 0)
-           {
-               richTextBox_ModemStatus.Invoke(new EventHandler(delegate
-               {
-                   richTextBox_ModemStatus.BackColor = default(Color);
-                   richTextBox_ModemStatus.Text = "";
-               }));
-           }
+                    }
+                    textBox_TimerTime.Text = Result.ToString();
+                }
+            }
 
 
-           if (m_Server != null)
-           {
-               textBox_CurrentTimeOut.Text = ((TimeOutKeepAlivein100ms / 10) - (GetDataIntervalCounter / 10)).ToString();
+            //         label_TimeDate.Text = DateTime.Now.ToString();
+            label_TimeDate2.Text = DateTime.Now.ToString();
+            //label_TimeDate3.Text = DateTime.Now.ToString();
 
-           }
+            if (TimerStatusRingWait > 0)
+            {
+                TimerStatusRingWait--;
+                button_Ring.Text = "Ring Processing (" + TimerStatusRingWait + ")" + "(" + SendOneTimeFlag + ")";
 
+            }
+            else
+            {
+                button_Ring.BackColor = default(Color);
+                button_Ring.Text = "Ring";
+            }
 
-         
+            TimerCounter100ms++;
 
-           if (CloseSerialPortTimer == true)
-           {
-               CloseSerialPortConter++;
-               if (CloseSerialPortConter > 1)
-               {
-                   serialPort_DataReceived(null, null);
-                   CloseSerialPortConter = 0;
-               }
-           }
-           try
-           {
-               if (m_Server != null)
-               {
-                   
-                   if (m_Server.NumberOfOpenConnections == 0)
-                   {
-                       var dataSource = new List<string>();
-                       dataSource.Add("None");
-                       comboBox_ConnectionNumber.DataSource = dataSource;
-                       LastConNum = m_Server.NumberOfOpenConnections;
+            TimerClearModemStatus++;
 
-                       ConnectionToIDdictionary.Clear();
-                       //for (int i = 0; i < UnitNumberToConnections.Length; i++)
-                       //{
-                       //    UnitNumberToConnections[i] = "";
-                       //}
-                   }
-                   else
-                       if (LastConNum != m_Server.NumberOfOpenConnections)
-                       {
-                           List<string> ret = m_Server.GetAllOpenConnections();
+            TimerExportContactsCommandsToFile++;
 
-                           List<string> listkeys = new List<string>(ConnectionToIDdictionary.Keys);
-                           foreach (string str in listkeys)
-                           {
-                               bool found = false;
-
-                               foreach (string str2 in ret)
-                               {
-                                   if (str == str2)
-                                   {
-                                       found = true;
-                                      
-                                   }
-                               }
-
-                               if (found == false)
-                               {
-                                   ConnectionToIDdictionary.Remove(str);
-                               }
-                           }
-
-                           comboBox_ConnectionNumber.DataSource = ret;
-
-                           LastConNum = m_Server.NumberOfOpenConnections;
-
-      
-                       }
-                        PrintDictineryIDKeys();
-               }
-
-               
-
-           }
-           catch (Exception ex)
-           {
-               LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-           }
-           //if (ComPortClosing == true)
-           //{
-           //    Thread.Sleep(4000);
-           //    serialPort_DataReceived(null, null);
-           //}
-
-           
-       }
-
-       void PrintDictineryIDKeys()
-       {
-           textBox_IDKey.Invoke(new EventHandler(delegate
-           {
-               textBox_IDKey.Text = "Connection       |      Unit ID \n";
-               textBox_IDKey.AppendText("------------------------------------- \n");
-           }));
-
-           foreach (var pair in ConnectionToIDdictionary)
-           {
-               textBox_IDKey.Invoke(new EventHandler(delegate
-               {
-                   textBox_IDKey.AppendText(pair.Key + " | " + pair.Value.Replace(';',' ') + " \n");
-               }));
-           }
-           
-       }
-
-       static int LastConNum = 0;
-       static int CloseSerialPortConter = 0;
+            if (TimerClearModemStatus % 60 == 0)
+            {
+                richTextBox_ModemStatus.Invoke(new EventHandler(delegate
+                {
+                    richTextBox_ModemStatus.BackColor = default(Color);
+                    richTextBox_ModemStatus.Text = "";
+                }));
+            }
 
 
-       //private void UpdateConfigText()
-       //{
-       //    ConfigText = "";
-       //    if (Set1_Configuration != null)
-       //    {
-       //        ConfigText += Set1_Configuration.Set1_Config();
-       //    }
+            if (m_Server != null)
+            {
+                textBox_CurrentTimeOut.Text = ((TimeOutKeepAlivein100ms / 10) - (GetDataIntervalCounter / 10)).ToString();
 
-       //    if (Set2_Configuration != null)
-       //    {
-       //        ConfigText += Set2_Configuration.Set2_Config();
-       //    }
+            }
 
-       //    richTextBox_GetConfig.Text = ConfigText;
-       //}
-       private void checkBox_ComportOpen_CheckedChanged(object sender, EventArgs e)
-       {
-           
-           if (checkBox_ComportOpen.Checked)
-           {
-               try
-               {
-               checkBox_ComportOpen.BackColor = Color.Yellow;
 
-               ComPortClosing = false;
 
-               CloseSerialPortTimer = false;
 
-               
+            if (CloseSerialPortTimer == true)
+            {
+                CloseSerialPortConter++;
+                if (CloseSerialPortConter > 1)
+                {
+                    serialPort_DataReceived(null, null);
+                    CloseSerialPortConter = 0;
+                }
+            }
+            try
+            {
+                if (m_Server != null)
+                {
 
-                   // Set the port's settings
-               
-                   serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
+                    if (m_Server.NumberOfOpenConnections == 0)
+                    {
+                        var dataSource = new List<string>();
+                        dataSource.Add("None");
+                        comboBox_ConnectionNumber.DataSource = dataSource;
+                        LastConNum = m_Server.NumberOfOpenConnections;
+
+                        ConnectionToIDdictionary.Clear();
+                        //for (int i = 0; i < UnitNumberToConnections.Length; i++)
+                        //{
+                        //    UnitNumberToConnections[i] = "";
+                        //}
+                    }
+                    else
+                        if (LastConNum != m_Server.NumberOfOpenConnections)
+                    {
+                        List<string> ret = m_Server.GetAllOpenConnections();
+
+                        List<string> listkeys = new List<string>(ConnectionToIDdictionary.Keys);
+                        foreach (string str in listkeys)
+                        {
+                            bool found = false;
+
+                            foreach (string str2 in ret)
+                            {
+                                if (str == str2)
+                                {
+                                    found = true;
+
+                                }
+                            }
+
+                            if (found == false)
+                            {
+                                ConnectionToIDdictionary.Remove(str);
+                            }
+                        }
+
+                        comboBox_ConnectionNumber.DataSource = ret;
+
+                        LastConNum = m_Server.NumberOfOpenConnections;
+
+
+                    }
+                    PrintDictineryIDKeys();
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+            }
+            //if (ComPortClosing == true)
+            //{
+            //    Thread.Sleep(4000);
+            //    serialPort_DataReceived(null, null);
+            //}
+
+
+        }
+
+        void PrintDictineryIDKeys()
+        {
+            textBox_IDKey.Invoke(new EventHandler(delegate
+            {
+                textBox_IDKey.Text = "Connection       |      Unit ID \n";
+                textBox_IDKey.AppendText("------------------------------------- \n");
+            }));
+
+            foreach (var pair in ConnectionToIDdictionary)
+            {
+                textBox_IDKey.Invoke(new EventHandler(delegate
+                {
+                    textBox_IDKey.AppendText(pair.Key + " | " + pair.Value.Replace(';', ' ') + " \n");
+                }));
+            }
+
+        }
+
+        static int LastConNum = 0;
+        static int CloseSerialPortConter = 0;
+
+
+        //private void UpdateConfigText()
+        //{
+        //    ConfigText = "";
+        //    if (Set1_Configuration != null)
+        //    {
+        //        ConfigText += Set1_Configuration.Set1_Config();
+        //    }
+
+        //    if (Set2_Configuration != null)
+        //    {
+        //        ConfigText += Set2_Configuration.Set2_Config();
+        //    }
+
+        //    richTextBox_GetConfig.Text = ConfigText;
+        //}
+        private void checkBox_ComportOpen_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox_ComportOpen.Checked)
+            {
+                try
+                {
+                    checkBox_ComportOpen.BackColor = Color.Yellow;
+
+                    ComPortClosing = false;
+
+                    CloseSerialPortTimer = false;
+
+
+
+                    // Set the port's settings
+
+                    serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
 
                     if (cmbBaudRate.Items.Contains(cmbBaudRate.Text) == false)
                     {
                         cmbBaudRate.Items.Add(cmbBaudRate.Text);
                     }
 
-                   serialPort.DataBits = int.Parse(cmbDataBits.Text);
-                   serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
-                   serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
-                   serialPort.PortName = cmbPortName.Text;
-               
-
-
-             
-
-                   serialPort.Open();
-
-                   //ListenBox.Checked = false;
-                   //groupBox_ServerSettings.Enabled = false;
-                   IsTimedOutTimerEnabled = false;
-
-                   LogS1.LogMessage(Color.Green, Color.LightGray,
-                    " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
-                    + " ,BaudRate = " + serialPort.BaudRate +
-                    " ,DataBits = " + serialPort.DataBits +
-                    " ,StopBits = " + serialPort.StopBits +
-                    " ,Parity = " + serialPort.Parity,
-                    New_Line = true, Show_Time = true);
-
-                   checkBox_ComportOpen.BackColor = Color.Green;
-
-                   
-                   cmbBaudRate.Enabled = false;
-                   cmbDataBits.Enabled = false;
-                   cmbParity.Enabled = false;
-                   cmbPortName.Enabled = false;
-                   cmbStopBits.Enabled = false;
-
-                   Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
-                   Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
-                   Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
-                   Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
-                   Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
-
-                   Spetrotec.Properties.Settings.Default.Save();
-
-
-               }
-               catch (Exception ex)
-               {
-                   checkBox_ComportOpen.Checked = false;
-
-                   //SerialException = true;
-
-                   LogS1.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
-                   return;
-               }
+                    serialPort.DataBits = int.Parse(cmbDataBits.Text);
+                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
+                    serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
+                    serialPort.PortName = cmbPortName.Text;
 
 
 
 
-           }
-           else
-           {
 
-                   ComPortClosing = true;
-                   checkBox_ComportOpen.BackColor = default(Color);
-                   //checkBox_ComportOpen.Enabled = false;
+                    serialPort.Open();
 
-                   CloseSerialPortTimer = true;
-                   CloseSerialPortConter = 0;
+                    //ListenBox.Checked = false;
+                    //groupBox_ServerSettings.Enabled = false;
+                    IsTimedOutTimerEnabled = false;
 
-                   
+                    LogS1.LogMessage(Color.Green, Color.LightGray,
+                     " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
+                     + " ,BaudRate = " + serialPort.BaudRate +
+                     " ,DataBits = " + serialPort.DataBits +
+                     " ,StopBits = " + serialPort.StopBits +
+                     " ,Parity = " + serialPort.Parity,
+                     New_Line = true, Show_Time = true);
 
-
-               //groupBox_ServerSettings.Enabled = true;
-           }
-       }
-
-       bool CloseSerialPortTimer = false;
-
-       bool ComPortClosing = false;
-       //List<byte> temp_serialBuff = new List<byte>();
-       void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-       {
-           
-           // If the com port has been closed, do nothing
-           if (!serialPort.IsOpen) return;
+                    checkBox_ComportOpen.BackColor = Color.Green;
 
 
-           if (ComPortClosing == true)
-           {
-               //Thread.Sleep(400);
-               serialPort.Close();
-               ComPortClosing = false;
+                    cmbBaudRate.Enabled = false;
+                    cmbDataBits.Enabled = false;
+                    cmbParity.Enabled = false;
+                    cmbPortName.Enabled = false;
+                    cmbStopBits.Enabled = false;
 
-               //checkBox_ComportOpen.Checked = false;
+                    Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
 
-               cmbBaudRate.Invoke(new EventHandler(delegate
+                    Spetrotec.Properties.Settings.Default.Save();
+
+
+                }
+                catch (Exception ex)
                 {
                     checkBox_ComportOpen.Checked = false;
-                    checkBox_ComportOpen.Enabled = true;
-                   checkBox_ComportOpen.BackColor = default(Color);
-                   cmbBaudRate.Enabled = true;
-                   cmbDataBits.Enabled = true;
-                   cmbParity.Enabled = true;
-                   cmbPortName.Enabled = true;
-                   cmbStopBits.Enabled = true;
-                }));
 
-               CloseSerialPortTimer = false;
+                    //SerialException = true;
 
-               LogS1.LogMessage(Color.Orange, Color.LightGray, "Serial port Closed", New_Line = true, Show_Time = true);
-               return;
-           }
-
-           // This method will be called when there is data waiting in the port's buffer
-           Thread.Sleep(300);
-
-           if (!serialPort.IsOpen) return;
-
-           // Obtain the number of bytes waiting in the port's buffer
-           int bytes = serialPort.BytesToRead;
-
-           // Create a byte array buffer to hold the incoming data
-           byte[] buffer = new byte[bytes];
-
-           // Read the data from the port and store it in our buffer
-           serialPort.Read(buffer, 0, bytes);
-
-
-           string IncomingString = System.Text.Encoding.Default.GetString(buffer);
+                    LogS1.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
+                    return;
+                }
 
 
 
-           LogS1.LogMessage(Color.Blue, Color.LightGray, "Rx:>", New_Line = false, Show_Time = true);
-           string[] lines = Regex.Split(IncomingString, "\r\n");
 
-           foreach (string line in lines)
-           {
-               LogS1.LogMessage(Color.Blue, Color.LightGray, line , New_Line = true, Show_Time = false);
-           }
-          
+            }
+            else
+            {
 
+                ComPortClosing = true;
+                checkBox_ComportOpen.BackColor = default(Color);
+                //checkBox_ComportOpen.Enabled = false;
 
-           ParseSerialPortString(IncomingString);
-        
-           
-       }
-
-       enum SourceMessage
-       {
-           SMS,
-           SerialPort,
-           Server
-       };
-
-       void ParseStatuPos(string IncomingString, SourceMessage i_SourceMessage, PhoneBookContact i_Contact)
-       {
-           string[] ParseStrings = { "" };
-           string[] Key = { "" };
-           try
-           {
-               if (IncomingString.Contains(","))
-               {
-                   ParseStrings = IncomingString.Split(',');
-                   Key = ParseStrings[1].Split('=');
-               }
-           }
-           catch
-           {
-               //LogGeneral.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
-               return;
-           }
-
-           Boolean IwatcherPrint = false;
+                CloseSerialPortTimer = true;
+                CloseSerialPortConter = 0;
 
 
-           if (Key[0] == "POS")
-           {
-
-               if (IwatcherPrint == true)
-               {
-                   //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                   //if (i_Contact != null)
-                   //{
-                   //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                   //}
-                   //else
-                   //{
-                   //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                   //}
-                   //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nPOSITION Message Received: ", New_Line = false, Show_Time = false);
-
-                   string PositionString =
-                       "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
-                       "\n STATE = " + Key[1] +
-                       "\n GSM LINK QUALITY = " + ParseStrings[2] +
-                       "\n GPS STATUS = " + ParseStrings[3] +
-                       "\n GPS NUM OF SATELLITES = " + ParseStrings[4] +
-                       "\n CURRENT TIME AND DATE = " + ParseStrings[5] + " " + ParseStrings[6] +
-                       "\n LAST GPS TIME AND DATE = " + ParseStrings[7] + " " + ParseStrings[8] +
-                       "\n GPS LATITUDE = " + ParseStrings[9] +
-                       "\n GPS LONGTITUDE = " + ParseStrings[10] +
-                       "\n GPS SPEED = " + ParseStrings[11] +
-                       "\n GPS DIRECTION =" + ParseStrings[12] +
-                       "\n TRIP DISTANCE  = " + ParseStrings[13] +
-                       "\n TOTAL DISTANCE = " + ParseStrings[14];
-                   //  "\n GPRS MESSAGE  NUMBER = " + PosStrings[15];
-
-                   //string.Format("\n UNIT ID = {0} \n STATE = {1}\n GSM LINK QUALITY = {2}", PosStrings[0].Replace(";",""), Key[1], PosStrings[2]); 
-                   //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
-               }
-
-               //string ret = "";
-               if (checkBox_ShowURL.Checked)
-               {
-                   string ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
-                   Show_WebBrowserUrl(ret);
-               }
-
-               //if (checkBox_RecordLatLong.Checked)
-               //{
-
-               //    NumOfPositionMessage++;
-               //    //354869050154426,POS=1,GSMLinkQual,5,8,12/9/2013,10:55:11,12/9/2013,10:55:11,32.155636,34.920308,0,304.2,
 
 
-               //    KMl_text.Add("<Placemark>");
-               //    KMl_text.Add("<name>" + "[" + NumOfPositionMessage + "]" + " " + DateTime.Now + "  </name>");
-               //    KMl_text.Add("<Point>");
-               //    KMl_text.Add("<coordinates>" + ParseStrings[10] + "," + ParseStrings[9] + "</coordinates> ");
-               //    KMl_text.Add("</Point>");
-               //    KMl_text.Add("</Placemark> ");
-               //    KMl_text.Add("</Document> \n");
-               //    KMl_text.Add("</kml> \n");
+                //groupBox_ServerSettings.Enabled = true;
+            }
+        }
 
-               //    File.Delete(log_file_S1_LatLong);
-               //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(log_file_S1_LatLong))
-               //    {
-               //        foreach (string str in KMl_text)
-               //        {
-               //            file.WriteLine(str);
-               //        }
-               //        //for (int i = 0; i < KML_Index; i++)
-               //        //{
+        bool CloseSerialPortTimer = false;
 
-               //        //}
-               //        KMl_text.RemoveAt(KMl_text.Count - 1);
-               //        KMl_text.RemoveAt(KMl_text.Count - 1);
-               //        // KML_Index -= 2;
-               //    }
+        bool ComPortClosing = false;
+        //List<byte> temp_serialBuff = new List<byte>();
+        void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+
+            // If the com port has been closed, do nothing
+            if (!serialPort.IsOpen) return;
 
 
-               //}
+            if (ComPortClosing == true)
+            {
+                //Thread.Sleep(400);
+                serialPort.Close();
+                ComPortClosing = false;
 
-               //if (checkBox_EchoResponse.Checked == true)
-               //{
+                //checkBox_ComportOpen.Checked = false;
 
-               //    string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-               //    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
-               //    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
-               //    SendDataToServer(mye.ConnectionNumber, b2);
-               //}
+                cmbBaudRate.Invoke(new EventHandler(delegate
+                 {
+                     checkBox_ComportOpen.Checked = false;
+                     checkBox_ComportOpen.Enabled = true;
+                     checkBox_ComportOpen.BackColor = default(Color);
+                     cmbBaudRate.Enabled = true;
+                     cmbDataBits.Enabled = true;
+                     cmbParity.Enabled = true;
+                     cmbPortName.Enabled = true;
+                     cmbStopBits.Enabled = true;
+                 }));
 
+                CloseSerialPortTimer = false;
 
-           }
-           else
-               if (Key[0] == "STAT")
-               {
-                   if (IwatcherPrint == true)
-                   {
-                       //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                       //if (i_Contact != null)
-                       //{
-                       //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                       //}
-                       //else
-                       //{
-                       //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                       //}
-                       //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nSTATUS Message Received: ", New_Line = false, Show_Time = false);
+                LogS1.LogMessage(Color.Orange, Color.LightGray, "Serial port Closed", New_Line = true, Show_Time = true);
+                return;
+            }
 
-                       string PositionString =
-                           "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
-                           "\n SYSTEM STATE = " + Key[1] +
-                           "\n IGN STATE = " + ParseStrings[2] +
-                           "\n GP1 = " + ParseStrings[3] +
-                           "\n GP2 = " + ParseStrings[4] +
-                           "\n GP3 = " + ParseStrings[5] +
-                           "\n Main Power Source = " + ParseStrings[6] +
-                           "\n Back Up Battery problem indication = " + ParseStrings[7] +
-                           "\n OUTPUT 1  STATE = " + ParseStrings[8] +
-                           "\n OUTPUT 2  STATE = " + ParseStrings[9] +
-                           "\n OUTPUT 3  STATE = " + ParseStrings[10] +
-                           "\n OUTPUT 4  STATE = " + ParseStrings[11] +
-                           "\n DATE = " + ParseStrings[12] +
-                           "\n TIME  = " + ParseStrings[13] +
-                           "\n GPS LATITUDE = " + ParseStrings[14] +
-                           "\n GPS LONGTITUDE = " + ParseStrings[15] +
-                           "\n VEHICLE SPEED = " + ParseStrings[16] +
-                           "\n SPEED EVENT  = " + ParseStrings[17] +
-                           "\n BATTERY LOW EVENT =" + ParseStrings[18] +
-                           "\n BATTERY CUT OFF EVENT  = " + ParseStrings[19] +
-                           "\n ACCIDENT EVENT = " + ParseStrings[20] +
-                           "\n TOWING EVENT = " + ParseStrings[21] +
-                           "\n TILT EVENT = " + ParseStrings[22];
+            // This method will be called when there is data waiting in the port's buffer
+            Thread.Sleep(300);
 
-                       //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
-                   }
-               }
-               else
-                   if (Key[0] == "GETCONFIG?")
-                   {
-                       if (IwatcherPrint == true)
-                       {
-                           //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                           //if (i_Contact != null)
-                           //{
-                           //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                           //}
-                           //else
-                           //{
-                           //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                           //}
-                           //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG: Message Received: ", New_Line = false, Show_Time = false);
+            if (!serialPort.IsOpen) return;
 
-                           // ,,, ,N/A,N/A;
+            // Obtain the number of bytes waiting in the port's buffer
+            int bytes = serialPort.BytesToRead;
 
-                           string PositionString =
-                               "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
-                               "\n SUBSCRIBER 1 = " + ParseStrings[2] +
-                               "\n SUBSCRIBER 2 = " + ParseStrings[3] +
-                               "\n SUBSCRIBER 3 = " + ParseStrings[4] +
-                               "\n SPEED LIMIT = " + ParseStrings[5] +
-                               "\n vehicle battery threshold = " + ParseStrings[6] +
-                               "\n pos message duration time interval = " + ParseStrings[7] +
-                               "\n pos message according distance interval = " + ParseStrings[8] +
-                               "\n status message duration time interval on sleep = " + ParseStrings[9] +
-                               "\n Logger Counter = " + ParseStrings[10] +
-                               "\n Tilt angle= " + ParseStrings[11] +
-                               "\n Tilt sensitivity = " + ParseStrings[12] +
-                               "\n Tilt Constant = " + ParseStrings[13] +
-                               "\n TOW angle  = " + ParseStrings[14] +
-                               "\n TOW sensitivity = " + ParseStrings[15] +
-                               "\n TOW Constant = " + ParseStrings[16] +
-                               "\n Anti Jamming detection = " + ParseStrings[17] +
-                               "\n Anti Jamming configuration = " + ParseStrings[18] +
-                               "\n GPRS reconnection = " + ParseStrings[19] +
-                               "\n Satellite type = " + ParseStrings[20];
+            // Create a byte array buffer to hold the incoming data
+            byte[] buffer = new byte[bytes];
 
-                           //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
-                       }
-                   }
-                   else
-                       if (Key[0] == "GETCONFIG2?")
-                       {
-                           if (IwatcherPrint == true)
-                           {
-                               //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
-                               //if (i_Contact != null)
-                               //{
-                               //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
-                               //}
-                               //else
-                               //{
-                               //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
-                               //}
-                               //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG2 Message Received: ", New_Line = false, Show_Time = false);
-
-                               //  , , , ,  fota access point name, N/A ,software version, GPS num of used satellites,GPS last timestamp,;
-
-                               string PositionString =
-                                   "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
-                                   "\n password = " + ParseStrings[2] +
-                                   "\n primary host address + port = " + ParseStrings[3] +
-                                   "\n primary access point name = " + ParseStrings[4] +
-                                   "\n fota host address + port = " + ParseStrings[5] +
-                                   "\n fota access point name = " + ParseStrings[6] +
-                                   "\n software version = " + ParseStrings[7] +
-                                   "\n GPS num of used satellites = " + ParseStrings[8] +
-                                   "\n GPS last timestamp  = " + ParseStrings[9];
-
-                               //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
-                           }
-                       }
-       }
-       private static Mutex mutexACKSMSReceived = new Mutex();
-
-       void ParseSerialPortSMSString(string IncomingString)
-       {
-           Boolean ret;
-           try
-           {
-               IncomingString = IncomingString.Replace(System.Environment.NewLine, "");
-               ret = ParseSMSCommand(IncomingString);
-           }
-           catch (Exception ex)
-           {
-               LogSMS.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
-               //    return;
-           }
-       }
-
-       void ParseSerialPortString(string IncomingString)
-       {
-          // Boolean ret;
-           try
-           {
-               ParseUnitVersion(IncomingString.Replace(System.Environment.NewLine, " "));
-               IncomingString = IncomingString.Replace(System.Environment.NewLine, "");
-               ParseConfigCommand(IncomingString);
-               //ret = ParseSMSCommand(IncomingString);
-
-               ParseStatuPos(IncomingString, SourceMessage.SerialPort, null);
-
-              // ParseUnitVersion(IncomingString);
-               
-
-              
+            // Read the data from the port and store it in our buffer
+            serialPort.Read(buffer, 0, bytes);
 
 
-           }
-           catch (Exception ex)
-           {
-               LogS1.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
-               //    return;
-           }
-       }
+            string IncomingString = System.Text.Encoding.Default.GetString(buffer);
+
+
+
+            LogS1.LogMessage(Color.Blue, Color.LightGray, "Rx:>", New_Line = false, Show_Time = true);
+            string[] lines = Regex.Split(IncomingString, "\r\n");
+
+            foreach (string line in lines)
+            {
+                LogS1.LogMessage(Color.Blue, Color.LightGray, line, New_Line = true, Show_Time = false);
+            }
+
+
+
+            ParseSerialPortString(IncomingString);
+
+
+        }
+
+        enum SourceMessage
+        {
+            SMS,
+            SerialPort,
+            Server
+        };
+
+        void ParseStatuPos(string IncomingString, SourceMessage i_SourceMessage, PhoneBookContact i_Contact)
+        {
+            string[] ParseStrings = { "" };
+            string[] Key = { "" };
+            try
+            {
+                if (IncomingString.Contains(","))
+                {
+                    ParseStrings = IncomingString.Split(',');
+                    Key = ParseStrings[1].Split('=');
+                }
+            }
+            catch
+            {
+                //LogGeneral.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
+                return;
+            }
+
+            Boolean IwatcherPrint = false;
+
+
+            if (Key[0] == "POS")
+            {
+
+                if (IwatcherPrint == true)
+                {
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                    //if (i_Contact != null)
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                    //}
+                    //else
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                    //}
+                    //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nPOSITION Message Received: ", New_Line = false, Show_Time = false);
+
+                    string PositionString =
+                        "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
+                        "\n STATE = " + Key[1] +
+                        "\n GSM LINK QUALITY = " + ParseStrings[2] +
+                        "\n GPS STATUS = " + ParseStrings[3] +
+                        "\n GPS NUM OF SATELLITES = " + ParseStrings[4] +
+                        "\n CURRENT TIME AND DATE = " + ParseStrings[5] + " " + ParseStrings[6] +
+                        "\n LAST GPS TIME AND DATE = " + ParseStrings[7] + " " + ParseStrings[8] +
+                        "\n GPS LATITUDE = " + ParseStrings[9] +
+                        "\n GPS LONGTITUDE = " + ParseStrings[10] +
+                        "\n GPS SPEED = " + ParseStrings[11] +
+                        "\n GPS DIRECTION =" + ParseStrings[12] +
+                        "\n TRIP DISTANCE  = " + ParseStrings[13] +
+                        "\n TOTAL DISTANCE = " + ParseStrings[14];
+                    //  "\n GPRS MESSAGE  NUMBER = " + PosStrings[15];
+
+                    //string.Format("\n UNIT ID = {0} \n STATE = {1}\n GSM LINK QUALITY = {2}", PosStrings[0].Replace(";",""), Key[1], PosStrings[2]); 
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
+                }
+
+                //string ret = "";
+                if (checkBox_ShowURL.Checked)
+                {
+                    string ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
+                    Show_WebBrowserUrl(ret);
+                }
+
+                //if (checkBox_RecordLatLong.Checked)
+                //{
+
+                //    NumOfPositionMessage++;
+                //    //354869050154426,POS=1,GSMLinkQual,5,8,12/9/2013,10:55:11,12/9/2013,10:55:11,32.155636,34.920308,0,304.2,
+
+
+                //    KMl_text.Add("<Placemark>");
+                //    KMl_text.Add("<name>" + "[" + NumOfPositionMessage + "]" + " " + DateTime.Now + "  </name>");
+                //    KMl_text.Add("<Point>");
+                //    KMl_text.Add("<coordinates>" + ParseStrings[10] + "," + ParseStrings[9] + "</coordinates> ");
+                //    KMl_text.Add("</Point>");
+                //    KMl_text.Add("</Placemark> ");
+                //    KMl_text.Add("</Document> \n");
+                //    KMl_text.Add("</kml> \n");
+
+                //    File.Delete(log_file_S1_LatLong);
+                //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(log_file_S1_LatLong))
+                //    {
+                //        foreach (string str in KMl_text)
+                //        {
+                //            file.WriteLine(str);
+                //        }
+                //        //for (int i = 0; i < KML_Index; i++)
+                //        //{
+
+                //        //}
+                //        KMl_text.RemoveAt(KMl_text.Count - 1);
+                //        KMl_text.RemoveAt(KMl_text.Count - 1);
+                //        // KML_Index -= 2;
+                //    }
+
+
+                //}
+
+                //if (checkBox_EchoResponse.Checked == true)
+                //{
+
+                //    string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
+                //    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                //    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                //    SendDataToServer(mye.ConnectionNumber, b2);
+                //}
+
+
+            }
+            else
+                if (Key[0] == "STAT")
+            {
+                if (IwatcherPrint == true)
+                {
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                    //if (i_Contact != null)
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                    //}
+                    //else
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                    //}
+                    //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nSTATUS Message Received: ", New_Line = false, Show_Time = false);
+
+                    string PositionString =
+                        "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
+                        "\n SYSTEM STATE = " + Key[1] +
+                        "\n IGN STATE = " + ParseStrings[2] +
+                        "\n GP1 = " + ParseStrings[3] +
+                        "\n GP2 = " + ParseStrings[4] +
+                        "\n GP3 = " + ParseStrings[5] +
+                        "\n Main Power Source = " + ParseStrings[6] +
+                        "\n Back Up Battery problem indication = " + ParseStrings[7] +
+                        "\n OUTPUT 1  STATE = " + ParseStrings[8] +
+                        "\n OUTPUT 2  STATE = " + ParseStrings[9] +
+                        "\n OUTPUT 3  STATE = " + ParseStrings[10] +
+                        "\n OUTPUT 4  STATE = " + ParseStrings[11] +
+                        "\n DATE = " + ParseStrings[12] +
+                        "\n TIME  = " + ParseStrings[13] +
+                        "\n GPS LATITUDE = " + ParseStrings[14] +
+                        "\n GPS LONGTITUDE = " + ParseStrings[15] +
+                        "\n VEHICLE SPEED = " + ParseStrings[16] +
+                        "\n SPEED EVENT  = " + ParseStrings[17] +
+                        "\n BATTERY LOW EVENT =" + ParseStrings[18] +
+                        "\n BATTERY CUT OFF EVENT  = " + ParseStrings[19] +
+                        "\n ACCIDENT EVENT = " + ParseStrings[20] +
+                        "\n TOWING EVENT = " + ParseStrings[21] +
+                        "\n TILT EVENT = " + ParseStrings[22];
+
+                    //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
+                }
+            }
+            else
+                    if (Key[0] == "GETCONFIG?")
+            {
+                if (IwatcherPrint == true)
+                {
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                    //if (i_Contact != null)
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                    //}
+                    //else
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                    //}
+                    //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG: Message Received: ", New_Line = false, Show_Time = false);
+
+                    // ,,, ,N/A,N/A;
+
+                    string PositionString =
+                        "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
+                        "\n SUBSCRIBER 1 = " + ParseStrings[2] +
+                        "\n SUBSCRIBER 2 = " + ParseStrings[3] +
+                        "\n SUBSCRIBER 3 = " + ParseStrings[4] +
+                        "\n SPEED LIMIT = " + ParseStrings[5] +
+                        "\n vehicle battery threshold = " + ParseStrings[6] +
+                        "\n pos message duration time interval = " + ParseStrings[7] +
+                        "\n pos message according distance interval = " + ParseStrings[8] +
+                        "\n status message duration time interval on sleep = " + ParseStrings[9] +
+                        "\n Logger Counter = " + ParseStrings[10] +
+                        "\n Tilt angle= " + ParseStrings[11] +
+                        "\n Tilt sensitivity = " + ParseStrings[12] +
+                        "\n Tilt Constant = " + ParseStrings[13] +
+                        "\n TOW angle  = " + ParseStrings[14] +
+                        "\n TOW sensitivity = " + ParseStrings[15] +
+                        "\n TOW Constant = " + ParseStrings[16] +
+                        "\n Anti Jamming detection = " + ParseStrings[17] +
+                        "\n Anti Jamming configuration = " + ParseStrings[18] +
+                        "\n GPRS reconnection = " + ParseStrings[19] +
+                        "\n Satellite type = " + ParseStrings[20];
+
+                    //LogIWatcher.LogMessage(Color.Blue, Color.White, PositionString, New_Line = true, Show_Time = false);
+                }
+            }
+            else
+                        if (Key[0] == "GETCONFIG2?")
+            {
+                if (IwatcherPrint == true)
+                {
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, "Source: " + i_SourceMessage.ToString(), New_Line = false, Show_Time = true);
+                    //if (i_Contact != null)
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: " + i_Contact.Name, New_Line = false, Show_Time = false);
+                    //}
+                    //else
+                    //{
+                    //    LogIWatcher.LogMessage(Color.DarkBlue, Color.White, "\nName: ", New_Line = false, Show_Time = false);
+                    //}
+                    //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nGETCONFIG2 Message Received: ", New_Line = false, Show_Time = false);
+
+                    //  , , , ,  fota access point name, N/A ,software version, GPS num of used satellites,GPS last timestamp,;
+
+                    string PositionString =
+                        "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
+                        "\n password = " + ParseStrings[2] +
+                        "\n primary host address + port = " + ParseStrings[3] +
+                        "\n primary access point name = " + ParseStrings[4] +
+                        "\n fota host address + port = " + ParseStrings[5] +
+                        "\n fota access point name = " + ParseStrings[6] +
+                        "\n software version = " + ParseStrings[7] +
+                        "\n GPS num of used satellites = " + ParseStrings[8] +
+                        "\n GPS last timestamp  = " + ParseStrings[9];
+
+                    //LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
+                }
+            }
+        }
+        private static Mutex mutexACKSMSReceived = new Mutex();
+
+        void ParseSerialPortSMSString(string IncomingString)
+        {
+            Boolean ret;
+            try
+            {
+                IncomingString = IncomingString.Replace(System.Environment.NewLine, "");
+                ret = ParseSMSCommand(IncomingString);
+            }
+            catch (Exception ex)
+            {
+                LogSMS.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
+                //    return;
+            }
+        }
+
+        void ParseSerialPortString(string IncomingString)
+        {
+            // Boolean ret;
+            try
+            {
+                ParseUnitVersion(IncomingString.Replace(System.Environment.NewLine, " "));
+                IncomingString = IncomingString.Replace(System.Environment.NewLine, "");
+                ParseConfigCommand(IncomingString);
+                //ret = ParseSMSCommand(IncomingString);
+
+                ParseStatuPos(IncomingString, SourceMessage.SerialPort, null);
+
+                // ParseUnitVersion(IncomingString);
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                LogS1.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
+                //    return;
+            }
+        }
 
         Boolean ParseSMSCommand(string IncomingString)
         {
@@ -8105,8 +8104,8 @@ namespace SocketServer
                     StartCommand += "{COMMAND_SMS_START}".Length;
                     string CommandString = IncomingString.Substring(StartCommand, EndCommand - StartCommand);
 
-             //       LogSMS.LogMessage(Color.Cyan, Color.White, CommandString, New_Line = true, Show_Time = true);
-                    
+                    //       LogSMS.LogMessage(Color.Cyan, Color.White, CommandString, New_Line = true, Show_Time = true);
+
                     EndCommand += "{COMMAND_SMS_END}".Length;
                     IncomingString = IncomingString.Substring(EndCommand);
                     IsCommandFound = true;
@@ -8142,22 +8141,22 @@ namespace SocketServer
                     if (CommandString.Contains("SMS was Send To the Modem"))
                     {
                         mutexACKSMSReceived.WaitOne();
-                     //   ACKSMSReceived = true;
+                        //   ACKSMSReceived = true;
                         mutexACKSMSReceived.ReleaseMutex();
 
                         LogSMS.LogMessage(Color.DarkBlue, Color.White, "SMS Send ACK received", New_Line = true, Show_Time = true);
 
                         if (checkBox_SMSencrypted.Checked == true)
                         {
-                            string[] temp =  CommandString.Split('[', ']');
+                            string[] temp = CommandString.Split('[', ']');
                             LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
                             LogSMS.LogMessage(Color.Green, Color.White, "Encrypted SMS (Copy to server Tab):\n" + temp[5], New_Line = true, Show_Time = false);
-                            
+
                             txtDataTx.Invoke(new EventHandler(delegate
                             {
                                 txtDataTx.Text = temp[5];
                             }));
-                            
+
                         }
                     }
                     else
@@ -8173,16 +8172,16 @@ namespace SocketServer
                         string[] strsplit = CommandString.Split('[', ']');
 
 
-                        ParseSMSText(strsplit[1], strsplit[3],Color.Brown);
+                        ParseSMSText(strsplit[1], strsplit[3], Color.Brown);
                     }
                     else
                         if (CommandString.Contains("SMS_received"))
-                        {
-                            string[] strsplit = CommandString.Split('[', ']');
+                    {
+                        string[] strsplit = CommandString.Split('[', ']');
 
 
-                            ParseSMSText(strsplit[1], strsplit[3], Color.Blue);
-                        }
+                        ParseSMSText(strsplit[1], strsplit[3], Color.Blue);
+                    }
                 }
                 else
                 {
@@ -8204,7 +8203,7 @@ namespace SocketServer
             return true;
         }
 
-        void ParseSMSText(string i_Subscriber, string i_SMSText,Color i_ColorDisplay)
+        void ParseSMSText(string i_Subscriber, string i_SMSText, Color i_ColorDisplay)
         {
             i_Subscriber = i_Subscriber.Replace("\"", "");
             PhoneBookContact ContactFound = MyPhoneBook.IsNumberExist(i_Subscriber);
@@ -8254,7 +8253,7 @@ namespace SocketServer
                 LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
                 LogSMS.LogMessage(i_ColorDisplay, Color.White, "SMS Received: " + "\n Number:  " + i_Subscriber + "\n Text:  " + i_SMSText, New_Line = true, Show_Time = false);
 
-                
+
 
                 PhoneBookContact NewContact = new PhoneBookContact();
                 NewContact.Name = "";            //values preserved after close
@@ -8266,7 +8265,7 @@ namespace SocketServer
                     if (IsDigitsOnly(ReceivedUnitID))
                     {
                         NewContact.UnitID = ReceivedUnitID;
-                    } 
+                    }
                 }
                 //Do something here with these values
 
@@ -8282,910 +8281,910 @@ namespace SocketServer
 
             ParseStatuPos(i_SMSText, SourceMessage.SMS, ContactFound);
 
-            
+
 
         }
-        string UnitVersion; 
+        string UnitVersion;
         void ParseUnitVersion(string IncomingString)
         {
             if (IncomingString.Contains("******START******") == true)
             {
                 int StartConfig = IncomingString.IndexOf("******START******");
-                StartConfig += "******START******".Length; 
+                StartConfig += "******START******".Length;
                 UnitVersion = IncomingString.Substring(StartConfig);
                 int EndConfig = UnitVersion.IndexOf("*********************");
                 UnitVersion = UnitVersion.Substring(0, EndConfig);
-                
 
-                textBox_UnitVersion_Text(UnitVersion,Color.LightGreen);
+
+                textBox_UnitVersion_Text(UnitVersion, Color.LightGreen);
 
             }
-            
+
         }
 
-       void ParseConfigCommand(string IncomingString)
-       {
-           int StartConfig = IncomingString.IndexOf("{CONFIG_START}");
-           int EndConfig = IncomingString.IndexOf("{CONFIG_END}");
-           if (StartConfig >= 0 && EndConfig > 0 && (EndConfig > StartConfig))
-           {
-               StartConfig += "{CONFIG_START}".Length; 
-               string ConfigString = IncomingString.Substring(StartConfig, EndConfig - StartConfig);
-
-               if (ConfigString.Contains("CONFIGOK"))
-               {
-                   textBox_GenerateConfigFile_Text("CONFIG OK Received", Color.LightGreen);
-               }
-               else
-               {
-                   SendToConfigPage(ConfigString, "Serial Port");
-               }
-           }
-       }
-
-       void Serial_TerminalDataLost(byte[] i_data)
-       {
-
-           LogGeneral.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
-           LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-           LogGeneral.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
-           LogGeneral.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
-           LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
-       }
-
-       private void button_StopPeriodaclly_Click(object sender, EventArgs e)
-       {
-           //timer_General_TranssmitionPeriodicallyEnable = false;
-
-           //textBox_SendMessageNumOfTimes.Enabled = true;
-           //button_SendPeriodaclly.Enabled = true;
-           //textBox_SendMessageIntervalTime.Enabled = true;
-
-
-       }
-
-       private DateTime RetrieveLinkerTimestamp()
-       {
-           string filePath = System.Reflection.Assembly.GetCallingAssembly().Location;
-           const int c_PeHeaderOffset = 60;
-           const int c_LinkerTimestampOffset = 8;
-           byte[] b = new byte[2048];
-           System.IO.Stream s = null;
-
-           try
-           {
-               s = new System.IO.FileStream(filePath, System.IO.FileMode.Open, System.IO.FileAccess.Read);
-               s.Read(b, 0, 2048);
-           }
-           finally
-           {
-               if (s != null)
-               {
-                   s.Close();
-               }
-           }
-
-           int i = System.BitConverter.ToInt32(b, c_PeHeaderOffset);
-           int secondsSince1970 = System.BitConverter.ToInt32(b, i + c_LinkerTimestampOffset);
-           DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0);
-           dt = dt.AddSeconds(secondsSince1970);
-           dt = dt.AddHours(TimeZone.CurrentTimeZone.GetUtcOffset(dt).Hours);
-           return dt;
-       }
-
-
-       private void button_SetTimedOut_Click(object sender, EventArgs e)
-       {
-
-           try
-           {
-               int Timeoutvalue = int.Parse(textBox_ConnectionTimedOut.Text);
-
-               //if(m_Server != null)
-               //{
-               //     m_Server.SetTimeoutinSeconds = Timeoutvalue * 10;
-               //}
-               TimeOutKeepAlivein100ms = Timeoutvalue * 10;
-               GetDataIntervalCounter = 0;
-
-               
-           }
-           catch
-           {
-               textBox_ConnectionTimedOut.Text = "300";
-           }
-       }
-
-     //  static int LastNumOfConnections = 0;
-       private void textBox_NumberOfOpenConnections_TextChanged(object sender, EventArgs e)
-       {
-            
-           if (m_Server != null)
-           {
-               
-               if (m_Server.NumberOfOpenConnections > 1)
-               {
-                  // IsTimedOutTimerEnabled = true;
-                   textBox_NumberOfOpenConnections.BackColor = Color.Orange;
-                   //ListenBox.BackColor = Color.Green;
-
-                   LogGeneral.LogMessage(Color.Orange, Color.White, "Num Of Connections is bigger than one, " + m_Server.NumberOfOpenConnections, true, true);
-
-               }
-               else
-                   if (m_Server.NumberOfOpenConnections == 1)
-                   {
-                       //IsTimedOutTimerEnabled = true;
-                       //ListenBox.BackColor = Color.Green;
-                       textBox_NumberOfOpenConnections.BackColor = Color.Green;
-                   }
-                   else
-                   {
-                      // IsTimedOutTimerEnabled = false;
-                       textBox_NumberOfOpenConnections.BackColor = default(Color);
-                   }
-
-               GetDataIntervalCounter = 0;
-
-
-               //if (LastNumOfConnections > m_Server.NumberOfOpenConnections)
-               //{
-               //    //ListenBox.BackColor = Color.Yellow;
-               //}
-
-              // LastNumOfConnections = m_Server.NumberOfOpenConnections;
-           }
-                   
-       }
-
-       private void button_AddDendSingleCommand_Click(object sender, EventArgs e)
-       {
-           try
-           {
-               //textBox_AddSendSingleCommand.Text = CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Format;
-           }
-           catch
-           {
-           }
-       }
-
-       private void comboBox_AddSendSingleCommand_SelectedIndexChanged(object sender, EventArgs e)
-       {
-         //  textBox_AddSendSingleCommand.Text = comboBox_AddSendSingleCommand.Text;
-           //textBox_ValidCommand.BackColor = default(Color);
-           //textBox_ValidCommand.Text = "";
-           //richTextBox_CommandDescription.Text = "";
-
-           //Font oldFont = richTextBox_CommandDescription.SelectionFont;
-
-           //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
-           //richTextBox_CommandDescription.AppendText("Command Description:");
-           //richTextBox_CommandDescription.SelectionFont = oldFont;
-           //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Description + "\n");
-
-           //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
-           //richTextBox_CommandDescription.AppendText("Format:");
-           //richTextBox_CommandDescription.SelectionFont = oldFont;
-           //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Format +"\n");
-
-           //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
-           //richTextBox_CommandDescription.AppendText("Fields Description:");
-           //richTextBox_CommandDescription.SelectionFont = oldFont;
-           //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Field_Description + "\n");
-           
-       }
-
-       List<string> S1CommandsForConfig = new List<string>();
-       private void button_ValidateCommand_Click(object sender, EventArgs e)
-       {
-           
-           
-           //textBox_ValidCommand.Text = "";
-           //textBox_ValidCommand.BackColor = default(Color);
-
-           
-           //string[] Command = textBox_AddSendSingleCommand.Text.Split(',');
-
-           List<string> parms = new List<string>();
-           // object[] parameters = new object[6];
-           //for (int j = 1; j < Command.Length; j++)
-           //{
-           //    parms.Add(Command[j]);
-           //}
-           //object[] parameters = parms.ToArray();
-
-
-           // Get MethodInfo.
-           //Type type = typeof(S1_Protocol.S1_Messege_Builder);
-           //MethodInfo info = type.GetMethod(Command[0]);
-           //string ret = "";
-           //try
-           //{
-           //    if (info == null)
-           //    {
-           //        textBox_ValidCommand.AppendText("Gil: Error Command not found  \n\n");
-           //        return;
-           //    }
-
-
-           //    ret = (string)info.Invoke(null, parameters);
-
-           //    List<string> S1frameArray = new List<string>();
-           //    S1frameArray.Add(ret);
-
-           //    //S1frameArray.Add(S1_Protocol.S1_Messege_Builder.Odomemter_Configuration(Odometer));
-           //    bool IsSent = SendS1Message(S1frameArray);
-
-           //    if (IsSent)
-           //    {
-           //        button_ValidateCommand.Enabled = false;
-           //        bw_singleCommand = new BackgroundWorker();
-
-           //        int CommandSentTimeout = int.Parse(textBox_TimeoutForSingleConfiguration.Text);
-           //        // this allows our worker to report progress during work
-           //        bw_singleCommand.WorkerReportsProgress = true;
-
-           //        // what to do in the background thread
-           //        bw_singleCommand.DoWork += new DoWorkEventHandler(
-           //                                delegate(object o, DoWorkEventArgs args)
-           //                                {
-           //                                    textBox_ValidCommand.Invoke(new EventHandler(delegate
-           //                                     {
-           //                                         textBox_ValidCommand.BackColor = Color.Orange;
-           //                                         textBox_ValidCommand.Text = "Sent Waiting for ACK"; ;
-           //                                     }));
-
-
-           //                                    int i = 0;
-           //                                    ExitLoopSingleCommand = false;
-           //                                    while (i < CommandSentTimeout && ExitLoopSingleCommand == false)
-           //                                    {
-
-           //                                        switch (ACKMessageReceived)
-           //                                        {
-           //                                            case eACKMessageReceived.ACK:
-
-           //                                                textBox_ValidCommand.Invoke(new EventHandler(delegate
-           //                                                {
-           //                                                    textBox_ValidCommand.BackColor = Color.Green;
-           //                                                    textBox_ValidCommand.Text = "Sent and ACK received";
-
-                                                               
-           //                                                }));
-
-           //                                                ExitLoopSingleCommand = true;
-           //                                                break;
-
-           //                                            case eACKMessageReceived.NACK:
-           //                                                textBox_ValidCommand.Invoke(new EventHandler(delegate
-           //                                                {
-           //                                                    textBox_ValidCommand.BackColor = Color.Red;
-           //                                                    textBox_ValidCommand.Text = "Sent and NACK received";
-           //                                                }));
-
-           //                                                ExitLoopSingleCommand = true;
-           //                                                break;
-
-           //                                            case eACKMessageReceived.UNDEFINED:
-           //                                                break;
-
-           //                                        }
-
-           //                                        Thread.Sleep(1000);
-           //                                        i++;
-           //                                       textBox_TimeoutForSingleConfiguration.Invoke(new EventHandler(delegate
-           //                                                {
-           //                                                    textBox_TimeoutForSingleConfiguration.ReadOnly = true;
-           //                                                    textBox_TimeoutForSingleConfiguration.Text = (CommandSentTimeout - i).ToString();
-           //                                                }));
-                                                   
-           //                                        if (i == CommandSentTimeout)
-           //                                        {
-           //                                            textBox_ValidCommand.Invoke(new EventHandler(delegate
-           //                                            {
-           //                                                textBox_ValidCommand.BackColor = Color.Red;
-           //                                                textBox_ValidCommand.Text = "Sent TIMEOUT";
-           //                                            }));
-
-           //                                            ExitLoopSingleCommand = true;
-           //                                        }
-           //                                    }
-
-           //                                    textBox_TimeoutForSingleConfiguration.Invoke(new EventHandler(delegate
-           //                                    {
-           //                                        textBox_TimeoutForSingleConfiguration.ReadOnly = false;
-           //                                        textBox_TimeoutForSingleConfiguration.Text = "20";
-           //                                        button_ValidateCommand.Enabled = true;
-           //                                    }));
-
-           //                                });
-
-           //        bw_singleCommand.RunWorkerAsync();
-
-
-           //    }
-               //else
-               //{
-               //    textBox_ValidCommand.BackColor = Color.Orange;
-               //    textBox_ValidCommand.Text = "Not Sent due to connection";
-               //}
-           //}
-           //catch (System.NullReferenceException)
-           //{
-           //    textBox_ValidCommand.AppendText("Gil: NullReferenceException \n\n");
-           //    textBox_ValidCommand.BackColor = Color.Red;
-           //    return;
-           //}
-           //catch (Exception ex)
-           //{
-           //    try
-           //    {
-           //        textBox_ValidCommand.AppendText(ex.InnerException.Message + "\n\n");
-           //        textBox_ValidCommand.BackColor = Color.Red;
-           //        return;
-           //    }
-           //    catch
-           //    {
-           //        textBox_ValidCommand.AppendText("Gil: Parameters mismatch\n\n");
-           //    }
-           //}
-       }
-
-
-       private void button6_Click(object sender, EventArgs e)
-       {
-           //button_ValidateCommand.Enabled = true;
-       }
-
-       private void button6_Click_1(object sender, EventArgs e)
-       {
-           //Config_Sys.Enabled = true;
-           ConfigProcessExit = true;
-       }
-
-       //private void button_clearTextBox_S1Commands_Click(object sender, EventArgs e)
-       //{
-       //    TextBox_S1Commands.Invoke(new EventHandler(delegate
-       //    {
-       //        TextBox_S1Commands.Text = "";
-       //    }));
-       //}
-
-       //private void comboBox_SendThrough_SelectedIndexChanged(object sender, EventArgs e)
-       //{
-       //    switch (comboBox_SendThrough.SelectedIndex)
-       //    {
-       //        case (int)eComSource.GPRS:
-       //                                      groupBox_ServerSettings.Visible = true;
-       //                                      gbPortSettings.Visible = false;
-       //                                      groupBox_PhoneNumber.Visible = false;
-       //            break;
-       //        case (int)eComSource.SerialPort:
-       //                                      groupBox_ServerSettings.Visible = false;
-       //                                      gbPortSettings.Visible = true;
-       //                                      groupBox_PhoneNumber.Visible = false;
-       //            break;
-       //        case (int)eComSource.SMS:
-       //                                     groupBox_ServerSettings.Visible = false;
-       //                                     gbPortSettings.Visible = true;
-       //                                     groupBox_PhoneNumber.Visible = true;
-       //            break;
-       //    }
-       //}
-
-
-       //void PauseTrace()
-       //{
-       //    for (int i = 0; i < 3; i++)
-       //    {
-       //        Thread.Sleep(200);
-       //        byte[] Pause = new byte[1];
-       //        Pause[0] = 1;
-       //        byte[] SSP_DataToSendPause = SSP_Protocol.SSP_Protocol.SSPPacket_Encoder(SSP_Protocol.eMessegeType.TRACE, Pause);
-       //        SerialPortSendSSPData(SSP_DataToSendPause);
-       //    }
-           
-       //}
-
-       //void ResumeTrace()
-       //{
-       //    for (int i = 0; i < 3; i++)
-       //    {
-       //        Thread.Sleep(200);
-       //        byte[] Pause = new byte[1];
-       //        Pause[0] = 0;
-       //        byte[] SSP_DataToSendPause = SSP_Protocol.SSP_Protocol.SSPPacket_Encoder(SSP_Protocol.eMessegeType.TRACE, Pause);
-       //        SerialPortSendSSPData(SSP_DataToSendPause);
-       //    }
-       //}
-       //private void button31_Click(object sender, EventArgs e)
-       //{
-       //    PauseTrace();
-       //}
-
-       //private void button32_Click_1(object sender, EventArgs e)
-       //{
-       //    ResumeTrace();
-       //}
-
-       private void checkBox_EchoResponse_CheckedChanged(object sender, EventArgs e)
-       {
-
-       }
-
-       private void textBox1_TextChanged(object sender, EventArgs e)
-       {
-
-       }
-       BinaryReader m_BinaryReader;
-       Dictionary<int, string> FOTAData = new Dictionary<int, string>();
-       private void button5_Click(object sender, EventArgs e)
-       {
-           DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-           if (result == DialogResult.OK) // Test result.
-           {
-               ConfigFileName = openFileDialog1.FileName;
-
-               textBox_FOTA.Text = openFileDialog1.FileName;
-
-               try
-               {
-                   m_BinaryReader = new BinaryReader(File.Open(ConfigFileName, FileMode.Open));
-
-                   int length = (int)m_BinaryReader.BaseStream.Length;
-                         textBox_TotalFileLength.Text = length.ToString();
-                       textBox_TotalFrames1280Bytes.Text = (Math.Ceiling((decimal)length / 1280)).ToString();
-
-                       textBox_MaximumNumberReceivedRequest.Invoke(new EventHandler(delegate
-                       {
-
-                           textBox_MaximumNumberReceivedRequest.Text = "";
-
-                       }));
-
-
-                       //txtDataTx.Text = ";<1234>STARTFOTA=," + (Math.Ceiling((decimal)length / 1280)).ToString() + "," + length.ToString() + ",;";
-                       string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", "", textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
-                       txtDataTx.Text = StartFota;
-                       richTextBox_TextSendSMS.Text = StartFota;
-                        //AddCommandToCommands(StartFota);
-
-                       FOTAData.Clear();
-                       for (int i = 0; i < int.Parse(textBox_TotalFrames1280Bytes.Text); i++)
-                       {
-                           
-
-                          // int PositionInFile = 1280 * i;
-                         //  m_BinaryReader.ReadBytes(PositionInFile);
-                           byte[] buffer = new byte[1280];
-
-                           for (int k = 0; k < 1280; k++)
-                           {
-                               buffer[k] = 0x30;
-                           }
-                           byte[] temp = m_BinaryReader.ReadBytes(1280);
-
-                           temp.CopyTo(buffer, 0);
-
-                           string str = Encoding.ASCII.GetString(buffer);
-                           byte b = CalcCheckSumbuffer(buffer);
-                           string SendString = string.Format("@$@FOTAS,{0},{1},{2}", i, Encoding.ASCII.GetString(buffer), CalcCheckSumbuffer(buffer).ToString("x2"));
-
-                           FOTAData[i] = SendString;
-
-                           
-                       }
-
-                       m_BinaryReader.Close();
-
-
-                       
-
-                       button_StartFOTAProcess.Enabled = true;
-                       
-
-                   
-               }
-               catch(Exception ex)
-               {
+        void ParseConfigCommand(string IncomingString)
+        {
+            int StartConfig = IncomingString.IndexOf("{CONFIG_START}");
+            int EndConfig = IncomingString.IndexOf("{CONFIG_END}");
+            if (StartConfig >= 0 && EndConfig > 0 && (EndConfig > StartConfig))
+            {
+                StartConfig += "{CONFIG_START}".Length;
+                string ConfigString = IncomingString.Substring(StartConfig, EndConfig - StartConfig);
+
+                if (ConfigString.Contains("CONFIGOK"))
+                {
+                    textBox_GenerateConfigFile_Text("CONFIG OK Received", Color.LightGreen);
+                }
+                else
+                {
+                    SendToConfigPage(ConfigString, "Serial Port");
+                }
+            }
+        }
+
+        void Serial_TerminalDataLost(byte[] i_data)
+        {
+
+            LogGeneral.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
+            LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+            LogGeneral.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
+            LogGeneral.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
+            LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
+        }
+
+        private void button_StopPeriodaclly_Click(object sender, EventArgs e)
+        {
+            //timer_General_TranssmitionPeriodicallyEnable = false;
+
+            //textBox_SendMessageNumOfTimes.Enabled = true;
+            //button_SendPeriodaclly.Enabled = true;
+            //textBox_SendMessageIntervalTime.Enabled = true;
+
+
+        }
+
+        private DateTime RetrieveLinkerTimestamp()
+        {
+            string filePath = System.Reflection.Assembly.GetCallingAssembly().Location;
+            const int c_PeHeaderOffset = 60;
+            const int c_LinkerTimestampOffset = 8;
+            byte[] b = new byte[2048];
+            System.IO.Stream s = null;
+
+            try
+            {
+                s = new System.IO.FileStream(filePath, System.IO.FileMode.Open, System.IO.FileAccess.Read);
+                s.Read(b, 0, 2048);
+            }
+            finally
+            {
+                if (s != null)
+                {
+                    s.Close();
+                }
+            }
+
+            int i = System.BitConverter.ToInt32(b, c_PeHeaderOffset);
+            int secondsSince1970 = System.BitConverter.ToInt32(b, i + c_LinkerTimestampOffset);
+            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0);
+            dt = dt.AddSeconds(secondsSince1970);
+            dt = dt.AddHours(TimeZone.CurrentTimeZone.GetUtcOffset(dt).Hours);
+            return dt;
+        }
+
+
+        private void button_SetTimedOut_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int Timeoutvalue = int.Parse(textBox_ConnectionTimedOut.Text);
+
+                //if(m_Server != null)
+                //{
+                //     m_Server.SetTimeoutinSeconds = Timeoutvalue * 10;
+                //}
+                TimeOutKeepAlivein100ms = Timeoutvalue * 10;
+                GetDataIntervalCounter = 0;
+
+
+            }
+            catch
+            {
+                textBox_ConnectionTimedOut.Text = "300";
+            }
+        }
+
+        //  static int LastNumOfConnections = 0;
+        private void textBox_NumberOfOpenConnections_TextChanged(object sender, EventArgs e)
+        {
+
+            if (m_Server != null)
+            {
+
+                if (m_Server.NumberOfOpenConnections > 1)
+                {
+                    // IsTimedOutTimerEnabled = true;
+                    textBox_NumberOfOpenConnections.BackColor = Color.Orange;
+                    //ListenBox.BackColor = Color.Green;
+
+                    LogGeneral.LogMessage(Color.Orange, Color.White, "Num Of Connections is bigger than one, " + m_Server.NumberOfOpenConnections, true, true);
+
+                }
+                else
+                    if (m_Server.NumberOfOpenConnections == 1)
+                {
+                    //IsTimedOutTimerEnabled = true;
+                    //ListenBox.BackColor = Color.Green;
+                    textBox_NumberOfOpenConnections.BackColor = Color.Green;
+                }
+                else
+                {
+                    // IsTimedOutTimerEnabled = false;
+                    textBox_NumberOfOpenConnections.BackColor = default(Color);
+                }
+
+                GetDataIntervalCounter = 0;
+
+
+                //if (LastNumOfConnections > m_Server.NumberOfOpenConnections)
+                //{
+                //    //ListenBox.BackColor = Color.Yellow;
+                //}
+
+                // LastNumOfConnections = m_Server.NumberOfOpenConnections;
+            }
+
+        }
+
+        private void button_AddDendSingleCommand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //textBox_AddSendSingleCommand.Text = CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Format;
+            }
+            catch
+            {
+            }
+        }
+
+        private void comboBox_AddSendSingleCommand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //  textBox_AddSendSingleCommand.Text = comboBox_AddSendSingleCommand.Text;
+            //textBox_ValidCommand.BackColor = default(Color);
+            //textBox_ValidCommand.Text = "";
+            //richTextBox_CommandDescription.Text = "";
+
+            //Font oldFont = richTextBox_CommandDescription.SelectionFont;
+
+            //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
+            //richTextBox_CommandDescription.AppendText("Command Description:");
+            //richTextBox_CommandDescription.SelectionFont = oldFont;
+            //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Description + "\n");
+
+            //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
+            //richTextBox_CommandDescription.AppendText("Format:");
+            //richTextBox_CommandDescription.SelectionFont = oldFont;
+            //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Format +"\n");
+
+            //richTextBox_CommandDescription.SelectionFont = new Font(richTextBox_CommandDescription.SelectionFont, FontStyle.Bold | FontStyle.Underline);
+            //richTextBox_CommandDescription.AppendText("Fields Description:");
+            //richTextBox_CommandDescription.SelectionFont = oldFont;
+            //richTextBox_CommandDescription.AppendText(" " + CommandsDescription[comboBox_AddSendSingleCommand.SelectedIndex].Field_Description + "\n");
+
+        }
+
+        List<string> S1CommandsForConfig = new List<string>();
+        private void button_ValidateCommand_Click(object sender, EventArgs e)
+        {
+
+
+            //textBox_ValidCommand.Text = "";
+            //textBox_ValidCommand.BackColor = default(Color);
+
+
+            //string[] Command = textBox_AddSendSingleCommand.Text.Split(',');
+
+            List<string> parms = new List<string>();
+            // object[] parameters = new object[6];
+            //for (int j = 1; j < Command.Length; j++)
+            //{
+            //    parms.Add(Command[j]);
+            //}
+            //object[] parameters = parms.ToArray();
+
+
+            // Get MethodInfo.
+            //Type type = typeof(S1_Protocol.S1_Messege_Builder);
+            //MethodInfo info = type.GetMethod(Command[0]);
+            //string ret = "";
+            //try
+            //{
+            //    if (info == null)
+            //    {
+            //        textBox_ValidCommand.AppendText("Gil: Error Command not found  \n\n");
+            //        return;
+            //    }
+
+
+            //    ret = (string)info.Invoke(null, parameters);
+
+            //    List<string> S1frameArray = new List<string>();
+            //    S1frameArray.Add(ret);
+
+            //    //S1frameArray.Add(S1_Protocol.S1_Messege_Builder.Odomemter_Configuration(Odometer));
+            //    bool IsSent = SendS1Message(S1frameArray);
+
+            //    if (IsSent)
+            //    {
+            //        button_ValidateCommand.Enabled = false;
+            //        bw_singleCommand = new BackgroundWorker();
+
+            //        int CommandSentTimeout = int.Parse(textBox_TimeoutForSingleConfiguration.Text);
+            //        // this allows our worker to report progress during work
+            //        bw_singleCommand.WorkerReportsProgress = true;
+
+            //        // what to do in the background thread
+            //        bw_singleCommand.DoWork += new DoWorkEventHandler(
+            //                                delegate(object o, DoWorkEventArgs args)
+            //                                {
+            //                                    textBox_ValidCommand.Invoke(new EventHandler(delegate
+            //                                     {
+            //                                         textBox_ValidCommand.BackColor = Color.Orange;
+            //                                         textBox_ValidCommand.Text = "Sent Waiting for ACK"; ;
+            //                                     }));
+
+
+            //                                    int i = 0;
+            //                                    ExitLoopSingleCommand = false;
+            //                                    while (i < CommandSentTimeout && ExitLoopSingleCommand == false)
+            //                                    {
+
+            //                                        switch (ACKMessageReceived)
+            //                                        {
+            //                                            case eACKMessageReceived.ACK:
+
+            //                                                textBox_ValidCommand.Invoke(new EventHandler(delegate
+            //                                                {
+            //                                                    textBox_ValidCommand.BackColor = Color.Green;
+            //                                                    textBox_ValidCommand.Text = "Sent and ACK received";
+
+
+            //                                                }));
+
+            //                                                ExitLoopSingleCommand = true;
+            //                                                break;
+
+            //                                            case eACKMessageReceived.NACK:
+            //                                                textBox_ValidCommand.Invoke(new EventHandler(delegate
+            //                                                {
+            //                                                    textBox_ValidCommand.BackColor = Color.Red;
+            //                                                    textBox_ValidCommand.Text = "Sent and NACK received";
+            //                                                }));
+
+            //                                                ExitLoopSingleCommand = true;
+            //                                                break;
+
+            //                                            case eACKMessageReceived.UNDEFINED:
+            //                                                break;
+
+            //                                        }
+
+            //                                        Thread.Sleep(1000);
+            //                                        i++;
+            //                                       textBox_TimeoutForSingleConfiguration.Invoke(new EventHandler(delegate
+            //                                                {
+            //                                                    textBox_TimeoutForSingleConfiguration.ReadOnly = true;
+            //                                                    textBox_TimeoutForSingleConfiguration.Text = (CommandSentTimeout - i).ToString();
+            //                                                }));
+
+            //                                        if (i == CommandSentTimeout)
+            //                                        {
+            //                                            textBox_ValidCommand.Invoke(new EventHandler(delegate
+            //                                            {
+            //                                                textBox_ValidCommand.BackColor = Color.Red;
+            //                                                textBox_ValidCommand.Text = "Sent TIMEOUT";
+            //                                            }));
+
+            //                                            ExitLoopSingleCommand = true;
+            //                                        }
+            //                                    }
+
+            //                                    textBox_TimeoutForSingleConfiguration.Invoke(new EventHandler(delegate
+            //                                    {
+            //                                        textBox_TimeoutForSingleConfiguration.ReadOnly = false;
+            //                                        textBox_TimeoutForSingleConfiguration.Text = "20";
+            //                                        button_ValidateCommand.Enabled = true;
+            //                                    }));
+
+            //                                });
+
+            //        bw_singleCommand.RunWorkerAsync();
+
+
+            //    }
+            //else
+            //{
+            //    textBox_ValidCommand.BackColor = Color.Orange;
+            //    textBox_ValidCommand.Text = "Not Sent due to connection";
+            //}
+            //}
+            //catch (System.NullReferenceException)
+            //{
+            //    textBox_ValidCommand.AppendText("Gil: NullReferenceException \n\n");
+            //    textBox_ValidCommand.BackColor = Color.Red;
+            //    return;
+            //}
+            //catch (Exception ex)
+            //{
+            //    try
+            //    {
+            //        textBox_ValidCommand.AppendText(ex.InnerException.Message + "\n\n");
+            //        textBox_ValidCommand.BackColor = Color.Red;
+            //        return;
+            //    }
+            //    catch
+            //    {
+            //        textBox_ValidCommand.AppendText("Gil: Parameters mismatch\n\n");
+            //    }
+            //}
+        }
+
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //button_ValidateCommand.Enabled = true;
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            //Config_Sys.Enabled = true;
+            ConfigProcessExit = true;
+        }
+
+        //private void button_clearTextBox_S1Commands_Click(object sender, EventArgs e)
+        //{
+        //    TextBox_S1Commands.Invoke(new EventHandler(delegate
+        //    {
+        //        TextBox_S1Commands.Text = "";
+        //    }));
+        //}
+
+        //private void comboBox_SendThrough_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    switch (comboBox_SendThrough.SelectedIndex)
+        //    {
+        //        case (int)eComSource.GPRS:
+        //                                      groupBox_ServerSettings.Visible = true;
+        //                                      gbPortSettings.Visible = false;
+        //                                      groupBox_PhoneNumber.Visible = false;
+        //            break;
+        //        case (int)eComSource.SerialPort:
+        //                                      groupBox_ServerSettings.Visible = false;
+        //                                      gbPortSettings.Visible = true;
+        //                                      groupBox_PhoneNumber.Visible = false;
+        //            break;
+        //        case (int)eComSource.SMS:
+        //                                     groupBox_ServerSettings.Visible = false;
+        //                                     gbPortSettings.Visible = true;
+        //                                     groupBox_PhoneNumber.Visible = true;
+        //            break;
+        //    }
+        //}
+
+
+        //void PauseTrace()
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        Thread.Sleep(200);
+        //        byte[] Pause = new byte[1];
+        //        Pause[0] = 1;
+        //        byte[] SSP_DataToSendPause = SSP_Protocol.SSP_Protocol.SSPPacket_Encoder(SSP_Protocol.eMessegeType.TRACE, Pause);
+        //        SerialPortSendSSPData(SSP_DataToSendPause);
+        //    }
+
+        //}
+
+        //void ResumeTrace()
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        Thread.Sleep(200);
+        //        byte[] Pause = new byte[1];
+        //        Pause[0] = 0;
+        //        byte[] SSP_DataToSendPause = SSP_Protocol.SSP_Protocol.SSPPacket_Encoder(SSP_Protocol.eMessegeType.TRACE, Pause);
+        //        SerialPortSendSSPData(SSP_DataToSendPause);
+        //    }
+        //}
+        //private void button31_Click(object sender, EventArgs e)
+        //{
+        //    PauseTrace();
+        //}
+
+        //private void button32_Click_1(object sender, EventArgs e)
+        //{
+        //    ResumeTrace();
+        //}
+
+        private void checkBox_EchoResponse_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        BinaryReader m_BinaryReader;
+        Dictionary<int, string> FOTAData = new Dictionary<int, string>();
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                ConfigFileName = openFileDialog1.FileName;
+
+                textBox_FOTA.Text = openFileDialog1.FileName;
+
+                try
+                {
+                    m_BinaryReader = new BinaryReader(File.Open(ConfigFileName, FileMode.Open));
+
+                    int length = (int)m_BinaryReader.BaseStream.Length;
+                    textBox_TotalFileLength.Text = length.ToString();
+                    textBox_TotalFrames1280Bytes.Text = (Math.Ceiling((decimal)length / 1280)).ToString();
+
+                    textBox_MaximumNumberReceivedRequest.Invoke(new EventHandler(delegate
+                    {
+
+                        textBox_MaximumNumberReceivedRequest.Text = "";
+
+                    }));
+
+
+                    //txtDataTx.Text = ";<1234>STARTFOTA=," + (Math.Ceiling((decimal)length / 1280)).ToString() + "," + length.ToString() + ",;";
+                    string StartFota = string.Format(";<{0}>STARTFOTA=,{1},{2},;", "", textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);
+                    txtDataTx.Text = StartFota;
+                    richTextBox_TextSendSMS.Text = StartFota;
+                    //AddCommandToCommands(StartFota);
+
+                    FOTAData.Clear();
+                    for (int i = 0; i < int.Parse(textBox_TotalFrames1280Bytes.Text); i++)
+                    {
+
+
+                        // int PositionInFile = 1280 * i;
+                        //  m_BinaryReader.ReadBytes(PositionInFile);
+                        byte[] buffer = new byte[1280];
+
+                        for (int k = 0; k < 1280; k++)
+                        {
+                            buffer[k] = 0x30;
+                        }
+                        byte[] temp = m_BinaryReader.ReadBytes(1280);
+
+                        temp.CopyTo(buffer, 0);
+
+                        string str = Encoding.ASCII.GetString(buffer);
+                        byte b = CalcCheckSumbuffer(buffer);
+                        string SendString = string.Format("@$@FOTAS,{0},{1},{2}", i, Encoding.ASCII.GetString(buffer), CalcCheckSumbuffer(buffer).ToString("x2"));
+
+                        FOTAData[i] = SendString;
+
+
+                    }
+
+                    m_BinaryReader.Close();
+
+
+
+
+                    button_StartFOTAProcess.Enabled = true;
+
+
+
+                }
+                catch (Exception ex)
+                {
                     LogGeneral.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
-               }
+                }
 
-               if (m_BinaryReader != null && ConfigFileName != null)
-               {
-                   button_StartFOTA.Enabled = true;
-               }
-               //AllFileLines = File.ReadAllText(ConfigFileName);
-
-
-
-           }
-       }
-
-       private void textBox_FOTA_TextChanged(object sender, EventArgs e)
-       {
-           if (textBox_FOTA.Text.Length > 0)
-           {
-               textBox_FOTA.BackColor = Color.White;
-           }
-       }
-
-       private void textBox_MaximumNumberReceivedRequest_TextChanged(object sender, EventArgs e)
-       {
-           if (textBox_MaximumNumberReceivedRequest.Text.Length > 0)
-           {
-               textBox_MaximumNumberReceivedRequest.BackColor = Color.White;
-           }
-       }
-
-       private void textBox_TotalFrames256Bytes_TextChanged(object sender, EventArgs e)
-       {
-           //if (textBox_TotalFrames256Bytes.Text.Length > 0)
-           //{
-           //    textBox_TotalFrames256Bytes.BackColor = Color.White;
-           //}
-       }
-
-       private void button33_Click(object sender, EventArgs e)
-       {
-           //if (textBox_TotalFrames1280Bytes.Text.Length > 0 && textBox_TotalFileLength.Text.Length > 0)
-           //{
-           //    //txtDataTx.Text = ";<" + Spetrotec.Properties.Settings.Default.SystemPassword + ">STARTFOTA=," + textBox_TotalFrames1280Bytes.Text + "," + textBox_TotalFileLength.Text + ",;";
-           //    txtDataTx.Text = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);           
-           //}
+                if (m_BinaryReader != null && ConfigFileName != null)
+                {
+                    button_StartFOTA.Enabled = true;
+                }
+                //AllFileLines = File.ReadAllText(ConfigFileName);
 
 
-           LogGeneral.LogMessage(Color.Blue, Color.White, "****************** System ID's Status ****************** ", New_Line = true, Show_Time = true);
-           foreach (var pair in IDToFOTA_Status)
-           {
-               LogGeneral.LogMessage(Color.Blue, Color.White, pair.Key + "   " + pair.Value + " \n", New_Line = false, Show_Time = false);
 
-           }
-       }
+            }
+        }
 
-       private void button35_Click(object sender, EventArgs e)
-       {
-           //textBox_MaximumNumberReceivedRequest.Text = "";
-           IDToFOTA_Status.Clear();
-           PrintFotaIDStatus();
-           //textBox_FOTAEnd.BackColor = default(Color);
-           //textBox_FOTAEnd.Text = "";
-       }
+        private void textBox_FOTA_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_FOTA.Text.Length > 0)
+            {
+                textBox_FOTA.BackColor = Color.White;
+            }
+        }
 
-       private void button34_Click(object sender, EventArgs e)
-       {
-           int NumOfSendingPackets = 0,NumOfMissingPackets  = 0;
-           string[] StringSplt = textBox_MaximumNumberReceivedRequest.Text.Split(',');
-           try
-           {
-               int NumOfPacketes = int.Parse(textBox_TotalFrames1280Bytes.Text);
-               
-               LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults Which Didn't Found ****************** ", New_Line = true, Show_Time = true);
-               for (int i = 0; i < NumOfPacketes; i++)
-               {
-                   bool found = false;
-                   foreach(string str in StringSplt)
-                   {
-                       try
-                       {
-                           int PacketNum = int.Parse(str);
-                           if (i == 0)
-                           {
-                               NumOfSendingPackets++;
-                           }
-                           if (i == PacketNum)
-                           {
-                               found = true;
-                           }
-                       }
-                       catch
-                       {
-                       }
-                   }
-                   if(found == true)
-                   {
-                    //   LogGeneral.LogMessage(Color.Blue, Color.White,  i + " X ", New_Line = true, Show_Time = false);
-                   }
-                   else
-                   {
-                       NumOfMissingPackets++;
-                       LogGeneral.LogMessage(Color.Blue, Color.White, i + ",  ", New_Line = false, Show_Time = false);
-                   }
-               }
-               LogGeneral.LogMessage(Color.Blue, Color.White, "\n\nTotal Packets: " + NumOfPacketes + ", ToTal Sending Packets: " + NumOfSendingPackets + ", ToTal Missing Packets: " + NumOfMissingPackets, New_Line = true, Show_Time = false);
-               LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults End ****************** ", New_Line = true, Show_Time = true);
-           }
-           catch(Exception ex)
-           {
-               LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
-           }
-       }
+        private void textBox_MaximumNumberReceivedRequest_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_MaximumNumberReceivedRequest.Text.Length > 0)
+            {
+                textBox_MaximumNumberReceivedRequest.BackColor = Color.White;
+            }
+        }
 
-       private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-       {
+        private void textBox_TotalFrames256Bytes_TextChanged(object sender, EventArgs e)
+        {
+            //if (textBox_TotalFrames256Bytes.Text.Length > 0)
+            //{
+            //    textBox_TotalFrames256Bytes.BackColor = Color.White;
+            //}
+        }
 
-       }
+        private void button33_Click(object sender, EventArgs e)
+        {
+            //if (textBox_TotalFrames1280Bytes.Text.Length > 0 && textBox_TotalFileLength.Text.Length > 0)
+            //{
+            //    //txtDataTx.Text = ";<" + Spetrotec.Properties.Settings.Default.SystemPassword + ">STARTFOTA=," + textBox_TotalFrames1280Bytes.Text + "," + textBox_TotalFileLength.Text + ",;";
+            //    txtDataTx.Text = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);           
+            //}
 
-       void UpdateSerialPortHistory(string i_SendString)
-       {
-           Boolean Found = false;
 
-           foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
-           {
-               //comboBox_SerialPortHistory.Items.Add((object)str);
-               // comboBox_SMSCommands.Items.Add(str);
-               if (str == i_SendString)
-               {
-                   Found = true;
-               }
-           }
+            LogGeneral.LogMessage(Color.Blue, Color.White, "****************** System ID's Status ****************** ", New_Line = true, Show_Time = true);
+            foreach (var pair in IDToFOTA_Status)
+            {
+                LogGeneral.LogMessage(Color.Blue, Color.White, pair.Key + "   " + pair.Value + " \n", New_Line = false, Show_Time = false);
 
-           if (Found == false)
-           {
-               Spetrotec.Properties.Settings.Default.SerialPort_History.Add(i_SendString);
-               Spetrotec.Properties.Settings.Default.Save();
-           }
-       }
+            }
+        }
 
-       void UpdateSerialPortComboBox()
-       {
-           if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
-           {
-               comboBox_SerialPortHistory.Items.Clear();
-               foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
-               {
-                   comboBox_SerialPortHistory.Items.Add((object)str);
-                   // comboBox_SMSCommands.Items.Add(str);
-               }
-           }
-       }
+        private void button35_Click(object sender, EventArgs e)
+        {
+            //textBox_MaximumNumberReceivedRequest.Text = "";
+            IDToFOTA_Status.Clear();
+            PrintFotaIDStatus();
+            //textBox_FOTAEnd.BackColor = default(Color);
+            //textBox_FOTAEnd.Text = "";
+        }
 
-       private void button2_Click_1(object sender, EventArgs e)
-       {
+        private void button34_Click(object sender, EventArgs e)
+        {
+            int NumOfSendingPackets = 0, NumOfMissingPackets = 0;
+            string[] StringSplt = textBox_MaximumNumberReceivedRequest.Text.Split(',');
+            try
+            {
+                int NumOfPacketes = int.Parse(textBox_TotalFrames1280Bytes.Text);
 
-            String tempStr = textBox_SendSerialPort.Text.Replace("\\n","\n");
+                LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults Which Didn't Found ****************** ", New_Line = true, Show_Time = true);
+                for (int i = 0; i < NumOfPacketes; i++)
+                {
+                    bool found = false;
+                    foreach (string str in StringSplt)
+                    {
+                        try
+                        {
+                            int PacketNum = int.Parse(str);
+                            if (i == 0)
+                            {
+                                NumOfSendingPackets++;
+                            }
+                            if (i == PacketNum)
+                            {
+                                found = true;
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                    if (found == true)
+                    {
+                        //   LogGeneral.LogMessage(Color.Blue, Color.White,  i + " X ", New_Line = true, Show_Time = false);
+                    }
+                    else
+                    {
+                        NumOfMissingPackets++;
+                        LogGeneral.LogMessage(Color.Blue, Color.White, i + ",  ", New_Line = false, Show_Time = false);
+                    }
+                }
+                LogGeneral.LogMessage(Color.Blue, Color.White, "\n\nTotal Packets: " + NumOfPacketes + ", ToTal Sending Packets: " + NumOfSendingPackets + ", ToTal Missing Packets: " + NumOfMissingPackets, New_Line = true, Show_Time = false);
+                LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults End ****************** ", New_Line = true, Show_Time = true);
+            }
+            catch (Exception ex)
+            {
+                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        void UpdateSerialPortHistory(string i_SendString)
+        {
+            Boolean Found = false;
+
+            foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+            {
+                //comboBox_SerialPortHistory.Items.Add((object)str);
+                // comboBox_SMSCommands.Items.Add(str);
+                if (str == i_SendString)
+                {
+                    Found = true;
+                }
+            }
+
+            if (Found == false)
+            {
+                Spetrotec.Properties.Settings.Default.SerialPort_History.Add(i_SendString);
+                Spetrotec.Properties.Settings.Default.Save();
+            }
+        }
+
+        void UpdateSerialPortComboBox()
+        {
+            if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
+            {
+                comboBox_SerialPortHistory.Items.Clear();
+                foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+                {
+                    comboBox_SerialPortHistory.Items.Add((object)str);
+                    // comboBox_SMSCommands.Items.Add(str);
+                }
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            String tempStr = textBox_SendSerialPort.Text.Replace("\\n", "\n");
             tempStr = tempStr.Replace("\\r", "\r");
             byte[] buffer = Encoding.ASCII.GetBytes(tempStr);
 
-           bool IsSent = SerialPortSendData(buffer);
+            bool IsSent = SerialPortSendData(buffer);
 
-           if (IsSent == true)
-           {
-               UpdateSerialPortHistory(textBox_SendSerialPort.Text);
+            if (IsSent == true)
+            {
+                UpdateSerialPortHistory(textBox_SendSerialPort.Text);
 
-               UpdateSerialPortComboBox();
+                UpdateSerialPortComboBox();
 
-                if(checkBox_DeleteCommand.Checked == true)
-                { 
+                if (checkBox_DeleteCommand.Checked == true)
+                {
                     textBox_SendSerialPort.Text = "";
                 }
 
-           }
-
-           
-       }
-
-       private void button29_Click(object sender, EventArgs e)
-       {
-           try
-           {
-               textBox_GenerateConfigFile_Clear();
-               bool IsAllGreen = CheckAllTextboxConfig();
-
-               if (IsAllGreen == false)
-               {
-                   //textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
-                   //textBox_GenerateConfigFile.BackColor = Color.Red;
-                   return;
-               }
-               else
-               {
-                   //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
-               }
-
-               string UnitID = textBox_ConfigUnitID.Text;
-
-               string Config_file_name = "Config_Date-" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_UnitID-" + UnitID + ".txt";
-
-               SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-               saveFileDialog1.Filter = "Text Files | *.txt";
-               saveFileDialog1.FilterIndex = 1;
-               saveFileDialog1.RestoreDirectory = true;
-
-               if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-               {
-                   File.Delete(saveFileDialog1.FileName);
-                   using (StreamWriter sw = File.AppendText(saveFileDialog1.FileName))
-                   {
-                       //List<S1_Protocol.S1_Messege_Builder.Command_Description> ret = S1_Protocol.S1_Messege_Builder.NonCommand_GetALLconfigCommandsDescription();
-
-                       sw.WriteLine("// " + "Date: " + DateTime.Now.ToString() + "  Unit ID: " + UnitID);
-                       sw.WriteLine();
-                       sw.WriteLine();
-
-                       string SendStr = GenerateConfigCommand();
-
-                       SendStr = SendStr.Replace(";", ",");
-
-                       byte[] buf = Encoding.ASCII.GetBytes(SendStr);
-                       int Size = buf.Length;
-                       Byte CheckSum = CalcCheckSumbufferSize(buf);
+            }
 
 
-                       SendStr = ";{CONFIG_START}," + SendStr + "," + Size + "," + CheckSum + ",{CONFIG_END};";
+        }
 
-                       sw.Write(SendStr);
+        private void button29_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox_GenerateConfigFile_Clear();
+                bool IsAllGreen = CheckAllTextboxConfig();
 
-                   }
-               }
+                if (IsAllGreen == false)
+                {
+                    //textBox_GenerateConfigFile.Text = " Some Of filds are Red!!!";
+                    //textBox_GenerateConfigFile.BackColor = Color.Red;
+                    return;
+                }
+                else
+                {
+                    //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
+                }
 
-               // This text is always added, making the file longer over time 
-               // if it is not deleted. 
-               
+                string UnitID = textBox_ConfigUnitID.Text;
 
-               //textBox_GenerateConfigFile.BackColor = Color.Green;
-               //textBox_GenerateConfigFile.Text = "File has been saved: \n" + saveFileDialog1.FileName ;
-               //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
-           }
-           catch (Exception ex)
-           {
-               //textBox_GenerateConfigFile.Text = ex.ToString();
-           }
-       }
+                string Config_file_name = "Config_Date-" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_UnitID-" + UnitID + ".txt";
 
-       private void button31_Click(object sender, EventArgs e)
-       {
-           textBox_SourceConfig_Clear();
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-           DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-           if (result == DialogResult.OK) // Test result.
-           {
-               ConfigFileName = openFileDialog1.FileName;
+                saveFileDialog1.Filter = "Text Files | *.txt";
+                saveFileDialog1.FilterIndex = 1;
+                saveFileDialog1.RestoreDirectory = true;
 
-               textBox_SourceConfig.Text = "File have been chosen: \n" + openFileDialog1.FileName;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    File.Delete(saveFileDialog1.FileName);
+                    using (StreamWriter sw = File.AppendText(saveFileDialog1.FileName))
+                    {
+                        //List<S1_Protocol.S1_Messege_Builder.Command_Description> ret = S1_Protocol.S1_Messege_Builder.NonCommand_GetALLconfigCommandsDescription();
 
-               string[] lines = System.IO.File.ReadAllLines(ConfigFileName);
+                        sw.WriteLine("// " + "Date: " + DateTime.Now.ToString() + "  Unit ID: " + UnitID);
+                        sw.WriteLine();
+                        sw.WriteLine();
 
-               foreach (string line in lines)
-               {
-                   if (line.Contains("//") || line == "")
-                   {
-                       
-                   }
-                   else
-                   {
-                       string str;
-                       //";{CONFIG_START}," + SendStr + ",{CONFIG_END};";
-                       str = line.Replace(";{CONFIG_START},,", "");
-                       str = str.Replace(",{CONFIG_END};", "");
-                       SendToConfigPage(str, "File");
-                   }
-               }
-               
+                        string SendStr = GenerateConfigCommand();
 
-           }
+                        SendStr = SendStr.Replace(";", ",");
 
-           
+                        byte[] buf = Encoding.ASCII.GetBytes(SendStr);
+                        int Size = buf.Length;
+                        Byte CheckSum = CalcCheckSumbufferSize(buf);
 
-           //ParseConfigString(";23421342134,CONFIG=,12321321,434343434,656565656,55554,43434,66665,6565645456,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,3,3,3,3,6,6,6,41,3;");
 
-       }
+                        SendStr = ";{CONFIG_START}," + SendStr + "," + Size + "," + CheckSum + ",{CONFIG_END};";
 
-       bool ParseConfigString(string i_Config)
-       {
-           try
-           {
-               
-               string[] StringSplit = i_Config.Replace(";","").Split(',');
+                        sw.Write(SendStr);
 
-               if (StringSplit[0].Length > 17 || StringSplit[0].Length < 12)
-               {
-                   return false;
-               }
+                    }
+                }
 
-               textBox_ConfigUnitID.Invoke(new EventHandler(delegate
-               {
-                   textBox_ConfigUnitID.Text = StringSplit[0];
-               }));
+                // This text is always added, making the file longer over time 
+                // if it is not deleted. 
 
-               // Store keys in a List
-               List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys); 
-               // Loop through list
-               int i = 2;
-               foreach (string k in list)
-               {
-                   TextBox temp = Dictionary_ConfigurationTextBoxes[k];
-                    
-                   temp.Invoke(new EventHandler(delegate
-                   {
-                       if (i < StringSplit.Length)
-                       {
-                           temp.Text = StringSplit[i];
-                       }
-                   }));
-                   i++;
-               }
-               //textBox_Config1.Text = StringSplit[2];
-               //textBox_Config2.Text = StringSplit[3];
-               //textBox_Config3.Text = StringSplit[4];
-               //textBox_Config4.Text = StringSplit[5];
-               //textBox_Config5.Text = StringSplit[6];
-               //textBox_Config6.Text = StringSplit[7];
-               //textBox_Config7.Text = StringSplit[8];
-               //textBox_Config8.Text = StringSplit[9];
-               //textBox_Config9.Text = StringSplit[10];
-               //textBox_Config10.Text = StringSplit[11];
-               //textBox_Config11.Text = StringSplit[12];
-               //textBox_Config12.Text = StringSplit[13];
-               //textBox_Config13.Text = StringSplit[14];
-               //textBox_Config14.Text = StringSplit[15];
-               //textBox_Config15.Text = StringSplit[16];
-               //textBox_Config16.Text = StringSplit[17];
-               //textBox_Config17.Text = StringSplit[18];
-               //textBox_Config18.Text = StringSplit[19];
-               //textBox_Config19.Text = StringSplit[20];
-               //textBox_Config20.Text = StringSplit[21];
-               //textBox_Config21.Text = StringSplit[22];
-               //textBox_Config22.Text = StringSplit[23];
-               //textBox_Config23.Text = StringSplit[24];
-               //textBox_Config24.Text = StringSplit[25];
-               //textBox_Config25.Text = StringSplit[26];
-               //textBox_Config26.Text = StringSplit[27];
-               //textBox_Config27.Text = StringSplit[28];
 
-               return true;
-           }
-           catch (Exception ex)
-           {
-               textBox_SourceConfig.Invoke(new EventHandler(delegate
-               {
-                   textBox_SourceConfig.Text = ex.ToString();
-                   textBox_SourceConfig.BackColor = Color.Red;
-               }));
-               
+                //textBox_GenerateConfigFile.BackColor = Color.Green;
+                //textBox_GenerateConfigFile.Text = "File has been saved: \n" + saveFileDialog1.FileName ;
+                //textBox_GenerateConfigFile.BackColor = Color.LightGreen;
+            }
+            catch (Exception ex)
+            {
+                //textBox_GenerateConfigFile.Text = ex.ToString();
+            }
+        }
 
-               return false;
-           }
-       }
+        private void button31_Click(object sender, EventArgs e)
+        {
+            textBox_SourceConfig_Clear();
 
-       private void button3_Click_1(object sender, EventArgs e)
-       {
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                ConfigFileName = openFileDialog1.FileName;
 
-       }
+                textBox_SourceConfig.Text = "File have been chosen: \n" + openFileDialog1.FileName;
 
-       private void button6_Click_2(object sender, EventArgs e)
-       {
-        //   textBox_SendSerialPort.Text = "<1234>READ?,;";
-           textBox_SourceConfig_Clear();
+                string[] lines = System.IO.File.ReadAllLines(ConfigFileName);
 
-               string Sendstr = string.Format(";READ?,;");
-               byte[] buffer = Encoding.ASCII.GetBytes(Sendstr);
-               bool IsSent = SerialPortSendData(buffer);
+                foreach (string line in lines)
+                {
+                    if (line.Contains("//") || line == "")
+                    {
 
-               if (IsSent == true)
-               {
-                   textBox_SourceConfig.Text = "Command sent";
+                    }
+                    else
+                    {
+                        string str;
+                        //";{CONFIG_START}," + SendStr + ",{CONFIG_END};";
+                        str = line.Replace(";{CONFIG_START},,", "");
+                        str = str.Replace(",{CONFIG_END};", "");
+                        SendToConfigPage(str, "File");
+                    }
+                }
 
-               }
-           
-       }
 
-       private void textBox_GenerateConfigFile_TextChanged(object sender, EventArgs e)
-       {
-           
-       }
+            }
 
-       //bool IsDigitsOnly(string str)
-       //{
-       //    foreach (char c in str)
-       //    {
-       //        if (c < '0' || c > '9')
-       //            return false;
-       //    }
 
-       //    return true;
-       //}
+
+            //ParseConfigString(";23421342134,CONFIG=,12321321,434343434,656565656,55554,43434,66665,6565645456,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,3,3,3,3,6,6,6,41,3;");
+
+        }
+
+        bool ParseConfigString(string i_Config)
+        {
+            try
+            {
+
+                string[] StringSplit = i_Config.Replace(";", "").Split(',');
+
+                if (StringSplit[0].Length > 17 || StringSplit[0].Length < 12)
+                {
+                    return false;
+                }
+
+                textBox_ConfigUnitID.Invoke(new EventHandler(delegate
+                {
+                    textBox_ConfigUnitID.Text = StringSplit[0];
+                }));
+
+                // Store keys in a List
+                List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
+                // Loop through list
+                int i = 2;
+                foreach (string k in list)
+                {
+                    TextBox temp = Dictionary_ConfigurationTextBoxes[k];
+
+                    temp.Invoke(new EventHandler(delegate
+                    {
+                        if (i < StringSplit.Length)
+                        {
+                            temp.Text = StringSplit[i];
+                        }
+                    }));
+                    i++;
+                }
+                //textBox_Config1.Text = StringSplit[2];
+                //textBox_Config2.Text = StringSplit[3];
+                //textBox_Config3.Text = StringSplit[4];
+                //textBox_Config4.Text = StringSplit[5];
+                //textBox_Config5.Text = StringSplit[6];
+                //textBox_Config6.Text = StringSplit[7];
+                //textBox_Config7.Text = StringSplit[8];
+                //textBox_Config8.Text = StringSplit[9];
+                //textBox_Config9.Text = StringSplit[10];
+                //textBox_Config10.Text = StringSplit[11];
+                //textBox_Config11.Text = StringSplit[12];
+                //textBox_Config12.Text = StringSplit[13];
+                //textBox_Config13.Text = StringSplit[14];
+                //textBox_Config14.Text = StringSplit[15];
+                //textBox_Config15.Text = StringSplit[16];
+                //textBox_Config16.Text = StringSplit[17];
+                //textBox_Config17.Text = StringSplit[18];
+                //textBox_Config18.Text = StringSplit[19];
+                //textBox_Config19.Text = StringSplit[20];
+                //textBox_Config20.Text = StringSplit[21];
+                //textBox_Config21.Text = StringSplit[22];
+                //textBox_Config22.Text = StringSplit[23];
+                //textBox_Config23.Text = StringSplit[24];
+                //textBox_Config24.Text = StringSplit[25];
+                //textBox_Config25.Text = StringSplit[26];
+                //textBox_Config26.Text = StringSplit[27];
+                //textBox_Config27.Text = StringSplit[28];
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                textBox_SourceConfig.Invoke(new EventHandler(delegate
+                {
+                    textBox_SourceConfig.Text = ex.ToString();
+                    textBox_SourceConfig.BackColor = Color.Red;
+                }));
+
+
+                return false;
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_2(object sender, EventArgs e)
+        {
+            //   textBox_SendSerialPort.Text = "<1234>READ?,;";
+            textBox_SourceConfig_Clear();
+
+            string Sendstr = string.Format(";READ?,;");
+            byte[] buffer = Encoding.ASCII.GetBytes(Sendstr);
+            bool IsSent = SerialPortSendData(buffer);
+
+            if (IsSent == true)
+            {
+                textBox_SourceConfig.Text = "Command sent";
+
+            }
+
+        }
+
+        private void textBox_GenerateConfigFile_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //bool IsDigitsOnly(string str)
+        //{
+        //    foreach (char c in str)
+        //    {
+        //        if (c < '0' || c > '9')
+        //            return false;
+        //    }
+
+        //    return true;
+        //}
 
         enum ConfigDataType
         {
@@ -9211,441 +9210,441 @@ namespace SocketServer
             DISARMCODE,
             CutSpeed
         };
-       bool CheckSubscriberValid(string i_String,ConfigDataType i_DataType)
-       {
-           bool ret = false;
-           try
-           {
-               
-
-               switch (i_DataType)
-               {
-                   case ConfigDataType.CutSpeed:
-                       if (i_String.Length <= 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num >= 0 && Num <= 20 || Num == 255)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-                   case ConfigDataType.DISARMCODE:
-                       if (i_String.Length == 4 && (Regex.IsMatch(i_String, @"^[1-5]+$") || Regex.IsMatch(i_String, @"^[0]+$") || i_String == "9999" ))
-                       {  
-                            ret = true;  
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-                   case ConfigDataType.GPSType:
-                       if (i_String.Length == 1 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num >= 0 && Num <= 2)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-
-                   case ConfigDataType.PosPeriod5Sec:
-                       if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num > 0 )
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-
-                   case ConfigDataType.AutoARM:
-                       if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num >= 2 && Num <= 300)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-
-                   case ConfigDataType.EveryThing:
-                                                                ret = true;
-                       break;
-
-                   case ConfigDataType.PeriodStatus:
-
-                       if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num >= 0 && Num <= 96)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-
-                   case ConfigDataType.Angel:
-
-                       if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
-
-                           if (Num >= 0 && Num <= 360)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
-
-                   case ConfigDataType.SpeedLimit:
+        bool CheckSubscriberValid(string i_String, ConfigDataType i_DataType)
+        {
+            bool ret = false;
+            try
+            {
 
 
-                       if (Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Temp = int.Parse(i_String);
+                switch (i_DataType)
+                {
+                    case ConfigDataType.CutSpeed:
+                        if (i_String.Length <= 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                           int Speed1 = Temp & 0xff;
-                           int Speed2 = (Temp >> 8) & 0xff;
-                           int Speed3 = (Temp >> 16) & 0xff;
+                            if (Num >= 0 && Num <= 20 || Num == 255)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+                    case ConfigDataType.DISARMCODE:
+                        if (i_String.Length == 4 && (Regex.IsMatch(i_String, @"^[1-5]+$") || Regex.IsMatch(i_String, @"^[0]+$") || i_String == "9999"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+                    case ConfigDataType.GPSType:
+                        if (i_String.Length == 1 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                           if (textBox_SpeedLimit1.Text == "" || textBox_SpeedLimit2.Text == "" || textBox_SpeedLimit3.Text == "")
-                           {
-                               ret = false;
-                           }
-                           else
-                               if (Speed2 <= Speed1 && Speed2 != 0 && Speed1 != 0)
-                           {
-                               ret = false;
-                           }
-                               else
-                               if (Speed3 <= Speed2  && Speed3 != 0)
-                           {
-                               ret = false;
-                           }
-                               else
-                                   if (Speed3 <= Speed1 && Speed3 != 0)
-                                   {
-                                       ret = false;
-                                   }
-                           else
-                           {
-                               ret = true;
-                               UpdateSpeedLimitTextBoxs(Speed1, Speed2, Speed3);
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
+                            if (Num >= 0 && Num <= 2)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-                   case ConfigDataType.BatLevel:
+                    case ConfigDataType.PosPeriod5Sec:
+                        if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                       if (i_String.Length < 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           int Num = int.Parse(i_String);
+                            if (Num > 0)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-                           if (Num >= 0 && Num <= 9)
-                           {
-                               ret = true;
-                           }
-                           else
-                           {
-                               ret = false;
-                           }
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
+                    case ConfigDataType.AutoARM:
+                        if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                   case ConfigDataType.JammingSens:
-                                                          
-                                                       if (i_String.Length < 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                                                       {
-                                                           int Jamming =  int.Parse(i_String);
+                            if (Num >= 2 && Num <= 300)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-                                                           if (Jamming >= 20 && Jamming <= 70)
-                                                           {
-                                                               ret = true;
-                                                           }
-                                                           else
-                                                           {
-                                                               ret = false;
-                                                           }
-                                                       }
-                                                       else
-                                                       {
-                                                           ret = false;
-                                                       }
-                       break;
+                    case ConfigDataType.EveryThing:
+                        ret = true;
+                        break;
 
-                   case ConfigDataType.Float:
-                                            float f;
+                    case ConfigDataType.PeriodStatus:
 
-                                            if(float.TryParse(i_String, out f))
-                                            {
-                          
-                                            ret = true;
-                                            }
-                                            else
-                                            {
-                                            ret = false;
-                                            }
-                        
+                        if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                       
-                       break;
+                            if (Num >= 0 && Num <= 96)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-                   case ConfigDataType.Number:
-                                                           if (Regex.IsMatch(i_String, @"^[0-9]+$"))
-                                                           {
-                                                               ret = true;
-                                                           }
-                                                           else
-                                                           {
-                                                               ret = false;
-                                                           }
-                       break;
-                   case ConfigDataType.GPRSDisconnectNum:
-                                                           if (i_String.Length < 6 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                                                           {
-                                                               ret = true;
-                                                           }
-                                                           else
-                                                           {
-                                                               ret = false;
-                                                           }
-                                                           break;
-                   case ConfigDataType.Port:
-                                                       if (i_String.Length < 6 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                                                       {
-                                                           ret = true;
-                                                       }
-                                                       else
-                                                       {
-                                                           ret = false;
-                                                       }
-                       break;
+                    case ConfigDataType.Angel:
 
-                   case ConfigDataType.AlarmViaSMS:
-                                               if (i_String.Length < 8 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                                                {
-                                                    ret = true;
-                                                    UpdateAlarmCheckBoxes(int.Parse(i_String));
-                                                }
-                                                else
-                                                {
-                                                    ret = false;
-                                                }
-                                                break;
-                       
-                   case ConfigDataType.IpAddress:
-                                //                IPAddress address;
-                                                //if (IPAddress.TryParse(i_String, out address))
-                                                    if(i_String.Length > 4)
-                                                     {
-                                                         //Valid IP, with address containing the IP
-                                                         ret = true;
-                                                     }
-                                                else
-                                                     {
-                                                                //Invalid IP
-                                                         ret = false;
-                                                     }
-                                                break;
-                   case ConfigDataType.Subscriber:
-                                                    if (i_String == "0")
-                                                    {
-                                                        ret = true;
-                                                    }
-                                                    else
-                                                    if (i_String.Length < 6)
-                                                    {
-                                                        ret = false;
-                                                    }
-                                                    else
-                                                        if (i_String.Length < 20 && (i_String.StartsWith("+") || i_String.StartsWith("00")) && Regex.IsMatch(i_String.Substring(1), @"^[0-9]+$"))
-                                                   {
-                                                       ret = true;
-                                                   }
-                                                   else
-                                                   {
-                                                       ret = false;
-                                                   }
-                                                   break;
+                        if (i_String.Length < 5 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-                   case ConfigDataType.Password:
+                            if (Num >= 0 && Num <= 360)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-                       if (i_String.Length < 15)
-                       {
-                           ret = true;
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
+                    case ConfigDataType.SpeedLimit:
 
-                   case ConfigDataType.Boolean:
-                       if (i_String == "0" || i_String == "1")
-                       {
-                           ret = true;
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
 
-                   case ConfigDataType.Unit_ID:
-                       if (i_String.Length > 14 && i_String.Length < 17 && Regex.IsMatch(i_String, @"^[0-9]+$"))
-                       {
-                           ret = true;
-                       }
-                       else
-                       {
-                           ret = false;
-                       }
-                       break;
+                        if (Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Temp = int.Parse(i_String);
 
-                   default:
-                       ret = false;
-                       break;
-               }
-           }
-           catch (Exception ex)
-           {
-               textBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
-               ret = false;
-           }
-           
-           return ret;
-       }
+                            int Speed1 = Temp & 0xff;
+                            int Speed2 = (Temp >> 8) & 0xff;
+                            int Speed3 = (Temp >> 16) & 0xff;
 
-       bool CheckAllTextboxConfig()
-       {
-           if (textBox_ConfigUnitID.BackColor == Color.Red)
-               {
-                   
-                   return false;
-               }
-           List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
-           // Loop through list
-           //bool IsAllGreen = true;
-           foreach (string k in list)
-           {
-               TextBox temp = Dictionary_ConfigurationTextBoxes[k];
-               if (temp.BackColor == Color.Red && temp.Visible == true)
-               {  
-                   return false;
-               }
-           }
+                            if (textBox_SpeedLimit1.Text == "" || textBox_SpeedLimit2.Text == "" || textBox_SpeedLimit3.Text == "")
+                            {
+                                ret = false;
+                            }
+                            else
+                                if (Speed2 <= Speed1 && Speed2 != 0 && Speed1 != 0)
+                            {
+                                ret = false;
+                            }
+                            else
+                                if (Speed3 <= Speed2 && Speed3 != 0)
+                            {
+                                ret = false;
+                            }
+                            else
+                                    if (Speed3 <= Speed1 && Speed3 != 0)
+                            {
+                                ret = false;
+                            }
+                            else
+                            {
+                                ret = true;
+                                UpdateSpeedLimitTextBoxs(Speed1, Speed2, Speed3);
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-           return true;
-       }
+                    case ConfigDataType.BatLevel:
 
-       private void textBox_Config1_TextChanged(object sender, EventArgs e)
-       {
-           CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
-       }
+                        if (i_String.Length < 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Num = int.Parse(i_String);
 
-       private void textBox_Config2_TextChanged(object sender, EventArgs e)
-       {
-           CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
-       }
+                            if (Num >= 0 && Num <= 9)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-       private void textBox_Config3_TextChanged(object sender, EventArgs e)
-       {
-           CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
-       }
+                    case ConfigDataType.JammingSens:
 
-       void CheckConfigTextboxValidData(TextBox i_TextBox, ConfigDataType i_ConfigDataType)
-       {
+                        if (i_String.Length < 3 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            int Jamming = int.Parse(i_String);
 
-           i_TextBox.Invoke(new EventHandler(delegate
-           {
-               if (i_TextBox.Text == "" || i_TextBox.Text == "@%@")
-               {
-                   i_TextBox.Text = "";
-                   i_TextBox.BackColor = default(Color);
-               }
-               else
-                   if (CheckSubscriberValid(i_TextBox.Text, i_ConfigDataType) == true)
-                   {
-                       i_TextBox.BackColor = Color.LightGreen;
-                   }
-                   else
-                   {
-                     //  i_TextBox.Visible = true;
-                       i_TextBox.BackColor = Color.Red;
-                   }
-           }));
-       }
+                            if (Jamming >= 20 && Jamming <= 70)
+                            {
+                                ret = true;
+                            }
+                            else
+                            {
+                                ret = false;
+                            }
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
 
-       private void textBox_Config4_TextChanged(object sender, EventArgs e)
-       {
-           CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Password);
-       }
+                    case ConfigDataType.Float:
+                        float f;
+
+                        if (float.TryParse(i_String, out f))
+                        {
+
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+
+
+
+                        break;
+
+                    case ConfigDataType.Number:
+                        if (Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+                    case ConfigDataType.GPRSDisconnectNum:
+                        if (i_String.Length < 6 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+                    case ConfigDataType.Port:
+                        if (i_String.Length < 6 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    case ConfigDataType.AlarmViaSMS:
+                        if (i_String.Length < 8 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            ret = true;
+                            UpdateAlarmCheckBoxes(int.Parse(i_String));
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    case ConfigDataType.IpAddress:
+                        //                IPAddress address;
+                        //if (IPAddress.TryParse(i_String, out address))
+                        if (i_String.Length > 4)
+                        {
+                            //Valid IP, with address containing the IP
+                            ret = true;
+                        }
+                        else
+                        {
+                            //Invalid IP
+                            ret = false;
+                        }
+                        break;
+                    case ConfigDataType.Subscriber:
+                        if (i_String == "0")
+                        {
+                            ret = true;
+                        }
+                        else
+                        if (i_String.Length < 6)
+                        {
+                            ret = false;
+                        }
+                        else
+                            if (i_String.Length < 20 && (i_String.StartsWith("+") || i_String.StartsWith("00")) && Regex.IsMatch(i_String.Substring(1), @"^[0-9]+$"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    case ConfigDataType.Password:
+
+                        if (i_String.Length < 15)
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    case ConfigDataType.Boolean:
+                        if (i_String == "0" || i_String == "1")
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    case ConfigDataType.Unit_ID:
+                        if (i_String.Length > 14 && i_String.Length < 17 && Regex.IsMatch(i_String, @"^[0-9]+$"))
+                        {
+                            ret = true;
+                        }
+                        else
+                        {
+                            ret = false;
+                        }
+                        break;
+
+                    default:
+                        ret = false;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        bool CheckAllTextboxConfig()
+        {
+            if (textBox_ConfigUnitID.BackColor == Color.Red)
+            {
+
+                return false;
+            }
+            List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
+            // Loop through list
+            //bool IsAllGreen = true;
+            foreach (string k in list)
+            {
+                TextBox temp = Dictionary_ConfigurationTextBoxes[k];
+                if (temp.BackColor == Color.Red && temp.Visible == true)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void textBox_Config1_TextChanged(object sender, EventArgs e)
+        {
+            CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
+        }
+
+        private void textBox_Config2_TextChanged(object sender, EventArgs e)
+        {
+            CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
+        }
+
+        private void textBox_Config3_TextChanged(object sender, EventArgs e)
+        {
+            CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
+        }
+
+        void CheckConfigTextboxValidData(TextBox i_TextBox, ConfigDataType i_ConfigDataType)
+        {
+
+            i_TextBox.Invoke(new EventHandler(delegate
+            {
+                if (i_TextBox.Text == "" || i_TextBox.Text == "@%@")
+                {
+                    i_TextBox.Text = "";
+                    i_TextBox.BackColor = default(Color);
+                }
+                else
+                    if (CheckSubscriberValid(i_TextBox.Text, i_ConfigDataType) == true)
+                {
+                    i_TextBox.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    //  i_TextBox.Visible = true;
+                    i_TextBox.BackColor = Color.Red;
+                }
+            }));
+        }
+
+        private void textBox_Config4_TextChanged(object sender, EventArgs e)
+        {
+            CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Password);
+        }
 
         private void textBox_Config5_TextChanged(object sender, EventArgs e)
         {
@@ -9660,7 +9659,7 @@ namespace SocketServer
 
         private void button3_Click_2(object sender, EventArgs e)
         {
-         //   textBox_SendSerialPort.Text = "<1234>READ?,;"
+            //   textBox_SendSerialPort.Text = "<1234>READ?,;"
 
             textBox_SourceConfig_Clear();
 
@@ -9671,9 +9670,9 @@ namespace SocketServer
                 if (result == DialogResult.OK)
                 {
                     string val = form.Password;            //values preserved after close
-                    //Do something here with these values
+                                                           //Do something here with these values
 
-              //      Spetrotec.Properties.Settings.Default.SystemPassword = val;
+                    //      Spetrotec.Properties.Settings.Default.SystemPassword = val;
 
                     Spetrotec.Properties.Settings.Default.Save();
 
@@ -9700,12 +9699,12 @@ namespace SocketServer
                         textBox_SourceConfig.BackColor = Color.Red;
                     }
 
-                    
+
 
                 }
             }
 
-            
+
         }
 
         void Password_form_Load(object sender, EventArgs e)
@@ -9812,7 +9811,7 @@ namespace SocketServer
 
                     }
                 }
-                
+
                 //string Config_file_name = "Config_Date-" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_UnitID-" + UnitID + ".txt";
 
 
@@ -9821,11 +9820,11 @@ namespace SocketServer
 
                 //List<S1_Protocol.S1_Messege_Builder.Command_Description> ret = S1_Protocol.S1_Messege_Builder.NonCommand_GetALLconfigCommandsDescription();
 
-                
+
 
 
                 //textBox_GenerateConfigFile.BackColor = Color.Green;
-                
+
             }
             catch (Exception ex)
             {
@@ -9848,7 +9847,7 @@ namespace SocketServer
                 }
                 else
                 {
-                    
+
                 }
 
                 string UnitID = textBox_ConfigUnitID.Text;
@@ -9858,29 +9857,29 @@ namespace SocketServer
 
                 // This text is always added, making the file longer over time 
                 // if it is not deleted. 
-                
-                    //List<S1_Protocol.S1_Messege_Builder.Command_Description> ret = S1_Protocol.S1_Messege_Builder.NonCommand_GetALLconfigCommandsDescription();
 
-                    string SendStr = GenerateConfigCommand();
+                //List<S1_Protocol.S1_Messege_Builder.Command_Description> ret = S1_Protocol.S1_Messege_Builder.NonCommand_GetALLconfigCommandsDescription();
 
-                    SendStr = SendStr.Replace(";", ",");
+                string SendStr = GenerateConfigCommand();
 
-                    byte[] buf = Encoding.ASCII.GetBytes(SendStr);
-                    int Size = buf.Length;
-                    Byte CheckSum = CalcCheckSumbufferSize(buf);
+                SendStr = SendStr.Replace(";", ",");
+
+                byte[] buf = Encoding.ASCII.GetBytes(SendStr);
+                int Size = buf.Length;
+                Byte CheckSum = CalcCheckSumbufferSize(buf);
 
 
-                    SendStr = ";{CONFIG_START}," + SendStr + "," + Size + "," + CheckSum + ",{CONFIG_END};";
-                    byte[] buffer = Encoding.ASCII.GetBytes(SendStr);
-                    bool IsSent = SerialPortSendData(buffer);
+                SendStr = ";{CONFIG_START}," + SendStr + "," + Size + "," + CheckSum + ",{CONFIG_END};";
+                byte[] buffer = Encoding.ASCII.GetBytes(SendStr);
+                bool IsSent = SerialPortSendData(buffer);
 
-                    if (IsSent == true)
-                    {
-                        //textBox_GenerateConfigFile.BackColor = Color.Yellow;
-                        //textBox_GenerateConfigFile.Text = "Config has been sent";
+                if (IsSent == true)
+                {
+                    //textBox_GenerateConfigFile.BackColor = Color.Yellow;
+                    //textBox_GenerateConfigFile.Text = "Config has been sent";
 
-                    }
-                    
+                }
+
                 //textBox_GenerateConfigFile.BackColor = Color.Green;
                 //textBox_GenerateConfigFile.Text = "File " +  + " saved in directory \n" + Directory.GetCurrentDirectory();
             }
@@ -9916,7 +9915,7 @@ namespace SocketServer
             }));
         }
 
-        void textBox_GenerateConfigFile_Text(string i_Text,Color i_BackColor)
+        void textBox_GenerateConfigFile_Text(string i_Text, Color i_BackColor)
         {
             //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
             //{
@@ -9951,7 +9950,7 @@ namespace SocketServer
                     textBox_UnitVersion_Text("", default(Color));
 
                     UpdateAlarmCheckBoxes(0);
-                    UpdateSpeedLimitTextBoxs(0,0,0);
+                    UpdateSpeedLimitTextBoxs(0, 0, 0);
                     List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
                     // Loop through list
 
@@ -9962,7 +9961,7 @@ namespace SocketServer
                         temp.Text = "";
                     }
 
-                    
+
                 }));
         }
 
@@ -9976,13 +9975,13 @@ namespace SocketServer
                 }
                 else
                     if (CheckSubscriberValid(textBox_ConfigUnitID.Text, ConfigDataType.Unit_ID) == true)
-                    {
-                        textBox_ConfigUnitID.BackColor = Color.LightGreen;
-                    }
-                    else
-                    {
-                        textBox_ConfigUnitID.BackColor = Color.Red;
-                    }
+                {
+                    textBox_ConfigUnitID.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBox_ConfigUnitID.BackColor = Color.Red;
+                }
 
                 //CheckAllTextboxConfig();
 
@@ -10002,84 +10001,84 @@ namespace SocketServer
 
             switch (comboBox_SystemConfigType.SelectedIndex)
             {
-                    // AVL
+                // AVL
                 case 0:
-                            textBox_Config28.Visible = false;
-                            label_Config28.Visible = false;
-                            textBox_Config29.Visible = false;
-                            label_Config29.Visible = false;
-                            textBox_Config30.Visible = false;
-                            label_Config30.Visible = false;
-                            textBox_Config31.Visible = false;
-                            label_Config31.Visible = false;
-                            textBox_Config33.Visible = false;
-                            label_Config33.Visible = false;
-                            textBox_Config34.Visible = false;
-                            label_Config34.Visible = false;
-                            textBox_Config38.Visible = true;
-                            label_Config38.Visible = true;
-                            textBox_Config39.Visible = false;
-                            label_Config39.Visible = false;
-                            textBox_Config42.Visible = false;
-                            label_Config42.Visible = false;
+                    textBox_Config28.Visible = false;
+                    label_Config28.Visible = false;
+                    textBox_Config29.Visible = false;
+                    label_Config29.Visible = false;
+                    textBox_Config30.Visible = false;
+                    label_Config30.Visible = false;
+                    textBox_Config31.Visible = false;
+                    label_Config31.Visible = false;
+                    textBox_Config33.Visible = false;
+                    label_Config33.Visible = false;
+                    textBox_Config34.Visible = false;
+                    label_Config34.Visible = false;
+                    textBox_Config38.Visible = true;
+                    label_Config38.Visible = true;
+                    textBox_Config39.Visible = false;
+                    label_Config39.Visible = false;
+                    textBox_Config42.Visible = false;
+                    label_Config42.Visible = false;
                     break;
-                    // AVL CAN
+                // AVL CAN
                 case 1:
-                            textBox_Config28.Visible = true;
-                            label_Config28.Visible = true;
-                            textBox_Config29.Visible = false;
-                            label_Config29.Visible = false;
-                            textBox_Config30.Visible = true;
-                            label_Config30.Visible = true;
-                            label_Config30.Text = "Can message Time";
-                            textBox_Config31.Visible = false;
-                            label_Config31.Visible = false;
-                            textBox_Config33.Visible = false;
-                            label_Config33.Visible = false;
-                            textBox_Config34.Visible = true;
-                            label_Config34.Visible = true;
-                            textBox_Config38.Visible = false;
-                            label_Config38.Visible = false;
-                            textBox_Config39.Visible = false;
-                            label_Config39.Visible = false;
-                            textBox_Config42.Visible = true;
-                            label_Config42.Visible = true;
+                    textBox_Config28.Visible = true;
+                    label_Config28.Visible = true;
+                    textBox_Config29.Visible = false;
+                    label_Config29.Visible = false;
+                    textBox_Config30.Visible = true;
+                    label_Config30.Visible = true;
+                    label_Config30.Text = "Can message Time";
+                    textBox_Config31.Visible = false;
+                    label_Config31.Visible = false;
+                    textBox_Config33.Visible = false;
+                    label_Config33.Visible = false;
+                    textBox_Config34.Visible = true;
+                    label_Config34.Visible = true;
+                    textBox_Config38.Visible = false;
+                    label_Config38.Visible = false;
+                    textBox_Config39.Visible = false;
+                    label_Config39.Visible = false;
+                    textBox_Config42.Visible = true;
+                    label_Config42.Visible = true;
                     break;
-                    // Cellular Alarm
+                // Cellular Alarm
                 case 2:
-                            textBox_Config28.Visible = false;
-                            label_Config28.Visible = false;
-                            textBox_Config29.Visible = true;
-                            label_Config29.Visible = true;
-                            textBox_Config30.Visible = true;
-                            label_Config30.Visible = true;
-                            label_Config30.Text = "Doors filter delay";
-                            textBox_Config31.Visible = true;
-                            label_Config31.Visible = true;
-                            textBox_Config33.Visible = true;
-                            label_Config33.Visible = true;
-                            textBox_Config34.Visible = true;
-                            label_Config34.Visible = true;
-                            textBox_Config38.Visible = true;
-                            label_Config38.Visible = true;
-                            textBox_Config39.Visible = true;
-                            label_Config39.Visible = true;
-                            textBox_Config42.Visible = false;
-                            label_Config42.Visible = false;
+                    textBox_Config28.Visible = false;
+                    label_Config28.Visible = false;
+                    textBox_Config29.Visible = true;
+                    label_Config29.Visible = true;
+                    textBox_Config30.Visible = true;
+                    label_Config30.Visible = true;
+                    label_Config30.Text = "Doors filter delay";
+                    textBox_Config31.Visible = true;
+                    label_Config31.Visible = true;
+                    textBox_Config33.Visible = true;
+                    label_Config33.Visible = true;
+                    textBox_Config34.Visible = true;
+                    label_Config34.Visible = true;
+                    textBox_Config38.Visible = true;
+                    label_Config38.Visible = true;
+                    textBox_Config39.Visible = true;
+                    label_Config39.Visible = true;
+                    textBox_Config42.Visible = false;
+                    label_Config42.Visible = false;
                     break;
                 default:
-                            textBox_Config28.Visible = true;
-                            label_Config28.Visible = true;
-                            textBox_Config29.Visible = true;
-                            label_Config29.Visible = true;
-                            textBox_Config30.Visible = true;
-                            label_Config30.Visible = true;
-                            textBox_Config31.Visible = false;
-                            label_Config31.Visible = false;
-                            textBox_Config33.Visible = false;
-                            label_Config33.Visible = false;
-                            textBox_Config34.Visible = false;
-                            label_Config34.Visible = false;
+                    textBox_Config28.Visible = true;
+                    label_Config28.Visible = true;
+                    textBox_Config29.Visible = true;
+                    label_Config29.Visible = true;
+                    textBox_Config30.Visible = true;
+                    label_Config30.Visible = true;
+                    textBox_Config31.Visible = false;
+                    label_Config31.Visible = false;
+                    textBox_Config33.Visible = false;
+                    label_Config33.Visible = false;
+                    textBox_Config34.Visible = false;
+                    label_Config34.Visible = false;
                     break;
 
             }
@@ -10374,7 +10373,7 @@ namespace SocketServer
 
         private void textBox_Config27_TextChanged(object sender, EventArgs e)
         {
-            CheckConfigTextboxValidData( (TextBox) sender, ConfigDataType.GPRSDisconnectNum);
+            CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.GPRSDisconnectNum);
         }
 
         private void textBox_Config9_TextChanged(object sender, EventArgs e)
@@ -10402,11 +10401,11 @@ namespace SocketServer
 
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.SpeedLimit);
 
-                textBox_SpeedLimit1.BackColor = textBox_Config7.BackColor;
-                textBox_SpeedLimit2.BackColor = textBox_Config7.BackColor;
-                textBox_SpeedLimit3.BackColor = textBox_Config7.BackColor;
-                textBox_Config7.Visible = false;
-            
+            textBox_SpeedLimit1.BackColor = textBox_Config7.BackColor;
+            textBox_SpeedLimit2.BackColor = textBox_Config7.BackColor;
+            textBox_SpeedLimit3.BackColor = textBox_Config7.BackColor;
+            textBox_Config7.Visible = false;
+
         }
 
         private void textBox_Config8_TextChanged(object sender, EventArgs e)
@@ -10476,7 +10475,7 @@ namespace SocketServer
 
         private void checkBox_RecordGeneral_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button32_Click_1(object sender, EventArgs e)
@@ -10491,7 +10490,7 @@ namespace SocketServer
 
         private void txtPortNo_TextChanged(object sender, EventArgs e)
         {
-            Spetrotec.Properties.Settings.Default.Start_Port = txtPortNo.Text.ToString() ;
+            Spetrotec.Properties.Settings.Default.Start_Port = txtPortNo.Text.ToString();
 
             Spetrotec.Properties.Settings.Default.Save();
         }
@@ -10504,21 +10503,21 @@ namespace SocketServer
                 if (result == DialogResult.OK)
                 {
 
-                        PhoneBookContact NewContact = new PhoneBookContact();
-                        NewContact.Name = form.ContactName;            //values preserved after close
-                        NewContact.Phone = form.ContactPhone;
-                        NewContact.Notes = form.ContactNotes;
-                        NewContact.Password = form.ContactPassword;
-                        NewContact.UnitID = form.ContactIMEI;
-                        //Do something here with these values
+                    PhoneBookContact NewContact = new PhoneBookContact();
+                    NewContact.Name = form.ContactName;            //values preserved after close
+                    NewContact.Phone = form.ContactPhone;
+                    NewContact.Notes = form.ContactNotes;
+                    NewContact.Password = form.ContactPassword;
+                    NewContact.UnitID = form.ContactIMEI;
+                    //Do something here with these values
 
-                        MyPhoneBook.AddContactToPhoneBook(NewContact);
+                    MyPhoneBook.AddContactToPhoneBook(NewContact);
 
-                        UpdateDefaultsContacts();
+                    UpdateDefaultsContacts();
 
-                        UpdatePhoneBook();
+                    UpdatePhoneBook();
 
-                    
+
                 }
             }
         }
@@ -10579,7 +10578,7 @@ namespace SocketServer
                     SendSMSToContact((PhoneBookContact)item, SMSText);
                 }
             }
-       //     AddCommandToCommands(richTextBox_TextSendSMS.Text);
+            //     AddCommandToCommands(richTextBox_TextSendSMS.Text);
             groupBox34.Enabled = true;
         }
 
@@ -10637,11 +10636,11 @@ namespace SocketServer
             }
 
 
-                
 
 
 
-            
+
+
         }
 
         private void button_ImportToXML_Click(object sender, EventArgs e)
@@ -10665,7 +10664,7 @@ namespace SocketServer
                 LogSMS.LogMessage(Color.Red, Color.White, ex.Message, New_Line = true, Show_Time = true);
 
             }
-            
+
         }
 
         void AddCommandToCommands(string i_SMSText)
@@ -10697,7 +10696,7 @@ namespace SocketServer
       //  bool ACKSMSReceived = false;
         void SendSMSToContact(PhoneBookContact i_Contact, string i_SMSText)
         {
-           // AddCommandToCommands(i_SMSText);
+            // AddCommandToCommands(i_SMSText);
             int PosStr = 0;
             if (i_Contact == null)
             {
@@ -10716,7 +10715,7 @@ namespace SocketServer
                 if (CharsLeft > 160)
                 {
                     SMSToSend = i_SMSText.Substring(PosStr, 160);
-                    
+
                 }
                 else
                 {
@@ -10727,56 +10726,6 @@ namespace SocketServer
                 string StrToSend = "{SMS_SEND}," + i_Contact.Phone + "," + SMSToSend + "\r{SMS_END}";
 
                 StrToSend = ReturnSMSEncryiepted(StrToSend);
-
-                byte[] buffer = Encoding.ASCII.GetBytes(StrToSend);
-
-                bool IsSent = SerialPortSMSSendData(buffer);
-
-                if (IsSent == true)
-                {
-                  //  mutexACKSMSReceived.WaitOne();
-                    //ACKSMSReceived = false;
-                 //   ACKSMSReceived = true;
-                    //Thread.Sleep(1000);
-                 //   mutexACKSMSReceived.ReleaseMutex();
-
-                    //int cnt = 0;
-                    //while (ACKSMSReceived == false && cnt < 100)
-                    //{
-                    //    Thread.Sleep(50);
-                    //    cnt++;
-                    //}
-                    //if (ACKSMSReceived)
-                    //{
-                        LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                        LogSMS.LogMessage(Color.Green, Color.White, "  SMS was Sent:\n Contact: " + i_Contact.ToString() + "\n Text:  " + SMSToSend, New_Line = true, Show_Time = false);
-
-                        Thread.Sleep(1500);
-                    //}
-                    //else
-                    //{
-                    //    LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    //    LogSMS.LogMessage(Color.Red, Color.White, "  SMS wasn't Sent to " + i_Contact.ToString() + "  Text:  " + SMSToSend, New_Line = true, Show_Time = false);
-                    //}
-
-                    //return true;
-                }
-            }
-        }
-
-        //bool ACKSMSReceived = false;
-        void RingToContact(PhoneBookContact i_Contact)
-        {
-            // AddCommandToCommands(i_SMSText);
-          //  int PosStr = 0;
-            if (i_Contact == null)
-            {
-                return;
-            }
-
-
-
-            string StrToSend = "{RING," + i_Contact.Phone + ",}" ;
 
                 byte[] buffer = Encoding.ASCII.GetBytes(StrToSend);
 
@@ -10799,7 +10748,7 @@ namespace SocketServer
                     //if (ACKSMSReceived)
                     //{
                     LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    LogSMS.LogMessage(Color.Green, Color.White, "  Ring to Contact:\n Contact: " + i_Contact.ToString(), New_Line = true, Show_Time = false);
+                    LogSMS.LogMessage(Color.Green, Color.White, "  SMS was Sent:\n Contact: " + i_Contact.ToString() + "\n Text:  " + SMSToSend, New_Line = true, Show_Time = false);
 
                     Thread.Sleep(1500);
                     //}
@@ -10811,12 +10760,62 @@ namespace SocketServer
 
                     //return true;
                 }
-            
+            }
+        }
+
+        //bool ACKSMSReceived = false;
+        void RingToContact(PhoneBookContact i_Contact)
+        {
+            // AddCommandToCommands(i_SMSText);
+            //  int PosStr = 0;
+            if (i_Contact == null)
+            {
+                return;
+            }
+
+
+
+            string StrToSend = "{RING," + i_Contact.Phone + ",}";
+
+            byte[] buffer = Encoding.ASCII.GetBytes(StrToSend);
+
+            bool IsSent = SerialPortSMSSendData(buffer);
+
+            if (IsSent == true)
+            {
+                //  mutexACKSMSReceived.WaitOne();
+                //ACKSMSReceived = false;
+                //   ACKSMSReceived = true;
+                //Thread.Sleep(1000);
+                //   mutexACKSMSReceived.ReleaseMutex();
+
+                //int cnt = 0;
+                //while (ACKSMSReceived == false && cnt < 100)
+                //{
+                //    Thread.Sleep(50);
+                //    cnt++;
+                //}
+                //if (ACKSMSReceived)
+                //{
+                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                LogSMS.LogMessage(Color.Green, Color.White, "  Ring to Contact:\n Contact: " + i_Contact.ToString(), New_Line = true, Show_Time = false);
+
+                Thread.Sleep(1500);
+                //}
+                //else
+                //{
+                //    LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                //    LogSMS.LogMessage(Color.Red, Color.White, "  SMS wasn't Sent to " + i_Contact.ToString() + "  Text:  " + SMSToSend, New_Line = true, Show_Time = false);
+                //}
+
+                //return true;
+            }
+
         }
 
         string ReturnSMSEncryiepted(string i_SMSText)
         {
-            if(checkBox_SMSencrypted.Checked == true)
+            if (checkBox_SMSencrypted.Checked == true)
             {
                 return "{ENCRYPED," + textBox_UnitIDForSMS.Text + "," + textBox_CodeArrayForSMS.Text + "," + i_SMSText;
             }
@@ -10847,7 +10846,7 @@ namespace SocketServer
                     LogSMS.LogMessage(Color.Red, Color.White, "SMS Not Valid", New_Line = true, Show_Time = false);
                 }
 
-               // AddCommandToCommands(richTextBox_TextSendSMS.Text);
+                // AddCommandToCommands(richTextBox_TextSendSMS.Text);
                 groupBox34.Enabled = true;
             }
         }
@@ -10858,7 +10857,7 @@ namespace SocketServer
             {
                 PhoneBookContact Contact = (PhoneBookContact)checkedListBox_PhoneBook.SelectedItem;
                 form.Load += new EventHandler(form_Load);
-                
+
                 if (Contact != null)
                 {
                     form.ContactName = Contact.Name;
@@ -10911,7 +10910,7 @@ namespace SocketServer
 
         private void richTextBox_TextSendSMS_TextChanged(object sender, EventArgs e)
         {
-            label_SMSSendCharacters.Text = richTextBox_TextSendSMS.Text.Length.ToString() + "/160 = " + (richTextBox_TextSendSMS.Text.Length/160 + 1) ;
+            label_SMSSendCharacters.Text = richTextBox_TextSendSMS.Text.Length.ToString() + "/160 = " + (richTextBox_TextSendSMS.Text.Length / 160 + 1);
             //if (richTextBox_TextSendSMS.Text.Length < 160)
             //{
             //    richTextBox_TextSendSMS.BackColor = Color.LightGreen;
@@ -10969,7 +10968,7 @@ namespace SocketServer
                 {
                     richTextBox_TextSendSMS.Text = listBox_SMSCommands.SelectedItem.ToString();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -10984,7 +10983,7 @@ namespace SocketServer
 
         private void comboBox_SMSCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -10996,7 +10995,7 @@ namespace SocketServer
             {
                 if (listBox_SMSCommands.SelectedItem != null)
                 {
-                    
+
                     richTextBox_TextSendSMS.Text = listBox_SMSCommands.SelectedItem.ToString();
                 }
 
@@ -11051,16 +11050,17 @@ namespace SocketServer
 
         void SortSMSCommands()
         {
-            ArrayList q = new ArrayList(); 
-            foreach (object o in listBox_SMSCommands.Items) 
+            ArrayList q = new ArrayList();
+            foreach (object o in listBox_SMSCommands.Items)
             {
-                    q.Add(o);
-            } 
-            q.Sort(); 
+                q.Add(o);
+            }
+            q.Sort();
             listBox_SMSCommands.Items.Clear();
-            foreach(object o in q){
+            foreach (object o in q)
+            {
 
-                listBox_SMSCommands.Items.Add(o); 
+                listBox_SMSCommands.Items.Add(o);
             }
         }
 
@@ -11077,12 +11077,12 @@ namespace SocketServer
 
         void RemoveSelectedCommand()
         {
-             try
+            try
             {
                 int i = listBox_SMSCommands.SelectedIndex;
                 //MyPhoneBook.RemoveContactFromPhoneBook((PhoneBookContact)checkedListBox_PhoneBook.SelectedItem);
 
-                 listBox_SMSCommands.Items.Remove(listBox_SMSCommands.SelectedItem);
+                listBox_SMSCommands.Items.Remove(listBox_SMSCommands.SelectedItem);
 
                 UpdateDefaultsCommands();
 
@@ -11129,7 +11129,7 @@ namespace SocketServer
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
                     List<string> templist = new List<string>();
-                    foreach(var item in listBox_SMSCommands.Items)
+                    foreach (var item in listBox_SMSCommands.Items)
                     {
                         templist.Add((string)item);
                     }
@@ -11180,7 +11180,7 @@ namespace SocketServer
         }
 
 
-        
+
 
 
         private void checkedListBox_PhoneBook_SelectedIndexChanged(object sender, EventArgs e)
@@ -11292,7 +11292,7 @@ namespace SocketServer
                     checkBox_OpenPortSMS.Checked = false;
                     checkBox_OpenPortSMS.BackColor = default(Color);
 
-                    
+
 
                     LogSMS.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
                     return;
@@ -11399,7 +11399,7 @@ namespace SocketServer
 
         private void checkBox_SMSencrypted_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox_SMSencrypted.Checked == true)
+            if (checkBox_SMSencrypted.Checked == true)
             {
                 GrooupBox_Encryption.Enabled = true;
             }
@@ -11411,25 +11411,25 @@ namespace SocketServer
 
         private void textBox_SpeedLimit1_TextChanged(object sender, EventArgs e)
         {
-            
+
             SetSpeedThreeSpeedLimit();
         }
 
         void SetSpeedThreeSpeedLimit()
         {
-            int Speed1 = 0,Speed2 = 0,Speed3 = 0;
+            int Speed1 = 0, Speed2 = 0, Speed3 = 0;
 
             Int32.TryParse(textBox_SpeedLimit1.Text, out Speed1);
             Int32.TryParse(textBox_SpeedLimit2.Text, out Speed2);
             Int32.TryParse(textBox_SpeedLimit3.Text, out Speed3);
 
 
-            int temp =(Speed3 & 0xff)<< 16 |  (Speed2 & 0xff)<< 8 | (Speed1 & 0xff);
+            int temp = (Speed3 & 0xff) << 16 | (Speed2 & 0xff) << 8 | (Speed1 & 0xff);
             textBox_Config7.Text = "";
             textBox_Config7.Text = temp.ToString();
-            
-            
-            
+
+
+
         }
 
         private void textBox_SpeedLimit2_TextChanged(object sender, EventArgs e)
@@ -11516,18 +11516,18 @@ namespace SocketServer
         int SendOneTimeFlag = 0;
         private void button_Ring_Click(object sender, EventArgs e)
         {
-            if (checkedListBox_PhoneBook.SelectedItem != null 
-     //           && checkBox_SMSencrypted.Checked == true 
+            if (checkedListBox_PhoneBook.SelectedItem != null
+                //           && checkBox_SMSencrypted.Checked == true 
                 && listBox_SMSCommands.SelectedItem != null
                 && listBox_SMSCommands.SelectedItem != null
-                && textBox_UnitIDForSMS.Text.Length >=10
-        //        && textBox_CodeArrayForSMS.Text.Length == 4
-                && serialPort_SMS.IsOpen 
-                && ( (checkBox_SMSencrypted.Checked == false) || ( textBox_CodeArrayForSMS.Text.Length == 4) )
+                && textBox_UnitIDForSMS.Text.Length >= 10
+                //        && textBox_CodeArrayForSMS.Text.Length == 4
+                && serialPort_SMS.IsOpen
+                && ((checkBox_SMSencrypted.Checked == false) || (textBox_CodeArrayForSMS.Text.Length == 4))
                 )
             {
 
-                
+
                 groupBox34.Enabled = false;
 
                 button_Ring.BackColor = Color.Yellow;
@@ -11543,7 +11543,7 @@ namespace SocketServer
 
                 if (checkBox_SMSencrypted.Checked == true)
                 {
-                    
+
 
                     string[] temp = richTextBox_TextSendSMS.Text.Split('>', '=');
 
@@ -11567,7 +11567,7 @@ namespace SocketServer
                     }
 
                     // AddCommandToCommands(richTextBox_TextSendSMS.Text);
-                    
+
                 }
                 else
                 {
@@ -11595,7 +11595,7 @@ namespace SocketServer
                 button_Ring.Text = "Ring";
                 SendOneTimeFlag = 0;
                 TimerStatusRingWait = 0;
-           
+
             }
         }
 
@@ -11652,13 +11652,13 @@ namespace SocketServer
                 button_Stopwatch_Start_Stop.BackColor = default(Color);
                 stopwatch.Stop();
             }
-            
+
         }
 
         private void button_TimerLog_Click(object sender, EventArgs e)
         {
             TimerLogNumber++;
-            LogS1.LogMessage(Color.DarkBlue, Color.White,"Stopwatch Log: " + TimerLogNumber + ">  " + PrintTimeSpan(stopwatch.Elapsed), true, true);
+            LogS1.LogMessage(Color.DarkBlue, Color.White, "Stopwatch Log: " + TimerLogNumber + ">  " + PrintTimeSpan(stopwatch.Elapsed), true, true);
         }
 
         private void checkBox_ParseMessages_CheckedChanged(object sender, EventArgs e)
@@ -11676,9 +11676,9 @@ namespace SocketServer
         private void button_StartStopTimer_Click(object sender, EventArgs e)
         {
             IsTimerRunning = !IsTimerRunning;
-            if (IsTimerRunning == true && (textBox_SetTimerTime.Text != "0" || textBox_TimerTime.Text != "0") )
+            if (IsTimerRunning == true && (textBox_SetTimerTime.Text != "0" || textBox_TimerTime.Text != "0"))
             {
-                
+
                 int Result = 0;
                 int.TryParse(textBox_SetTimerTime.Text, out Result);
                 if (Result != 0)
@@ -11697,7 +11697,7 @@ namespace SocketServer
             else
             {
                 button_StartStopTimer.BackColor = default(Color);
-                
+
             }
         }
 
@@ -11735,7 +11735,7 @@ namespace SocketServer
 
         private void cmbBaudRate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void checkBox_SendTimer_CheckedChanged(object sender, EventArgs e)
@@ -11766,7 +11766,7 @@ namespace SocketServer
             {
                 if (listBox_SMSCommands.GetSelected(i) == true)
                 {
-                    LogSMS.LogMessage(Color.Black, Color.White,"[" + listBox_SMSCommands.Items[i].ToString() + "]", New_Line = true, Show_Time = false);   
+                    LogSMS.LogMessage(Color.Black, Color.White, "[" + listBox_SMSCommands.Items[i].ToString() + "]", New_Line = true, Show_Time = false);
                 }
             }
             LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = true, Show_Time = false);
@@ -11774,7 +11774,7 @@ namespace SocketServer
 
         private void button_ResetGraphs_Click(object sender, EventArgs e)
         {
-            foreach(var ser in chart1.Series)
+            foreach (var ser in chart1.Series)
             {
                 ser.Points.Clear();
             }
@@ -11784,169 +11784,75 @@ namespace SocketServer
         /// 
         /// </summary>
         /// <returns></returns>
-        public System.Data.DataTable ExportToExcel(Series ser)
-        {
-            System.Data.DataTable table = new System.Data.DataTable();
-            table.Columns.Add("Chart name", typeof(string));
-            table.Columns.Add("X", typeof(double));
-            table.Columns.Add("Y", typeof(double));
+        //public System.Data.DataTable ExportToExcel(Series ser)
+        //{
+        //    System.Data.DataTable table = new System.Data.DataTable();
+        //    table.Columns.Add("Chart name", typeof(string));
+        //    table.Columns.Add("X", typeof(double));
+        //    table.Columns.Add("Y", typeof(double));
 
-            //foreach (var ser in chart1.Series)
-            //{
-            DataPoint[] TotalPoints = new DataPoint[ser.Points.Count];
-            ser.Points.CopyTo(TotalPoints,0);
-                foreach(var Point in TotalPoints)
-                {
-                    table.Rows.Add(ser.Name , Point.XValue,Point.YValues[0]);
-                }
-            //}
+        //    //foreach (var ser in chart1.Series)
+        //    //{
+        //    DataPoint[] TotalPoints = new DataPoint[ser.Points.Count];
+        //    ser.Points.CopyTo(TotalPoints,0);
+        //        foreach(var Point in TotalPoints)
+        //        {
+        //            table.Rows.Add(ser.Name , Point.XValue,Point.YValues[0]);
+        //        }
+        //    //}
 
-            //table.Columns.Add("Chart", typeof(int));
-            //table.Columns.Add("X", typeof(string));
-            //table.Columns.Add("Y", typeof(string));
+        //    //table.Columns.Add("Chart", typeof(int));
+        //    //table.Columns.Add("X", typeof(string));
+        //    //table.Columns.Add("Y", typeof(string));
 
-            //table.Columns.Add("Subject1", typeof(int));
-            //table.Columns.Add("Subject2", typeof(int));
-            //table.Columns.Add("Subject3", typeof(int));
-            //table.Columns.Add("Subject4", typeof(int));
-            //table.Columns.Add("Subject5", typeof(int));
-            //table.Columns.Add("Subject6", typeof(int));
-            //table.Rows.Add(1, "Amar", "M", 78, 59, 72, 95, 83, 77);
-            //table.Rows.Add(2, "Mohit", "M", 76, 65, 85, 87, 72, 90);
-            //table.Rows.Add(3, "Garima", "F", 77, 73, 83, 64, 86, 63);
-            //table.Rows.Add(4, "jyoti", "F", 55, 77, 85, 69, 70, 86);
-            //table.Rows.Add(5, "Avinash", "M", 87, 73, 69, 75, 67, 81);
-            //table.Rows.Add(6, "Devesh", "M", 92, 87, 78, 73, 75, 72);
-            return table;
-        }
+        //    //table.Columns.Add("Subject1", typeof(int));
+        //    //table.Columns.Add("Subject2", typeof(int));
+        //    //table.Columns.Add("Subject3", typeof(int));
+        //    //table.Columns.Add("Subject4", typeof(int));
+        //    //table.Columns.Add("Subject5", typeof(int));
+        //    //table.Columns.Add("Subject6", typeof(int));
+        //    //table.Rows.Add(1, "Amar", "M", 78, 59, 72, 95, 83, 77);
+        //    //table.Rows.Add(2, "Mohit", "M", 76, 65, 85, 87, 72, 90);
+        //    //table.Rows.Add(3, "Garima", "F", 77, 73, 83, 64, 86, 63);
+        //    //table.Rows.Add(4, "jyoti", "F", 55, 77, 85, 69, 70, 86);
+        //    //table.Rows.Add(5, "Avinash", "M", 87, 73, 69, 75, 67, 81);
+        //    //table.Rows.Add(6, "Devesh", "M", 92, 87, 78, 73, 75, 72);
+        //    return table;
+        //}
 
 
         private void Button_Export_excel_Click(object sender, EventArgs e)
         {
-            String fileName = "Charts_Excel_Generated";
-            String Location = AppDomain.CurrentDomain.BaseDirectory + fileName + DateTime.Now.ToString("MM_DD_HH_mm_ss") + ".xlsx";
-            new Thread(() =>
+            // writetext.WriteLine("writing in text file");
+
+
+            this.Invoke((MethodInvoker)delegate ()
             {
-                Thread.CurrentThread.IsBackground = true;
-                Thread.CurrentThread.Priority = ThreadPriority.Highest;
-                /* run your code here */
+                textBox_graph_XY.Text = "";
+            });
 
-                Microsoft.Office.Interop.Excel.Application excel;
-                Microsoft.Office.Interop.Excel.Workbook worKbooK;
-                Microsoft.Office.Interop.Excel.Worksheet worKsheeT;
-                Microsoft.Office.Interop.Excel.Range celLrangE;
-
-                try
+            Series[] Serias_Graphs = new Series[chart1.Series.Count];
+            chart1.Series.CopyTo(Serias_Graphs, 0);
+            foreach (var ser in Serias_Graphs)
+            {
+                String fileName = ser.Name;
+                String Location = AppDomain.CurrentDomain.BaseDirectory + fileName + DateTime.Now.ToString("MM_DD_HH_mm_ss") + ".csv";
+                using (StreamWriter writetext = new StreamWriter(@Location))
                 {
-                    this.Invoke((MethodInvoker)delegate ()
+
+                    foreach (DataPoint point_ in ser.Points)
                     {
-                        textBox_graph_XY.Text = "Excel in proccess";
-                    });
-                    
-
-                    excel = new Microsoft.Office.Interop.Excel.Application();
-                    excel.Visible = false;
-                    excel.DisplayAlerts = false;
-                    worKbooK = excel.Workbooks.Add(Type.Missing);
-
-
-                    worKsheeT = (Microsoft.Office.Interop.Excel.Worksheet)worKbooK.ActiveSheet;
-                    Series[] Serias_Graphs = new Series[chart1.Series.Count];
-                    chart1.Series.CopyTo(Serias_Graphs,0);
-                    foreach (var ser in Serias_Graphs)
-                    {
-
-
-                        worKsheeT = (Excel.Worksheet)excel.Worksheets.Add();
-                        worKsheeT.Name = ser.Name;
-
-                        // worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[1, 8]].Merge();
-                        // worKsheeT.Cells[1, 1] = "Student Report Card";
-                        // worKsheeT.Cells.Font.Size = 15;
-
-
-                        int rowcount = 2;
-
-                        foreach (DataRow datarow in ExportToExcel(ser).Rows)
-                        {
-                            this.Invoke((MethodInvoker)delegate ()
-                            {
-                                textBox_graph_XY.Text += ".";
-                                if(textBox_graph_XY.Text.Length > 100)
-                                {
-                                    textBox_graph_XY.Text = "Excel in proccess...";
-                                }
-                            });
-                            rowcount += 1;
-                            for (int i = 1; i <= ExportToExcel(ser).Columns.Count; i++)
-                            {
-
-                                if (rowcount == 3)
-                                {
-                                    worKsheeT.Cells[2, i] = ExportToExcel(ser).Columns[i - 1].ColumnName;
-                                    worKsheeT.Cells.Font.Color = System.Drawing.Color.Black;
-
-                                }
-
-                                worKsheeT.Cells[rowcount, i] = datarow[i - 1].ToString();
-
-                                if (rowcount > 3)
-                                {
-                                    if (i == ExportToExcel(ser).Columns.Count)
-                                    {
-                                        if (rowcount % 2 == 0)
-                                        {
-                                            celLrangE = worKsheeT.Range[worKsheeT.Cells[rowcount, 1], worKsheeT.Cells[rowcount, ExportToExcel(ser).Columns.Count]];
-                                        }
-
-                                    }
-                                }
-
-                            }
-
-                            celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[rowcount, ExportToExcel(ser).Columns.Count]];
-                            celLrangE.EntireColumn.AutoFit();
-                            Microsoft.Office.Interop.Excel.Borders border = celLrangE.Borders;
-                            border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                            border.Weight = 2d;
-
-                            celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[2, ExportToExcel(ser).Columns.Count]];
-
-                        }
-
-
-
+                        writetext.WriteLine(point_.XValue + "," + point_.YValues[0]);
                     }
 
-                    worKbooK.SaveAs(@Location);
-                    worKbooK.Close();
-                    excel.Quit();
-
                     this.Invoke((MethodInvoker)delegate ()
                     {
-                        textBox_graph_XY.Text = "Excel Generated at " + Location;
+                        textBox_graph_XY.Text += "Excel Generated at " + Location;
                     });
-
-                   
-
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-
-                }
-                finally
-                {
-                    worKsheeT = null;
-                    celLrangE = null;
-                    worKbooK = null;
-                }
+            }
 
 
-            }).Start();
-
-
-           
         }
 
         private void button3_Click_3(object sender, EventArgs e)
@@ -11968,100 +11874,101 @@ namespace SocketServer
             ResetTimer();
         }
 
-       //private void comboBox_SendThrough_SelectedIndexChanged_1(object sender, EventArgs e)
-       //{
-       //    switch (comboBox_SendThrough.SelectedIndex)
-       //    {
-       //        case (int)eComSource.GPRS:
-       //            groupBox_ServerSettings.Visible = true;
-       //            gbPortSettings.Visible = false;
-       //            groupBox_PhoneNumber.Visible = false;
-       //            break;
-       //        case (int)eComSource.SerialPort:
-       //            groupBox_ServerSettings.Visible = false;
-       //            gbPortSettings.Visible = true;
-       //            groupBox_PhoneNumber.Visible = false;
-       //            break;
-       //        case (int)eComSource.SMS:
-       //            groupBox_ServerSettings.Visible = false;
-       //            gbPortSettings.Visible = true;
-       //            groupBox_PhoneNumber.Visible = true;
-       //            break;
-       //    }
-       //}
+        //private void comboBox_SendThrough_SelectedIndexChanged_1(object sender, EventArgs e)
+        //{
+        //    switch (comboBox_SendThrough.SelectedIndex)
+        //    {
+        //        case (int)eComSource.GPRS:
+        //            groupBox_ServerSettings.Visible = true;
+        //            gbPortSettings.Visible = false;
+        //            groupBox_PhoneNumber.Visible = false;
+        //            break;
+        //        case (int)eComSource.SerialPort:
+        //            groupBox_ServerSettings.Visible = false;
+        //            gbPortSettings.Visible = true;
+        //            groupBox_PhoneNumber.Visible = false;
+        //            break;
+        //        case (int)eComSource.SMS:
+        //            groupBox_ServerSettings.Visible = false;
+        //            gbPortSettings.Visible = true;
+        //            groupBox_PhoneNumber.Visible = true;
+        //            break;
+        //    }
+        //}
 
-       //private bool m_EchoResponse = false;
-       //private void checkBox1_CheckedChanged(object sender, EventArgs e)
-       //{
-       //    if (checkBox1.Checked == true)
-       //    {
-       //        m_EchoResponse = true;
-       //    }
-       //    else
-       //    {
-       //        m_EchoResponse = false;
-       //    }
-       //}
-	}
-}
+        //private bool m_EchoResponse = false;
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox1.Checked == true)
+        //    {
+        //        m_EchoResponse = true;
+        //    }
+        //    else
+        //    {
+        //        m_EchoResponse = false;
+        //    }
+        //}
 
- /*Modem Registration Status = [1], RSSI = [31], Modem GPRS = [0],
-  * Temperature Level = [0],Board Temperature = [31] , Sim Status = [1] ,
-  * OperatorName = ["Cellcom"], Modem Voltage = [3.924000], Modem SIMIdentificationNumber = [899720201108447424] ,
-  * ModemIMEI = [354869050098417], SimIMSI = [425020110844742], ModemVersion = [Cinterion,BGS2-W,REVISION 02.000,A-REVISION 01.000.08,OK,], 
-  * ModemConnectionStatus = [], ModemServiceStatus = [], ModemServiceStatus2 = [], ModemErrorServiceStatus = [], ModemEUpdateCounter = [4],*/
 
-class ModemStatus
-{
-    public bool Valid = false;
-    public string ModemRegistrationStatus = "";
-    public string RSSI = "";
-    public string SIMStatus = "";
-    public string Operator = "";
-    public string ModemVoltage = "";
-    public string SIMIdentificationNumber = "";
-    public string ModemIMEI = "";
-    public string SimIMSI = "";
-    public string ModemVersion = "";
-    public string ModemEUpdateCounter = "";
+        /*Modem Registration Status = [1], RSSI = [31], Modem GPRS = [0],
+         * Temperature Level = [0],Board Temperature = [31] , Sim Status = [1] ,
+         * OperatorName = ["Cellcom"], Modem Voltage = [3.924000], Modem SIMIdentificationNumber = [899720201108447424] ,
+         * ModemIMEI = [354869050098417], SimIMSI = [425020110844742], ModemVersion = [Cinterion,BGS2-W,REVISION 02.000,A-REVISION 01.000.08,OK,], 
+         * ModemConnectionStatus = [], ModemServiceStatus = [], ModemServiceStatus2 = [], ModemErrorServiceStatus = [], ModemEUpdateCounter = [4],*/
 
-    public ModemStatus(ref string i_ModemStatus)
-    {
-        if (i_ModemStatus.Contains("Modem Registration Status") &&
-            i_ModemStatus.Contains("RSSI") &&
-            i_ModemStatus.Contains("SIMIdentificationNumber") &&
-            i_ModemStatus.Contains("SMS_ONLY") &&
-            i_ModemStatus.Contains("SIMIdentificationNumber"))  
+        class ModemStatus
         {
-            i_ModemStatus = i_ModemStatus.Substring(i_ModemStatus.LastIndexOf("SMS_ONLY"));
-            string[] values = i_ModemStatus.Split('[', ']');
-            if (values.Length >= 33)
-            {
-                this.ModemRegistrationStatus = values[1];
-                this.RSSI = values[3];
-                this.SIMStatus = values[11];
-                this.Operator = values[13];
-                this.ModemVoltage = values[15];
-                this.SIMIdentificationNumber = values[17];
-                this.ModemIMEI = values[19];
-                this.SimIMSI = values[21];
-                this.ModemVersion = values[23];
-                this.ModemEUpdateCounter = values[33];
+            public bool Valid = false;
+            public string ModemRegistrationStatus = "";
+            public string RSSI = "";
+            public string SIMStatus = "";
+            public string Operator = "";
+            public string ModemVoltage = "";
+            public string SIMIdentificationNumber = "";
+            public string ModemIMEI = "";
+            public string SimIMSI = "";
+            public string ModemVersion = "";
+            public string ModemEUpdateCounter = "";
 
-                Valid = true;
-            }
-            else
+            public ModemStatus(ref string i_ModemStatus)
             {
-                Valid = false;
-            }
+                if (i_ModemStatus.Contains("Modem Registration Status") &&
+                    i_ModemStatus.Contains("RSSI") &&
+                    i_ModemStatus.Contains("SIMIdentificationNumber") &&
+                    i_ModemStatus.Contains("SMS_ONLY") &&
+                    i_ModemStatus.Contains("SIMIdentificationNumber"))
+                {
+                    i_ModemStatus = i_ModemStatus.Substring(i_ModemStatus.LastIndexOf("SMS_ONLY"));
+                    string[] values = i_ModemStatus.Split('[', ']');
+                    if (values.Length >= 33)
+                    {
+                        this.ModemRegistrationStatus = values[1];
+                        this.RSSI = values[3];
+                        this.SIMStatus = values[11];
+                        this.Operator = values[13];
+                        this.ModemVoltage = values[15];
+                        this.SIMIdentificationNumber = values[17];
+                        this.ModemIMEI = values[19];
+                        this.SimIMSI = values[21];
+                        this.ModemVersion = values[23];
+                        this.ModemEUpdateCounter = values[33];
 
+                        Valid = true;
+                    }
+                    else
+                    {
+                        Valid = false;
+                    }
+
+                }
+                else
+                {
+                    Valid = false;
+                }
+            }
         }
-        else
-        {
-            Valid = false;
-        }
+
+
+
     }
 }
-
-
-
