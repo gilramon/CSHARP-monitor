@@ -7385,12 +7385,12 @@ namespace SocketServer
             ChartCntY = ChartCntY + temp;
           //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
-            if (ChartCntX > 1000)
-            {
-                ChartCntX = 0;
-                series1.Points.Clear();
-                series2.Points.Clear();
-            }
+            //if (ChartCntX > 1000)
+            //{
+            //    ChartCntX = 0;
+            //    series1.Points.Clear();
+            //    series2.Points.Clear();
+            //}
 
             chart1.Refresh();
             chart1.Invalidate();
@@ -11784,107 +11784,169 @@ namespace SocketServer
         /// 
         /// </summary>
         /// <returns></returns>
-        public System.Data.DataTable ExportToExcel()
+        public System.Data.DataTable ExportToExcel(Series ser)
         {
             System.Data.DataTable table = new System.Data.DataTable();
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Sex", typeof(string));
-            table.Columns.Add("Subject1", typeof(int));
-            table.Columns.Add("Subject2", typeof(int));
-            table.Columns.Add("Subject3", typeof(int));
-            table.Columns.Add("Subject4", typeof(int));
-            table.Columns.Add("Subject5", typeof(int));
-            table.Columns.Add("Subject6", typeof(int));
-            table.Rows.Add(1, "Amar", "M", 78, 59, 72, 95, 83, 77);
-            table.Rows.Add(2, "Mohit", "M", 76, 65, 85, 87, 72, 90);
-            table.Rows.Add(3, "Garima", "F", 77, 73, 83, 64, 86, 63);
-            table.Rows.Add(4, "jyoti", "F", 55, 77, 85, 69, 70, 86);
-            table.Rows.Add(5, "Avinash", "M", 87, 73, 69, 75, 67, 81);
-            table.Rows.Add(6, "Devesh", "M", 92, 87, 78, 73, 75, 72);
+            table.Columns.Add("Chart name", typeof(string));
+            table.Columns.Add("X", typeof(double));
+            table.Columns.Add("Y", typeof(double));
+
+            //foreach (var ser in chart1.Series)
+            //{
+            DataPoint[] TotalPoints = new DataPoint[ser.Points.Count];
+            ser.Points.CopyTo(TotalPoints,0);
+                foreach(var Point in TotalPoints)
+                {
+                    table.Rows.Add(ser.Name , Point.XValue,Point.YValues[0]);
+                }
+            //}
+
+            //table.Columns.Add("Chart", typeof(int));
+            //table.Columns.Add("X", typeof(string));
+            //table.Columns.Add("Y", typeof(string));
+
+            //table.Columns.Add("Subject1", typeof(int));
+            //table.Columns.Add("Subject2", typeof(int));
+            //table.Columns.Add("Subject3", typeof(int));
+            //table.Columns.Add("Subject4", typeof(int));
+            //table.Columns.Add("Subject5", typeof(int));
+            //table.Columns.Add("Subject6", typeof(int));
+            //table.Rows.Add(1, "Amar", "M", 78, 59, 72, 95, 83, 77);
+            //table.Rows.Add(2, "Mohit", "M", 76, 65, 85, 87, 72, 90);
+            //table.Rows.Add(3, "Garima", "F", 77, 73, 83, 64, 86, 63);
+            //table.Rows.Add(4, "jyoti", "F", 55, 77, 85, 69, 70, 86);
+            //table.Rows.Add(5, "Avinash", "M", 87, 73, 69, 75, 67, 81);
+            //table.Rows.Add(6, "Devesh", "M", 92, 87, 78, 73, 75, 72);
             return table;
         }
 
+
         private void Button_Export_excel_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application excel;
-            Microsoft.Office.Interop.Excel.Workbook worKbooK;
-            Microsoft.Office.Interop.Excel.Worksheet worKsheeT;
-            Microsoft.Office.Interop.Excel.Range celLrangE;
-
-            try
+            String fileName = "Charts_Excel_Generated";
+            String Location = AppDomain.CurrentDomain.BaseDirectory + fileName + DateTime.Now.ToString("MM_DD_HH_mm_ss") + ".xlsx";
+            new Thread(() =>
             {
-                excel = new Microsoft.Office.Interop.Excel.Application();
-                excel.Visible = false;
-                excel.DisplayAlerts = false;
-                worKbooK = excel.Workbooks.Add(Type.Missing);
+                Thread.CurrentThread.IsBackground = true;
+                Thread.CurrentThread.Priority = ThreadPriority.Highest;
+                /* run your code here */
 
+                Microsoft.Office.Interop.Excel.Application excel;
+                Microsoft.Office.Interop.Excel.Workbook worKbooK;
+                Microsoft.Office.Interop.Excel.Worksheet worKsheeT;
+                Microsoft.Office.Interop.Excel.Range celLrangE;
 
-                worKsheeT = (Microsoft.Office.Interop.Excel.Worksheet)worKbooK.ActiveSheet;
-                worKsheeT.Name = "StudentRepoertCard";
-
-                worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[1, 8]].Merge();
-                worKsheeT.Cells[1, 1] = "Student Report Card";
-                worKsheeT.Cells.Font.Size = 15;
-
-
-                int rowcount = 2;
-
-                foreach (DataRow datarow in ExportToExcel().Rows)
+                try
                 {
-                    rowcount += 1;
-                    for (int i = 1; i <= ExportToExcel().Columns.Count; i++)
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        textBox_graph_XY.Text = "Excel in proccess";
+                    });
+                    
+
+                    excel = new Microsoft.Office.Interop.Excel.Application();
+                    excel.Visible = false;
+                    excel.DisplayAlerts = false;
+                    worKbooK = excel.Workbooks.Add(Type.Missing);
+
+
+                    worKsheeT = (Microsoft.Office.Interop.Excel.Worksheet)worKbooK.ActiveSheet;
+                    Series[] Serias_Graphs = new Series[chart1.Series.Count];
+                    chart1.Series.CopyTo(Serias_Graphs,0);
+                    foreach (var ser in Serias_Graphs)
                     {
 
-                        if (rowcount == 3)
+
+                        worKsheeT = (Excel.Worksheet)excel.Worksheets.Add();
+                        worKsheeT.Name = ser.Name;
+
+                        // worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[1, 8]].Merge();
+                        // worKsheeT.Cells[1, 1] = "Student Report Card";
+                        // worKsheeT.Cells.Font.Size = 15;
+
+
+                        int rowcount = 2;
+
+                        foreach (DataRow datarow in ExportToExcel(ser).Rows)
                         {
-                            worKsheeT.Cells[2, i] = ExportToExcel().Columns[i - 1].ColumnName;
-                            worKsheeT.Cells.Font.Color = System.Drawing.Color.Black;
-
-                        }
-
-                        worKsheeT.Cells[rowcount, i] = datarow[i - 1].ToString();
-
-                        if (rowcount > 3)
-                        {
-                            if (i == ExportToExcel().Columns.Count)
+                            this.Invoke((MethodInvoker)delegate ()
                             {
-                                if (rowcount % 2 == 0)
+                                textBox_graph_XY.Text += ".";
+                                if(textBox_graph_XY.Text.Length > 100)
                                 {
-                                    celLrangE = worKsheeT.Range[worKsheeT.Cells[rowcount, 1], worKsheeT.Cells[rowcount, ExportToExcel().Columns.Count]];
+                                    textBox_graph_XY.Text = "Excel in proccess...";
+                                }
+                            });
+                            rowcount += 1;
+                            for (int i = 1; i <= ExportToExcel(ser).Columns.Count; i++)
+                            {
+
+                                if (rowcount == 3)
+                                {
+                                    worKsheeT.Cells[2, i] = ExportToExcel(ser).Columns[i - 1].ColumnName;
+                                    worKsheeT.Cells.Font.Color = System.Drawing.Color.Black;
+
+                                }
+
+                                worKsheeT.Cells[rowcount, i] = datarow[i - 1].ToString();
+
+                                if (rowcount > 3)
+                                {
+                                    if (i == ExportToExcel(ser).Columns.Count)
+                                    {
+                                        if (rowcount % 2 == 0)
+                                        {
+                                            celLrangE = worKsheeT.Range[worKsheeT.Cells[rowcount, 1], worKsheeT.Cells[rowcount, ExportToExcel(ser).Columns.Count]];
+                                        }
+
+                                    }
                                 }
 
                             }
+
+                            celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[rowcount, ExportToExcel(ser).Columns.Count]];
+                            celLrangE.EntireColumn.AutoFit();
+                            Microsoft.Office.Interop.Excel.Borders border = celLrangE.Borders;
+                            border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                            border.Weight = 2d;
+
+                            celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[2, ExportToExcel(ser).Columns.Count]];
+
                         }
+
+
 
                     }
 
+                    worKbooK.SaveAs(@Location);
+                    worKbooK.Close();
+                    excel.Quit();
+
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        textBox_graph_XY.Text = "Excel Generated at " + Location;
+                    });
+
+                   
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+
+                }
+                finally
+                {
+                    worKsheeT = null;
+                    celLrangE = null;
+                    worKbooK = null;
                 }
 
-                celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[rowcount, ExportToExcel().Columns.Count]];
-                celLrangE.EntireColumn.AutoFit();
-                Microsoft.Office.Interop.Excel.Borders border = celLrangE.Borders;
-                border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                border.Weight = 2d;
 
-                celLrangE = worKsheeT.Range[worKsheeT.Cells[1, 1], worKsheeT.Cells[2, ExportToExcel().Columns.Count]];
+            }).Start();
 
-                worKbooK.SaveAs(@"c:\gil_test.xlsx");
-                worKbooK.Close();
-                excel.Quit();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
-            finally
-            {
-                worKsheeT = null;
-                celLrangE = null;
-                worKbooK = null;
-            }
+           
         }
 
         private void button3_Click_3(object sender, EventArgs e)
