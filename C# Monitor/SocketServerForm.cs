@@ -4,24 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data;
-using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
 using System.IO;
 using System.IO.Ports;
-using System.Reflection;
-using System.Xml;
-using System.Deployment.Application;
 using System.Text.RegularExpressions;
-using System.Configuration;
 using Spetrotec;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Runtime.InteropServices;
-using Microsoft.CSharp;
 
 namespace SocketServer
 {
@@ -11749,7 +11741,6 @@ namespace SocketServer
         }
 
         private Random rnd = new Random();
-        private object xlApp;
 
         private void button_ScreenShot_Click(object sender, EventArgs e)
         {
