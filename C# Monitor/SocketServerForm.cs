@@ -405,6 +405,8 @@ namespace SocketServer
         private ListBox listBox1;
         private Button button_ResetGraphs;
         private Button Button_Export_excel;
+        private Button button_GraphPause;
+        private Label label7;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -549,9 +551,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -786,6 +788,7 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Button_Export_excel = new System.Windows.Forms.Button();
             this.button_ResetGraphs = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox_graph_XY = new System.Windows.Forms.TextBox();
@@ -910,7 +913,8 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
-            this.Button_Export_excel = new System.Windows.Forms.Button();
+            this.button_GraphPause = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1183,6 +1187,7 @@ namespace SocketServer
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.groupBox_Timer);
             this.tabPage2.Controls.Add(this.groupBox_Stopwatch);
             this.tabPage2.Controls.Add(this.groupBox4);
@@ -1658,9 +1663,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3811,6 +3816,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button_GraphPause);
             this.tabPage3.Controls.Add(this.Button_Export_excel);
             this.tabPage3.Controls.Add(this.button_ResetGraphs);
             this.tabPage3.Controls.Add(this.listBox1);
@@ -3823,6 +3829,16 @@ namespace SocketServer
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // Button_Export_excel
+            // 
+            this.Button_Export_excel.Location = new System.Drawing.Point(3, 185);
+            this.Button_Export_excel.Name = "Button_Export_excel";
+            this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
+            this.Button_Export_excel.TabIndex = 7;
+            this.Button_Export_excel.Text = "Export to excel";
+            this.Button_Export_excel.UseVisualStyleBackColor = true;
+            this.Button_Export_excel.Click += new System.EventHandler(this.Button_Export_excel_Click);
             // 
             // button_ResetGraphs
             // 
@@ -3846,7 +3862,7 @@ namespace SocketServer
             // textBox_graph_XY
             // 
             this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 75);
+            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 111);
             this.textBox_graph_XY.Multiline = true;
             this.textBox_graph_XY.Name = "textBox_graph_XY";
             this.textBox_graph_XY.Size = new System.Drawing.Size(185, 68);
@@ -3864,16 +3880,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5084,15 +5100,24 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // Button_Export_excel
+            // button_GraphPause
             // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(4, 149);
-            this.Button_Export_excel.Name = "Button_Export_excel";
-            this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
-            this.Button_Export_excel.TabIndex = 7;
-            this.Button_Export_excel.Text = "Export to excel";
-            this.Button_Export_excel.UseVisualStyleBackColor = true;
-            this.Button_Export_excel.Click += new System.EventHandler(this.Button_Export_excel_Click);
+            this.button_GraphPause.Location = new System.Drawing.Point(4, 78);
+            this.button_GraphPause.Name = "button_GraphPause";
+            this.button_GraphPause.Size = new System.Drawing.Size(123, 23);
+            this.button_GraphPause.TabIndex = 8;
+            this.button_GraphPause.Text = "Pause";
+            this.button_GraphPause.UseVisualStyleBackColor = true;
+            this.button_GraphPause.Click += new System.EventHandler(this.button_GraphPause_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(80, 317);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 15);
+            this.label7.TabIndex = 108;
+            this.label7.Text = "label7";
             // 
             // Form1
             // 
@@ -5115,6 +5140,7 @@ namespace SocketServer
             this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox_Timer.ResumeLayout(false);
             this.groupBox_Timer.PerformLayout();
             this.groupBox_Stopwatch.ResumeLayout(false);
@@ -6527,7 +6553,7 @@ namespace SocketServer
             Name = "Raw Data",
             //    Color = System.Drawing.Color.Green,
             IsVisibleInLegend = true,
-            IsXValueIndexed = true,
+            IsXValueIndexed = false,
             ChartType = SeriesChartType.Line
         };
 
@@ -6536,7 +6562,7 @@ namespace SocketServer
             Name = "Moving Avarage 30",
             //    Color = System.Drawing.Color.Blue,
             IsVisibleInLegend = true,
-            IsXValueIndexed = true,
+            IsXValueIndexed = false,
             ChartType = SeriesChartType.Line
         };
 
@@ -6569,7 +6595,37 @@ namespace SocketServer
                             textBox_graph_XY.Text = "Chart=" + result.Series.Name + "\n, X=" + prop.XValue.ToString() + ", Y=" + prop.YValues[0].ToString();
 
                             tooltip.Show("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
-                                            pos.X, pos.Y - 15);
+                                            pos.X, pos.Y - 15,9999999);
+                        }
+                    }
+                }
+            }
+        }
+
+        void Chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var pos = e.Location;
+            //if (prevPosition.HasValue && pos == prevPosition.Value)
+            //    return;
+            tooltip.RemoveAll();
+            prevPosition = pos;
+            var results = chart1.HitTest(pos.X, pos.Y, false,
+                                            ChartElementType.DataPoint);
+            foreach (var result in results)
+            {
+                if (result.ChartElementType == ChartElementType.DataPoint)
+                {
+                    var prop = result.Object as DataPoint;
+                    if (prop != null)
+                    {
+                        var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
+                        var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
+
+                        // check if the cursor is really close to the point (2 pixels around the point)
+                        if (Math.Abs(pos.X - pointXPixel) < 6 &&
+                            Math.Abs(pos.Y - pointYPixel) < 6)
+                        {
+                            chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
                         }
                     }
                 }
@@ -6588,8 +6644,16 @@ namespace SocketServer
                 chart1.Series.Add(series2);
                 chart1.Series[0].BorderWidth = 2;
                 chart1.Series[1].BorderWidth = 2;
-                chart1.MouseMove += Chart1_MouseMove;
 
+                //chart1.Series[0].IsValueShownAsLabel = true;
+                //chart1.Series[1].IsValueShownAsLabel = false;
+                //chart1.Series[1].SmartLabelStyle.IsMarkerOverlappingAllowed = false;
+                //chart1.Series[0].SmartLabelStyle.IsMarkerOverlappingAllowed = false;
+                //chart1.Series[1].SmartLabelStyle.Enabled = true;
+
+
+                chart1.MouseMove += Chart1_MouseMove;
+                chart1.MouseClick += Chart1_MouseClick;
 
                 tabControl1.DrawItem += TabControl1_DrawItem1;
                 textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
@@ -7346,17 +7410,25 @@ namespace SocketServer
             }
 
 
-            GraphPrint();
+
+            if (IsPauseGraphs == false)
+            {
+                GraphPrint();
+            }
+            
 
 
 
 
         }
+
+        List<double> ChartMem = new List<double>();
+        List<double> ChartMem2 = new List<double>();
         Random rand = new Random();
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
         {
-            series1.Points.AddXY(ChartCntX, ChartCntY);
+            
 
             ChartCntY2 = 0;
 
@@ -7368,8 +7440,17 @@ namespace SocketServer
             }
             ChartCntY2 = ChartCntY2 / cnt;
 
+            if (IsPauseGraphs == false)
+            {
+                series1.Points.AddXY(ChartCntX, ChartCntY);
+                series2.Points.AddXY(ChartCntX, ChartCntY2);
+            }
+            else
+            {
+                ChartMem.Add(ChartCntY);
+                ChartMem2.Add(ChartCntY2);
+            }
 
-            series2.Points.AddXY(ChartCntX, ChartCntY2);
             ChartCntX++;
             double temp = rand.Next(-1, 2);
             temp = temp * rand.NextDouble();
@@ -7383,8 +7464,10 @@ namespace SocketServer
             //    series2.Points.Clear();
             //}
 
-            chart1.Refresh();
-            chart1.Invalidate();
+
+                chart1.Refresh();
+                chart1.Invalidate();
+            
         }
 
         static float NextFloat(Random random)
@@ -11765,6 +11848,7 @@ namespace SocketServer
 
         private void button_ResetGraphs_Click(object sender, EventArgs e)
         {
+            ChartCntX = 0;
             foreach (var ser in chart1.Series)
             {
                 ser.Points.Clear();
@@ -11850,6 +11934,23 @@ namespace SocketServer
         {
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             Tab0Color = randomColor;
+        }
+
+        bool IsPauseGraphs = false;
+        private void button_GraphPause_Click(object sender, EventArgs e)
+        {
+
+            if(IsPauseGraphs == false)
+            {
+                IsPauseGraphs = true;
+                button_GraphPause.BackColor = Color.Yellow;
+            }
+            else
+            {
+
+                IsPauseGraphs = false;
+                button_GraphPause.BackColor = default(Color);
+            }
         }
 
         void ResetTimer()
