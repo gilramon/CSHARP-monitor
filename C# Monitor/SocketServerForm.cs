@@ -6622,10 +6622,14 @@ namespace SocketServer
                         var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
 
                         // check if the cursor is really close to the point (2 pixels around the point)
-                        if (Math.Abs(pos.X - pointXPixel) < 6 &&
-                            Math.Abs(pos.Y - pointYPixel) < 6)
+                        if (Math.Abs(pos.X - pointXPixel) < 4 &&
+                            Math.Abs(pos.Y - pointYPixel) < 4)
                         {
                             chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
+                            //result.Series.Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00"); 
+                            //chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
+                            //chart1.Series[0].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
+                            //chart1.Series[1].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
                         }
                     }
                 }
