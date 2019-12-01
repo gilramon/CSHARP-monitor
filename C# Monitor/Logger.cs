@@ -80,6 +80,54 @@ namespace SocketServer
                 m_StopLogging.CheckedChanged += new EventHandler(m_StopLogging_CheckedChanged);
             }
 
+            i_txtBox.MouseUp += richTextBox1_MouseUp;
+            i_txtBox.KeyDown += I_txtBox_KeyDown;
+
+        }
+
+        private void I_txtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                e.SuppressKeyPress = false;
+            }
+        }
+
+        private void richTextBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {   //click event
+                //MessageBox.Show("you got it!");
+                ContextMenu contextMenu = new System.Windows.Forms.ContextMenu();
+                MenuItem menuItem = new MenuItem("Cut");
+                menuItem.Click += new EventHandler(CutAction);
+                contextMenu.MenuItems.Add(menuItem);
+                menuItem = new MenuItem("Copy");
+                menuItem.Click += new EventHandler(CopyAction);
+                contextMenu.MenuItems.Add(menuItem);
+                menuItem = new MenuItem("Paste");
+                menuItem.Click += new EventHandler(PasteAction);
+                contextMenu.MenuItems.Add(menuItem);
+
+                m_txtBox.ContextMenu = contextMenu;
+            }
+        }
+        void CutAction(object sender, EventArgs e)
+        {
+            m_txtBox.Cut();
+        }
+
+        void CopyAction(object sender, EventArgs e)
+        {
+            Clipboard.SetText(m_txtBox.SelectedText);
+        }
+
+        void PasteAction(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                m_txtBox.Text += Clipboard.GetText(TextDataFormat.Text).ToString();
+            }
         }
 
         void m_RecognizePatternCheckbox2_CheckedChanged(object sender, EventArgs e)

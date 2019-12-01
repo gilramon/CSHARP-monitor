@@ -402,10 +402,11 @@ namespace SocketServer
         private ListBox listBox_SMSCommands;
         private TextBox textBox_SendSerialPort;
         private TextBox textBox_graph_XY;
-        private ListBox listBox1;
         private Button button_ResetGraphs;
         private Button Button_Export_excel;
         private Button button_GraphPause;
+        private Button button_OpenFolder2;
+        private HelpProvider helpProvider1;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -787,10 +788,10 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_OpenFolder2 = new System.Windows.Forms.Button();
             this.button_GraphPause = new System.Windows.Forms.Button();
             this.Button_Export_excel = new System.Windows.Forms.Button();
             this.button_ResetGraphs = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox_graph_XY = new System.Windows.Forms.TextBox();
             this.button_ScreenShot = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -913,6 +914,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1273,8 +1275,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
             this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
+            this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1660,9 +1662,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1874,9 +1876,9 @@ namespace SocketServer
             this.label_Config42.Size = new System.Drawing.Size(67, 15);
             this.label_Config42.TabIndex = 124;
             this.label_Config42.Text = "Uart Listen";
-            this.toolTip1.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
-        "00\r\n38400\r\n115200");
             this.toolTip2.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
+        "00\r\n38400\r\n115200");
+            this.toolTip1.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
         "00\r\n38400\r\n115200");
             // 
             // textBox_Config42
@@ -1901,8 +1903,8 @@ namespace SocketServer
             this.label_Config41.Size = new System.Drawing.Size(70, 15);
             this.label_Config41.TabIndex = 122;
             this.label_Config41.Text = "Lock Engine";
-            this.toolTip1.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config41, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config41
             // 
@@ -1926,8 +1928,8 @@ namespace SocketServer
             this.label_Config40.Size = new System.Drawing.Size(99, 15);
             this.label_Config40.TabIndex = 120;
             this.label_Config40.Text = "Engine cut speed";
-            this.toolTip1.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config40, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config40
             // 
@@ -1951,8 +1953,8 @@ namespace SocketServer
             this.label_Config39.Size = new System.Drawing.Size(98, 15);
             this.label_Config39.TabIndex = 118;
             this.label_Config39.Text = "Ring\\SMS Enable";
-            this.toolTip1.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config39, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config39
             // 
@@ -2038,8 +2040,8 @@ namespace SocketServer
             this.label_Config38.Size = new System.Drawing.Size(86, 15);
             this.label_Config38.TabIndex = 111;
             this.label_Config38.Text = "Garmin Enable";
-            this.toolTip1.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config38, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config38
             // 
@@ -2130,8 +2132,8 @@ namespace SocketServer
             this.label_Config34.Size = new System.Drawing.Size(122, 15);
             this.label_Config34.TabIndex = 103;
             this.label_Config34.Text = "Arm\\Disarm method";
-            this.toolTip1.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config34, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // textBox_Config34
             // 
@@ -2192,9 +2194,9 @@ namespace SocketServer
             this.label_Config33.Size = new System.Drawing.Size(74, 15);
             this.label_Config33.TabIndex = 101;
             this.label_Config33.Text = "Disarm code";
-            this.toolTip1.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
-        "xamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
+        "xamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config33, "Disarm Code: (CA)\r\nDescription:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nE" +
         "xamples:\r\n0\r\n5");
             // 
             // label_Config3
@@ -2262,8 +2264,8 @@ namespace SocketServer
             this.label_Config32.Size = new System.Drawing.Size(64, 15);
             this.label_Config32.TabIndex = 99;
             this.label_Config32.Text = "GNSS type";
-            this.toolTip1.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config32, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.label_Config32.Click += new System.EventHandler(this.label_Config32_Click);
             // 
             // textBox_Config32
@@ -2288,8 +2290,8 @@ namespace SocketServer
             this.label_Config31.Size = new System.Drawing.Size(75, 15);
             this.label_Config31.TabIndex = 97;
             this.label_Config31.Text = "Passive ARM";
-            this.toolTip1.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config31, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.label_Config31.Click += new System.EventHandler(this.label_Config31_Click);
             // 
             // textBox_Config31
@@ -2467,8 +2469,8 @@ namespace SocketServer
             this.label_Config30.Size = new System.Drawing.Size(101, 15);
             this.label_Config30.TabIndex = 94;
             this.label_Config30.Text = "Doors filter delay";
-            this.toolTip1.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             this.toolTip2.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
+            this.toolTip1.SetToolTip(this.label_Config30, "Description:\r\nIngition on door in ARM mode\r\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n5");
             // 
             // label4
             // 
@@ -2609,10 +2611,10 @@ namespace SocketServer
             this.label_Config21.Size = new System.Drawing.Size(99, 15);
             this.label_Config21.TabIndex = 80;
             this.label_Config21.Text = "Position distance";
-            this.toolTip1.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
-        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000");
             this.toolTip2.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
         "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
+            this.toolTip1.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
+        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000");
             // 
             // label_Config20
             // 
@@ -2623,10 +2625,10 @@ namespace SocketServer
             this.label_Config20.Size = new System.Drawing.Size(83, 15);
             this.label_Config20.TabIndex = 79;
             this.label_Config20.Text = "Position angle";
-            this.toolTip1.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
-        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n");
             this.toolTip2.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
         "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
+            this.toolTip1.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
+        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n");
             // 
             // label_Config19
             // 
@@ -2657,10 +2659,10 @@ namespace SocketServer
             this.label_Config17.Size = new System.Drawing.Size(61, 15);
             this.label_Config17.TabIndex = 76;
             this.label_Config17.Text = "Tow angle";
-            this.toolTip1.SetToolTip(this.label_Config17, "Tow Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\nE" +
-        "xamples:\r\n0\r\n90\r\n\r\n");
             this.toolTip2.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
         "Examples:\r\n0\r\n90\r\n\r\n");
+            this.toolTip1.SetToolTip(this.label_Config17, "Tow Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\nE" +
+        "xamples:\r\n0\r\n90\r\n\r\n");
             // 
             // label_Config16
             // 
@@ -3583,8 +3585,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3684,8 +3686,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3696,8 +3698,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3813,19 +3815,29 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button_OpenFolder2);
             this.tabPage3.Controls.Add(this.button_GraphPause);
             this.tabPage3.Controls.Add(this.Button_Export_excel);
             this.tabPage3.Controls.Add(this.button_ResetGraphs);
-            this.tabPage3.Controls.Add(this.listBox1);
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage3.Size = new System.Drawing.Size(1337, 772);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button_OpenFolder2
+            // 
+            this.button_OpenFolder2.Location = new System.Drawing.Point(5, 183);
+            this.button_OpenFolder2.Name = "button_OpenFolder2";
+            this.button_OpenFolder2.Size = new System.Drawing.Size(108, 26);
+            this.button_OpenFolder2.TabIndex = 77;
+            this.button_OpenFolder2.Text = "Open Folder";
+            this.button_OpenFolder2.UseVisualStyleBackColor = true;
+            this.button_OpenFolder2.Click += new System.EventHandler(this.button_OpenFolder2_Click);
             // 
             // button_GraphPause
             // 
@@ -3839,7 +3851,7 @@ namespace SocketServer
             // 
             // Button_Export_excel
             // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(3, 185);
+            this.Button_Export_excel.Location = new System.Drawing.Point(4, 215);
             this.Button_Export_excel.Name = "Button_Export_excel";
             this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
             this.Button_Export_excel.TabIndex = 7;
@@ -3856,15 +3868,6 @@ namespace SocketServer
             this.button_ResetGraphs.Text = "Reset Graphs";
             this.button_ResetGraphs.UseVisualStyleBackColor = true;
             this.button_ResetGraphs.Click += new System.EventHandler(this.button_ResetGraphs_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(4, 215);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(185, 304);
-            this.listBox1.TabIndex = 5;
             // 
             // textBox_graph_XY
             // 
@@ -5510,21 +5513,34 @@ namespace SocketServer
 
         bool SerialPortSendData(byte[] i_SendData)
         {
-            if (serialPort.IsOpen)
+            try
             {
-                // Send the binary data out the port
-                serialPort.Write(i_SendData, 0, i_SendData.Length);
+                if (serialPort.IsOpen)
+                {
+                    // Send the binary data out the port
+                    serialPort.Write(i_SendData, 0, i_SendData.Length);
 
-                LogS1.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
-                LogS1.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
-                LogS1.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
-                return true;
+                    LogS1.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
+                    LogS1.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
+                    LogS1.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
+                    return true;
 
+                }
             }
+            catch(Exception ex)
+            {
+                SendExceptionToTheMonitor(ex.ToString());
+                
+            }
+
 
             return false;
         }
 
+        private void SendExceptionToTheMonitor(String i_Message)
+        {
+            LogS1.LogMessage(Color.Red, Color.LightGray, i_Message, New_Line = true, Show_Time = true);
+        }
         //Color oldColor;
         Gil_Server.Server m_Server;
         private void ListenBox_CheckedChanged(object sender, EventArgs e)
@@ -6541,8 +6557,9 @@ namespace SocketServer
             //    Color = System.Drawing.Color.Green,
             IsVisibleInLegend = true,
             IsXValueIndexed = false,
-            ChartType = SeriesChartType.Line
-        };
+            ChartType = SeriesChartType.Line,
+            MarkerStyle = MarkerStyle.Circle
+    };
 
         Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
@@ -6551,6 +6568,16 @@ namespace SocketServer
             IsVisibleInLegend = true,
             IsXValueIndexed = false,
             ChartType = SeriesChartType.Line
+        };
+
+        Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series
+        {
+            Name = "0-100",
+            //    Color = System.Drawing.Color.Blue,
+            IsVisibleInLegend = true,
+            IsXValueIndexed = false,
+            ChartType = SeriesChartType.Line,
+            MarkerStyle = MarkerStyle.Circle
         };
 
         Point? prevPosition = null;
@@ -6613,10 +6640,7 @@ namespace SocketServer
                             Math.Abs(pos.Y - pointYPixel) < 4)
                         {
                             chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
-                            //result.Series.Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00"); 
-                            //chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
-                            //chart1.Series[0].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
-                            //chart1.Series[1].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
+
                         }
                     }
                 }
@@ -6633,8 +6657,9 @@ namespace SocketServer
                 //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                 chart1.Series.Add(series1);
                 chart1.Series.Add(series2);
-                chart1.Series[0].BorderWidth = 2;
-                chart1.Series[1].BorderWidth = 2;
+                chart1.Series.Add(series3);
+                //chart1.Series[0].BorderWidth = 2;
+                //chart1.Series[1].BorderWidth = 2;
 
                 //chart1.Series[0].IsValueShownAsLabel = true;
                 //chart1.Series[1].IsValueShownAsLabel = false;
@@ -7304,6 +7329,8 @@ namespace SocketServer
         }
         Double ChartCntX = 0, ChartCntY = 0;
         Double ChartCntY2 = 0;
+        Double ChartCntY3 = 0;
+        bool OppositeCount = false;
         /// <summary>
         /// 
         /// </summary>
@@ -7423,6 +7450,26 @@ namespace SocketServer
 
             ChartCntY2 = 0;
 
+            if(OppositeCount == true)
+            {
+                ChartCntY3++;
+                ChartCntY3 *= 1.1;
+                if (ChartCntY3 >= 100)
+                {
+                    OppositeCount = false;
+                }
+            }
+            else
+            {
+                ChartCntY3--;
+                ChartCntY3 *= 0.9;
+                if (ChartCntY3 <= 0)
+                {
+                    OppositeCount = true;
+                }
+            }
+
+
             int cnt = 0;
             for (int i = series1.Points.Count - 1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
             {
@@ -7435,6 +7482,7 @@ namespace SocketServer
             {
                 series1.Points.AddXY(ChartCntX, ChartCntY);
                 series2.Points.AddXY(ChartCntX, ChartCntY2);
+                series3.Points.AddXY(ChartCntX, ChartCntY3);
             }
             else
             {
@@ -7739,7 +7787,7 @@ namespace SocketServer
 
 
 
-
+                    serialPort.WriteTimeout = 500;
                     serialPort.Open();
 
                     //ListenBox.Checked = false;
@@ -11942,6 +11990,16 @@ namespace SocketServer
                 IsPauseGraphs = false;
                 button_GraphPause.BackColor = default(Color);
             }
+        }
+
+        private void button1_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, "helpfile.chm", HelpNavigator.TopicId, "1234");
+        }
+
+        private void button_OpenFolder2_Click(object sender, EventArgs e)
+        {
+            Process.Start(@".");
         }
 
         void ResetTimer()
