@@ -551,9 +551,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1275,8 +1275,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1662,9 +1662,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3585,8 +3585,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3686,8 +3686,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3698,8 +3698,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3822,9 +3822,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage3.Size = new System.Drawing.Size(1337, 774);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3890,16 +3890,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
