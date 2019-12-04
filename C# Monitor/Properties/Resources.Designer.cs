@@ -59,45 +59,5 @@ namespace Spetrotec.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1341532198_rasta_reggae_peace_bike_ski_atv_car_helmet_sticker_j79_f5cd2 {
-            get {
-                object obj = ResourceManager.GetObject("1341532198_rasta-reggae-peace-bike-ski-atv-car-helmet-sticker-j79-f5cd2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bob_marley {
-            get {
-                object obj = ResourceManager.GetObject("bob-marley", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap reggae_61 {
-            get {
-                object obj = ResourceManager.GetObject("reggae-61", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tumblr_mf5lraK7gN1rxisdto1_500 {
-            get {
-                object obj = ResourceManager.GetObject("tumblr_mf5lraK7gN1rxisdto1_500", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
