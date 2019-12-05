@@ -464,7 +464,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
 
             }
 
@@ -5232,7 +5232,7 @@ namespace SocketServer
                         break;
 
                     case Keys.Up:
-                                //LogS1.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
+                                //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
                                 if (HistoryIndex >= comboBox_SerialPortHistory.Items.Count - 1 || HistoryIndex < 0)
                                 {
                                     HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
@@ -5266,10 +5266,10 @@ namespace SocketServer
 
                                     if (Strlist.Count > 1)
                                     {
-                                        LogS1.LogMessage(Color.Purple, Color.LightGray, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
+                                        SerialPortLogger.LogMessage(Color.Black, Color.Yellow, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
                                         foreach (String str in Strlist)
                                         {
-                                            LogS1.LogMessage(Color.Purple, Color.LightGray, str, New_Line = true, Show_Time = false);
+                                            SerialPortLogger.LogMessage(Color.Black, Color.Yellow, str, New_Line = true, Show_Time = false);
                                         }
                                     }
                                     else
@@ -5288,7 +5288,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
+                ServerLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
             }
         }
 
@@ -5425,19 +5425,19 @@ namespace SocketServer
                 if (data != null)
                 {
 
-                    //LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    //LogGeneral.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                    //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
 
-                    LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    LogGeneral.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
 
                     //switch (data)
                     //{
@@ -5462,19 +5462,19 @@ namespace SocketServer
                 else
                 {
                     // Gil: Not SSP Message
-                    LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    LogGeneral.LogMessage(Color.Blue, Color.White, "[ " + i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                    LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Blue, Color.White, "[ " + i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+                    ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
                 }
 
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
             }
         }
 
@@ -5506,7 +5506,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
         }
 
@@ -5541,9 +5541,9 @@ namespace SocketServer
                     // Send the binary data out the port
                     serialPort.Write(i_SendData, 0, i_SendData.Length);
 
-                    LogS1.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
-                    LogS1.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
-                    LogS1.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
                     return true;
 
                 }
@@ -5560,7 +5560,7 @@ namespace SocketServer
 
         private void SendExceptionToTheMonitor(String i_Message)
         {
-            LogS1.LogMessage(Color.Red, Color.LightGray, i_Message, New_Line = true, Show_Time = true);
+            SerialPortLogger.LogMessage(Color.Red, Color.LightGray, i_Message, New_Line = true, Show_Time = true);
         }
         //Color oldColor;
         Gil_Server.Server m_Server;
@@ -5593,7 +5593,7 @@ namespace SocketServer
                 }
                 catch (SocketException se)
                 {
-                    LogGeneral.LogMessage(Color.Black, Color.White, "Exception:  " + se.ToString(), true, true);
+                    ServerLogger.LogMessage(Color.Black, Color.White, "Exception:  " + se.ToString(), true, true);
                 }
             }
             else
@@ -5611,9 +5611,9 @@ namespace SocketServer
         {
             Gil_Server.Server.stringEventArgs mye = (Gil_Server.Server.stringEventArgs)e;
 
-            LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-            LogGeneral.LogMessage(Color.Brown, Color.White, "[Internal GPRS Server] ", New_Line = false, Show_Time = false);
-            LogGeneral.LogMessage(Color.Black, Color.White, mye.StrData, New_Line = true, Show_Time = false);
+            ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+            ServerLogger.LogMessage(Color.Brown, Color.White, "[Internal GPRS Server] ", New_Line = false, Show_Time = false);
+            ServerLogger.LogMessage(Color.Black, Color.White, mye.StrData, New_Line = true, Show_Time = false);
         }
 
         static int LastIgn = 1;
@@ -5632,20 +5632,20 @@ namespace SocketServer
 
             IncomingString = IncomingString.Replace("\0", "");
 
-            LogGeneral.LogMessage(Color.Black, Color.White, "\n\nData Received: ", New_Line = false, Show_Time = true);
-            LogGeneral.LogMessage(Color.Blue, Color.White, "Connection: " + mye.ConnectionNumber, New_Line = false, Show_Time = false);
-            //     LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-            LogGeneral.LogMessage(Color.DarkGreen, Color.White, "    " + IncomingString, New_Line = true, Show_Time = false);
-            //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-            //LogGeneral.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-            //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(mye.BytesData), New_Line = true, Show_Time = false);
+            ServerLogger.LogMessage(Color.Black, Color.White, "\n\nData Received: ", New_Line = false, Show_Time = true);
+            ServerLogger.LogMessage(Color.Blue, Color.White, "Connection: " + mye.ConnectionNumber, New_Line = false, Show_Time = false);
+            //     ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+            ServerLogger.LogMessage(Color.DarkGreen, Color.White, "    " + IncomingString, New_Line = true, Show_Time = false);
+            //ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+            //ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+            //ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(mye.BytesData), New_Line = true, Show_Time = false);
 
             // GuiHandleData(eComSource.GPRS,mye.BytesData);
 
             //if (checkBox_EchoResponse.Checked == true)
             //{
             //    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(IncomingString);
-            //    LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back Data Length: " + b2.Length, New_Line = true, Show_Time = true);
+            //    ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back Data Length: " + b2.Length, New_Line = true, Show_Time = true);
             //    SendDataToServer(b2);
             //}
 
@@ -5666,7 +5666,7 @@ namespace SocketServer
             }
             catch
             {
-                LogGeneral.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
                 return;
             }
 
@@ -5762,7 +5762,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5815,7 +5815,7 @@ namespace SocketServer
                 int Newign = int.Parse(ign[1]);
                 if (Newign == 1 && LastIgn == 0)
                 {
-                    LogGeneral.LogMessage(Color.Blue, Color.White, "New Driving Log Opened", New_Line = true, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Blue, Color.White, "New Driving Log Opened", New_Line = true, Show_Time = true);
 
                     //checkBox_RecordLatLong.Invoke(new EventHandler(delegate
                     //{
@@ -5834,7 +5834,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5865,7 +5865,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5873,7 +5873,7 @@ namespace SocketServer
                 if (Key[0] == OpcodeToCompare)
                 {
                     OpcodeToCompare = "";
-                    LogGeneral.LogMessage(Color.Black, Color.Yellow, "Command Recieved OK!! ", true, true);
+                    ServerLogger.LogMessage(Color.Black, Color.Yellow, "Command Recieved OK!! ", true, true);
                     button_Ring.Invoke(new EventHandler(delegate
                     {
                         button_Ring.BackColor = Color.Green;
@@ -5892,7 +5892,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5907,7 +5907,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5924,7 +5924,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5939,7 +5939,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5954,7 +5954,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5969,7 +5969,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -5986,7 +5986,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -6000,7 +6000,7 @@ namespace SocketServer
                 if (checkBox_EchoResponse.Checked == true)
                 {
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -6016,7 +6016,7 @@ namespace SocketServer
                 {
 
                     string ACKBack = string.Format("{0},ACK,{1}", ACKStrings[0], ACKStrings[ACKStrings.Length - 1].Replace(";", ",;"));
-                    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                     byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                     SendDataToServer(mye.ConnectionNumber, b2);
                 }
@@ -6033,7 +6033,7 @@ namespace SocketServer
                 //int NumOfTransmitPackets = int.Parse(FOTAStrings[3]);
                 //if (NumOfTransmitPackets > 5 || NumOfTransmitPackets < 1)
                 //{
-                //    LogGeneral.LogMessage(Color.Red, Color.White, "Warning: Number Of Received Packets is no between 1-5", New_Line = true, Show_Time = true);
+                //    ServerLogger.LogMessage(Color.Red, Color.White, "Warning: Number Of Received Packets is no between 1-5", New_Line = true, Show_Time = true);
                 //    return;
                 //}
 
@@ -6057,7 +6057,7 @@ namespace SocketServer
                         //}));
 
                         string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                        //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                        //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                         byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                         SendDataToServer(mye.ConnectionNumber, b2);
                     }
@@ -6120,7 +6120,7 @@ namespace SocketServer
                         }
 
                         ByteArr.CopyTo(DataToSend, 0);
-                        //LogGeneral.LogMessage(Color.Black, Color.White, "Send Data Length : " + ByteArr.Length, New_Line = true, Show_Time = true);
+                        //ServerLogger.LogMessage(Color.Black, Color.White, "Send Data Length : " + ByteArr.Length, New_Line = true, Show_Time = true);
                         SendDataToServer(mye.ConnectionNumber, DataToSend);
                     }
 
@@ -6129,7 +6129,7 @@ namespace SocketServer
                 }
                 else
                 {
-                    LogGeneral.LogMessage(Color.Red, Color.White, "Warning: FOTA file wasn't Chosen", New_Line = true, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Red, Color.White, "Warning: FOTA file wasn't Chosen", New_Line = true, Show_Time = true);
                 }
 
             }
@@ -6234,19 +6234,19 @@ namespace SocketServer
 
             if (Issent == true)
             {
-                LogGeneral.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogGeneral.LogMessage(Color.DarkViolet, Color.White, "Send Data: ", false, false);
-                LogGeneral.LogMessage(Color.DarkViolet, Color.White, " Connection: " + i_Connection, false, false);
-                LogGeneral.LogMessage(Color.DarkGreen, Color.White, "   " + Str, true, false);
+                ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                ServerLogger.LogMessage(Color.DarkViolet, Color.White, "Send Data: ", false, false);
+                ServerLogger.LogMessage(Color.DarkViolet, Color.White, " Connection: " + i_Connection, false, false);
+                ServerLogger.LogMessage(Color.DarkGreen, Color.White, "   " + Str, true, false);
 
                 //LogIWatcher.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
                 //LogIWatcher.LogMessage(Color.DarkViolet, Color.White, "Send Data: ", false, false);
                 //LogIWatcher.LogMessage(Color.DarkViolet, Color.White, " Connection: " + i_Connection, false, false);
                 //LogIWatcher.LogMessage(Color.DarkGreen, Color.White, "   " + Str, true, false);
 
-                //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", false, false);
-                //LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), false, false);
-                //LogGeneral.LogMessage(Color.Black, Color.White, " \" ", true, false);
+                //ServerLogger.LogMessage(Color.Black, Color.White, " \" ", false, false);
+                //ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), false, false);
+                //ServerLogger.LogMessage(Color.Black, Color.White, " \" ", true, false);
             }
         }
 
@@ -6274,7 +6274,7 @@ namespace SocketServer
             }
             catch (SocketException ex)
             {
-                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
             }
         }
 
@@ -6292,7 +6292,7 @@ namespace SocketServer
         //    }
         //    catch (SocketException ex)
         //    {
-        //        LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+        //        ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
         //    }
         //}
 
@@ -6566,8 +6566,8 @@ namespace SocketServer
             System.Windows.Forms.Application.Exit();
         }
 
-        Logger LogGeneral;
-        Logger LogS1;
+        Logger ServerLogger;
+        Logger SerialPortLogger;
         //   Logger LogIWatcher;
         Logger LogSMS;
         PhoneBook MyPhoneBook;
@@ -6720,8 +6720,8 @@ namespace SocketServer
                 //pictureBox_logo.BringToFront();
 
                 //Gil: Generate all the loggers
-                LogGeneral = new Logger("Server", txtGeneral, Clear_btn, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
-                LogS1 = new Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
+                ServerLogger = new Logger("Server", txtGeneral, Clear_btn, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
+                SerialPortLogger = new Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
 
                 LogSMS = new Logger("Log_SMS", richTextBox_SMSConsole, button_ClearSMSConsole, checkBox_PauseSMSConsole, checkBox_RecordSMSConsole, null, null, null, null);
 
@@ -6852,7 +6852,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
 
         }
@@ -7079,7 +7079,7 @@ namespace SocketServer
                     //    }
                     //    catch (Exception ex)
                     //    {
-                    //        LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                    //        ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
                     //    }
                     //}));
                     break;
@@ -7129,7 +7129,7 @@ namespace SocketServer
         //            }
         //            catch (Exception ex)
         //            {
-        //                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+        //                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
         //            }
         //        }));
         //    }
@@ -7301,14 +7301,14 @@ namespace SocketServer
 
 
 
-            //        LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " opened in directory \" " + Directory.GetCurrentDirectory() + "\" \n\n", true, true);
+            //        SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " opened in directory \" " + Directory.GetCurrentDirectory() + "\" \n\n", true, true);
             //        //}
 
 
             //    }
             //    catch (Exception)
             //    {
-            //        LogS1.LogMessage(Color.Orange, Color.LightGray, "Can't Open File", true, true);
+            //        SerialPortLogger.LogMessage(Color.Orange, Color.LightGray, "Can't Open File", true, true);
             //    }
 
             //}
@@ -7316,7 +7316,7 @@ namespace SocketServer
             //{
             //    checkBox_RecordLatLong.BackColor = default(Color);
 
-            //    LogS1.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " closed \n\n", true, true);
+            //    SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "File " + log_file_S1_LatLong + " closed \n\n", true, true);
             //}
         }
 
@@ -7402,7 +7402,7 @@ namespace SocketServer
                 {
                     //IsTimedOutTimerEnabled = false;
                     GetDataIntervalCounter = 0;
-                    LogGeneral.LogMessage(Color.Orange, Color.White, "Connection Time Out ", New_Line = true, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Orange, Color.White, "Connection Time Out ", New_Line = true, Show_Time = true);
                     ListenBox.Checked = !ListenBox.Checked;
                     ListenBox.Checked = !ListenBox.Checked;
                 }
@@ -7444,7 +7444,7 @@ namespace SocketServer
                 }
                 catch (Exception ex)
                 {
-                    LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+                    ServerLogger.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
                 }
             }
 
@@ -7607,7 +7607,7 @@ namespace SocketServer
                     Result--;
                     if (Result == 0)
                     {
-                        LogS1.LogMessage(Color.White, Color.DarkOrange, "Timer End", true, true);
+                        SerialPortLogger.LogMessage(Color.White, Color.DarkOrange, "Timer End", true, true);
                         checkBox_S1Pause.Checked = true;
 
                         ResetTimer();
@@ -7728,7 +7728,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
             }
             //if (ComPortClosing == true)
             //{
@@ -7815,7 +7815,7 @@ namespace SocketServer
                     //groupBox_ServerSettings.Enabled = false;
                     IsTimedOutTimerEnabled = false;
 
-                    LogS1.LogMessage(Color.Green, Color.LightGray,
+                    SerialPortLogger.LogMessage(Color.Green, Color.LightGray,
                      " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
                      + " ,BaudRate = " + serialPort.BaudRate +
                      " ,DataBits = " + serialPort.DataBits +
@@ -7848,7 +7848,7 @@ namespace SocketServer
 
                     //SerialException = true;
 
-                    LogS1.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
+                    SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
                     return;
                 }
 
@@ -7906,7 +7906,7 @@ namespace SocketServer
 
                 CloseSerialPortTimer = false;
 
-                LogS1.LogMessage(Color.Orange, Color.LightGray, "Serial port Closed", New_Line = true, Show_Time = true);
+                SerialPortLogger.LogMessage(Color.Orange, Color.LightGray, "Serial port Closed", New_Line = true, Show_Time = true);
                 return;
             }
 
@@ -7929,12 +7929,12 @@ namespace SocketServer
 
 
 
-            LogS1.LogMessage(Color.Blue, Color.LightGray, "Rx:>", New_Line = false, Show_Time = true);
+            SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "Rx:>", New_Line = false, Show_Time = true);
             string[] lines = Regex.Split(IncomingString, "\r\n");
 
             foreach (string line in lines)
             {
-                LogS1.LogMessage(Color.Blue, Color.LightGray, line, New_Line = true, Show_Time = false);
+                SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, line, New_Line = true, Show_Time = false);
             }
 
 
@@ -7965,7 +7965,7 @@ namespace SocketServer
             }
             catch
             {
-                //LogGeneral.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
+                //ServerLogger.LogMessage(Color.Black, Color.White, "Data Not Valid: " + IncomingString, New_Line = true, Show_Time = true);
                 return;
             }
 
@@ -8054,7 +8054,7 @@ namespace SocketServer
                 //{
 
                 //    string ACKBack = string.Format("{0},ACK,{1}", ParseStrings[0], ParseStrings[ParseStrings.Length - 1].Replace(";", ",;"));
-                //    //LogGeneral.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                //    //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
                 //    byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
                 //    SendDataToServer(mye.ConnectionNumber, b2);
                 //}
@@ -8219,7 +8219,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                LogS1.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
+                SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
                 //    return;
             }
         }
@@ -8460,11 +8460,11 @@ namespace SocketServer
         void Serial_TerminalDataLost(byte[] i_data)
         {
 
-            LogGeneral.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
-            LogGeneral.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-            LogGeneral.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
-            LogGeneral.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
-            LogGeneral.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
+            ServerLogger.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
+            ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+            ServerLogger.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
+            ServerLogger.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
+            ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
         }
 
         private void button_StopPeriodaclly_Click(object sender, EventArgs e)
@@ -8543,7 +8543,7 @@ namespace SocketServer
                     textBox_NumberOfOpenConnections.BackColor = Color.Orange;
                     //ListenBox.BackColor = Color.Green;
 
-                    LogGeneral.LogMessage(Color.Orange, Color.White, "Num Of Connections is bigger than one, " + m_Server.NumberOfOpenConnections, true, true);
+                    ServerLogger.LogMessage(Color.Orange, Color.White, "Num Of Connections is bigger than one, " + m_Server.NumberOfOpenConnections, true, true);
 
                 }
                 else
@@ -8922,7 +8922,7 @@ namespace SocketServer
                 }
                 catch (Exception ex)
                 {
-                    LogGeneral.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
+                    ServerLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
                 }
 
                 if (m_BinaryReader != null && ConfigFileName != null)
@@ -8969,10 +8969,10 @@ namespace SocketServer
             //}
 
 
-            LogGeneral.LogMessage(Color.Blue, Color.White, "****************** System ID's Status ****************** ", New_Line = true, Show_Time = true);
+            ServerLogger.LogMessage(Color.Blue, Color.White, "****************** System ID's Status ****************** ", New_Line = true, Show_Time = true);
             foreach (var pair in IDToFOTA_Status)
             {
-                LogGeneral.LogMessage(Color.Blue, Color.White, pair.Key + "   " + pair.Value + " \n", New_Line = false, Show_Time = false);
+                ServerLogger.LogMessage(Color.Blue, Color.White, pair.Key + "   " + pair.Value + " \n", New_Line = false, Show_Time = false);
 
             }
         }
@@ -8994,7 +8994,7 @@ namespace SocketServer
             {
                 int NumOfPacketes = int.Parse(textBox_TotalFrames1280Bytes.Text);
 
-                LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults Which Didn't Found ****************** ", New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults Which Didn't Found ****************** ", New_Line = true, Show_Time = true);
                 for (int i = 0; i < NumOfPacketes; i++)
                 {
                     bool found = false;
@@ -9018,20 +9018,20 @@ namespace SocketServer
                     }
                     if (found == true)
                     {
-                        //   LogGeneral.LogMessage(Color.Blue, Color.White,  i + " X ", New_Line = true, Show_Time = false);
+                        //   ServerLogger.LogMessage(Color.Blue, Color.White,  i + " X ", New_Line = true, Show_Time = false);
                     }
                     else
                     {
                         NumOfMissingPackets++;
-                        LogGeneral.LogMessage(Color.Blue, Color.White, i + ",  ", New_Line = false, Show_Time = false);
+                        ServerLogger.LogMessage(Color.Blue, Color.White, i + ",  ", New_Line = false, Show_Time = false);
                     }
                 }
-                LogGeneral.LogMessage(Color.Blue, Color.White, "\n\nTotal Packets: " + NumOfPacketes + ", ToTal Sending Packets: " + NumOfSendingPackets + ", ToTal Missing Packets: " + NumOfMissingPackets, New_Line = true, Show_Time = false);
-                LogGeneral.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults End ****************** ", New_Line = true, Show_Time = true);
+                ServerLogger.LogMessage(Color.Blue, Color.White, "\n\nTotal Packets: " + NumOfPacketes + ", ToTal Sending Packets: " + NumOfSendingPackets + ", ToTal Missing Packets: " + NumOfMissingPackets, New_Line = true, Show_Time = false);
+                ServerLogger.LogMessage(Color.Blue, Color.White, "****************** Packets Reusults End ****************** ", New_Line = true, Show_Time = true);
             }
             catch (Exception ex)
             {
-                LogGeneral.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
         }
 
@@ -11793,7 +11793,7 @@ namespace SocketServer
         private void button_TimerLog_Click(object sender, EventArgs e)
         {
             TimerLogNumber++;
-            LogS1.LogMessage(Color.DarkBlue, Color.White, "Stopwatch Log: " + TimerLogNumber + ">  " + PrintTimeSpan(stopwatch.Elapsed), true, true);
+            SerialPortLogger.LogMessage(Color.DarkBlue, Color.White, "Stopwatch Log: " + TimerLogNumber + ">  " + PrintTimeSpan(stopwatch.Elapsed), true, true);
         }
 
         private void checkBox_ParseMessages_CheckedChanged(object sender, EventArgs e)
