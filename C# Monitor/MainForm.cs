@@ -64,7 +64,7 @@ namespace SocketServer
         private GroupBox groupBox5;
         private CheckBox checkBox_S1Pause;
         private Button txtS1_Clear;
-        private RichTextBox txtS1;
+        private RichTextBox SerialPortLogger_TextBox;
         private GroupBox S1_Configuration;
         private GroupBox groupBox12;
         private Button button13;
@@ -551,9 +551,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -610,7 +610,7 @@ namespace SocketServer
             this.checkBox_S1RecordLog = new System.Windows.Forms.CheckBox();
             this.checkBox_S1Pause = new System.Windows.Forms.CheckBox();
             this.txtS1_Clear = new System.Windows.Forms.Button();
-            this.txtS1 = new System.Windows.Forms.RichTextBox();
+            this.SerialPortLogger_TextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
@@ -1275,8 +1275,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1561,7 +1561,7 @@ namespace SocketServer
             this.groupBox5.Controls.Add(this.checkBox_S1RecordLog);
             this.groupBox5.Controls.Add(this.checkBox_S1Pause);
             this.groupBox5.Controls.Add(this.txtS1_Clear);
-            this.groupBox5.Controls.Add(this.txtS1);
+            this.groupBox5.Controls.Add(this.SerialPortLogger_TextBox);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(353, 67);
             this.groupBox5.Name = "groupBox5";
@@ -1643,16 +1643,16 @@ namespace SocketServer
             this.txtS1_Clear.Text = "Clear";
             this.txtS1_Clear.UseVisualStyleBackColor = true;
             // 
-            // txtS1
+            // SerialPortLogger_TextBox
             // 
-            this.txtS1.BackColor = System.Drawing.Color.LightGray;
-            this.txtS1.EnableAutoDragDrop = true;
-            this.txtS1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtS1.Location = new System.Drawing.Point(6, 44);
-            this.txtS1.Name = "txtS1";
-            this.txtS1.Size = new System.Drawing.Size(960, 611);
-            this.txtS1.TabIndex = 0;
-            this.txtS1.Text = "";
+            this.SerialPortLogger_TextBox.BackColor = System.Drawing.Color.LightGray;
+            this.SerialPortLogger_TextBox.EnableAutoDragDrop = true;
+            this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 44);
+            this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(960, 611);
+            this.SerialPortLogger_TextBox.TabIndex = 0;
+            this.SerialPortLogger_TextBox.Text = "";
             // 
             // tabPage6
             // 
@@ -3585,8 +3585,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3686,8 +3686,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3698,8 +3698,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3890,16 +3890,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5224,44 +5224,65 @@ namespace SocketServer
         {
             try
             {
-
-                if (e.KeyCode == Keys.Enter)
+                switch (e.KeyCode)
                 {
-                    button_SendSerialPort.PerformClick();
-                }
 
-                if (e.KeyCode == Keys.Up)
-                {
-                    if (HistoryIndex >= comboBox_SerialPortHistory.Items.Count - 1 || HistoryIndex < 0)
-                    {
+                    case Keys.Enter:
+                                button_SendSerialPort.PerformClick();
+                        break;
+
+                    case Keys.Up:
+                                //LogS1.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
+                                if (HistoryIndex >= comboBox_SerialPortHistory.Items.Count - 1 || HistoryIndex < 0)
+                                {
+                                    HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
+                                }
+
+                                textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
+                                if (HistoryIndex > 0)
+                                {
+                                    HistoryIndex--;
+                                }
+                        break;
+
+                    case Keys.Down:
+
+                                    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
+                                    if (HistoryIndex < comboBox_SerialPortHistory.Items.Count - 1)
+                                    {
+                                        HistoryIndex++;
+                                    }
+                        break;
+
+                    case Keys.Right:
+                                    List<String> Strlist = new List<String>();
+                                    foreach (String str in comboBox_SerialPortHistory.Items)
+                                    {
+                                        if (str.StartsWith(textBox_SendSerialPort.Text))
+                                        {
+                                            Strlist.Add(str);
+                                        }
+                                    }
+
+                                    if (Strlist.Count > 1)
+                                    {
+                                        LogS1.LogMessage(Color.Purple, Color.LightGray, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
+                                        foreach (String str in Strlist)
+                                        {
+                                            LogS1.LogMessage(Color.Purple, Color.LightGray, str, New_Line = true, Show_Time = false);
+                                        }
+                                    }
+                                    else
+                                        if (Strlist.Count == 1)
+                                        {
+                                            textBox_SendSerialPort.Text = Strlist[0];
+                                        }
+                        break;
+
+                    default:
                         HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
-                    }
-
-                    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
-                    if (HistoryIndex > 0)
-                    {
-                        HistoryIndex--;
-                    }
-
-
+                    break;
                 }
-                else
-                    if (e.KeyCode == Keys.Down)
-                {
-
-                    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
-                    if (HistoryIndex < comboBox_SerialPortHistory.Items.Count - 1)
-                    {
-                        HistoryIndex++;
-                    }
-
-                }
-                else
-                {
-                    HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
-                }
-
-
 
                 comboBox_SerialPortHistory.SelectedIndex = HistoryIndex;
             }
@@ -5529,7 +5550,7 @@ namespace SocketServer
             }
             catch(Exception ex)
             {
-                SendExceptionToTheMonitor(ex.ToString());
+                SendExceptionToTheMonitor(ex.Message.ToString());
                 
             }
 
@@ -6426,10 +6447,10 @@ namespace SocketServer
         {
             try
             {
-                txtS1.Invoke(new EventHandler(delegate
+                SerialPortLogger_TextBox.Invoke(new EventHandler(delegate
                 {
 
-                    txtS1.Text = "";
+                    SerialPortLogger_TextBox.Text = "";
 
                 }));
             }
@@ -6700,7 +6721,7 @@ namespace SocketServer
 
                 //Gil: Generate all the loggers
                 LogGeneral = new Logger("Server", txtGeneral, Clear_btn, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
-                LogS1 = new Logger("Serial_Port", txtS1, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
+                LogS1 = new Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
 
                 LogSMS = new Logger("Log_SMS", richTextBox_SMSConsole, button_ClearSMSConsole, checkBox_PauseSMSConsole, checkBox_RecordSMSConsole, null, null, null, null);
 
