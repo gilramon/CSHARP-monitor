@@ -22,7 +22,7 @@ namespace SocketServer
     /// <summary>
     /// Summary description for Form1.
     /// </summary>
-    public class Form1 : System.Windows.Forms.Form
+    public class MainForm : System.Windows.Forms.Form
     {
         /// <summary>
         /// 
@@ -493,7 +493,7 @@ namespace SocketServer
         /// <summary>
         /// 
         /// </summary>
-        public Form1()
+        public MainForm()
         {
             //
             // Required for Windows Form Designer support
@@ -564,7 +564,7 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -810,6 +810,20 @@ namespace SocketServer
             this.button_ScreenShot = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button_ClearRx = new System.Windows.Forms.Button();
+            this.richTextBox_ClientRx = new System.Windows.Forms.RichTextBox();
+            this.button43 = new System.Windows.Forms.Button();
+            this.button_ClientClose = new System.Windows.Forms.Button();
+            this.button_ClientConnect = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.richTextBox_ClientTx = new System.Windows.Forms.RichTextBox();
+            this.textBox_ClientPort = new System.Windows.Forms.TextBox();
+            this.textBox_ClientIP = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.S1_Configuration = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -929,20 +943,6 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox_ClientIP = new System.Windows.Forms.TextBox();
-            this.textBox_ClientPort = new System.Windows.Forms.TextBox();
-            this.richTextBox_ClientTx = new System.Windows.Forms.RichTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button_ClientConnect = new System.Windows.Forms.Button();
-            this.button_ClientClose = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.button_ClearRx = new System.Windows.Forms.Button();
-            this.richTextBox_ClientRx = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -970,6 +970,7 @@ namespace SocketServer
             this.groupBox33.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tabPage9.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.S1_Configuration.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -998,7 +999,6 @@ namespace SocketServer
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox_PhoneNumber.SuspendLayout();
-            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1692,9 +1692,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3169,10 +3169,10 @@ namespace SocketServer
             this.tabPage1.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1337, 774);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3376,9 +3376,9 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox35);
             this.tabPage7.Controls.Add(this.groupBox34);
             this.tabPage7.Controls.Add(this.groupBox33);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage7.Size = new System.Drawing.Size(1337, 774);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3852,9 +3852,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage3.Size = new System.Drawing.Size(1337, 774);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Graphs";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3942,6 +3942,151 @@ namespace SocketServer
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.label10);
+            this.tabPage9.Controls.Add(this.label9);
+            this.tabPage9.Controls.Add(this.button_ClearRx);
+            this.tabPage9.Controls.Add(this.richTextBox_ClientRx);
+            this.tabPage9.Controls.Add(this.button43);
+            this.tabPage9.Controls.Add(this.button_ClientClose);
+            this.tabPage9.Controls.Add(this.button_ClientConnect);
+            this.tabPage9.Controls.Add(this.button3);
+            this.tabPage9.Controls.Add(this.richTextBox_ClientTx);
+            this.tabPage9.Controls.Add(this.textBox_ClientPort);
+            this.tabPage9.Controls.Add(this.textBox_ClientIP);
+            this.tabPage9.Controls.Add(this.label8);
+            this.tabPage9.Controls.Add(this.label7);
+            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage9.TabIndex = 9;
+            this.tabPage9.Text = "Client";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(599, 303);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(150, 23);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Rx - Data Received";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(599, 88);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(118, 23);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Tx - Data Send";
+            // 
+            // button_ClearRx
+            // 
+            this.button_ClearRx.Location = new System.Drawing.Point(1214, 334);
+            this.button_ClearRx.Name = "button_ClearRx";
+            this.button_ClearRx.Size = new System.Drawing.Size(75, 23);
+            this.button_ClearRx.TabIndex = 11;
+            this.button_ClearRx.Text = "Clear Rx";
+            this.button_ClearRx.UseVisualStyleBackColor = true;
+            this.button_ClearRx.Click += new System.EventHandler(this.button_ClearRx_Click);
+            // 
+            // richTextBox_ClientRx
+            // 
+            this.richTextBox_ClientRx.Location = new System.Drawing.Point(34, 334);
+            this.richTextBox_ClientRx.Name = "richTextBox_ClientRx";
+            this.richTextBox_ClientRx.ReadOnly = true;
+            this.richTextBox_ClientRx.Size = new System.Drawing.Size(1174, 167);
+            this.richTextBox_ClientRx.TabIndex = 9;
+            this.richTextBox_ClientRx.Text = "";
+            // 
+            // button43
+            // 
+            this.button43.Location = new System.Drawing.Point(1215, 146);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(75, 23);
+            this.button43.TabIndex = 8;
+            this.button43.Text = "Clear Tx";
+            this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.button43_Click_1);
+            // 
+            // button_ClientClose
+            // 
+            this.button_ClientClose.Location = new System.Drawing.Point(149, 80);
+            this.button_ClientClose.Name = "button_ClientClose";
+            this.button_ClientClose.Size = new System.Drawing.Size(75, 23);
+            this.button_ClientClose.TabIndex = 7;
+            this.button_ClientClose.Text = "Close";
+            this.button_ClientClose.UseVisualStyleBackColor = true;
+            this.button_ClientClose.Click += new System.EventHandler(this.button42_Click_1);
+            // 
+            // button_ClientConnect
+            // 
+            this.button_ClientConnect.Location = new System.Drawing.Point(34, 80);
+            this.button_ClientConnect.Name = "button_ClientConnect";
+            this.button_ClientConnect.Size = new System.Drawing.Size(75, 23);
+            this.button_ClientConnect.TabIndex = 6;
+            this.button_ClientConnect.Text = "Connect";
+            this.button_ClientConnect.UseVisualStyleBackColor = true;
+            this.button_ClientConnect.Click += new System.EventHandler(this.button_ClientConnect_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1215, 117);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Send";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_4);
+            // 
+            // richTextBox_ClientTx
+            // 
+            this.richTextBox_ClientTx.Location = new System.Drawing.Point(34, 117);
+            this.richTextBox_ClientTx.Name = "richTextBox_ClientTx";
+            this.richTextBox_ClientTx.Size = new System.Drawing.Size(1174, 167);
+            this.richTextBox_ClientTx.TabIndex = 4;
+            this.richTextBox_ClientTx.Text = "Send Data to Server";
+            // 
+            // textBox_ClientPort
+            // 
+            this.textBox_ClientPort.Location = new System.Drawing.Point(124, 47);
+            this.textBox_ClientPort.Name = "textBox_ClientPort";
+            this.textBox_ClientPort.Size = new System.Drawing.Size(100, 23);
+            this.textBox_ClientPort.TabIndex = 3;
+            this.textBox_ClientPort.Text = "2002";
+            // 
+            // textBox_ClientIP
+            // 
+            this.textBox_ClientIP.Location = new System.Drawing.Point(124, 17);
+            this.textBox_ClientIP.Name = "textBox_ClientIP";
+            this.textBox_ClientIP.Size = new System.Drawing.Size(100, 23);
+            this.textBox_ClientIP.TabIndex = 2;
+            this.textBox_ClientIP.Text = "127.0.0.1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(30, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 23);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Port";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(30, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 23);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Host or IP";
             // 
             // tabPage4
             // 
@@ -5140,152 +5285,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.label10);
-            this.tabPage9.Controls.Add(this.label9);
-            this.tabPage9.Controls.Add(this.button_ClearRx);
-            this.tabPage9.Controls.Add(this.richTextBox_ClientRx);
-            this.tabPage9.Controls.Add(this.button43);
-            this.tabPage9.Controls.Add(this.button_ClientClose);
-            this.tabPage9.Controls.Add(this.button_ClientConnect);
-            this.tabPage9.Controls.Add(this.button3);
-            this.tabPage9.Controls.Add(this.richTextBox_ClientTx);
-            this.tabPage9.Controls.Add(this.textBox_ClientPort);
-            this.tabPage9.Controls.Add(this.textBox_ClientIP);
-            this.tabPage9.Controls.Add(this.label8);
-            this.tabPage9.Controls.Add(this.label7);
-            this.tabPage9.Location = new System.Drawing.Point(4, 24);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1337, 772);
-            this.tabPage9.TabIndex = 9;
-            this.tabPage9.Text = "Client";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 23);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Host or IP";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(30, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 23);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Port";
-            // 
-            // textBox_ClientIP
-            // 
-            this.textBox_ClientIP.Location = new System.Drawing.Point(124, 17);
-            this.textBox_ClientIP.Name = "textBox_ClientIP";
-            this.textBox_ClientIP.Size = new System.Drawing.Size(100, 23);
-            this.textBox_ClientIP.TabIndex = 2;
-            this.textBox_ClientIP.Text = "127.0.0.1";
-            // 
-            // textBox_ClientPort
-            // 
-            this.textBox_ClientPort.Location = new System.Drawing.Point(124, 47);
-            this.textBox_ClientPort.Name = "textBox_ClientPort";
-            this.textBox_ClientPort.Size = new System.Drawing.Size(100, 23);
-            this.textBox_ClientPort.TabIndex = 3;
-            this.textBox_ClientPort.Text = "2002";
-            // 
-            // richTextBox_ClientTx
-            // 
-            this.richTextBox_ClientTx.Location = new System.Drawing.Point(34, 117);
-            this.richTextBox_ClientTx.Name = "richTextBox_ClientTx";
-            this.richTextBox_ClientTx.Size = new System.Drawing.Size(1174, 167);
-            this.richTextBox_ClientTx.TabIndex = 4;
-            this.richTextBox_ClientTx.Text = "Send Data to Server";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1215, 117);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Send";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_4);
-            // 
-            // button_ClientConnect
-            // 
-            this.button_ClientConnect.Location = new System.Drawing.Point(34, 80);
-            this.button_ClientConnect.Name = "button_ClientConnect";
-            this.button_ClientConnect.Size = new System.Drawing.Size(75, 23);
-            this.button_ClientConnect.TabIndex = 6;
-            this.button_ClientConnect.Text = "Connect";
-            this.button_ClientConnect.UseVisualStyleBackColor = true;
-            this.button_ClientConnect.Click += new System.EventHandler(this.button_ClientConnect_Click);
-            // 
-            // button_ClientClose
-            // 
-            this.button_ClientClose.Location = new System.Drawing.Point(149, 80);
-            this.button_ClientClose.Name = "button_ClientClose";
-            this.button_ClientClose.Size = new System.Drawing.Size(75, 23);
-            this.button_ClientClose.TabIndex = 7;
-            this.button_ClientClose.Text = "Close";
-            this.button_ClientClose.UseVisualStyleBackColor = true;
-            this.button_ClientClose.Click += new System.EventHandler(this.button42_Click_1);
-            // 
-            // button43
-            // 
-            this.button43.Location = new System.Drawing.Point(1215, 146);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(75, 23);
-            this.button43.TabIndex = 8;
-            this.button43.Text = "Clear Tx";
-            this.button43.UseVisualStyleBackColor = true;
-            this.button43.Click += new System.EventHandler(this.button43_Click_1);
-            // 
-            // button_ClearRx
-            // 
-            this.button_ClearRx.Location = new System.Drawing.Point(1214, 334);
-            this.button_ClearRx.Name = "button_ClearRx";
-            this.button_ClearRx.Size = new System.Drawing.Size(75, 23);
-            this.button_ClearRx.TabIndex = 11;
-            this.button_ClearRx.Text = "Clear Rx";
-            this.button_ClearRx.UseVisualStyleBackColor = true;
-            this.button_ClearRx.Click += new System.EventHandler(this.button_ClearRx_Click);
-            // 
-            // richTextBox_ClientRx
-            // 
-            this.richTextBox_ClientRx.Location = new System.Drawing.Point(34, 334);
-            this.richTextBox_ClientRx.Name = "richTextBox_ClientRx";
-            this.richTextBox_ClientRx.ReadOnly = true;
-            this.richTextBox_ClientRx.Size = new System.Drawing.Size(1174, 167);
-            this.richTextBox_ClientRx.TabIndex = 9;
-            this.richTextBox_ClientRx.Text = "";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(599, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 23);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Tx - Data Send";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(599, 303);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 23);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Rx - Data Received";
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
             this.AutoScroll = true;
@@ -5295,10 +5295,9 @@ namespace SocketServer
             this.Controls.Add(this.groupBox_PhoneNumber);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Monitor";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.FormClosed += Form1_FormClosed;
             this.groupBox_ServerSettings.ResumeLayout(false);
             this.groupBox_ServerSettings.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -5345,6 +5344,8 @@ namespace SocketServer
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.S1_Configuration.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
@@ -5391,25 +5392,8 @@ namespace SocketServer
             this.groupBox16.PerformLayout();
             this.groupBox_PhoneNumber.ResumeLayout(false);
             this.groupBox_PhoneNumber.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
             this.ResumeLayout(false);
 
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (ClientSocket != null)
-            {
-                ClientSocket.Close();
-            }
-
-            if (ReceiveThread != null)
-            {
-                ReceiveThread.Abort();
-                //   m_Exit = true;
-
-            }
         }
 
         int HistoryIndex = -1;
@@ -5593,7 +5577,7 @@ namespace SocketServer
         static void Main()
         {
 
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
 
 
         }
@@ -6878,7 +6862,7 @@ namespace SocketServer
         {
             try
             {
-
+                this.FormClosed += MainForm_FormClosed;
                 chart1.Series.Clear();
                 chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
@@ -7063,6 +7047,10 @@ namespace SocketServer
 
         }
 
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseClentConnection();
+        }
 
         Color Tab0Color = default(Color);
         Color Tab1Color = default(Color);
@@ -7591,7 +7579,7 @@ namespace SocketServer
         /// </summary>
         int Timer_100ms = 0;
 
-        void ClientButtonProcessing()
+        void ClientTCpipProcessing()
         {
             try
             {
@@ -7600,7 +7588,7 @@ namespace SocketServer
                     button_ClientConnect.BackColor = default(Color);
                 }
                 else
-                    if (ClientSocket.Connected && ClientSocket.Client.Connected)
+                    if (ClientSocket.Connected && ClientSocket.Client.Connected && ClientSocket.GetStream() != null)
                     {
                         button_ClientConnect.BackColor = Color.Green;
                     }
@@ -7608,6 +7596,10 @@ namespace SocketServer
                     {
                         button_ClientConnect.BackColor = default(Color);
                     }
+
+
+
+
             }
             catch
             {
@@ -7621,7 +7613,8 @@ namespace SocketServer
         {
             Timer_100ms++;
 
-            ClientButtonProcessing();
+            ClientTCpipProcessing();
+
             if (stopwatch.IsRunning == true)
             {
                 textBox_StopWatch.Text = PrintTimeSpan(stopwatch.Elapsed);
@@ -12256,9 +12249,13 @@ namespace SocketServer
             Process.Start(@".");
         }
 
-        private void button42_Click_1(object sender, EventArgs e)
+        void CloseClentConnection()
         {
-            ClientSocket.Close();
+            if (ClientSocket != null)
+            {
+                ClientSocket.GetStream().Close();
+                ClientSocket.Close();
+            }
 
             if (ReceiveThread != null)
             {
@@ -12266,6 +12263,15 @@ namespace SocketServer
                 //   m_Exit = true;
 
             }
+
+            button_ClientConnect.BackColor = default(Color);
+
+            richTextBox_ClientRx.AppendText("Connection closed \n");
+        }
+        private void button42_Click_1(object sender, EventArgs e)
+        {
+            CloseClentConnection();
+
         }
 
         void ReceiveData()
