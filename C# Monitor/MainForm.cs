@@ -564,9 +564,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1691,9 +1691,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage6.Size = new System.Drawing.Size(1407, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3167,10 +3167,10 @@ namespace SocketServer
             this.tabPage1.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1337, 774);
+            this.tabPage1.Size = new System.Drawing.Size(1407, 772);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3178,8 +3178,6 @@ namespace SocketServer
             // checkBox_ParseMessages
             // 
             this.checkBox_ParseMessages.AutoSize = true;
-            this.checkBox_ParseMessages.Checked = true;
-            this.checkBox_ParseMessages.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.checkBox_ParseMessages.Location = new System.Drawing.Point(116, 343);
             this.checkBox_ParseMessages.Name = "checkBox_ParseMessages";
             this.checkBox_ParseMessages.Size = new System.Drawing.Size(113, 19);
@@ -3307,8 +3305,6 @@ namespace SocketServer
             // checkBox_EchoResponse
             // 
             this.checkBox_EchoResponse.AutoSize = true;
-            this.checkBox_EchoResponse.Checked = true;
-            this.checkBox_EchoResponse.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.checkBox_EchoResponse.Location = new System.Drawing.Point(5, 343);
             this.checkBox_EchoResponse.Name = "checkBox_EchoResponse";
             this.checkBox_EchoResponse.Size = new System.Drawing.Size(105, 19);
@@ -3908,16 +3904,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5815,6 +5811,15 @@ namespace SocketServer
             //    ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back Data Length: " + b2.Length, New_Line = true, Show_Time = true);
             //    SendDataToServer(b2);
             //}
+            if (checkBox_EchoResponse.Checked == true)
+            {
+
+                string ACKBack = string.Format("[{0}],ACK", IncomingString);
+                //ServerLogger.LogMessage(Color.DarkSalmon, Color.White, "Send Echo Back:  " + ACKBack, New_Line = true, Show_Time = true);
+                byte[] b2 = System.Text.Encoding.ASCII.GetBytes(ACKBack);
+                SendDataToServer(mye.ConnectionNumber, b2);
+            }
+
 
             if (checkBox_ParseMessages.Checked == false)
             {
