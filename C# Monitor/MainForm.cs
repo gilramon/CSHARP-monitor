@@ -204,7 +204,6 @@ namespace SocketServer
         private GroupBox groupBox_PhoneNumber;
         private ToolTip toolTip2;
         private CheckBox checkBox_EchoResponse;
-        private CheckBox checkBox_ShowURL;
         private GroupBox groupBox_FOTA;
         private Button button5;
         private TextBox textBox_FOTA;
@@ -565,9 +564,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -753,7 +752,6 @@ namespace SocketServer
             this.textBox_TotalFrames1280Bytes = new System.Windows.Forms.TextBox();
             this.textBox_FOTA = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.checkBox_ShowURL = new System.Windows.Forms.CheckBox();
             this.checkBox_EchoResponse = new System.Windows.Forms.CheckBox();
             this.groupBox_ConnectionTimedOut = new System.Windows.Forms.GroupBox();
             this.textBox_CurrentTimeOut = new System.Windows.Forms.TextBox();
@@ -1209,10 +1207,11 @@ namespace SocketServer
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Location = new System.Drawing.Point(4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1345, 800);
+            this.tabControl1.Size = new System.Drawing.Size(1415, 800);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage2
@@ -1225,7 +1224,7 @@ namespace SocketServer
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage2.Size = new System.Drawing.Size(1407, 772);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Serial Port";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3163,7 +3162,6 @@ namespace SocketServer
             this.tabPage1.Controls.Add(this.textBox_IDKey);
             this.tabPage1.Controls.Add(this.label_TimeDate2);
             this.tabPage1.Controls.Add(this.groupBox_FOTA);
-            this.tabPage1.Controls.Add(this.checkBox_ShowURL);
             this.tabPage1.Controls.Add(this.checkBox_EchoResponse);
             this.tabPage1.Controls.Add(this.groupBox_ServerSettings);
             this.tabPage1.Controls.Add(this.groupBox_ConnectionTimedOut);
@@ -3181,7 +3179,7 @@ namespace SocketServer
             // 
             this.checkBox_ParseMessages.AutoSize = true;
             this.checkBox_ParseMessages.Checked = true;
-            this.checkBox_ParseMessages.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_ParseMessages.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.checkBox_ParseMessages.Location = new System.Drawing.Point(116, 343);
             this.checkBox_ParseMessages.Name = "checkBox_ParseMessages";
             this.checkBox_ParseMessages.Size = new System.Drawing.Size(113, 19);
@@ -3306,21 +3304,11 @@ namespace SocketServer
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // checkBox_ShowURL
-            // 
-            this.checkBox_ShowURL.AutoSize = true;
-            this.checkBox_ShowURL.Location = new System.Drawing.Point(5, 368);
-            this.checkBox_ShowURL.Name = "checkBox_ShowURL";
-            this.checkBox_ShowURL.Size = new System.Drawing.Size(195, 19);
-            this.checkBox_ShowURL.TabIndex = 11;
-            this.checkBox_ShowURL.Text = "Show Google map last position";
-            this.checkBox_ShowURL.UseVisualStyleBackColor = true;
-            // 
             // checkBox_EchoResponse
             // 
             this.checkBox_EchoResponse.AutoSize = true;
             this.checkBox_EchoResponse.Checked = true;
-            this.checkBox_EchoResponse.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_EchoResponse.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.checkBox_EchoResponse.Location = new System.Drawing.Point(5, 343);
             this.checkBox_EchoResponse.Name = "checkBox_EchoResponse";
             this.checkBox_EchoResponse.Size = new System.Drawing.Size(105, 19);
@@ -3920,25 +3908,25 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1139, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage8.Size = new System.Drawing.Size(1337, 774);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -3958,9 +3946,9 @@ namespace SocketServer
             this.tabPage9.Controls.Add(this.textBox_ClientIP);
             this.tabPage9.Controls.Add(this.label8);
             this.tabPage9.Controls.Add(this.label7);
-            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1337, 772);
+            this.tabPage9.Size = new System.Drawing.Size(1337, 774);
             this.tabPage9.TabIndex = 9;
             this.tabPage9.Text = "Client";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -5289,7 +5277,8 @@ namespace SocketServer
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1362, 961);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1362, 876);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox36);
             this.Controls.Add(this.groupBox_PhoneNumber);
@@ -5432,6 +5421,7 @@ namespace SocketServer
                         break;
 
                     case Keys.Right:
+                    case Keys.Tab:
                                     List<String> Strlist = new List<String>();
                                     foreach (String str in comboBox_SerialPortHistory.Items)
                                     {
@@ -5893,12 +5883,12 @@ namespace SocketServer
                 //    LogIWatcher.LogMessage(Color.Brown, Color.White, PositionString, New_Line = true, Show_Time = false);
                 //}
 
-                string ret = "";
-                if (checkBox_ShowURL.Checked)
-                {
-                    ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
-                    Show_WebBrowserUrl(ret);
-                }
+              //  string ret = "";
+                //if (checkBox_ShowURL.Checked)
+                //{
+                //    ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
+                //    Show_WebBrowserUrl(ret);
+                //}
 
                 //if (checkBox_RecordLatLong.Checked)
                 //{
@@ -6862,6 +6852,12 @@ namespace SocketServer
         {
             try
             {
+               // this.TopMost = true;
+               //// this.FormBorderStyle = FormBorderStyle.None;
+               // this.WindowState = FormWindowState.Maximized;
+
+
+                textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
                 this.FormClosed += MainForm_FormClosed;
                 chart1.Series.Clear();
                 chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
@@ -7047,6 +7043,20 @@ namespace SocketServer
 
         }
 
+        private void TextBox_SendSerialPort_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+               // MessageBox.Show("Tab");
+                e.IsInputKey = true;
+            }
+            if (e.KeyData == (Keys.Tab | Keys.Shift))
+            {
+              //  MessageBox.Show("Shift + Tab");
+                e.IsInputKey = true;
+            }
+        }
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             CloseClentConnection();
@@ -7059,31 +7069,33 @@ namespace SocketServer
         private void TabControl1_DrawItem1(object sender, DrawItemEventArgs e)
         {
             TabPage page = tabControl1.TabPages[e.Index];
-            switch (e.Index)
+            Color TabColor;
+            if(e.Index == tabControl1.SelectedIndex)
             {
-                case 0:
-                    e.Graphics.FillRectangle(new SolidBrush(Tab0Color), e.Bounds);
-                    break;
-                case 1:
-                    e.Graphics.FillRectangle(new SolidBrush(Tab1Color), e.Bounds);
-                    break;
-                case 2:
-                    e.Graphics.FillRectangle(new SolidBrush(Tab2Color), e.Bounds);
-                    break;
-                case 3:
-                    e.Graphics.FillRectangle(new SolidBrush(Tab3Color), e.Bounds);
-                    break;
-                default:
-                    e.Graphics.FillRectangle(new SolidBrush(page.BackColor), e.Bounds);
-                    break;
+                TabColor = Color.Aqua;
+            }
+            else
+            {
+                TabColor = default(Color);
             }
 
+            //switch (e.Index)
+            //{
+            //    case 0:
+            //        e.Graphics.FillRectangle(new SolidBrush(Tab0Color), e.Bounds);
+            //        break;
+            //    case 1:
+            //        e.Graphics.FillRectangle(new SolidBrush(Tab1Color), e.Bounds);
+            //        break;
+            //    default:
+            //        break;
+            //}
 
-
+            e.Graphics.FillRectangle(new SolidBrush(TabColor), e.Bounds);
             Rectangle paddedBounds = e.Bounds;
             int yOffset = (e.State == DrawItemState.Selected) ? -2 : 1;
             paddedBounds.Offset(1, yOffset);
-            TextRenderer.DrawText(e.Graphics, page.Text, Font, paddedBounds, page.ForeColor);
+            TextRenderer.DrawText(e.Graphics, page.Text, e.Font, paddedBounds, page.ForeColor);
         }
 
         private void TextBox_SendNumberOfTimes_KeyPress(object sender, KeyPressEventArgs e)
@@ -7824,6 +7836,7 @@ namespace SocketServer
             randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             Tab3Color = randomColor;
             tabControl1.Invalidate();
+
             if (IsTimerRunning == true)
             {
                 int Result = 0;
@@ -8235,11 +8248,11 @@ namespace SocketServer
                 }
 
                 //string ret = "";
-                if (checkBox_ShowURL.Checked)
-                {
-                    string ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
-                    Show_WebBrowserUrl(ret);
-                }
+                //if (checkBox_ShowURL.Checked)
+                //{
+                //    string ret = "http://maps.google.com/maps?q=" + ParseStrings[9] + "," + ParseStrings[10] + "( " + " Current Time: " + DateTime.Now + "\r\n   S1TimeStamp: " + " )" + "&z=14&ll=" + "," + "&z=17";
+                //    Show_WebBrowserUrl(ret);
+                //}
 
                 //if (checkBox_RecordLatLong.Checked)
                 //{
@@ -12253,7 +12266,7 @@ namespace SocketServer
         {
             if (ClientSocket != null)
             {
-                ClientSocket.GetStream().Close();
+                //ClientSocket.GetStream().Close();
                 ClientSocket.Close();
             }
 
