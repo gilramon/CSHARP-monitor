@@ -420,6 +420,7 @@ namespace SocketServer
         private Label label9;
         private Button button_ClearRx;
         private RichTextBox richTextBox_ClientRx;
+        private ListBox listBox_Charts;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -564,9 +565,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -941,6 +942,7 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.listBox_Charts = new System.Windows.Forms.ListBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1010,33 +1012,33 @@ namespace SocketServer
             this.groupBox_ServerSettings.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_ServerSettings.Location = new System.Drawing.Point(6, 3);
             this.groupBox_ServerSettings.Name = "groupBox_ServerSettings";
-            this.groupBox_ServerSettings.Size = new System.Drawing.Size(384, 58);
+            this.groupBox_ServerSettings.Size = new System.Drawing.Size(414, 58);
             this.groupBox_ServerSettings.TabIndex = 0;
             this.groupBox_ServerSettings.TabStop = false;
             this.groupBox_ServerSettings.Text = "Server Settings";
             // 
             // textBox_ServerOpen
             // 
-            this.textBox_ServerOpen.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ServerOpen.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ServerOpen.ForeColor = System.Drawing.Color.White;
-            this.textBox_ServerOpen.Location = new System.Drawing.Point(270, 16);
+            this.textBox_ServerOpen.Location = new System.Drawing.Point(276, 17);
             this.textBox_ServerOpen.Multiline = true;
             this.textBox_ServerOpen.Name = "textBox_ServerOpen";
             this.textBox_ServerOpen.ReadOnly = true;
-            this.textBox_ServerOpen.Size = new System.Drawing.Size(77, 25);
+            this.textBox_ServerOpen.Size = new System.Drawing.Size(89, 25);
             this.textBox_ServerOpen.TabIndex = 7;
             this.textBox_ServerOpen.Text = "Connected";
             this.toolTip1.SetToolTip(this.textBox_ServerOpen, "Number of open connections");
             // 
             // textBox_ServerActive
             // 
-            this.textBox_ServerActive.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ServerActive.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ServerActive.ForeColor = System.Drawing.Color.White;
-            this.textBox_ServerActive.Location = new System.Drawing.Point(218, 16);
+            this.textBox_ServerActive.Location = new System.Drawing.Point(210, 17);
             this.textBox_ServerActive.Multiline = true;
             this.textBox_ServerActive.Name = "textBox_ServerActive";
             this.textBox_ServerActive.ReadOnly = true;
-            this.textBox_ServerActive.Size = new System.Drawing.Size(51, 25);
+            this.textBox_ServerActive.Size = new System.Drawing.Size(60, 25);
             this.textBox_ServerActive.TabIndex = 6;
             this.textBox_ServerActive.Text = "Active";
             this.toolTip1.SetToolTip(this.textBox_ServerActive, "Number of open connections");
@@ -1053,7 +1055,7 @@ namespace SocketServer
             // textBox_NumberOfOpenConnections
             // 
             this.textBox_NumberOfOpenConnections.ForeColor = System.Drawing.Color.White;
-            this.textBox_NumberOfOpenConnections.Location = new System.Drawing.Point(353, 16);
+            this.textBox_NumberOfOpenConnections.Location = new System.Drawing.Point(371, 17);
             this.textBox_NumberOfOpenConnections.Name = "textBox_NumberOfOpenConnections";
             this.textBox_NumberOfOpenConnections.ReadOnly = true;
             this.textBox_NumberOfOpenConnections.Size = new System.Drawing.Size(25, 23);
@@ -1065,10 +1067,10 @@ namespace SocketServer
             // 
             this.ListenBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.ListenBox.AutoSize = true;
-            this.ListenBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListenBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListenBox.Location = new System.Drawing.Point(132, 15);
             this.ListenBox.Name = "ListenBox";
-            this.ListenBox.Size = new System.Drawing.Size(80, 26);
+            this.ListenBox.Size = new System.Drawing.Size(74, 28);
             this.ListenBox.TabIndex = 4;
             this.ListenBox.Text = "Listening";
             this.ListenBox.UseVisualStyleBackColor = true;
@@ -1100,7 +1102,7 @@ namespace SocketServer
             this.comboBox_ConnectionNumber.FormattingEnabled = true;
             this.comboBox_ConnectionNumber.Location = new System.Drawing.Point(84, 188);
             this.comboBox_ConnectionNumber.Name = "comboBox_ConnectionNumber";
-            this.comboBox_ConnectionNumber.Size = new System.Drawing.Size(170, 27);
+            this.comboBox_ConnectionNumber.Size = new System.Drawing.Size(170, 26);
             this.comboBox_ConnectionNumber.TabIndex = 2;
             this.comboBox_ConnectionNumber.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -1220,10 +1222,10 @@ namespace SocketServer
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.gbPortSettings);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1900, 935);
+            this.tabPage2.Size = new System.Drawing.Size(1900, 936);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Serial Port";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1348,7 +1350,7 @@ namespace SocketServer
             this.groupBox4.Controls.Add(this.button_SerialPortAdd);
             this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
             this.groupBox4.Controls.Add(this.button_SendSerialPort);
-            this.groupBox4.Location = new System.Drawing.Point(4, 63);
+            this.groupBox4.Location = new System.Drawing.Point(6, 78);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(343, 207);
             this.groupBox4.TabIndex = 69;
@@ -1376,7 +1378,7 @@ namespace SocketServer
             this.checkBox_DeleteCommand.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_DeleteCommand.Location = new System.Drawing.Point(127, 94);
             this.checkBox_DeleteCommand.Name = "checkBox_DeleteCommand";
-            this.checkBox_DeleteCommand.Size = new System.Drawing.Size(141, 23);
+            this.checkBox_DeleteCommand.Size = new System.Drawing.Size(135, 22);
             this.checkBox_DeleteCommand.TabIndex = 4;
             this.checkBox_DeleteCommand.Text = "Delete after Send";
             this.toolTip1.SetToolTip(this.checkBox_DeleteCommand, "Delete after Send");
@@ -1384,7 +1386,7 @@ namespace SocketServer
             // 
             // button_SerialPortAdd
             // 
-            this.button_SerialPortAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SerialPortAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_SerialPortAdd.Location = new System.Drawing.Point(269, 20);
             this.button_SerialPortAdd.Name = "button_SerialPortAdd";
             this.button_SerialPortAdd.Size = new System.Drawing.Size(68, 24);
@@ -1397,12 +1399,12 @@ namespace SocketServer
             this.comboBox_SerialPortHistory.FormattingEnabled = true;
             this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
             this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
-            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(247, 27);
+            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(247, 26);
             this.comboBox_SerialPortHistory.TabIndex = 2;
             // 
             // button_SendSerialPort
             // 
-            this.button_SendSerialPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SendSerialPort.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_SendSerialPort.Location = new System.Drawing.Point(16, 94);
             this.button_SendSerialPort.Name = "button_SendSerialPort";
             this.button_SendSerialPort.Size = new System.Drawing.Size(105, 24);
@@ -1426,7 +1428,7 @@ namespace SocketServer
             this.gbPortSettings.Controls.Add(this.label3);
             this.gbPortSettings.Location = new System.Drawing.Point(6, 3);
             this.gbPortSettings.Name = "gbPortSettings";
-            this.gbPortSettings.Size = new System.Drawing.Size(598, 58);
+            this.gbPortSettings.Size = new System.Drawing.Size(598, 74);
             this.gbPortSettings.TabIndex = 10;
             this.gbPortSettings.TabStop = false;
             this.gbPortSettings.Text = "COM Serial Port Settings";
@@ -1434,10 +1436,10 @@ namespace SocketServer
             // button_ReScanComPort
             // 
             this.button_ReScanComPort.AutoSize = true;
-            this.button_ReScanComPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ReScanComPort.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_ReScanComPort.Location = new System.Drawing.Point(413, 26);
             this.button_ReScanComPort.Name = "button_ReScanComPort";
-            this.button_ReScanComPort.Size = new System.Drawing.Size(87, 26);
+            this.button_ReScanComPort.Size = new System.Drawing.Size(87, 29);
             this.button_ReScanComPort.TabIndex = 10;
             this.button_ReScanComPort.Text = "ReScan";
             this.button_ReScanComPort.UseVisualStyleBackColor = true;
@@ -1447,10 +1449,10 @@ namespace SocketServer
             // 
             this.checkBox_ComportOpen.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_ComportOpen.AutoSize = true;
-            this.checkBox_ComportOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ComportOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_ComportOpen.Location = new System.Drawing.Point(506, 26);
             this.checkBox_ComportOpen.Name = "checkBox_ComportOpen";
-            this.checkBox_ComportOpen.Size = new System.Drawing.Size(87, 26);
+            this.checkBox_ComportOpen.Size = new System.Drawing.Size(84, 29);
             this.checkBox_ComportOpen.TabIndex = 8;
             this.checkBox_ComportOpen.Text = "Open Port";
             this.checkBox_ComportOpen.UseVisualStyleBackColor = true;
@@ -1469,7 +1471,7 @@ namespace SocketServer
             "COM6"});
             this.cmbPortName.Location = new System.Drawing.Point(7, 29);
             this.cmbPortName.Name = "cmbPortName";
-            this.cmbPortName.Size = new System.Drawing.Size(67, 27);
+            this.cmbPortName.Size = new System.Drawing.Size(67, 26);
             this.cmbPortName.TabIndex = 1;
             this.cmbPortName.Tag = "1";
             this.cmbPortName.SelectedIndexChanged += new System.EventHandler(this.cmbPortName_SelectedIndexChanged);
@@ -1488,7 +1490,7 @@ namespace SocketServer
             "115200"});
             this.cmbBaudRate.Location = new System.Drawing.Point(80, 29);
             this.cmbBaudRate.Name = "cmbBaudRate";
-            this.cmbBaudRate.Size = new System.Drawing.Size(89, 27);
+            this.cmbBaudRate.Size = new System.Drawing.Size(89, 26);
             this.cmbBaudRate.TabIndex = 3;
             this.cmbBaudRate.Text = "115200";
             this.cmbBaudRate.SelectedIndexChanged += new System.EventHandler(this.cmbBaudRate_SelectedIndexChanged);
@@ -1503,7 +1505,7 @@ namespace SocketServer
             "3"});
             this.cmbStopBits.Location = new System.Drawing.Point(307, 28);
             this.cmbStopBits.Name = "cmbStopBits";
-            this.cmbStopBits.Size = new System.Drawing.Size(88, 27);
+            this.cmbStopBits.Size = new System.Drawing.Size(88, 26);
             this.cmbStopBits.TabIndex = 9;
             // 
             // cmbParity
@@ -1517,7 +1519,7 @@ namespace SocketServer
             "Odd"});
             this.cmbParity.Location = new System.Drawing.Point(175, 28);
             this.cmbParity.Name = "cmbParity";
-            this.cmbParity.Size = new System.Drawing.Size(60, 27);
+            this.cmbParity.Size = new System.Drawing.Size(60, 26);
             this.cmbParity.TabIndex = 5;
             this.cmbParity.Tag = "1";
             // 
@@ -1531,7 +1533,7 @@ namespace SocketServer
             "8"});
             this.cmbDataBits.Location = new System.Drawing.Point(240, 28);
             this.cmbDataBits.Name = "cmbDataBits";
-            this.cmbDataBits.Size = new System.Drawing.Size(60, 27);
+            this.cmbDataBits.Size = new System.Drawing.Size(60, 26);
             this.cmbDataBits.TabIndex = 7;
             this.cmbDataBits.Text = "8";
             // 
@@ -1540,7 +1542,7 @@ namespace SocketServer
             this.lblComPort.AutoSize = true;
             this.lblComPort.Location = new System.Drawing.Point(6, 13);
             this.lblComPort.Name = "lblComPort";
-            this.lblComPort.Size = new System.Drawing.Size(76, 19);
+            this.lblComPort.Size = new System.Drawing.Size(71, 18);
             this.lblComPort.TabIndex = 0;
             this.lblComPort.Text = "COM Port:";
             // 
@@ -1549,7 +1551,7 @@ namespace SocketServer
             this.lblStopBits.AutoSize = true;
             this.lblStopBits.Location = new System.Drawing.Point(309, 12);
             this.lblStopBits.Name = "lblStopBits";
-            this.lblStopBits.Size = new System.Drawing.Size(70, 19);
+            this.lblStopBits.Size = new System.Drawing.Size(66, 18);
             this.lblStopBits.TabIndex = 8;
             this.lblStopBits.Text = "Stop Bits:";
             // 
@@ -1558,7 +1560,7 @@ namespace SocketServer
             this.lblBaudRate.AutoSize = true;
             this.lblBaudRate.Location = new System.Drawing.Point(79, 13);
             this.lblBaudRate.Name = "lblBaudRate";
-            this.lblBaudRate.Size = new System.Drawing.Size(80, 19);
+            this.lblBaudRate.Size = new System.Drawing.Size(74, 18);
             this.lblBaudRate.TabIndex = 2;
             this.lblBaudRate.Text = "Baud Rate:";
             // 
@@ -1567,7 +1569,7 @@ namespace SocketServer
             this.lblDataBits.AutoSize = true;
             this.lblDataBits.Location = new System.Drawing.Point(243, 12);
             this.lblDataBits.Name = "lblDataBits";
-            this.lblDataBits.Size = new System.Drawing.Size(73, 19);
+            this.lblDataBits.Size = new System.Drawing.Size(66, 18);
             this.lblDataBits.TabIndex = 6;
             this.lblDataBits.Text = "Data Bits:";
             // 
@@ -1576,7 +1578,7 @@ namespace SocketServer
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(177, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 19);
+            this.label3.Size = new System.Drawing.Size(48, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Parity:";
             // 
@@ -1590,13 +1592,14 @@ namespace SocketServer
             this.groupBox5.Controls.Add(this.checkBox_S1Pause);
             this.groupBox5.Controls.Add(this.txtS1_Clear);
             this.groupBox5.Controls.Add(this.SerialPortLogger_TextBox);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(353, 67);
+            this.groupBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(353, 73);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1541, 865);
+            this.groupBox5.Size = new System.Drawing.Size(1541, 859);
             this.groupBox5.TabIndex = 68;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // button_OpenFolder
             // 
@@ -1612,7 +1615,7 @@ namespace SocketServer
             // 
             this.textBox_SerialPortRecognizePattern3.Location = new System.Drawing.Point(252, 17);
             this.textBox_SerialPortRecognizePattern3.Name = "textBox_SerialPortRecognizePattern3";
-            this.textBox_SerialPortRecognizePattern3.Size = new System.Drawing.Size(117, 21);
+            this.textBox_SerialPortRecognizePattern3.Size = new System.Drawing.Size(117, 27);
             this.textBox_SerialPortRecognizePattern3.TabIndex = 75;
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
             this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern3, "Recognize Pattern by string");
@@ -1621,7 +1624,7 @@ namespace SocketServer
             // 
             this.textBox_SerialPortRecognizePattern2.Location = new System.Drawing.Point(129, 18);
             this.textBox_SerialPortRecognizePattern2.Name = "textBox_SerialPortRecognizePattern2";
-            this.textBox_SerialPortRecognizePattern2.Size = new System.Drawing.Size(117, 21);
+            this.textBox_SerialPortRecognizePattern2.Size = new System.Drawing.Size(117, 27);
             this.textBox_SerialPortRecognizePattern2.TabIndex = 74;
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
             this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern2, "Recognize Pattern by string");
@@ -1630,7 +1633,7 @@ namespace SocketServer
             // 
             this.textBox_SerialPortRecognizePattern.Location = new System.Drawing.Point(6, 18);
             this.textBox_SerialPortRecognizePattern.Name = "textBox_SerialPortRecognizePattern";
-            this.textBox_SerialPortRecognizePattern.Size = new System.Drawing.Size(117, 21);
+            this.textBox_SerialPortRecognizePattern.Size = new System.Drawing.Size(117, 27);
             this.textBox_SerialPortRecognizePattern.TabIndex = 73;
             this.toolTip2.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
             this.toolTip1.SetToolTip(this.textBox_SerialPortRecognizePattern, "Recognize Pattern by string");
@@ -1639,10 +1642,10 @@ namespace SocketServer
             // 
             this.checkBox_S1RecordLog.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1RecordLog.AutoSize = true;
-            this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_S1RecordLog.Location = new System.Drawing.Point(740, 18);
             this.checkBox_S1RecordLog.Name = "checkBox_S1RecordLog";
-            this.checkBox_S1RecordLog.Size = new System.Drawing.Size(86, 26);
+            this.checkBox_S1RecordLog.Size = new System.Drawing.Size(83, 29);
             this.checkBox_S1RecordLog.TabIndex = 69;
             this.checkBox_S1RecordLog.Text = "Log to file";
             this.checkBox_S1RecordLog.UseVisualStyleBackColor = true;
@@ -1652,10 +1655,10 @@ namespace SocketServer
             // 
             this.checkBox_S1Pause.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1Pause.AutoSize = true;
-            this.checkBox_S1Pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_S1Pause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_S1Pause.Location = new System.Drawing.Point(832, 17);
             this.checkBox_S1Pause.Name = "checkBox_S1Pause";
-            this.checkBox_S1Pause.Size = new System.Drawing.Size(62, 26);
+            this.checkBox_S1Pause.Size = new System.Drawing.Size(58, 29);
             this.checkBox_S1Pause.TabIndex = 70;
             this.checkBox_S1Pause.Text = "Pause";
             this.checkBox_S1Pause.UseVisualStyleBackColor = true;
@@ -1663,7 +1666,7 @@ namespace SocketServer
             // 
             // txtS1_Clear
             // 
-            this.txtS1_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtS1_Clear.Font = new System.Drawing.Font("Calibri", 12F);
             this.txtS1_Clear.Location = new System.Drawing.Point(900, 17);
             this.txtS1_Clear.Name = "txtS1_Clear";
             this.txtS1_Clear.Size = new System.Drawing.Size(62, 26);
@@ -1676,9 +1679,9 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.BackColor = System.Drawing.Color.LightGray;
             this.SerialPortLogger_TextBox.EnableAutoDragDrop = true;
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 44);
+            this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 53);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1529, 815);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1529, 806);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             // 
@@ -1690,9 +1693,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Location = new System.Drawing.Point(4, 27);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1407, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1900, 936);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1727,7 +1730,7 @@ namespace SocketServer
             // button29
             // 
             this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button29.Location = new System.Drawing.Point(129, 58);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(98, 32);
@@ -1738,7 +1741,7 @@ namespace SocketServer
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(6, 24);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(120, 32);
@@ -1750,7 +1753,7 @@ namespace SocketServer
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(6, 58);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 32);
@@ -1761,7 +1764,7 @@ namespace SocketServer
             // 
             // button31
             // 
-            this.button31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button31.Location = new System.Drawing.Point(129, 25);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(98, 32);
@@ -3166,10 +3169,10 @@ namespace SocketServer
             this.tabPage1.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1407, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1900, 936);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3179,7 +3182,7 @@ namespace SocketServer
             this.checkBox_ParseMessages.AutoSize = true;
             this.checkBox_ParseMessages.Location = new System.Drawing.Point(116, 343);
             this.checkBox_ParseMessages.Name = "checkBox_ParseMessages";
-            this.checkBox_ParseMessages.Size = new System.Drawing.Size(133, 23);
+            this.checkBox_ParseMessages.Size = new System.Drawing.Size(124, 22);
             this.checkBox_ParseMessages.TabIndex = 103;
             this.checkBox_ParseMessages.Text = "Parse messages";
             this.checkBox_ParseMessages.UseVisualStyleBackColor = true;
@@ -3236,7 +3239,7 @@ namespace SocketServer
             this.textBox_TotalFileLength.Location = new System.Drawing.Point(206, 78);
             this.textBox_TotalFileLength.Name = "textBox_TotalFileLength";
             this.textBox_TotalFileLength.ReadOnly = true;
-            this.textBox_TotalFileLength.Size = new System.Drawing.Size(57, 27);
+            this.textBox_TotalFileLength.Size = new System.Drawing.Size(57, 26);
             this.textBox_TotalFileLength.TabIndex = 20;
             this.toolTip2.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
             this.toolTip1.SetToolTip(this.textBox_TotalFileLength, "Total file length in bytes");
@@ -3276,7 +3279,7 @@ namespace SocketServer
             this.textBox_TotalFrames1280Bytes.Location = new System.Drawing.Point(206, 49);
             this.textBox_TotalFrames1280Bytes.Name = "textBox_TotalFrames1280Bytes";
             this.textBox_TotalFrames1280Bytes.ReadOnly = true;
-            this.textBox_TotalFrames1280Bytes.Size = new System.Drawing.Size(57, 27);
+            this.textBox_TotalFrames1280Bytes.Size = new System.Drawing.Size(57, 26);
             this.textBox_TotalFrames1280Bytes.TabIndex = 14;
             this.toolTip2.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
             this.toolTip1.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
@@ -3306,7 +3309,7 @@ namespace SocketServer
             this.checkBox_EchoResponse.AutoSize = true;
             this.checkBox_EchoResponse.Location = new System.Drawing.Point(5, 343);
             this.checkBox_EchoResponse.Name = "checkBox_EchoResponse";
-            this.checkBox_EchoResponse.Size = new System.Drawing.Size(124, 23);
+            this.checkBox_EchoResponse.Size = new System.Drawing.Size(117, 22);
             this.checkBox_EchoResponse.TabIndex = 10;
             this.checkBox_EchoResponse.Text = "Send ACK Back";
             this.checkBox_EchoResponse.UseVisualStyleBackColor = true;
@@ -3329,7 +3332,7 @@ namespace SocketServer
             this.textBox_CurrentTimeOut.Location = new System.Drawing.Point(146, 21);
             this.textBox_CurrentTimeOut.Name = "textBox_CurrentTimeOut";
             this.textBox_CurrentTimeOut.ReadOnly = true;
-            this.textBox_CurrentTimeOut.Size = new System.Drawing.Size(62, 27);
+            this.textBox_CurrentTimeOut.Size = new System.Drawing.Size(62, 26);
             this.textBox_CurrentTimeOut.TabIndex = 10;
             this.toolTip1.SetToolTip(this.textBox_CurrentTimeOut, "Current Timed Out");
             // 
@@ -3348,7 +3351,7 @@ namespace SocketServer
             // 
             this.textBox_ConnectionTimedOut.Location = new System.Drawing.Point(6, 22);
             this.textBox_ConnectionTimedOut.Name = "textBox_ConnectionTimedOut";
-            this.textBox_ConnectionTimedOut.Size = new System.Drawing.Size(53, 27);
+            this.textBox_ConnectionTimedOut.Size = new System.Drawing.Size(53, 26);
             this.textBox_ConnectionTimedOut.TabIndex = 8;
             this.textBox_ConnectionTimedOut.Text = "300";
             // 
@@ -3359,9 +3362,9 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox35);
             this.tabPage7.Controls.Add(this.groupBox34);
             this.tabPage7.Controls.Add(this.groupBox33);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Location = new System.Drawing.Point(4, 27);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1407, 772);
+            this.tabPage7.Size = new System.Drawing.Size(1900, 936);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3385,11 +3388,11 @@ namespace SocketServer
             // listBox_SMSCommands
             // 
             this.listBox_SMSCommands.FormattingEnabled = true;
-            this.listBox_SMSCommands.ItemHeight = 19;
+            this.listBox_SMSCommands.ItemHeight = 18;
             this.listBox_SMSCommands.Location = new System.Drawing.Point(6, 17);
             this.listBox_SMSCommands.Name = "listBox_SMSCommands";
             this.listBox_SMSCommands.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_SMSCommands.Size = new System.Drawing.Size(303, 327);
+            this.listBox_SMSCommands.Size = new System.Drawing.Size(303, 328);
             this.listBox_SMSCommands.TabIndex = 6;
             this.listBox_SMSCommands.SelectedIndexChanged += new System.EventHandler(this.listBox_SMSCommands_SelectedIndexChanged_1);
             // 
@@ -3519,7 +3522,7 @@ namespace SocketServer
             this.checkBox_DebugSMS.AutoSize = true;
             this.checkBox_DebugSMS.Location = new System.Drawing.Point(390, 54);
             this.checkBox_DebugSMS.Name = "checkBox_DebugSMS";
-            this.checkBox_DebugSMS.Size = new System.Drawing.Size(70, 23);
+            this.checkBox_DebugSMS.Size = new System.Drawing.Size(67, 22);
             this.checkBox_DebugSMS.TabIndex = 11;
             this.checkBox_DebugSMS.Text = "Debug";
             this.checkBox_DebugSMS.UseVisualStyleBackColor = true;
@@ -3560,7 +3563,7 @@ namespace SocketServer
             "COM6"});
             this.comboBox_ComportSMS.Location = new System.Drawing.Point(290, 22);
             this.comboBox_ComportSMS.Name = "comboBox_ComportSMS";
-            this.comboBox_ComportSMS.Size = new System.Drawing.Size(67, 27);
+            this.comboBox_ComportSMS.Size = new System.Drawing.Size(67, 26);
             this.comboBox_ComportSMS.TabIndex = 9;
             this.comboBox_ComportSMS.Tag = "1";
             this.comboBox_ComportSMS.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
@@ -3622,7 +3625,7 @@ namespace SocketServer
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 19);
+            this.label5.Size = new System.Drawing.Size(40, 18);
             this.label5.TabIndex = 3;
             this.label5.Text = "Code";
             // 
@@ -3631,7 +3634,7 @@ namespace SocketServer
             this.textBox_CodeArrayForSMS.Location = new System.Drawing.Point(54, 46);
             this.textBox_CodeArrayForSMS.MaxLength = 4;
             this.textBox_CodeArrayForSMS.Name = "textBox_CodeArrayForSMS";
-            this.textBox_CodeArrayForSMS.Size = new System.Drawing.Size(124, 27);
+            this.textBox_CodeArrayForSMS.Size = new System.Drawing.Size(124, 26);
             this.textBox_CodeArrayForSMS.TabIndex = 2;
             // 
             // label2
@@ -3639,7 +3642,7 @@ namespace SocketServer
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "UnitID";
             // 
@@ -3648,7 +3651,7 @@ namespace SocketServer
             this.textBox_UnitIDForSMS.Location = new System.Drawing.Point(54, 17);
             this.textBox_UnitIDForSMS.MaxLength = 16;
             this.textBox_UnitIDForSMS.Name = "textBox_UnitIDForSMS";
-            this.textBox_UnitIDForSMS.Size = new System.Drawing.Size(124, 27);
+            this.textBox_UnitIDForSMS.Size = new System.Drawing.Size(124, 26);
             this.textBox_UnitIDForSMS.TabIndex = 0;
             // 
             // checkBox_SMSencrypted
@@ -3656,7 +3659,7 @@ namespace SocketServer
             this.checkBox_SMSencrypted.AutoSize = true;
             this.checkBox_SMSencrypted.Location = new System.Drawing.Point(595, 20);
             this.checkBox_SMSencrypted.Name = "checkBox_SMSencrypted";
-            this.checkBox_SMSencrypted.Size = new System.Drawing.Size(92, 23);
+            this.checkBox_SMSencrypted.Size = new System.Drawing.Size(89, 22);
             this.checkBox_SMSencrypted.TabIndex = 12;
             this.checkBox_SMSencrypted.Text = "Encrypted";
             this.checkBox_SMSencrypted.UseVisualStyleBackColor = true;
@@ -3667,7 +3670,7 @@ namespace SocketServer
             this.checkBox_SendSMSAsIs.AutoSize = true;
             this.checkBox_SendSMSAsIs.Location = new System.Drawing.Point(240, 115);
             this.checkBox_SendSMSAsIs.Name = "checkBox_SendSMSAsIs";
-            this.checkBox_SendSMSAsIs.Size = new System.Drawing.Size(124, 23);
+            this.checkBox_SendSMSAsIs.Size = new System.Drawing.Size(116, 22);
             this.checkBox_SendSMSAsIs.TabIndex = 11;
             this.checkBox_SendSMSAsIs.Text = "Send SMS as is";
             this.checkBox_SendSMSAsIs.UseVisualStyleBackColor = true;
@@ -3678,7 +3681,7 @@ namespace SocketServer
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(145, 145);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 23);
+            this.checkBox1.Size = new System.Drawing.Size(92, 22);
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -3688,7 +3691,7 @@ namespace SocketServer
             this.label_SMSSendCharacters.AutoSize = true;
             this.label_SMSSendCharacters.Location = new System.Drawing.Point(12, 119);
             this.label_SMSSendCharacters.Name = "label_SMSSendCharacters";
-            this.label_SMSSendCharacters.Size = new System.Drawing.Size(47, 19);
+            this.label_SMSSendCharacters.Size = new System.Drawing.Size(42, 18);
             this.label_SMSSendCharacters.TabIndex = 9;
             this.label_SMSSendCharacters.Text = "0/160";
             // 
@@ -3820,7 +3823,7 @@ namespace SocketServer
             this.checkedListBox_PhoneBook.FormattingEnabled = true;
             this.checkedListBox_PhoneBook.Location = new System.Drawing.Point(5, 19);
             this.checkedListBox_PhoneBook.Name = "checkedListBox_PhoneBook";
-            this.checkedListBox_PhoneBook.Size = new System.Drawing.Size(279, 346);
+            this.checkedListBox_PhoneBook.Size = new System.Drawing.Size(279, 340);
             this.checkedListBox_PhoneBook.TabIndex = 0;
             this.checkedListBox_PhoneBook.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_PhoneBook_SelectedIndexChanged);
             this.checkedListBox_PhoneBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedListBox_PhoneBook_KeyDown);
@@ -3828,6 +3831,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.listBox_Charts);
             this.tabPage3.Controls.Add(this.button_OpenFolder2);
             this.tabPage3.Controls.Add(this.button_GraphPause);
             this.tabPage3.Controls.Add(this.Button_Export_excel);
@@ -3835,11 +3839,11 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1900, 935);
+            this.tabPage3.Size = new System.Drawing.Size(1900, 936);
             this.tabPage3.TabIndex = 7;
-            this.tabPage3.Text = "Graphs";
+            this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button_OpenFolder2
@@ -3903,25 +3907,25 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Location = new System.Drawing.Point(4, 27);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1407, 772);
+            this.tabPage8.Size = new System.Drawing.Size(1900, 936);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -3941,9 +3945,9 @@ namespace SocketServer
             this.tabPage9.Controls.Add(this.textBox_ClientIP);
             this.tabPage9.Controls.Add(this.label8);
             this.tabPage9.Controls.Add(this.label7);
-            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Location = new System.Drawing.Point(4, 27);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1407, 772);
+            this.tabPage9.Size = new System.Drawing.Size(1900, 936);
             this.tabPage9.TabIndex = 9;
             this.tabPage9.Text = "Client";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -4039,7 +4043,7 @@ namespace SocketServer
             // 
             this.textBox_ClientPort.Location = new System.Drawing.Point(124, 47);
             this.textBox_ClientPort.Name = "textBox_ClientPort";
-            this.textBox_ClientPort.Size = new System.Drawing.Size(100, 27);
+            this.textBox_ClientPort.Size = new System.Drawing.Size(100, 26);
             this.textBox_ClientPort.TabIndex = 3;
             this.textBox_ClientPort.Text = "2002";
             // 
@@ -4047,7 +4051,7 @@ namespace SocketServer
             // 
             this.textBox_ClientIP.Location = new System.Drawing.Point(124, 17);
             this.textBox_ClientIP.Name = "textBox_ClientIP";
-            this.textBox_ClientIP.Size = new System.Drawing.Size(100, 27);
+            this.textBox_ClientIP.Size = new System.Drawing.Size(100, 26);
             this.textBox_ClientIP.TabIndex = 2;
             this.textBox_ClientIP.Text = "127.0.0.1";
             // 
@@ -5228,7 +5232,7 @@ namespace SocketServer
             // 
             this.textBox_SMSPhoneNumber.Location = new System.Drawing.Point(6, 22);
             this.textBox_SMSPhoneNumber.Name = "textBox_SMSPhoneNumber";
-            this.textBox_SMSPhoneNumber.Size = new System.Drawing.Size(156, 27);
+            this.textBox_SMSPhoneNumber.Size = new System.Drawing.Size(156, 26);
             this.textBox_SMSPhoneNumber.TabIndex = 10;
             this.toolTip2.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
             this.toolTip1.SetToolTip(this.textBox_SMSPhoneNumber, "Phone number throgh SMS");
@@ -5268,16 +5272,27 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
+            // listBox_Charts
+            // 
+            this.listBox_Charts.FormattingEnabled = true;
+            this.listBox_Charts.ItemHeight = 18;
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 245);
+            this.listBox_Charts.Name = "listBox_Charts";
+            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
+            this.listBox_Charts.TabIndex = 78;
+            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.listBox_Charts_SelectedIndexChanged);
+            // 
             // MainForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(7, 20);
+            this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1924, 984);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox36);
             this.Controls.Add(this.groupBox_PhoneNumber);
-            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Monitor";
@@ -6751,7 +6766,7 @@ namespace SocketServer
             IsVisibleInLegend = true,
             IsXValueIndexed = false,
             ChartType = SeriesChartType.Line,
-            MarkerStyle = MarkerStyle.Circle
+            MarkerStyle = MarkerStyle.Diamond
     };
 
         Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
@@ -6857,10 +6872,12 @@ namespace SocketServer
         {
             try
             {
-               // this.TopMost = true;
-               //// this.FormBorderStyle = FormBorderStyle.None;
-               // this.WindowState = FormWindowState.Maximized;
-
+                // this.TopMost = true;
+                //// this.FormBorderStyle = FormBorderStyle.None;
+                // this.WindowState = FormWindowState.Maximized;
+                listBox_Charts.Items.Add(series1.Name);
+                listBox_Charts.Items.Add(series2.Name);
+                listBox_Charts.Items.Add(series3.Name);
 
                 textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
                 this.FormClosed += MainForm_FormClosed;
@@ -7710,7 +7727,8 @@ namespace SocketServer
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
         {
-            
+
+
 
             ChartCntY2 = 0;
 
@@ -7758,6 +7776,15 @@ namespace SocketServer
             double temp = rand.Next(-1, 2);
             temp = temp * rand.NextDouble();
             ChartCntY = ChartCntY + temp;
+
+            if(ChartCntY > ChartCntY2)
+            {
+                chart1.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                chart1.BackColor = Color.Red;
+            }
             //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
             //if (ChartCntX > 1000)
@@ -12414,6 +12441,26 @@ namespace SocketServer
         private void button_ClearRx_Click(object sender, EventArgs e)
         {
             richTextBox_ClientRx.Text = "";
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox_Charts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listBox_Charts.Items.Count; i++)
+            {
+                if (listBox_Charts.GetSelected(i) == true)
+                {
+                    chart1.Series[listBox_Charts.Items[i].ToString()].Enabled = true;
+                }
+                else
+                {
+                    chart1.Series[listBox_Charts.Items[i].ToString()].Enabled = false;
+                }
+            }
         }
 
         void ResetTimer()
