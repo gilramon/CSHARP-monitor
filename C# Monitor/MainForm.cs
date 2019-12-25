@@ -254,8 +254,6 @@ namespace SocketServer
         private SerialPort serialPort_SMS;
         private CheckBox checkBox_DebugSMS;
         private RichTextBox richTextBox_ContactDetails;
-        private Button button_SerialPortAdd;
-        private ComboBox comboBox_SerialPortHistory;
         private CheckBox checkBox_SMSencrypted;
         private GroupBox GrooupBox_Encryption;
         private TextBox textBox_UnitIDForSMS;
@@ -421,6 +419,9 @@ namespace SocketServer
         private Button button_ClearRx;
         private RichTextBox richTextBox_ClientRx;
         private ListBox listBox_Charts;
+        private TextBox textBox_ConfigurationHelp;
+        private CheckBox checkBox2;
+        private ComboBox comboBox_SerialPortHistory;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -565,9 +566,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -600,8 +601,6 @@ namespace SocketServer
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
-            this.button_SerialPortAdd = new System.Windows.Forms.Button();
-            this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
             this.button_SendSerialPort = new System.Windows.Forms.Button();
             this.gbPortSettings = new System.Windows.Forms.GroupBox();
             this.button_ReScanComPort = new System.Windows.Forms.Button();
@@ -801,6 +800,7 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.listBox_Charts = new System.Windows.Forms.ListBox();
             this.button_OpenFolder2 = new System.Windows.Forms.Button();
             this.button_GraphPause = new System.Windows.Forms.Button();
             this.Button_Export_excel = new System.Windows.Forms.Button();
@@ -942,7 +942,9 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.listBox_Charts = new System.Windows.Forms.ListBox();
+            this.textBox_ConfigurationHelp = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1345,14 +1347,14 @@ namespace SocketServer
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.checkBox2);
             this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox4.Controls.Add(this.checkBox_DeleteCommand);
-            this.groupBox4.Controls.Add(this.button_SerialPortAdd);
             this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
             this.groupBox4.Controls.Add(this.button_SendSerialPort);
             this.groupBox4.Location = new System.Drawing.Point(6, 78);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(343, 207);
+            this.groupBox4.Size = new System.Drawing.Size(343, 160);
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Send Data";
@@ -1383,24 +1385,6 @@ namespace SocketServer
             this.checkBox_DeleteCommand.Text = "Delete after Send";
             this.toolTip1.SetToolTip(this.checkBox_DeleteCommand, "Delete after Send");
             this.checkBox_DeleteCommand.UseVisualStyleBackColor = true;
-            // 
-            // button_SerialPortAdd
-            // 
-            this.button_SerialPortAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SerialPortAdd.Location = new System.Drawing.Point(269, 20);
-            this.button_SerialPortAdd.Name = "button_SerialPortAdd";
-            this.button_SerialPortAdd.Size = new System.Drawing.Size(68, 24);
-            this.button_SerialPortAdd.TabIndex = 3;
-            this.button_SerialPortAdd.Text = "Add";
-            this.button_SerialPortAdd.Click += new System.EventHandler(this.button_SerialPortAdd_Click);
-            // 
-            // comboBox_SerialPortHistory
-            // 
-            this.comboBox_SerialPortHistory.FormattingEnabled = true;
-            this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
-            this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
-            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(247, 26);
-            this.comboBox_SerialPortHistory.TabIndex = 2;
             // 
             // button_SendSerialPort
             // 
@@ -1725,7 +1709,7 @@ namespace SocketServer
             this.groupBox38.Size = new System.Drawing.Size(505, 175);
             this.groupBox38.TabIndex = 102;
             this.groupBox38.TabStop = false;
-            this.groupBox38.Text = "Configuration control";
+            this.groupBox38.Text = "Configuration Load/Save";
             // 
             // button29
             // 
@@ -1785,6 +1769,7 @@ namespace SocketServer
             // 
             // groupBox_LoadedConfig
             // 
+            this.groupBox_LoadedConfig.Controls.Add(this.textBox_ConfigurationHelp);
             this.groupBox_LoadedConfig.Controls.Add(this.groupBox_Configuration);
             this.groupBox_LoadedConfig.Controls.Add(this.textBox_Config7);
             this.groupBox_LoadedConfig.Controls.Add(this.label_Config13);
@@ -1792,7 +1777,7 @@ namespace SocketServer
             this.groupBox_LoadedConfig.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_LoadedConfig.Location = new System.Drawing.Point(4, 186);
             this.groupBox_LoadedConfig.Name = "groupBox_LoadedConfig";
-            this.groupBox_LoadedConfig.Size = new System.Drawing.Size(1294, 633);
+            this.groupBox_LoadedConfig.Size = new System.Drawing.Size(1884, 743);
             this.groupBox_LoadedConfig.TabIndex = 27;
             this.groupBox_LoadedConfig.TabStop = false;
             this.groupBox_LoadedConfig.Text = "Loaded Configuration";
@@ -1893,7 +1878,7 @@ namespace SocketServer
             this.groupBox_Configuration.ImeMode = System.Windows.Forms.ImeMode.On;
             this.groupBox_Configuration.Location = new System.Drawing.Point(10, 16);
             this.groupBox_Configuration.Name = "groupBox_Configuration";
-            this.groupBox_Configuration.Size = new System.Drawing.Size(1225, 458);
+            this.groupBox_Configuration.Size = new System.Drawing.Size(1667, 721);
             this.groupBox_Configuration.TabIndex = 28;
             this.groupBox_Configuration.TabStop = false;
             this.groupBox_Configuration.Enter += new System.EventHandler(this.groupBox_Configuration_Enter);
@@ -3092,8 +3077,8 @@ namespace SocketServer
             this.textBox_Config4.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config4.TabIndex = 0;
             this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
-            this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15\r\n\r\n\r" +
-        "\n");
+            this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\n\r\nValid Input Data:\r\nstring  Max" +
+        " 15\r\n\r\n\r\n");
             this.textBox_Config4.TextChanged += new System.EventHandler(this.textBox_Config4_TextChanged);
             // 
             // textBox_Config7
@@ -3362,9 +3347,9 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox35);
             this.tabPage7.Controls.Add(this.groupBox34);
             this.tabPage7.Controls.Add(this.groupBox33);
-            this.tabPage7.Location = new System.Drawing.Point(4, 27);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage7.Size = new System.Drawing.Size(1900, 941);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3846,6 +3831,17 @@ namespace SocketServer
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // listBox_Charts
+            // 
+            this.listBox_Charts.FormattingEnabled = true;
+            this.listBox_Charts.ItemHeight = 18;
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 245);
+            this.listBox_Charts.Name = "listBox_Charts";
+            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
+            this.listBox_Charts.TabIndex = 78;
+            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.listBox_Charts_SelectedIndexChanged);
+            // 
             // button_OpenFolder2
             // 
             this.button_OpenFolder2.Location = new System.Drawing.Point(5, 183);
@@ -3907,25 +3903,25 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea15.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.chart1.Legends.Add(legend15);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.chart1.Series.Add(series15);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 27);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage8.Size = new System.Drawing.Size(1900, 941);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -3945,9 +3941,9 @@ namespace SocketServer
             this.tabPage9.Controls.Add(this.textBox_ClientIP);
             this.tabPage9.Controls.Add(this.label8);
             this.tabPage9.Controls.Add(this.label7);
-            this.tabPage9.Location = new System.Drawing.Point(4, 27);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage9.Size = new System.Drawing.Size(1900, 941);
             this.tabPage9.TabIndex = 9;
             this.tabPage9.Text = "Client";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -5272,16 +5268,35 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // listBox_Charts
+            // textBox_ConfigurationHelp
             // 
-            this.listBox_Charts.FormattingEnabled = true;
-            this.listBox_Charts.ItemHeight = 18;
-            this.listBox_Charts.Location = new System.Drawing.Point(5, 245);
-            this.listBox_Charts.Name = "listBox_Charts";
-            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
-            this.listBox_Charts.TabIndex = 78;
-            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.listBox_Charts_SelectedIndexChanged);
+            this.textBox_ConfigurationHelp.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_ConfigurationHelp.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox_ConfigurationHelp.Location = new System.Drawing.Point(1683, 30);
+            this.textBox_ConfigurationHelp.Multiline = true;
+            this.textBox_ConfigurationHelp.Name = "textBox_ConfigurationHelp";
+            this.textBox_ConfigurationHelp.ReadOnly = true;
+            this.textBox_ConfigurationHelp.Size = new System.Drawing.Size(195, 371);
+            this.textBox_ConfigurationHelp.TabIndex = 73;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(16, 126);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(120, 22);
+            this.checkBox2.TabIndex = 5;
+            this.checkBox2.Text = "Show Raw data";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_SerialPortHistory
+            // 
+            this.comboBox_SerialPortHistory.FormattingEnabled = true;
+            this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
+            this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
+            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(321, 26);
+            this.comboBox_SerialPortHistory.TabIndex = 2;
+            this.comboBox_SerialPortHistory.SelectedIndexChanged += new System.EventHandler(this.comboBox_SerialPortHistory_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -6759,6 +6774,8 @@ namespace SocketServer
         Logger LogSMS;
         PhoneBook MyPhoneBook;
 
+        List<Series> List_SeriesCharts = new List<Series>();
+        
         Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "Raw Data",
@@ -6872,12 +6889,20 @@ namespace SocketServer
         {
             try
             {
+                List_SeriesCharts.Add(series1);
+                List_SeriesCharts.Add(series2);
+                List_SeriesCharts.Add(series3);
+
                 // this.TopMost = true;
                 //// this.FormBorderStyle = FormBorderStyle.None;
                 // this.WindowState = FormWindowState.Maximized;
-                listBox_Charts.Items.Add(series1.Name);
-                listBox_Charts.Items.Add(series2.Name);
-                listBox_Charts.Items.Add(series3.Name);
+                foreach(Series ser in List_SeriesCharts)
+                {
+                    listBox_Charts.Items.Add(ser.Name);
+                }
+                //listBox_Charts.Items.Add(series1.Name);
+                //listBox_Charts.Items.Add(series2.Name);
+                //listBox_Charts.Items.Add(series3.Name);
 
                 textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
                 this.FormClosed += MainForm_FormClosed;
@@ -6981,51 +7006,94 @@ namespace SocketServer
 
 
                 //Gil: Update Config dictionary
-                Dictionary_ConfigurationTextBoxes = new Dictionary<string, TextBox>()
-            {
-                {"textBox_Config1", textBox_Config1},
-                {"textBox_Config2", textBox_Config2},
-                {"textBox_Config3", textBox_Config3},
-                {"textBox_Config4", textBox_Config4},
-                {"textBox_Config5", textBox_Config5},
-                {"textBox_Config6", textBox_Config6},
-                {"textBox_Config7", textBox_Config7},
-                {"textBox_Config8", textBox_Config8},
-                {"textBox_Config9", textBox_Config9},
-                {"textBox_Config10", textBox_Config10},
-                {"textBox_Config11", textBox_Config11},
-                {"textBox_Config12", textBox_Config12},
-                {"textBox_Config13", textBox_Config13},
-                {"textBox_Config14", textBox_Config14},
-                {"textBox_Config15", textBox_Config15},
-                {"textBox_Config16", textBox_Config16},
-                {"textBox_Config17", textBox_Config17},
-                {"textBox_Config18", textBox_Config18},
-                {"textBox_Config19", textBox_Config19},
-                {"textBox_Config20", textBox_Config20},
-                {"textBox_Config21", textBox_Config21},
-                {"textBox_Config22", textBox_Config22},
-                {"textBox_Config23", textBox_Config23},
-                {"textBox_Config24", textBox_Config24},
-                {"textBox_Config25", textBox_Config25},
-                {"textBox_Config26", textBox_Config26},
-                {"textBox_Config27", textBox_Config27},
-                {"textBox_Config28", textBox_Config28},
-                {"textBox_Config29", textBox_Config29},
-                {"textBox_Config30", textBox_Config30},
-                {"textBox_Config31", textBox_Config31},
-                {"textBox_Config32", textBox_Config32},
-                {"textBox_Config33", textBox_Config33},
-                {"textBox_Config34", textBox_Config34},
-                {"textBox_Config35", textBox_Config35},
-                {"textBox_Config36", textBox_Config36},
-                {"textBox_Config37", textBox_Config37},
-                {"textBox_Config38", textBox_Config38},
-                {"textBox_Config39", textBox_Config39},
-                {"textBox_Config40", textBox_Config40},
-                {"textBox_Config41", textBox_Config41},
-                {"textBox_Config42", textBox_Config42}
-            };
+                List_ConfigurationTextBoxes.Add(textBox_Config1);
+                List_ConfigurationTextBoxes.Add(textBox_Config2);
+                List_ConfigurationTextBoxes.Add(textBox_Config3);
+                List_ConfigurationTextBoxes.Add(textBox_Config4);
+                List_ConfigurationTextBoxes.Add(textBox_Config5);
+                List_ConfigurationTextBoxes.Add(textBox_Config6);
+                List_ConfigurationTextBoxes.Add(textBox_Config7);
+                List_ConfigurationTextBoxes.Add(textBox_Config8);
+                List_ConfigurationTextBoxes.Add(textBox_Config9);
+                List_ConfigurationTextBoxes.Add(textBox_Config10);
+                List_ConfigurationTextBoxes.Add(textBox_Config11);
+                List_ConfigurationTextBoxes.Add(textBox_Config12);
+                List_ConfigurationTextBoxes.Add(textBox_Config13);
+                List_ConfigurationTextBoxes.Add(textBox_Config14);
+                List_ConfigurationTextBoxes.Add(textBox_Config15);
+                List_ConfigurationTextBoxes.Add(textBox_Config16);
+                List_ConfigurationTextBoxes.Add(textBox_Config17);
+                List_ConfigurationTextBoxes.Add(textBox_Config18);
+                List_ConfigurationTextBoxes.Add(textBox_Config19);
+                List_ConfigurationTextBoxes.Add(textBox_Config20);
+                List_ConfigurationTextBoxes.Add(textBox_Config21);
+                List_ConfigurationTextBoxes.Add(textBox_Config22);
+                List_ConfigurationTextBoxes.Add(textBox_Config23);
+                List_ConfigurationTextBoxes.Add(textBox_Config24);
+                List_ConfigurationTextBoxes.Add(textBox_Config25);
+                List_ConfigurationTextBoxes.Add(textBox_Config26);
+                List_ConfigurationTextBoxes.Add(textBox_Config27);
+                List_ConfigurationTextBoxes.Add(textBox_Config28);
+                List_ConfigurationTextBoxes.Add(textBox_Config29);
+                List_ConfigurationTextBoxes.Add(textBox_Config30);
+                List_ConfigurationTextBoxes.Add(textBox_Config31);
+                List_ConfigurationTextBoxes.Add(textBox_Config32);
+                List_ConfigurationTextBoxes.Add(textBox_Config33);
+                List_ConfigurationTextBoxes.Add(textBox_Config34);
+                List_ConfigurationTextBoxes.Add(textBox_Config35);
+                List_ConfigurationTextBoxes.Add(textBox_Config36);
+                List_ConfigurationTextBoxes.Add(textBox_Config37);
+                List_ConfigurationTextBoxes.Add(textBox_Config38);
+
+                foreach(TextBox txtbx in List_ConfigurationTextBoxes)
+                {
+                    txtbx.GotFocus += Txtbx_GotFocus;
+                }
+                //    Dictionary_ConfigurationTextBoxes = new Dictionary<string, TextBox>()
+                //{
+                //    {"textBox_Config1", textBox_Config1},
+                //    {"textBox_Config2", textBox_Config2},
+                //    {"textBox_Config3", textBox_Config3},
+                //    {"textBox_Config4", textBox_Config4},
+                //    {"textBox_Config5", textBox_Config5},
+                //    {"textBox_Config6", textBox_Config6},
+                //    {"textBox_Config7", textBox_Config7},
+                //    {"textBox_Config8", textBox_Config8},
+                //    {"textBox_Config9", textBox_Config9},
+                //    {"textBox_Config10", textBox_Config10},
+                //    {"textBox_Config11", textBox_Config11},
+                //    {"textBox_Config12", textBox_Config12},
+                //    {"textBox_Config13", textBox_Config13},
+                //    {"textBox_Config14", textBox_Config14},
+                //    {"textBox_Config15", textBox_Config15},
+                //    {"textBox_Config16", textBox_Config16},
+                //    {"textBox_Config17", textBox_Config17},
+                //    {"textBox_Config18", textBox_Config18},
+                //    {"textBox_Config19", textBox_Config19},
+                //    {"textBox_Config20", textBox_Config20},
+                //    {"textBox_Config21", textBox_Config21},
+                //    {"textBox_Config22", textBox_Config22},
+                //    {"textBox_Config23", textBox_Config23},
+                //    {"textBox_Config24", textBox_Config24},
+                //    {"textBox_Config25", textBox_Config25},
+                //    {"textBox_Config26", textBox_Config26},
+                //    {"textBox_Config27", textBox_Config27},
+                //    {"textBox_Config28", textBox_Config28},
+                //    {"textBox_Config29", textBox_Config29},
+                //    {"textBox_Config30", textBox_Config30},
+                //    {"textBox_Config31", textBox_Config31},
+                //    {"textBox_Config32", textBox_Config32},
+                //    {"textBox_Config33", textBox_Config33},
+                //    {"textBox_Config34", textBox_Config34},
+                //    {"textBox_Config35", textBox_Config35},
+                //    {"textBox_Config36", textBox_Config36},
+                //    {"textBox_Config37", textBox_Config37},
+                //    {"textBox_Config38", textBox_Config38},
+                //    {"textBox_Config39", textBox_Config39},
+                //    {"textBox_Config40", textBox_Config40},
+                //    {"textBox_Config41", textBox_Config41},
+                //    {"textBox_Config42", textBox_Config42}
+                //};
 
                 comboBox_SystemConfigType.SelectedIndex = 0;
 
@@ -7063,6 +7131,19 @@ namespace SocketServer
                 ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
 
+        }
+
+        private void Txtbx_GotFocus(object sender, EventArgs e)
+        {
+            TextBox txtbx = (TextBox)sender;
+            // textBox_ConfigurationHelp.Text = "";
+            textBox_ConfigurationHelp.Text = txtbx.Name + "\n" + toolTip1.GetToolTip(txtbx);
+
+        }
+
+        private void TextBox_SerialPortRecognizePattern3_GotFocus(object sender, EventArgs e)
+        {
+            SerialPortLogger.LogMessage(Color.Black, Color.Yellow, "Got focus", New_Line = true, Show_Time = true);
         }
 
         private void TextBox_SendSerialPort_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -7207,8 +7288,8 @@ namespace SocketServer
             }
         }
 
-        Dictionary<string, TextBox> Dictionary_ConfigurationTextBoxes;
-
+        // Dictionary<string, TextBox> Dictionary_ConfigurationTextBoxes;
+        List<TextBox> List_ConfigurationTextBoxes = new List<TextBox>();
 
 
         //static public List<string> GetAllCommands()
@@ -7724,6 +7805,7 @@ namespace SocketServer
         List<double> ChartMem = new List<double>();
         List<double> ChartMem2 = new List<double>();
         Random rand = new Random();
+        int GreenCnt = 0, RedCnt = 0;
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
         {
@@ -7780,10 +7862,16 @@ namespace SocketServer
             if(ChartCntY > ChartCntY2)
             {
                 chart1.BackColor = Color.LightGreen;
+                GreenCnt++;
             }
             else
             {
                 chart1.BackColor = Color.Red;
+                RedCnt++;
+            }
+            if (Timer_100ms % 50 == 0)
+            {
+                textBox_graph_XY.Text = "Green = " + GreenCnt + "  Red = " + RedCnt;
             }
             //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
@@ -9495,22 +9583,22 @@ namespace SocketServer
                 }));
 
                 // Store keys in a List
-                List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
-                // Loop through list
-                int i = 2;
-                foreach (string k in list)
-                {
-                    TextBox temp = Dictionary_ConfigurationTextBoxes[k];
+                //List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
+                //// Loop through list
+                //int i = 2;
+                //foreach (string k in list)
+                //{
+                //    TextBox temp = Dictionary_ConfigurationTextBoxes[k];
 
-                    temp.Invoke(new EventHandler(delegate
-                    {
-                        if (i < StringSplit.Length)
-                        {
-                            temp.Text = StringSplit[i];
-                        }
-                    }));
-                    i++;
-                }
+                //    temp.Invoke(new EventHandler(delegate
+                //    {
+                //        if (i < StringSplit.Length)
+                //        {
+                //            temp.Text = StringSplit[i];
+                //        }
+                //    }));
+                //    i++;
+                //}
                 //textBox_Config1.Text = StringSplit[2];
                 //textBox_Config2.Text = StringSplit[3];
                 //textBox_Config3.Text = StringSplit[4];
@@ -9994,17 +10082,17 @@ namespace SocketServer
 
                 return false;
             }
-            List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
-            // Loop through list
-            //bool IsAllGreen = true;
-            foreach (string k in list)
-            {
-                TextBox temp = Dictionary_ConfigurationTextBoxes[k];
-                if (temp.BackColor == Color.Red && temp.Visible == true)
-                {
-                    return false;
-                }
-            }
+            //List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
+            //// Loop through list
+            ////bool IsAllGreen = true;
+            //foreach (string k in list)
+            //{
+            //    TextBox temp = Dictionary_ConfigurationTextBoxes[k];
+            //    if (temp.BackColor == Color.Red && temp.Visible == true)
+            //    {
+            //        return false;
+            //    }
+            //}
 
             return true;
         }
@@ -10129,19 +10217,19 @@ namespace SocketServer
             }
             string SendStr = ";" + UnitID + ",CONFIG=,";
             //sw.Write(";" + UnitID + ",CONFIG=,");
-            List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
-            // Loop through list
+            //List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
+            //// Loop through list
 
-            foreach (string k in list)
-            {
-                TextBox temp = Dictionary_ConfigurationTextBoxes[k];
-                string Field = temp.Text;
-                if (Field == "")
-                {
-                    Field = "@%@";
-                }
-                SendStr += Field + ",";
-            }
+            //foreach (string k in list)
+            //{
+            //    TextBox temp = Dictionary_ConfigurationTextBoxes[k];
+            //    string Field = temp.Text;
+            //    if (Field == "")
+            //    {
+            //        Field = "@%@";
+            //    }
+            //    SendStr += Field + ",";
+            //}
 
             SendStr += ";";
 
@@ -10357,13 +10445,10 @@ namespace SocketServer
 
                     UpdateAlarmCheckBoxes(0);
                     UpdateSpeedLimitTextBoxs(0, 0, 0);
-                    List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
-                    // Loop through list
 
-                    foreach (string k in list)
+
+                    foreach (TextBox temp in List_ConfigurationTextBoxes)
                     {
-                        TextBox temp = Dictionary_ConfigurationTextBoxes[k];
-                        temp.BackColor = default(Color);
                         temp.Text = "";
                     }
 
@@ -12446,6 +12531,17 @@ namespace SocketServer
         private void groupBox5_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox_SerialPortHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (comboBox_SerialPortHistory.SelectedItem != null )
+            //{
+            //    if (textBox_SendSerialPort.Text != comboBox_SerialPortHistory.SelectedItem.ToString())
+            //    {
+            //        textBox_SendSerialPort.Text = comboBox_SerialPortHistory.SelectedItem.ToString();
+            //    }
+            //}
         }
 
         private void listBox_Charts_SelectedIndexChanged(object sender, EventArgs e)
