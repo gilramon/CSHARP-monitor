@@ -422,6 +422,10 @@ namespace SocketServer
         private TextBox textBox_ConfigurationHelp;
         private CheckBox checkBox2;
         private ComboBox comboBox_SerialPortHistory;
+        private Label Label_SerialPortRx;
+        private Label label_SerialPortConnected;
+        private Label Label_SerialPortTx;
+        private GroupBox groupBox_SerialPort;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -566,9 +570,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -599,8 +603,10 @@ namespace SocketServer
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
+            this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
             this.button_SendSerialPort = new System.Windows.Forms.Button();
             this.gbPortSettings = new System.Windows.Forms.GroupBox();
             this.button_ReScanComPort = new System.Windows.Forms.Button();
@@ -633,6 +639,7 @@ namespace SocketServer
             this.button31 = new System.Windows.Forms.Button();
             this.textBox_SourceConfig = new System.Windows.Forms.RichTextBox();
             this.groupBox_LoadedConfig = new System.Windows.Forms.GroupBox();
+            this.textBox_ConfigurationHelp = new System.Windows.Forms.TextBox();
             this.groupBox_Configuration = new System.Windows.Forms.GroupBox();
             this.label_Config42 = new System.Windows.Forms.Label();
             this.textBox_Config42 = new System.Windows.Forms.TextBox();
@@ -942,9 +949,10 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.textBox_ConfigurationHelp = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
+            this.Label_SerialPortRx = new System.Windows.Forms.Label();
+            this.label_SerialPortConnected = new System.Windows.Forms.Label();
+            this.Label_SerialPortTx = new System.Windows.Forms.Label();
+            this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1001,6 +1009,7 @@ namespace SocketServer
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox_PhoneNumber.SuspendLayout();
+            this.groupBox_SerialPort.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1214,7 +1223,7 @@ namespace SocketServer
             this.tabControl1.Location = new System.Drawing.Point(4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1908, 967);
+            this.tabControl1.Size = new System.Drawing.Size(1813, 976);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage2
@@ -1227,7 +1236,7 @@ namespace SocketServer
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage2.Size = new System.Drawing.Size(1805, 945);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Serial Port";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1359,6 +1368,16 @@ namespace SocketServer
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Send Data";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(16, 126);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(120, 22);
+            this.checkBox2.TabIndex = 5;
+            this.checkBox2.Text = "Show Raw data";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // textBox_SendSerialPort
             // 
             this.textBox_SendSerialPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1385,6 +1404,15 @@ namespace SocketServer
             this.checkBox_DeleteCommand.Text = "Delete after Send";
             this.toolTip1.SetToolTip(this.checkBox_DeleteCommand, "Delete after Send");
             this.checkBox_DeleteCommand.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_SerialPortHistory
+            // 
+            this.comboBox_SerialPortHistory.FormattingEnabled = true;
+            this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
+            this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
+            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(321, 26);
+            this.comboBox_SerialPortHistory.TabIndex = 2;
+            this.comboBox_SerialPortHistory.SelectedIndexChanged += new System.EventHandler(this.comboBox_SerialPortHistory_SelectedIndexChanged);
             // 
             // button_SendSerialPort
             // 
@@ -1579,7 +1607,7 @@ namespace SocketServer
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(353, 73);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1541, 859);
+            this.groupBox5.Size = new System.Drawing.Size(1446, 859);
             this.groupBox5.TabIndex = 68;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
@@ -1665,7 +1693,7 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 53);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1529, 806);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1434, 800);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             // 
@@ -1677,9 +1705,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 27);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage6.Size = new System.Drawing.Size(1805, 950);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1783,6 +1811,17 @@ namespace SocketServer
             this.groupBox_LoadedConfig.Text = "Loaded Configuration";
             this.groupBox_LoadedConfig.Enter += new System.EventHandler(this.groupBox_LoadedConfig_Enter);
             // 
+            // textBox_ConfigurationHelp
+            // 
+            this.textBox_ConfigurationHelp.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_ConfigurationHelp.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox_ConfigurationHelp.Location = new System.Drawing.Point(1641, 26);
+            this.textBox_ConfigurationHelp.Multiline = true;
+            this.textBox_ConfigurationHelp.Name = "textBox_ConfigurationHelp";
+            this.textBox_ConfigurationHelp.ReadOnly = true;
+            this.textBox_ConfigurationHelp.Size = new System.Drawing.Size(195, 371);
+            this.textBox_ConfigurationHelp.TabIndex = 73;
+            // 
             // groupBox_Configuration
             // 
             this.groupBox_Configuration.Controls.Add(this.label_Config42);
@@ -1878,7 +1917,7 @@ namespace SocketServer
             this.groupBox_Configuration.ImeMode = System.Windows.Forms.ImeMode.On;
             this.groupBox_Configuration.Location = new System.Drawing.Point(10, 16);
             this.groupBox_Configuration.Name = "groupBox_Configuration";
-            this.groupBox_Configuration.Size = new System.Drawing.Size(1667, 721);
+            this.groupBox_Configuration.Size = new System.Drawing.Size(1625, 721);
             this.groupBox_Configuration.TabIndex = 28;
             this.groupBox_Configuration.TabStop = false;
             this.groupBox_Configuration.Enter += new System.EventHandler(this.groupBox_Configuration_Enter);
@@ -3154,10 +3193,10 @@ namespace SocketServer
             this.tabPage1.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage1.Size = new System.Drawing.Size(1805, 950);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3175,7 +3214,7 @@ namespace SocketServer
             // 
             // textBox_IDKey
             // 
-            this.textBox_IDKey.Location = new System.Drawing.Point(944, 161);
+            this.textBox_IDKey.Location = new System.Drawing.Point(941, 77);
             this.textBox_IDKey.Name = "textBox_IDKey";
             this.textBox_IDKey.Size = new System.Drawing.Size(317, 152);
             this.textBox_IDKey.TabIndex = 102;
@@ -3349,7 +3388,7 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox33);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1900, 941);
+            this.tabPage7.Size = new System.Drawing.Size(1805, 950);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3824,9 +3863,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1900, 936);
+            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3903,16 +3942,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea15.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea15);
-            legend15.Name = "Legend1";
-            this.chart1.Legends.Add(legend15);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series15.ChartArea = "ChartArea1";
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            this.chart1.Series.Add(series15);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -3921,7 +3960,7 @@ namespace SocketServer
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1900, 941);
+            this.tabPage8.Size = new System.Drawing.Size(1805, 950);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -3943,7 +3982,7 @@ namespace SocketServer
             this.tabPage9.Controls.Add(this.label7);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1900, 941);
+            this.tabPage9.Size = new System.Drawing.Size(1805, 950);
             this.tabPage9.TabIndex = 9;
             this.tabPage9.Text = "Client";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -5268,35 +5307,45 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
-            // textBox_ConfigurationHelp
+            // Label_SerialPortRx
             // 
-            this.textBox_ConfigurationHelp.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox_ConfigurationHelp.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox_ConfigurationHelp.Location = new System.Drawing.Point(1683, 30);
-            this.textBox_ConfigurationHelp.Multiline = true;
-            this.textBox_ConfigurationHelp.Name = "textBox_ConfigurationHelp";
-            this.textBox_ConfigurationHelp.ReadOnly = true;
-            this.textBox_ConfigurationHelp.Size = new System.Drawing.Size(195, 371);
-            this.textBox_ConfigurationHelp.TabIndex = 73;
+            this.Label_SerialPortRx.AutoSize = true;
+            this.Label_SerialPortRx.Location = new System.Drawing.Point(21, 54);
+            this.Label_SerialPortRx.Name = "Label_SerialPortRx";
+            this.Label_SerialPortRx.Size = new System.Drawing.Size(23, 18);
+            this.Label_SerialPortRx.TabIndex = 108;
+            this.Label_SerialPortRx.Text = "Rx";
             // 
-            // checkBox2
+            // label_SerialPortConnected
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 126);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(120, 22);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Show Raw data";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label_SerialPortConnected.AutoSize = true;
+            this.label_SerialPortConnected.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SerialPortConnected.Location = new System.Drawing.Point(17, 29);
+            this.label_SerialPortConnected.Name = "label_SerialPortConnected";
+            this.label_SerialPortConnected.Size = new System.Drawing.Size(69, 18);
+            this.label_SerialPortConnected.TabIndex = 109;
+            this.label_SerialPortConnected.Text = "Conneted";
             // 
-            // comboBox_SerialPortHistory
+            // Label_SerialPortTx
             // 
-            this.comboBox_SerialPortHistory.FormattingEnabled = true;
-            this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
-            this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
-            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(321, 26);
-            this.comboBox_SerialPortHistory.TabIndex = 2;
-            this.comboBox_SerialPortHistory.SelectedIndexChanged += new System.EventHandler(this.comboBox_SerialPortHistory_SelectedIndexChanged);
+            this.Label_SerialPortTx.AutoSize = true;
+            this.Label_SerialPortTx.Location = new System.Drawing.Point(65, 54);
+            this.Label_SerialPortTx.Name = "Label_SerialPortTx";
+            this.Label_SerialPortTx.Size = new System.Drawing.Size(21, 18);
+            this.Label_SerialPortTx.TabIndex = 110;
+            this.Label_SerialPortTx.Text = "Tx";
+            // 
+            // groupBox_SerialPort
+            // 
+            this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortTx);
+            this.groupBox_SerialPort.Controls.Add(this.label_SerialPortConnected);
+            this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortRx);
+            this.groupBox_SerialPort.Location = new System.Drawing.Point(1819, 31);
+            this.groupBox_SerialPort.Name = "groupBox_SerialPort";
+            this.groupBox_SerialPort.Size = new System.Drawing.Size(104, 100);
+            this.groupBox_SerialPort.TabIndex = 111;
+            this.groupBox_SerialPort.TabStop = false;
+            this.groupBox_SerialPort.Text = "Serial port";
             // 
             // MainForm
             // 
@@ -5304,6 +5353,7 @@ namespace SocketServer
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1924, 984);
+            this.Controls.Add(this.groupBox_SerialPort);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox36);
             this.Controls.Add(this.groupBox_PhoneNumber);
@@ -5407,6 +5457,8 @@ namespace SocketServer
             this.groupBox16.PerformLayout();
             this.groupBox_PhoneNumber.ResumeLayout(false);
             this.groupBox_PhoneNumber.PerformLayout();
+            this.groupBox_SerialPort.ResumeLayout(false);
+            this.groupBox_SerialPort.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -7660,7 +7712,8 @@ namespace SocketServer
         Double ChartCntX = 0, ChartCntY = 0;
         Double ChartCntY2 = 0;
         Double ChartCntY3 = 0;
-        bool OppositeCount = false;
+        bool OppositeCount = false, SerialRxBlinklled = false, SerialTxBlinklled = false;
+
         /// <summary>
         /// 
         /// </summary>
@@ -7724,6 +7777,7 @@ namespace SocketServer
         }
 
         private int TimeOutKeepAlivein100ms = 3000000;
+        private int RxLabelTimerBlink = 0, TxLabelTimerBlink = 0;
         private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
         {
             Timer_100ms++;
@@ -7795,12 +7849,58 @@ namespace SocketServer
             {
                 GraphPrint();
             }
-            
+
+            if (RxLabelTimerBlink > 0)
+            {
+                RxLabelTimerBlink--;
+                if (Timer_100ms % 5 == 0)
+                {
+                    SerialRxBlinklled = !SerialRxBlinklled;
+                    if (SerialRxBlinklled == true)
+                    {
+                        Label_SerialPortRx.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        Label_SerialPortRx.BackColor = default(Color);
+                    }
+                }
+            }
+            else
+            if (RxLabelTimerBlink == 0)
+            {
+                Label_SerialPortRx.BackColor = default(Color);
+            }
+
+            if (TxLabelTimerBlink > 0)
+            {
+                TxLabelTimerBlink--;
+                if (Timer_100ms % 5 == 0)
+                {
+                    SerialTxBlinklled = !SerialTxBlinklled;
+                    if (SerialTxBlinklled == true)
+                    {
+                        Label_SerialPortTx.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        Label_SerialPortTx.BackColor = default(Color);
+                    }
+                }
+            }
+            else
+            if (TxLabelTimerBlink == 0)
+            {
+                Label_SerialPortTx.BackColor = default(Color);
+            }
 
 
 
 
-        }
+
+
+
+            }
 
         List<double> ChartMem = new List<double>();
         List<double> ChartMem2 = new List<double>();
@@ -7940,10 +8040,12 @@ namespace SocketServer
 
         //bool timer_General_TranssmitionPeriodicallyEnable = false;
         //uint NumbeOfTransmmitions = 0;
-        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0;
+        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0, Timer1sec=0;
         //uint IntervalTimeBetweenTransmitions = 1;
         private void timer_General_Tick(object sender, EventArgs e)
         {
+
+
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             Tab0Color = randomColor;
 
@@ -8143,6 +8245,7 @@ namespace SocketServer
                 try
                 {
                     checkBox_ComportOpen.BackColor = Color.Yellow;
+                    label_SerialPortConnected.BackColor = Color.Yellow;
 
                     ComPortClosing = false;
 
@@ -8182,7 +8285,8 @@ namespace SocketServer
                      " ,Parity = " + serialPort.Parity,
                      New_Line = true, Show_Time = true);
 
-                    checkBox_ComportOpen.BackColor = Color.Green;
+                    checkBox_ComportOpen.BackColor = Color.LightGreen;
+                    label_SerialPortConnected.BackColor = Color.LightGreen;
 
 
                     cmbBaudRate.Enabled = false;
@@ -8220,6 +8324,7 @@ namespace SocketServer
 
                 ComPortClosing = true;
                 checkBox_ComportOpen.BackColor = default(Color);
+                label_SerialPortConnected.BackColor = default(Color);
                 //checkBox_ComportOpen.Enabled = false;
 
                 CloseSerialPortTimer = true;
@@ -8255,7 +8360,10 @@ namespace SocketServer
                  {
                      checkBox_ComportOpen.Checked = false;
                      checkBox_ComportOpen.Enabled = true;
+
                      checkBox_ComportOpen.BackColor = default(Color);
+                     label_SerialPortConnected.BackColor = default(Color);
+
                      cmbBaudRate.Enabled = true;
                      cmbDataBits.Enabled = true;
                      cmbParity.Enabled = true;
@@ -8273,6 +8381,8 @@ namespace SocketServer
             Thread.Sleep(300);
 
             if (!serialPort.IsOpen) return;
+
+            RxLabelTimerBlink = 20;
 
             // Obtain the number of bytes waiting in the port's buffer
             int bytes = serialPort.BytesToRead;
@@ -9452,6 +9562,8 @@ namespace SocketServer
                 {
                     textBox_SendSerialPort.Text = "";
                 }
+
+                TxLabelTimerBlink = 20;
 
             }
 
