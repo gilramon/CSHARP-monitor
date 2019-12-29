@@ -421,7 +421,6 @@ namespace SocketServer
         private ListBox listBox_Charts;
         private TextBox textBox_ConfigurationHelp;
         private CheckBox checkBox2;
-        private ComboBox comboBox_SerialPortHistory;
         private Label Label_SerialPortRx;
         private Label label_SerialPortConnected;
         private Label Label_SerialPortTx;
@@ -570,9 +569,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -606,7 +605,6 @@ namespace SocketServer
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
-            this.comboBox_SerialPortHistory = new System.Windows.Forms.ComboBox();
             this.button_SendSerialPort = new System.Windows.Forms.Button();
             this.gbPortSettings = new System.Windows.Forms.GroupBox();
             this.button_ReScanComPort = new System.Windows.Forms.Button();
@@ -1359,19 +1357,18 @@ namespace SocketServer
             this.groupBox4.Controls.Add(this.checkBox2);
             this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox4.Controls.Add(this.checkBox_DeleteCommand);
-            this.groupBox4.Controls.Add(this.comboBox_SerialPortHistory);
             this.groupBox4.Controls.Add(this.button_SendSerialPort);
             this.groupBox4.Location = new System.Drawing.Point(6, 78);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(343, 160);
+            this.groupBox4.Size = new System.Drawing.Size(343, 125);
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Send Data";
+            this.groupBox4.Text = "Send Data to Serial Port";
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 126);
+            this.checkBox2.Location = new System.Drawing.Point(9, 89);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(120, 22);
             this.checkBox2.TabIndex = 5;
@@ -1383,7 +1380,7 @@ namespace SocketServer
             this.textBox_SendSerialPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_SendSerialPort.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_SendSerialPort.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_SendSerialPort.Location = new System.Drawing.Point(15, 55);
+            this.textBox_SendSerialPort.Location = new System.Drawing.Point(9, 21);
             this.textBox_SendSerialPort.Name = "textBox_SendSerialPort";
             this.textBox_SendSerialPort.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_SendSerialPort.Size = new System.Drawing.Size(322, 31);
@@ -1397,7 +1394,7 @@ namespace SocketServer
             this.checkBox_DeleteCommand.AutoSize = true;
             this.checkBox_DeleteCommand.Checked = true;
             this.checkBox_DeleteCommand.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_DeleteCommand.Location = new System.Drawing.Point(127, 94);
+            this.checkBox_DeleteCommand.Location = new System.Drawing.Point(126, 61);
             this.checkBox_DeleteCommand.Name = "checkBox_DeleteCommand";
             this.checkBox_DeleteCommand.Size = new System.Drawing.Size(135, 22);
             this.checkBox_DeleteCommand.TabIndex = 4;
@@ -1405,19 +1402,10 @@ namespace SocketServer
             this.toolTip1.SetToolTip(this.checkBox_DeleteCommand, "Delete after Send");
             this.checkBox_DeleteCommand.UseVisualStyleBackColor = true;
             // 
-            // comboBox_SerialPortHistory
-            // 
-            this.comboBox_SerialPortHistory.FormattingEnabled = true;
-            this.comboBox_SerialPortHistory.Location = new System.Drawing.Point(16, 21);
-            this.comboBox_SerialPortHistory.Name = "comboBox_SerialPortHistory";
-            this.comboBox_SerialPortHistory.Size = new System.Drawing.Size(321, 26);
-            this.comboBox_SerialPortHistory.TabIndex = 2;
-            this.comboBox_SerialPortHistory.SelectedIndexChanged += new System.EventHandler(this.comboBox_SerialPortHistory_SelectedIndexChanged);
-            // 
             // button_SendSerialPort
             // 
             this.button_SendSerialPort.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SendSerialPort.Location = new System.Drawing.Point(16, 94);
+            this.button_SendSerialPort.Location = new System.Drawing.Point(9, 58);
             this.button_SendSerialPort.Name = "button_SendSerialPort";
             this.button_SendSerialPort.Size = new System.Drawing.Size(105, 24);
             this.button_SendSerialPort.TabIndex = 1;
@@ -1705,9 +1693,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 27);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1805, 950);
+            this.tabPage6.Size = new System.Drawing.Size(1805, 945);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3942,16 +3930,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5463,13 +5451,27 @@ namespace SocketServer
 
         }
 
+        List<String> CommandsHistoy = new List<String>();
         int HistoryIndex = -1;
+        bool SelfMonitorCommandsMode = false;
         private void TextBox_SendSerialPort_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.ControlKey:
+                        SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
+                        if (SelfMonitorCommandsMode == true)
+                        {
+                            textBox_SendSerialPort.BackColor = SystemColors.Info;
+                        }
+                        else
+                        {
+                            textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
+                        }
+                    break;
+
 
                     case Keys.Enter:
                                 button_SendSerialPort.PerformClick();
@@ -5477,12 +5479,12 @@ namespace SocketServer
 
                     case Keys.Up:
                                 //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
-                                if (HistoryIndex >= comboBox_SerialPortHistory.Items.Count - 1 || HistoryIndex < 0)
+                                if (HistoryIndex >= CommandsHistoy.Count - 1 || HistoryIndex < 0)
                                 {
-                                    HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
+                                    HistoryIndex = CommandsHistoy.Count - 1;
                                 }
 
-                                textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
+                                textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
                                 if (HistoryIndex > 0)
                                 {
                                     HistoryIndex--;
@@ -5491,8 +5493,8 @@ namespace SocketServer
 
                     case Keys.Down:
 
-                                    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.Items[HistoryIndex].ToString();
-                                    if (HistoryIndex < comboBox_SerialPortHistory.Items.Count - 1)
+                                    textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
+                                    if (HistoryIndex < CommandsHistoy.Count - 1)
                                     {
                                         HistoryIndex++;
                                     }
@@ -5501,7 +5503,7 @@ namespace SocketServer
                     case Keys.Right:
                     case Keys.Tab:
                                     List<String> Strlist = new List<String>();
-                                    foreach (String str in comboBox_SerialPortHistory.Items)
+                                    foreach (String str in CommandsHistoy)
                                     {
                                         if (str.StartsWith(textBox_SendSerialPort.Text))
                                         {
@@ -5525,11 +5527,11 @@ namespace SocketServer
                         break;
 
                     default:
-                        HistoryIndex = comboBox_SerialPortHistory.Items.Count - 1;
+                        HistoryIndex = CommandsHistoy.Count - 1;
                     break;
                 }
 
-                comboBox_SerialPortHistory.SelectedIndex = HistoryIndex;
+              //  CommandsHistoy.SelectedIndex = HistoryIndex;
             }
             catch (Exception ex)
             {
@@ -7177,6 +7179,8 @@ namespace SocketServer
 
                 }
 
+                SerialPortLogger.LogMessage(Color.Yellow, Color.LightGray, "Press Control key for switch to monitor commands", New_Line = true, Show_Time = true);
+
             }
             catch (Exception ex)
             {
@@ -8040,7 +8044,7 @@ namespace SocketServer
 
         //bool timer_General_TranssmitionPeriodicallyEnable = false;
         //uint NumbeOfTransmmitions = 0;
-        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0, Timer1sec=0;
+        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0;
         //uint IntervalTimeBetweenTransmitions = 1;
         private void timer_General_Tick(object sender, EventArgs e)
         {
@@ -9534,10 +9538,10 @@ namespace SocketServer
         {
             if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
             {
-                comboBox_SerialPortHistory.Items.Clear();
+                CommandsHistoy.Clear();
                 foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
                 {
-                    comboBox_SerialPortHistory.Items.Add((object)str);
+                    CommandsHistoy.Add(str);
                     // comboBox_SMSCommands.Items.Add(str);
                 }
             }
@@ -11964,10 +11968,10 @@ namespace SocketServer
 
         private void button_SerialPortAdd_Click(object sender, EventArgs e)
         {
-            if (comboBox_SerialPortHistory.SelectedItem != null)
-            {
-                textBox_SendSerialPort.Text = comboBox_SerialPortHistory.SelectedItem.ToString();
-            }
+            //if (comboBox_SerialPortHistory.SelectedItem != null)
+            //{
+            //    textBox_SendSerialPort.Text = comboBox_SerialPortHistory.SelectedItem.ToString();
+            //}
         }
 
         private void textBox_Config37_TextChanged(object sender, EventArgs e)
@@ -12326,7 +12330,6 @@ namespace SocketServer
 
         private void textBox_SendSerialPort_TextChanged(object sender, EventArgs e)
         {
-            ////    textBox_SendSerialPort.Text = textBox_SendSerialPort.Text.Replace("/n",Environment.NewLine);
             //textBox_SendSerialPort.SelectionStart = textBox_SendSerialPort.Text.Length;
             //textBox_SendSerialPort.SelectionLength = 0;
         }
