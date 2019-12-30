@@ -211,7 +211,7 @@ namespace SocketServer
         private Button button_StartFOTA;
         private Button button35;
         private ComboBox comboBox_ConnectionNumber;
-        private GroupBox groupBox4;
+        private GroupBox groupBox_SendSerialOrMonitorCommands;
         private Button button_SendSerialPort;
         private TabPage tabPage7;
         private Label label_TimeDate2;
@@ -425,6 +425,7 @@ namespace SocketServer
         private Label label_SerialPortConnected;
         private Label Label_SerialPortTx;
         private GroupBox groupBox_SerialPort;
+        private Button button28;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -569,9 +570,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -601,7 +602,7 @@ namespace SocketServer
             this.button_Stopwatch_Start_Stop = new System.Windows.Forms.Button();
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox_SendSerialOrMonitorCommands = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
@@ -951,6 +952,7 @@ namespace SocketServer
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
             this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
+            this.button28 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -958,7 +960,7 @@ namespace SocketServer
             this.tabPage2.SuspendLayout();
             this.groupBox_Timer.SuspendLayout();
             this.groupBox_Stopwatch.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox_SendSerialOrMonitorCommands.SuspendLayout();
             this.gbPortSettings.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -1228,7 +1230,7 @@ namespace SocketServer
             // 
             this.tabPage2.Controls.Add(this.groupBox_Timer);
             this.tabPage2.Controls.Add(this.groupBox_Stopwatch);
-            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage2.Controls.Add(this.gbPortSettings);
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
@@ -1352,18 +1354,18 @@ namespace SocketServer
             this.textBox_StopWatch.Text = "0";
             this.textBox_StopWatch.TextChanged += new System.EventHandler(this.textBox_StopWatch_TextChanged);
             // 
-            // groupBox4
+            // groupBox_SendSerialOrMonitorCommands
             // 
-            this.groupBox4.Controls.Add(this.checkBox2);
-            this.groupBox4.Controls.Add(this.textBox_SendSerialPort);
-            this.groupBox4.Controls.Add(this.checkBox_DeleteCommand);
-            this.groupBox4.Controls.Add(this.button_SendSerialPort);
-            this.groupBox4.Location = new System.Drawing.Point(6, 78);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(343, 125);
-            this.groupBox4.TabIndex = 69;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Send Data to Serial Port";
+            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox2);
+            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.textBox_SendSerialPort);
+            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox_DeleteCommand);
+            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.button_SendSerialPort);
+            this.groupBox_SendSerialOrMonitorCommands.Location = new System.Drawing.Point(6, 78);
+            this.groupBox_SendSerialOrMonitorCommands.Name = "groupBox_SendSerialOrMonitorCommands";
+            this.groupBox_SendSerialOrMonitorCommands.Size = new System.Drawing.Size(343, 125);
+            this.groupBox_SendSerialOrMonitorCommands.TabIndex = 69;
+            this.groupBox_SendSerialOrMonitorCommands.TabStop = false;
+            this.groupBox_SendSerialOrMonitorCommands.Text = "Send Data to Serial Port";
             // 
             // checkBox2
             // 
@@ -3843,6 +3845,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button28);
             this.tabPage3.Controls.Add(this.listBox_Charts);
             this.tabPage3.Controls.Add(this.button_OpenFolder2);
             this.tabPage3.Controls.Add(this.button_GraphPause);
@@ -3851,9 +3854,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
+            this.tabPage3.Size = new System.Drawing.Size(1805, 945);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3862,7 +3865,7 @@ namespace SocketServer
             // 
             this.listBox_Charts.FormattingEnabled = true;
             this.listBox_Charts.ItemHeight = 18;
-            this.listBox_Charts.Location = new System.Drawing.Point(5, 245);
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 266);
             this.listBox_Charts.Name = "listBox_Charts";
             this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
@@ -3871,7 +3874,7 @@ namespace SocketServer
             // 
             // button_OpenFolder2
             // 
-            this.button_OpenFolder2.Location = new System.Drawing.Point(5, 183);
+            this.button_OpenFolder2.Location = new System.Drawing.Point(5, 204);
             this.button_OpenFolder2.Name = "button_OpenFolder2";
             this.button_OpenFolder2.Size = new System.Drawing.Size(108, 26);
             this.button_OpenFolder2.TabIndex = 77;
@@ -3881,7 +3884,7 @@ namespace SocketServer
             // 
             // button_GraphPause
             // 
-            this.button_GraphPause.Location = new System.Drawing.Point(4, 78);
+            this.button_GraphPause.Location = new System.Drawing.Point(4, 104);
             this.button_GraphPause.Name = "button_GraphPause";
             this.button_GraphPause.Size = new System.Drawing.Size(123, 23);
             this.button_GraphPause.TabIndex = 8;
@@ -3891,7 +3894,7 @@ namespace SocketServer
             // 
             // Button_Export_excel
             // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(4, 215);
+            this.Button_Export_excel.Location = new System.Drawing.Point(4, 236);
             this.Button_Export_excel.Name = "Button_Export_excel";
             this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
             this.Button_Export_excel.TabIndex = 7;
@@ -3905,18 +3908,19 @@ namespace SocketServer
             this.button_ResetGraphs.Name = "button_ResetGraphs";
             this.button_ResetGraphs.Size = new System.Drawing.Size(123, 23);
             this.button_ResetGraphs.TabIndex = 6;
-            this.button_ResetGraphs.Text = "Reset Graphs";
+            this.button_ResetGraphs.Text = "Reset chart data";
             this.button_ResetGraphs.UseVisualStyleBackColor = true;
             this.button_ResetGraphs.Click += new System.EventHandler(this.button_ResetGraphs_Click);
             // 
             // textBox_graph_XY
             // 
             this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 111);
+            this.textBox_graph_XY.Location = new System.Drawing.Point(5, 130);
             this.textBox_graph_XY.Multiline = true;
             this.textBox_graph_XY.Name = "textBox_graph_XY";
             this.textBox_graph_XY.Size = new System.Drawing.Size(185, 68);
             this.textBox_graph_XY.TabIndex = 4;
+            this.textBox_graph_XY.TextChanged += new System.EventHandler(this.textBox_graph_XY_TextChanged);
             // 
             // button_ScreenShot
             // 
@@ -3930,16 +3934,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5335,6 +5339,16 @@ namespace SocketServer
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
             // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(4, 76);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(123, 23);
+            this.button28.TabIndex = 79;
+            this.button28.Text = "Reset X point";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click_2);
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
@@ -5363,8 +5377,8 @@ namespace SocketServer
             this.groupBox_Timer.PerformLayout();
             this.groupBox_Stopwatch.ResumeLayout(false);
             this.groupBox_Stopwatch.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBox_SendSerialOrMonitorCommands.ResumeLayout(false);
+            this.groupBox_SendSerialOrMonitorCommands.PerformLayout();
             this.gbPortSettings.ResumeLayout(false);
             this.gbPortSettings.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -5465,10 +5479,12 @@ namespace SocketServer
                         if (SelfMonitorCommandsMode == true)
                         {
                             textBox_SendSerialPort.BackColor = SystemColors.Info;
+                            groupBox_SendSerialOrMonitorCommands.BackColor = SystemColors.Info;
                             SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Monitor commands mode", New_Line = true, Show_Time = true);
                         }
                         else
                         {
+                            groupBox_SendSerialOrMonitorCommands.BackColor = default(Color);
                             textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
                             SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Send to serial port mode", New_Line = true, Show_Time = true);
 
@@ -5478,7 +5494,15 @@ namespace SocketServer
 
 
                     case Keys.Enter:
-                                button_SendSerialPort.PerformClick();
+                        if (SelfMonitorCommandsMode == true)
+                        {
+
+                        }
+                        else
+                        {
+                            button_SendSerialPort.PerformClick();
+                        }
+                        
                         break;
 
                     case Keys.Up:
@@ -5520,7 +5544,7 @@ namespace SocketServer
                                         SerialPortLogger.LogMessage(Color.Black, Color.Yellow, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
                                         foreach (String str in Strlist)
                                         {
-                                            SerialPortLogger.LogMessage(Color.Black, Color.Yellow, str, New_Line = true, Show_Time = false);
+                                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, str, New_Line = true, Show_Time = false);
                                         }
                                     }
                                     else
@@ -6958,9 +6982,6 @@ namespace SocketServer
                 {
                     listBox_Charts.Items.Add(ser.Name);
                 }
-                //listBox_Charts.Items.Add(series1.Name);
-                //listBox_Charts.Items.Add(series2.Name);
-                //listBox_Charts.Items.Add(series3.Name);
 
                 textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
                 this.FormClosed += MainForm_FormClosed;
@@ -7983,15 +8004,13 @@ namespace SocketServer
             }
             //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
-            //if (ChartCntX > 1000)
-            //{
-            //    ChartCntX = 0;
-            //    series1.Points.Clear();
-            //    series2.Points.Clear();
-            //}
+            if (ChartCntX % 1000 == 0)
+            {
+                chart1.ChartAreas[0].AxisX.Minimum = ChartCntX;
+            }
 
 
-                chart1.Refresh();
+            chart1.Refresh();
                 chart1.Invalidate();
             
         }
@@ -12383,6 +12402,7 @@ namespace SocketServer
 
         private void button_ResetGraphs_Click(object sender, EventArgs e)
         {
+
             ChartCntX = 0;
             foreach (var ser in chart1.Series)
             {
@@ -12640,6 +12660,16 @@ namespace SocketServer
         private void button43_Click_1(object sender, EventArgs e)
         {
             richTextBox_ClientTx.Text = "";
+        }
+
+        private void button28_Click_2(object sender, EventArgs e)
+        {
+            chart1.ChartAreas[0].AxisX.Minimum = ChartCntX;
+        }
+
+        private void textBox_graph_XY_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button_ClearRx_Click(object sender, EventArgs e)
