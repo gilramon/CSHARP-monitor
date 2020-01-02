@@ -138,6 +138,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="CommandsBook.cs" />
     <Compile Include="PhoneBook.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -159,6 +160,12 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SystemCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCommands.Designer.cs">
+      <DependentUpon>SystemCommands.cs</DependentUpon>
+    </Compile>
     <Compile Include="System_Password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCommands.resx">
+      <DependentUpon>SystemCommands.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_Password.resx">
       <DependentUpon>System_Password.cs</DependentUpon>

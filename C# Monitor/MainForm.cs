@@ -421,6 +421,23 @@ namespace SocketServer
         private Button button_ClearRx;
         private RichTextBox richTextBox_ClientRx;
         private ListBox listBox_Charts;
+<<<<<<< Updated upstream
+=======
+        private TextBox textBox_ConfigurationHelp;
+        private CheckBox checkBox2;
+        private Label Label_SerialPortRx;
+        private Label label_SerialPortConnected;
+        private Label Label_SerialPortTx;
+        private GroupBox groupBox_SerialPort;
+        private Button button28;
+        private GroupBox groupBox1;
+        private ListBox listBox1;
+        private Button button42;
+        private Button button44;
+        private Button button45;
+        private Button button46;
+        private Button button47;
+>>>>>>> Stashed changes
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -565,9 +582,15 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+<<<<<<< Updated upstream
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+=======
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+>>>>>>> Stashed changes
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -801,6 +824,11 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+<<<<<<< Updated upstream
+=======
+            this.button28 = new System.Windows.Forms.Button();
+            this.listBox_Charts = new System.Windows.Forms.ListBox();
+>>>>>>> Stashed changes
             this.button_OpenFolder2 = new System.Windows.Forms.Button();
             this.button_GraphPause = new System.Windows.Forms.Button();
             this.Button_Export_excel = new System.Windows.Forms.Button();
@@ -942,7 +970,21 @@ namespace SocketServer
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+<<<<<<< Updated upstream
             this.listBox_Charts = new System.Windows.Forms.ListBox();
+=======
+            this.Label_SerialPortRx = new System.Windows.Forms.Label();
+            this.label_SerialPortConnected = new System.Windows.Forms.Label();
+            this.Label_SerialPortTx = new System.Windows.Forms.Label();
+            this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button44 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+>>>>>>> Stashed changes
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -999,6 +1041,11 @@ namespace SocketServer
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox_PhoneNumber.SuspendLayout();
+<<<<<<< Updated upstream
+=======
+            this.groupBox_SerialPort.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1217,6 +1264,7 @@ namespace SocketServer
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.groupBox_Timer);
             this.tabPage2.Controls.Add(this.groupBox_Stopwatch);
             this.tabPage2.Controls.Add(this.groupBox4);
@@ -1305,8 +1353,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -3172,7 +3220,11 @@ namespace SocketServer
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+<<<<<<< Updated upstream
             this.tabPage1.Size = new System.Drawing.Size(1900, 936);
+=======
+            this.tabPage1.Size = new System.Drawing.Size(1805, 945);
+>>>>>>> Stashed changes
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3364,7 +3416,11 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox33);
             this.tabPage7.Location = new System.Drawing.Point(4, 27);
             this.tabPage7.Name = "tabPage7";
+<<<<<<< Updated upstream
             this.tabPage7.Size = new System.Drawing.Size(1900, 936);
+=======
+            this.tabPage7.Size = new System.Drawing.Size(1805, 945);
+>>>>>>> Stashed changes
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3601,8 +3657,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3702,8 +3758,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3714,8 +3770,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3839,13 +3895,41 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
+<<<<<<< Updated upstream
             this.tabPage3.Size = new System.Drawing.Size(1900, 936);
+=======
+            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
+>>>>>>> Stashed changes
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+<<<<<<< Updated upstream
+=======
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(4, 76);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(123, 23);
+            this.button28.TabIndex = 79;
+            this.button28.Text = "Reset X point";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click_2);
+            // 
+            // listBox_Charts
+            // 
+            this.listBox_Charts.FormattingEnabled = true;
+            this.listBox_Charts.ItemHeight = 18;
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 266);
+            this.listBox_Charts.Name = "listBox_Charts";
+            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
+            this.listBox_Charts.TabIndex = 78;
+            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.listBox_Charts_SelectedIndexChanged);
+            // 
+>>>>>>> Stashed changes
             // button_OpenFolder2
             // 
             this.button_OpenFolder2.Location = new System.Drawing.Point(5, 183);
@@ -3907,6 +3991,7 @@ namespace SocketServer
             // 
             // chart1
             // 
+<<<<<<< Updated upstream
             chartArea4.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
@@ -3917,6 +4002,18 @@ namespace SocketServer
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.chart1.Series.Add(series4);
+=======
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(195, 0);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+>>>>>>> Stashed changes
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5272,6 +5369,7 @@ namespace SocketServer
             this.groupBox_PhoneNumber.Text = "Phone Number";
             this.groupBox_PhoneNumber.Visible = false;
             // 
+<<<<<<< Updated upstream
             // listBox_Charts
             // 
             this.listBox_Charts.FormattingEnabled = true;
@@ -5282,6 +5380,118 @@ namespace SocketServer
             this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
             this.listBox_Charts.TabIndex = 78;
             this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.listBox_Charts_SelectedIndexChanged);
+=======
+            // Label_SerialPortRx
+            // 
+            this.Label_SerialPortRx.AutoSize = true;
+            this.Label_SerialPortRx.Location = new System.Drawing.Point(21, 54);
+            this.Label_SerialPortRx.Name = "Label_SerialPortRx";
+            this.Label_SerialPortRx.Size = new System.Drawing.Size(23, 18);
+            this.Label_SerialPortRx.TabIndex = 108;
+            this.Label_SerialPortRx.Text = "Rx";
+            // 
+            // label_SerialPortConnected
+            // 
+            this.label_SerialPortConnected.AutoSize = true;
+            this.label_SerialPortConnected.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_SerialPortConnected.Location = new System.Drawing.Point(17, 29);
+            this.label_SerialPortConnected.Name = "label_SerialPortConnected";
+            this.label_SerialPortConnected.Size = new System.Drawing.Size(69, 18);
+            this.label_SerialPortConnected.TabIndex = 109;
+            this.label_SerialPortConnected.Text = "Conneted";
+            // 
+            // Label_SerialPortTx
+            // 
+            this.Label_SerialPortTx.AutoSize = true;
+            this.Label_SerialPortTx.Location = new System.Drawing.Point(65, 54);
+            this.Label_SerialPortTx.Name = "Label_SerialPortTx";
+            this.Label_SerialPortTx.Size = new System.Drawing.Size(21, 18);
+            this.Label_SerialPortTx.TabIndex = 110;
+            this.Label_SerialPortTx.Text = "Tx";
+            // 
+            // groupBox_SerialPort
+            // 
+            this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortTx);
+            this.groupBox_SerialPort.Controls.Add(this.label_SerialPortConnected);
+            this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortRx);
+            this.groupBox_SerialPort.Location = new System.Drawing.Point(1819, 31);
+            this.groupBox_SerialPort.Name = "groupBox_SerialPort";
+            this.groupBox_SerialPort.Size = new System.Drawing.Size(104, 100);
+            this.groupBox_SerialPort.TabIndex = 111;
+            this.groupBox_SerialPort.TabStop = false;
+            this.groupBox_SerialPort.Text = "Serial port";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.button42);
+            this.groupBox1.Controls.Add(this.button44);
+            this.groupBox1.Controls.Add(this.button45);
+            this.groupBox1.Controls.Add(this.button46);
+            this.groupBox1.Controls.Add(this.button47);
+            this.groupBox1.Location = new System.Drawing.Point(6, 209);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(315, 429);
+            this.groupBox1.TabIndex = 112;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "System commands";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(6, 17);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox1.Size = new System.Drawing.Size(303, 328);
+            this.listBox1.TabIndex = 6;
+            // 
+            // button42
+            // 
+            this.button42.Location = new System.Drawing.Point(169, 359);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(75, 23);
+            this.button42.TabIndex = 5;
+            this.button42.Text = "Edit";
+            this.button42.UseVisualStyleBackColor = true;
+            // 
+            // button44
+            // 
+            this.button44.Location = new System.Drawing.Point(88, 395);
+            this.button44.Name = "button44";
+            this.button44.Size = new System.Drawing.Size(75, 23);
+            this.button44.TabIndex = 4;
+            this.button44.Text = "Import";
+            this.button44.UseVisualStyleBackColor = true;
+            // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(7, 395);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(75, 23);
+            this.button45.TabIndex = 3;
+            this.button45.Text = "Export";
+            this.button45.UseVisualStyleBackColor = true;
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(88, 359);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(75, 23);
+            this.button46.TabIndex = 2;
+            this.button46.Text = "Remove";
+            this.button46.UseVisualStyleBackColor = true;
+            // 
+            // button47
+            // 
+            this.button47.Location = new System.Drawing.Point(7, 359);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(75, 23);
+            this.button47.TabIndex = 1;
+            this.button47.Text = "Add";
+            this.button47.UseVisualStyleBackColor = true;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
+>>>>>>> Stashed changes
             // 
             // MainForm
             // 
@@ -5392,6 +5602,12 @@ namespace SocketServer
             this.groupBox16.PerformLayout();
             this.groupBox_PhoneNumber.ResumeLayout(false);
             this.groupBox_PhoneNumber.PerformLayout();
+<<<<<<< Updated upstream
+=======
+            this.groupBox_SerialPort.ResumeLayout(false);
+            this.groupBox_SerialPort.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
 
         }
@@ -12438,6 +12654,34 @@ namespace SocketServer
             richTextBox_ClientTx.Text = "";
         }
 
+<<<<<<< Updated upstream
+=======
+        private void button28_Click_2(object sender, EventArgs e)
+        {
+            chart1.ChartAreas[0].AxisX.Minimum = ChartCntX;
+        }
+
+        private void textBox_graph_XY_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button47_Click(object sender, EventArgs e)
+        {
+            using (var form = new SystemCommands())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    AddCommandToCommands(form.Opcode);
+
+
+
+                }
+            }
+        }
+
+>>>>>>> Stashed changes
         private void button_ClearRx_Click(object sender, EventArgs e)
         {
             richTextBox_ClientRx.Text = "";
