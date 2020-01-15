@@ -5483,114 +5483,7 @@ namespace SocketServer
         List<String> CommandsHistoy = new List<String>();
         int HistoryIndex = -1;
         bool SelfMonitorCommandsMode = false;
-        private void TextBox_SendSerialPort_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.ControlKey:
-                        SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
-                        if (SelfMonitorCommandsMode == true)
-                        {
-                            textBox_SendSerialPort.BackColor = SystemColors.Info;
-                            groupBox_SendSerialOrMonitorCommands.BackColor = SystemColors.Info;
-                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Monitor commands mode", New_Line = true, Show_Time = true);
-                        }
-                        else
-                        {
-                            groupBox_SendSerialOrMonitorCommands.BackColor = default(Color);
-                            textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
-                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Send to serial port mode", New_Line = true, Show_Time = true);
-
-
-                        }
-                        break;
-
-
-                    case Keys.Enter:
-                        if (SelfMonitorCommandsMode == true)
-                        {
-
-                        }
-                        else
-                        {
-                            button_SendSerialPort.PerformClick();
-                        }
-
-                        break;
-
-                    case Keys.Up:
-                        //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
-                        if (textBox_SendSerialPort.Text == String.Empty)
-                        {
-                            HistoryIndex = CommandsHistoy.Count - 1;
-                        }
-                        else
-                        { 
-                            //if (HistoryIndex > CommandsHistoy.Count - 1 || HistoryIndex < 0)
-                            //{
-                            //    HistoryIndex = CommandsHistoy.Count;
-                            //}
-
-
-                            if (HistoryIndex > 0)
-                            {
-                                HistoryIndex--;
-                            }
-                            
-                        }
-                        textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
-
-                        break;
-
-                    case Keys.Down:
-
-                                    textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
-                                    if (HistoryIndex < CommandsHistoy.Count - 1)
-                                    {
-                                        HistoryIndex++;
-                                    }
-                        break;
-
-                    case Keys.Right:
-                    case Keys.Tab:
-                                    List<String> Strlist = new List<String>();
-                                    foreach (String str in CommandsHistoy)
-                                    {
-                                        if (str.StartsWith(textBox_SendSerialPort.Text))
-                                        {
-                                            Strlist.Add(str);
-                                        }
-                                    }
-
-                                    if (Strlist.Count > 1)
-                                    {
-                                        SerialPortLogger.LogMessage(Color.Black, Color.Yellow, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
-                                        foreach (String str in Strlist)
-                                        {
-                                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, str, New_Line = true, Show_Time = false);
-                                        }
-                                    }
-                                    else
-                                        if (Strlist.Count == 1)
-                                        {
-                                            textBox_SendSerialPort.Text = Strlist[0];
-                                        }
-                        break;
-
-                    default:
-                        HistoryIndex = CommandsHistoy.Count - 1;
-                    break;
-                }
-
-              //  CommandsHistoy.SelectedIndex = HistoryIndex;
-            }
-            catch (Exception ex)
-            {
-                SerialPortLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
-            }
-        }
+        
 
         private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -12826,6 +12719,11 @@ namespace SocketServer
                             HistoryIndex = CommandsHistoy.Count;
                         }
 
+                        if(textBox_SendSerialPort.Text == string.Empty)
+                        {
+                            HistoryIndex = CommandsHistoy.Count;
+                        }
+
 
                         if (HistoryIndex > 0)
                         {
@@ -12860,6 +12758,10 @@ namespace SocketServer
                             foreach (String str in Strlist)
                             {
                                 SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, str, New_Line = true, Show_Time = false);
+                                if (HistoryIndex == Strlist.IndexOf(str))
+                                {
+                                    SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "<------", New_Line = false, Show_Time = false);
+                                }
                             }
                         }
                         else
