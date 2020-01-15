@@ -14,6 +14,7 @@ using Spetrotec;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Linq;
 
 namespace SocketServer
 {
@@ -420,12 +421,13 @@ namespace SocketServer
         private RichTextBox richTextBox_ClientRx;
         private ListBox listBox_Charts;
         private TextBox textBox_ConfigurationHelp;
-        private CheckBox checkBox2;
         private Label Label_SerialPortRx;
         private Label label_SerialPortConnected;
         private Label Label_SerialPortTx;
         private GroupBox groupBox_SerialPort;
         private Button button28;
+        private CheckBox checkBox_RxHex;
+        private CheckBox checkBox_SendHexdata;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -570,9 +572,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -603,7 +605,7 @@ namespace SocketServer
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox_SendSerialOrMonitorCommands = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox_SendHexdata = new System.Windows.Forms.CheckBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
             this.checkBox_DeleteCommand = new System.Windows.Forms.CheckBox();
             this.button_SendSerialPort = new System.Windows.Forms.Button();
@@ -621,6 +623,7 @@ namespace SocketServer
             this.lblDataBits = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBox_RxHex = new System.Windows.Forms.CheckBox();
             this.button_OpenFolder = new System.Windows.Forms.Button();
             this.textBox_SerialPortRecognizePattern3 = new System.Windows.Forms.TextBox();
             this.textBox_SerialPortRecognizePattern2 = new System.Windows.Forms.TextBox();
@@ -806,6 +809,7 @@ namespace SocketServer
             this.button_AddContact = new System.Windows.Forms.Button();
             this.checkedListBox_PhoneBook = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button28 = new System.Windows.Forms.Button();
             this.listBox_Charts = new System.Windows.Forms.ListBox();
             this.button_OpenFolder2 = new System.Windows.Forms.Button();
             this.button_GraphPause = new System.Windows.Forms.Button();
@@ -952,7 +956,6 @@ namespace SocketServer
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
             this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
-            this.button28 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1316,8 +1319,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1356,26 +1359,27 @@ namespace SocketServer
             // 
             // groupBox_SendSerialOrMonitorCommands
             // 
-            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox2);
+            this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox_SendHexdata);
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox_DeleteCommand);
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.button_SendSerialPort);
             this.groupBox_SendSerialOrMonitorCommands.Location = new System.Drawing.Point(6, 78);
             this.groupBox_SendSerialOrMonitorCommands.Name = "groupBox_SendSerialOrMonitorCommands";
-            this.groupBox_SendSerialOrMonitorCommands.Size = new System.Drawing.Size(343, 125);
+            this.groupBox_SendSerialOrMonitorCommands.Size = new System.Drawing.Size(343, 160);
             this.groupBox_SendSerialOrMonitorCommands.TabIndex = 69;
             this.groupBox_SendSerialOrMonitorCommands.TabStop = false;
             this.groupBox_SendSerialOrMonitorCommands.Text = "Send Data to Serial Port";
             // 
-            // checkBox2
+            // checkBox_SendHexdata
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 89);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(120, 22);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Show Raw data";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox_SendHexdata.AutoSize = true;
+            this.checkBox_SendHexdata.Location = new System.Drawing.Point(9, 88);
+            this.checkBox_SendHexdata.Name = "checkBox_SendHexdata";
+            this.checkBox_SendHexdata.Size = new System.Drawing.Size(115, 22);
+            this.checkBox_SendHexdata.TabIndex = 5;
+            this.checkBox_SendHexdata.Text = "Send Hex data";
+            this.toolTip1.SetToolTip(this.checkBox_SendHexdata, "Example:\r\n11 22 33 44 is 0x11 0x22 0x33 0x44\r\n");
+            this.checkBox_SendHexdata.UseVisualStyleBackColor = true;
             // 
             // textBox_SendSerialPort
             // 
@@ -1389,7 +1393,7 @@ namespace SocketServer
             this.textBox_SendSerialPort.TabIndex = 0;
             this.textBox_SendSerialPort.Text = "String_To_Send";
             this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
-            this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.textBox_SendSerialPort_TextChanged);
+            this.textBox_SendSerialPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_SendSerialPort_KeyDown);
             // 
             // checkBox_DeleteCommand
             // 
@@ -1586,6 +1590,7 @@ namespace SocketServer
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBox_RxHex);
             this.groupBox5.Controls.Add(this.button_OpenFolder);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern3);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern2);
@@ -1603,9 +1608,19 @@ namespace SocketServer
             this.groupBox5.Text = "Serial Port Console";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
+            // checkBox_RxHex
+            // 
+            this.checkBox_RxHex.AutoSize = true;
+            this.checkBox_RxHex.Location = new System.Drawing.Point(965, 22);
+            this.checkBox_RxHex.Name = "checkBox_RxHex";
+            this.checkBox_RxHex.Size = new System.Drawing.Size(111, 23);
+            this.checkBox_RxHex.TabIndex = 6;
+            this.checkBox_RxHex.Text = "Show Rx Hex";
+            this.checkBox_RxHex.UseVisualStyleBackColor = true;
+            // 
             // button_OpenFolder
             // 
-            this.button_OpenFolder.Location = new System.Drawing.Point(626, 18);
+            this.button_OpenFolder.Location = new System.Drawing.Point(1098, 19);
             this.button_OpenFolder.Name = "button_OpenFolder";
             this.button_OpenFolder.Size = new System.Drawing.Size(108, 26);
             this.button_OpenFolder.TabIndex = 76;
@@ -1645,7 +1660,7 @@ namespace SocketServer
             this.checkBox_S1RecordLog.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1RecordLog.AutoSize = true;
             this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(740, 18);
+            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(1212, 19);
             this.checkBox_S1RecordLog.Name = "checkBox_S1RecordLog";
             this.checkBox_S1RecordLog.Size = new System.Drawing.Size(83, 29);
             this.checkBox_S1RecordLog.TabIndex = 69;
@@ -1658,7 +1673,7 @@ namespace SocketServer
             this.checkBox_S1Pause.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1Pause.AutoSize = true;
             this.checkBox_S1Pause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1Pause.Location = new System.Drawing.Point(832, 17);
+            this.checkBox_S1Pause.Location = new System.Drawing.Point(1304, 18);
             this.checkBox_S1Pause.Name = "checkBox_S1Pause";
             this.checkBox_S1Pause.Size = new System.Drawing.Size(58, 29);
             this.checkBox_S1Pause.TabIndex = 70;
@@ -1669,7 +1684,7 @@ namespace SocketServer
             // txtS1_Clear
             // 
             this.txtS1_Clear.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtS1_Clear.Location = new System.Drawing.Point(900, 17);
+            this.txtS1_Clear.Location = new System.Drawing.Point(1372, 18);
             this.txtS1_Clear.Name = "txtS1_Clear";
             this.txtS1_Clear.Size = new System.Drawing.Size(62, 26);
             this.txtS1_Clear.TabIndex = 69;
@@ -1695,9 +1710,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 27);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1805, 945);
+            this.tabPage6.Size = new System.Drawing.Size(1805, 950);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3615,8 +3630,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3716,8 +3731,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3728,8 +3743,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3854,12 +3869,22 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1805, 945);
+            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(4, 76);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(123, 23);
+            this.button28.TabIndex = 79;
+            this.button28.Text = "Reset X point";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click_2);
             // 
             // listBox_Charts
             // 
@@ -3934,16 +3959,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5339,16 +5364,6 @@ namespace SocketServer
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
             // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(4, 76);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(123, 23);
-            this.button28.TabIndex = 79;
-            this.button28.Text = "Reset X point";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click_2);
-            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
@@ -5490,7 +5505,7 @@ namespace SocketServer
 
 
                         }
-                    break;
+                        break;
 
 
                     case Keys.Enter:
@@ -5502,21 +5517,31 @@ namespace SocketServer
                         {
                             button_SendSerialPort.PerformClick();
                         }
-                        
+
                         break;
 
                     case Keys.Up:
-                                //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
-                                if (HistoryIndex >= CommandsHistoy.Count - 1 || HistoryIndex < 0)
-                                {
-                                    HistoryIndex = CommandsHistoy.Count - 1;
-                                }
+                        //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
+                        if (textBox_SendSerialPort.Text == String.Empty)
+                        {
+                            HistoryIndex = CommandsHistoy.Count - 1;
+                        }
+                        else
+                        { 
+                            //if (HistoryIndex > CommandsHistoy.Count - 1 || HistoryIndex < 0)
+                            //{
+                            //    HistoryIndex = CommandsHistoy.Count;
+                            //}
 
-                                textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
-                                if (HistoryIndex > 0)
-                                {
-                                    HistoryIndex--;
-                                }
+
+                            if (HistoryIndex > 0)
+                            {
+                                HistoryIndex--;
+                            }
+                            
+                        }
+                        textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
+
                         break;
 
                     case Keys.Down:
@@ -5563,7 +5588,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                ServerLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
+                SerialPortLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
             }
         }
 
@@ -5816,9 +5841,6 @@ namespace SocketServer
                     // Send the binary data out the port
                     serialPort.Write(i_SendData, 0, i_SendData.Length);
 
-                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
-                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
-                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
                     return true;
 
                 }
@@ -7005,7 +7027,7 @@ namespace SocketServer
                 chart1.MouseClick += Chart1_MouseClick;
 
                 tabControl1.DrawItem += TabControl1_DrawItem1;
-                textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
+              //  textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
 
                 //tabControl1.TabPages.RemoveAt(2);
                 UpdatePhoneBook();
@@ -8420,25 +8442,68 @@ namespace SocketServer
             // Read the data from the port and store it in our buffer
             serialPort.Read(buffer, 0, bytes);
 
-
-            string IncomingString = System.Text.Encoding.Default.GetString(buffer);
-
-
-
             SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "Rx:>", New_Line = false, Show_Time = true);
-            string[] lines = Regex.Split(IncomingString, "\r\n");
 
-            foreach (string line in lines)
+            if (checkBox_RxHex.Checked == true)
             {
-                SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, line, New_Line = true, Show_Time = false);
+                
+                string IncomingHexMessage = ConvertByteArraytToString(buffer);
+
+                SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, IncomingHexMessage, New_Line = true, Show_Time = false);
+            }
+            else
+            {
+
+                string IncomingString = System.Text.Encoding.Default.GetString(buffer);
+
+
+
+                
+                string[] lines = Regex.Split(IncomingString, "\r\n");
+
+                foreach (string line in lines)
+                {
+                    SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, line, New_Line = true, Show_Time = false);
+                }
+
+
+                ParseSerialPortString(IncomingString);
             }
 
 
 
-            ParseSerialPortString(IncomingString);
-
-
         }
+
+        private byte[] StringToByteArray(string hex)
+        {
+            try
+            {
+                return Enumerable.Range(0, hex.Length)
+                                 .Where(x => x % 2 == 0)
+                                 .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                                 .ToArray();
+
+            }
+            catch(Exception ex)
+            {
+                SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.Message, New_Line = true, Show_Time = false);
+                return null;
+            }
+        }
+
+        String ConvertByteArraytToString(byte[] i_Buffer)
+        {
+            string IncomingHexMessage = "";
+            foreach (byte by in i_Buffer)
+            {
+                IncomingHexMessage += "[0x" + by.ToString("X2") + "] ";
+
+            }
+
+            return IncomingHexMessage;
+        }
+
+
 
         enum SourceMessage
         {
@@ -9572,27 +9637,72 @@ namespace SocketServer
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
-            String tempStr = textBox_SendSerialPort.Text.Replace("\\n", "\n");
-            tempStr = tempStr.Replace("\\r", "\r");
-            byte[] buffer = Encoding.ASCII.GetBytes(tempStr);
-
-            bool IsSent = SerialPortSendData(buffer);
-
-            if (IsSent == true)
+            bool IsSent = false;
+            if (checkBox_SendHexdata.Checked == true)
             {
-                UpdateSerialPortHistory(textBox_SendSerialPort.Text);
+                String tempStr = textBox_SendSerialPort.Text.Replace(" ", ""); 
 
-                UpdateSerialPortComboBox();
+                byte[] buffer = StringToByteArray(tempStr);
 
-                if (checkBox_DeleteCommand.Checked == true)
+                IsSent = SerialPortSendData(buffer);
+
+                if (IsSent == true)
                 {
-                    textBox_SendSerialPort.Text = "";
+                    UpdateSerialPortHistory(textBox_SendSerialPort.Text);
+
+                    UpdateSerialPortComboBox();
+
+                    if (checkBox_DeleteCommand.Checked == true)
+                    {
+                        textBox_SendSerialPort.Text = "";
+                    }
+
+                    TxLabelTimerBlink = 10;
+
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, ConvertByteArraytToString(buffer), true, false);
+
+                    
+
                 }
 
-                TxLabelTimerBlink = 20;
 
             }
+            else
+            {
+
+
+                String tempStr = textBox_SendSerialPort.Text.Replace("\\n", "\n");
+                tempStr = tempStr.Replace("\\r", "\r");
+                byte[] buffer = Encoding.ASCII.GetBytes(tempStr);
+
+                 IsSent = SerialPortSendData(buffer);
+
+                if (IsSent == true)
+                {
+                    UpdateSerialPortHistory(textBox_SendSerialPort.Text);
+
+                    UpdateSerialPortComboBox();
+
+                    if (checkBox_DeleteCommand.Checked == true)
+                    {
+                        textBox_SendSerialPort.Text = "";
+                    }
+
+                    TxLabelTimerBlink = 10;
+
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
+                    SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, Encoding.ASCII.GetString(buffer), true, false);
+
+                }
+
+
+            }
+
+
+
 
 
         }
@@ -12336,11 +12446,6 @@ namespace SocketServer
 
         }
 
-        private void groupBox32_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button42_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages[5].BackColor = Color.Red;
@@ -12670,6 +12775,111 @@ namespace SocketServer
         private void textBox_graph_XY_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox_SendSerialPort_KeyDown_1(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void textBox_SendSerialPort_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.ControlKey:
+                        SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
+                        if (SelfMonitorCommandsMode == true)
+                        {
+                            textBox_SendSerialPort.BackColor = SystemColors.Info;
+                            groupBox_SendSerialOrMonitorCommands.BackColor = SystemColors.Info;
+                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Monitor commands mode", New_Line = true, Show_Time = true);
+                        }
+                        else
+                        {
+                            groupBox_SendSerialOrMonitorCommands.BackColor = default(Color);
+                            textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
+                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Send to serial port mode", New_Line = true, Show_Time = true);
+
+
+                        }
+                        break;
+
+
+                    case Keys.Enter:
+                        if (SelfMonitorCommandsMode == true)
+                        {
+
+                        }
+                        else
+                        {
+                            button_SendSerialPort.PerformClick();
+                        }
+
+                        break;
+
+                    case Keys.Up:
+                        //SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, " History Index: " + HistoryIndex.ToString(), New_Line = true, Show_Time = false);
+                        if (HistoryIndex > CommandsHistoy.Count - 1 || HistoryIndex < 0)
+                        {
+                            HistoryIndex = CommandsHistoy.Count;
+                        }
+
+
+                        if (HistoryIndex > 0)
+                        {
+                            HistoryIndex--;
+                        }
+                        textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
+                        break;
+
+                    case Keys.Down:
+
+                        textBox_SendSerialPort.Text = CommandsHistoy[HistoryIndex];
+                        if (HistoryIndex < CommandsHistoy.Count - 1)
+                        {
+                            HistoryIndex++;
+                        }
+                        break;
+
+                    case Keys.Right:
+                    case Keys.Tab:
+                        List<String> Strlist = new List<String>();
+                        foreach (String str in CommandsHistoy)
+                        {
+                            if (str.StartsWith(textBox_SendSerialPort.Text))
+                            {
+                                Strlist.Add(str);
+                            }
+                        }
+
+                        if (Strlist.Count > 1)
+                        {
+                            SerialPortLogger.LogMessage(Color.Black, Color.Yellow, "Total sub commands: " + Strlist.Count.ToString() + " ", New_Line = true, Show_Time = true);
+                            foreach (String str in Strlist)
+                            {
+                                SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, str, New_Line = true, Show_Time = false);
+                            }
+                        }
+                        else
+                            if (Strlist.Count == 1)
+                        {
+                            textBox_SendSerialPort.Text = Strlist[0];
+                        }
+                        break;
+
+                    default:
+                        HistoryIndex = CommandsHistoy.Count - 1;
+                        break;
+                }
+
+                //  CommandsHistoy.SelectedIndex = HistoryIndex;
+            }
+            catch (Exception ex)
+            {
+                SerialPortLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
+            }
         }
 
         private void button_ClearRx_Click(object sender, EventArgs e)
