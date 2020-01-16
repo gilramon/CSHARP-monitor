@@ -6961,14 +6961,26 @@ namespace SocketServer
 
                 //Gil: Initialize the serial ports
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
-                cmbStopBits.DataSource = Enum.GetValues(typeof(StopBits));
-                cmbStopBits.SelectedIndex = (int)StopBits.One;
-                cmbParity.DataSource = Enum.GetValues(typeof(Parity));
-                cmbParity.SelectedIndex = (int)Parity.None;
-                //cmbDataBits.DataSource = Enum.GetValues(typeof(Data
-
 
                 scanComports();
+                cmbStopBits.DataSource = Enum.GetValues(typeof(StopBits));
+                cmbStopBits.SelectedIndex = (int)StopBits.One;
+
+                cmbParity.DataSource = Enum.GetValues(typeof(Parity));
+                cmbParity.SelectedIndex = (int)Parity.None;
+
+                //cmbDataBits.DataSource = Enum.GetValues(typeof(Data));
+
+                cmbBaudRate.Text = Spetrotec.Properties.Settings.Default.Comport_BaudRate ;
+                cmbDataBits.Text = Spetrotec.Properties.Settings.Default.Comport_DataBits  ;
+                cmbStopBits.Text = Spetrotec.Properties.Settings.Default.Comport_StopBit ;
+                cmbParity.Text = Spetrotec.Properties.Settings.Default.Comport_Parity ;
+                cmbPortName.Text = Spetrotec.Properties.Settings.Default.Comport_Port ;
+
+
+
+
+                
 
 
                 //cmbBaudRate.Text = Spetrotec.Properties.Settings.Default.Comport_BaudRate;
