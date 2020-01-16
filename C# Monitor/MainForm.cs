@@ -9513,6 +9513,20 @@ namespace SocketServer
                 Spetrotec.Properties.Settings.Default.SerialPort_History.Add(i_SendString);
                 Spetrotec.Properties.Settings.Default.Save();
             }
+
+
+            CommandsHistoy.Add(i_SendString);
+
+
+            //if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
+            //{
+            //    CommandsHistoy.Clear();
+            //    foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+            //    {
+            //        CommandsHistoy.Add(str);
+            //        // comboBox_SMSCommands.Items.Add(str);
+            //    }
+            //}
         }
 
         void UpdateSerialPortComboBox()
@@ -9543,7 +9557,7 @@ namespace SocketServer
                 {
                     UpdateSerialPortHistory(textBox_SendSerialPort.Text);
 
-                    UpdateSerialPortComboBox();
+                //    UpdateSerialPortComboBox();
 
                     if (checkBox_DeleteCommand.Checked == true)
                     {
@@ -9576,7 +9590,7 @@ namespace SocketServer
                 {
                     UpdateSerialPortHistory(textBox_SendSerialPort.Text);
 
-                    UpdateSerialPortComboBox();
+                //    UpdateSerialPortComboBox();
 
                     if (checkBox_DeleteCommand.Checked == true)
                     {
