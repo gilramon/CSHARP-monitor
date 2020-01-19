@@ -572,9 +572,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1231,8 +1231,6 @@ namespace SocketServer
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox_Timer);
-            this.tabPage2.Controls.Add(this.groupBox_Stopwatch);
             this.tabPage2.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage2.Controls.Add(this.gbPortSettings);
             this.tabPage2.Controls.Add(this.groupBox5);
@@ -1250,12 +1248,13 @@ namespace SocketServer
             this.groupBox_Timer.Controls.Add(this.button_StartStopTimer);
             this.groupBox_Timer.Controls.Add(this.button_ResetTimer);
             this.groupBox_Timer.Controls.Add(this.textBox_SetTimerTime);
-            this.groupBox_Timer.Location = new System.Drawing.Point(6, 610);
+            this.groupBox_Timer.Location = new System.Drawing.Point(41, 727);
             this.groupBox_Timer.Name = "groupBox_Timer";
             this.groupBox_Timer.Size = new System.Drawing.Size(270, 111);
             this.groupBox_Timer.TabIndex = 107;
             this.groupBox_Timer.TabStop = false;
             this.groupBox_Timer.Text = "Timer";
+            this.groupBox_Timer.Visible = false;
             // 
             // textBox_TimerTime
             // 
@@ -1304,12 +1303,13 @@ namespace SocketServer
             this.groupBox_Stopwatch.Controls.Add(this.button_Stopwatch_Start_Stop);
             this.groupBox_Stopwatch.Controls.Add(this.button_StopwatchReset);
             this.groupBox_Stopwatch.Controls.Add(this.textBox_StopWatch);
-            this.groupBox_Stopwatch.Location = new System.Drawing.Point(6, 492);
+            this.groupBox_Stopwatch.Location = new System.Drawing.Point(41, 609);
             this.groupBox_Stopwatch.Name = "groupBox_Stopwatch";
             this.groupBox_Stopwatch.Size = new System.Drawing.Size(270, 111);
             this.groupBox_Stopwatch.TabIndex = 106;
             this.groupBox_Stopwatch.TabStop = false;
             this.groupBox_Stopwatch.Text = "Stopwatch";
+            this.groupBox_Stopwatch.Visible = false;
             // 
             // button_TimerLog
             // 
@@ -1363,9 +1363,9 @@ namespace SocketServer
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.textBox_SendSerialPort);
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox_DeleteCommand);
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.button_SendSerialPort);
-            this.groupBox_SendSerialOrMonitorCommands.Location = new System.Drawing.Point(6, 78);
+            this.groupBox_SendSerialOrMonitorCommands.Location = new System.Drawing.Point(4, 6);
             this.groupBox_SendSerialOrMonitorCommands.Name = "groupBox_SendSerialOrMonitorCommands";
-            this.groupBox_SendSerialOrMonitorCommands.Size = new System.Drawing.Size(343, 160);
+            this.groupBox_SendSerialOrMonitorCommands.Size = new System.Drawing.Size(626, 93);
             this.groupBox_SendSerialOrMonitorCommands.TabIndex = 69;
             this.groupBox_SendSerialOrMonitorCommands.TabStop = false;
             this.groupBox_SendSerialOrMonitorCommands.Text = "Send Data to Serial Port";
@@ -1373,7 +1373,7 @@ namespace SocketServer
             // checkBox_SendHexdata
             // 
             this.checkBox_SendHexdata.AutoSize = true;
-            this.checkBox_SendHexdata.Location = new System.Drawing.Point(9, 88);
+            this.checkBox_SendHexdata.Location = new System.Drawing.Point(262, 60);
             this.checkBox_SendHexdata.Name = "checkBox_SendHexdata";
             this.checkBox_SendHexdata.Size = new System.Drawing.Size(115, 22);
             this.checkBox_SendHexdata.TabIndex = 5;
@@ -1389,9 +1389,8 @@ namespace SocketServer
             this.textBox_SendSerialPort.Location = new System.Drawing.Point(9, 21);
             this.textBox_SendSerialPort.Name = "textBox_SendSerialPort";
             this.textBox_SendSerialPort.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_SendSerialPort.Size = new System.Drawing.Size(322, 31);
+            this.textBox_SendSerialPort.Size = new System.Drawing.Size(611, 31);
             this.textBox_SendSerialPort.TabIndex = 0;
-            this.textBox_SendSerialPort.Text = "String_To_Send";
             this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
             this.textBox_SendSerialPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_SendSerialPort_KeyDown);
             // 
@@ -1432,9 +1431,9 @@ namespace SocketServer
             this.gbPortSettings.Controls.Add(this.lblBaudRate);
             this.gbPortSettings.Controls.Add(this.lblDataBits);
             this.gbPortSettings.Controls.Add(this.label3);
-            this.gbPortSettings.Location = new System.Drawing.Point(6, 3);
+            this.gbPortSettings.Location = new System.Drawing.Point(636, 6);
             this.gbPortSettings.Name = "gbPortSettings";
-            this.gbPortSettings.Size = new System.Drawing.Size(598, 74);
+            this.gbPortSettings.Size = new System.Drawing.Size(598, 92);
             this.gbPortSettings.TabIndex = 10;
             this.gbPortSettings.TabStop = false;
             this.gbPortSettings.Text = "COM Serial Port Settings";
@@ -1443,7 +1442,7 @@ namespace SocketServer
             // 
             this.button_ReScanComPort.AutoSize = true;
             this.button_ReScanComPort.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ReScanComPort.Location = new System.Drawing.Point(413, 26);
+            this.button_ReScanComPort.Location = new System.Drawing.Point(414, 35);
             this.button_ReScanComPort.Name = "button_ReScanComPort";
             this.button_ReScanComPort.Size = new System.Drawing.Size(87, 29);
             this.button_ReScanComPort.TabIndex = 10;
@@ -1456,7 +1455,7 @@ namespace SocketServer
             this.checkBox_ComportOpen.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_ComportOpen.AutoSize = true;
             this.checkBox_ComportOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_ComportOpen.Location = new System.Drawing.Point(506, 26);
+            this.checkBox_ComportOpen.Location = new System.Drawing.Point(507, 35);
             this.checkBox_ComportOpen.Name = "checkBox_ComportOpen";
             this.checkBox_ComportOpen.Size = new System.Drawing.Size(84, 29);
             this.checkBox_ComportOpen.TabIndex = 8;
@@ -1475,7 +1474,7 @@ namespace SocketServer
             "COM4",
             "COM5",
             "COM6"});
-            this.cmbPortName.Location = new System.Drawing.Point(7, 29);
+            this.cmbPortName.Location = new System.Drawing.Point(8, 38);
             this.cmbPortName.Name = "cmbPortName";
             this.cmbPortName.Size = new System.Drawing.Size(67, 26);
             this.cmbPortName.TabIndex = 1;
@@ -1494,7 +1493,7 @@ namespace SocketServer
             "38400",
             "57600",
             "115200"});
-            this.cmbBaudRate.Location = new System.Drawing.Point(80, 29);
+            this.cmbBaudRate.Location = new System.Drawing.Point(81, 38);
             this.cmbBaudRate.Name = "cmbBaudRate";
             this.cmbBaudRate.Size = new System.Drawing.Size(89, 26);
             this.cmbBaudRate.TabIndex = 3;
@@ -1509,7 +1508,7 @@ namespace SocketServer
             "1",
             "2",
             "3"});
-            this.cmbStopBits.Location = new System.Drawing.Point(307, 28);
+            this.cmbStopBits.Location = new System.Drawing.Point(308, 37);
             this.cmbStopBits.Name = "cmbStopBits";
             this.cmbStopBits.Size = new System.Drawing.Size(88, 26);
             this.cmbStopBits.TabIndex = 9;
@@ -1523,7 +1522,7 @@ namespace SocketServer
             "None",
             "Even",
             "Odd"});
-            this.cmbParity.Location = new System.Drawing.Point(175, 28);
+            this.cmbParity.Location = new System.Drawing.Point(176, 37);
             this.cmbParity.Name = "cmbParity";
             this.cmbParity.Size = new System.Drawing.Size(60, 26);
             this.cmbParity.TabIndex = 5;
@@ -1537,7 +1536,7 @@ namespace SocketServer
             "6",
             "7",
             "8"});
-            this.cmbDataBits.Location = new System.Drawing.Point(240, 28);
+            this.cmbDataBits.Location = new System.Drawing.Point(241, 37);
             this.cmbDataBits.Name = "cmbDataBits";
             this.cmbDataBits.Size = new System.Drawing.Size(60, 26);
             this.cmbDataBits.TabIndex = 7;
@@ -1546,7 +1545,7 @@ namespace SocketServer
             // lblComPort
             // 
             this.lblComPort.AutoSize = true;
-            this.lblComPort.Location = new System.Drawing.Point(6, 13);
+            this.lblComPort.Location = new System.Drawing.Point(7, 22);
             this.lblComPort.Name = "lblComPort";
             this.lblComPort.Size = new System.Drawing.Size(71, 18);
             this.lblComPort.TabIndex = 0;
@@ -1555,7 +1554,7 @@ namespace SocketServer
             // lblStopBits
             // 
             this.lblStopBits.AutoSize = true;
-            this.lblStopBits.Location = new System.Drawing.Point(309, 12);
+            this.lblStopBits.Location = new System.Drawing.Point(310, 21);
             this.lblStopBits.Name = "lblStopBits";
             this.lblStopBits.Size = new System.Drawing.Size(66, 18);
             this.lblStopBits.TabIndex = 8;
@@ -1564,7 +1563,7 @@ namespace SocketServer
             // lblBaudRate
             // 
             this.lblBaudRate.AutoSize = true;
-            this.lblBaudRate.Location = new System.Drawing.Point(79, 13);
+            this.lblBaudRate.Location = new System.Drawing.Point(80, 22);
             this.lblBaudRate.Name = "lblBaudRate";
             this.lblBaudRate.Size = new System.Drawing.Size(74, 18);
             this.lblBaudRate.TabIndex = 2;
@@ -1573,7 +1572,7 @@ namespace SocketServer
             // lblDataBits
             // 
             this.lblDataBits.AutoSize = true;
-            this.lblDataBits.Location = new System.Drawing.Point(243, 12);
+            this.lblDataBits.Location = new System.Drawing.Point(244, 21);
             this.lblDataBits.Name = "lblDataBits";
             this.lblDataBits.Size = new System.Drawing.Size(66, 18);
             this.lblDataBits.TabIndex = 6;
@@ -1582,7 +1581,7 @@ namespace SocketServer
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 12);
+            this.label3.Location = new System.Drawing.Point(178, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 18);
             this.label3.TabIndex = 4;
@@ -1590,6 +1589,8 @@ namespace SocketServer
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox_Timer);
+            this.groupBox5.Controls.Add(this.groupBox_Stopwatch);
             this.groupBox5.Controls.Add(this.checkBox_RxHex);
             this.groupBox5.Controls.Add(this.button_OpenFolder);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern3);
@@ -1600,9 +1601,9 @@ namespace SocketServer
             this.groupBox5.Controls.Add(this.txtS1_Clear);
             this.groupBox5.Controls.Add(this.SerialPortLogger_TextBox);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(353, 73);
+            this.groupBox5.Location = new System.Drawing.Point(4, 107);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1446, 859);
+            this.groupBox5.Size = new System.Drawing.Size(1795, 859);
             this.groupBox5.TabIndex = 68;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
@@ -1611,7 +1612,7 @@ namespace SocketServer
             // checkBox_RxHex
             // 
             this.checkBox_RxHex.AutoSize = true;
-            this.checkBox_RxHex.Location = new System.Drawing.Point(965, 22);
+            this.checkBox_RxHex.Location = new System.Drawing.Point(965, 20);
             this.checkBox_RxHex.Name = "checkBox_RxHex";
             this.checkBox_RxHex.Size = new System.Drawing.Size(111, 23);
             this.checkBox_RxHex.TabIndex = 6;
@@ -1620,7 +1621,7 @@ namespace SocketServer
             // 
             // button_OpenFolder
             // 
-            this.button_OpenFolder.Location = new System.Drawing.Point(1098, 19);
+            this.button_OpenFolder.Location = new System.Drawing.Point(1098, 18);
             this.button_OpenFolder.Name = "button_OpenFolder";
             this.button_OpenFolder.Size = new System.Drawing.Size(108, 26);
             this.button_OpenFolder.TabIndex = 76;
@@ -1660,7 +1661,7 @@ namespace SocketServer
             this.checkBox_S1RecordLog.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1RecordLog.AutoSize = true;
             this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(1212, 19);
+            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(1212, 17);
             this.checkBox_S1RecordLog.Name = "checkBox_S1RecordLog";
             this.checkBox_S1RecordLog.Size = new System.Drawing.Size(83, 29);
             this.checkBox_S1RecordLog.TabIndex = 69;
@@ -1673,7 +1674,7 @@ namespace SocketServer
             this.checkBox_S1Pause.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1Pause.AutoSize = true;
             this.checkBox_S1Pause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1Pause.Location = new System.Drawing.Point(1304, 18);
+            this.checkBox_S1Pause.Location = new System.Drawing.Point(1304, 17);
             this.checkBox_S1Pause.Name = "checkBox_S1Pause";
             this.checkBox_S1Pause.Size = new System.Drawing.Size(58, 29);
             this.checkBox_S1Pause.TabIndex = 70;
@@ -1698,7 +1699,7 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 53);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1434, 800);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1783, 800);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             // 
@@ -3959,16 +3960,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -9526,8 +9527,17 @@ namespace SocketServer
                 Spetrotec.Properties.Settings.Default.Save();
             }
 
+            if (CommandsHistoy.Count > 0)
+            {
+                String LastCommand = CommandsHistoy[CommandsHistoy.Count - 1];
 
-            CommandsHistoy.Add(i_SendString);
+                if(LastCommand != i_SendString)
+                {
+                    CommandsHistoy.Add(i_SendString);
+                }
+            }
+
+            
 
 
             //if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
