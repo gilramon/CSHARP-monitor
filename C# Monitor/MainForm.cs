@@ -572,9 +572,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1699,7 +1699,7 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(6, 53);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1783, 800);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1783, 769);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             // 
@@ -3960,16 +3960,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -7810,7 +7810,7 @@ namespace SocketServer
             if (RxLabelTimerBlink > 0)
             {
                 RxLabelTimerBlink--;
-                if (Timer_100ms % 5 == 0)
+                if (Timer_100ms % 3 == 0)
                 {
                     SerialRxBlinklled = !SerialRxBlinklled;
                     if (SerialRxBlinklled == true)
@@ -8337,7 +8337,7 @@ namespace SocketServer
 
             if (!serialPort.IsOpen) return;
 
-            RxLabelTimerBlink = 20;
+            RxLabelTimerBlink = 5;
 
             // Obtain the number of bytes waiting in the port's buffer
             int bytes = serialPort.BytesToRead;
@@ -9586,7 +9586,7 @@ namespace SocketServer
                         textBox_SendSerialPort.Text = "";
                     }
 
-                    TxLabelTimerBlink = 10;
+                    TxLabelTimerBlink = 5;
 
                     SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "", New_Line = false, Show_Time = true);
                     SerialPortLogger.LogMessage(Color.Purple, Color.LightGray, "Tx:>", false, false);
