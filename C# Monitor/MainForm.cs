@@ -181,7 +181,6 @@ namespace SocketServer
         private TextBox textBox_NumberOfOpenConnections;
         private System.Windows.Forms.Timer timer_General_1Second;
         private GroupBox gbPortSettings;
-        private CheckBox checkBox_ComportOpen;
         private ComboBox cmbPortName;
         private ComboBox cmbBaudRate;
         private ComboBox cmbStopBits;
@@ -428,6 +427,7 @@ namespace SocketServer
         private Button button28;
         private CheckBox checkBox_RxHex;
         private CheckBox checkBox_SendHexdata;
+        private Button button_OpenPort;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -572,9 +572,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -594,16 +594,6 @@ namespace SocketServer
             this.Clear_btn = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox_Timer = new System.Windows.Forms.GroupBox();
-            this.textBox_TimerTime = new System.Windows.Forms.TextBox();
-            this.button_StartStopTimer = new System.Windows.Forms.Button();
-            this.button_ResetTimer = new System.Windows.Forms.Button();
-            this.textBox_SetTimerTime = new System.Windows.Forms.TextBox();
-            this.groupBox_Stopwatch = new System.Windows.Forms.GroupBox();
-            this.button_TimerLog = new System.Windows.Forms.Button();
-            this.button_Stopwatch_Start_Stop = new System.Windows.Forms.Button();
-            this.button_StopwatchReset = new System.Windows.Forms.Button();
-            this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.groupBox_SendSerialOrMonitorCommands = new System.Windows.Forms.GroupBox();
             this.checkBox_SendHexdata = new System.Windows.Forms.CheckBox();
             this.textBox_SendSerialPort = new System.Windows.Forms.TextBox();
@@ -611,7 +601,6 @@ namespace SocketServer
             this.button_SendSerialPort = new System.Windows.Forms.Button();
             this.gbPortSettings = new System.Windows.Forms.GroupBox();
             this.button_ReScanComPort = new System.Windows.Forms.Button();
-            this.checkBox_ComportOpen = new System.Windows.Forms.CheckBox();
             this.cmbPortName = new System.Windows.Forms.ComboBox();
             this.cmbBaudRate = new System.Windows.Forms.ComboBox();
             this.cmbStopBits = new System.Windows.Forms.ComboBox();
@@ -623,6 +612,16 @@ namespace SocketServer
             this.lblDataBits = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox_Timer = new System.Windows.Forms.GroupBox();
+            this.textBox_TimerTime = new System.Windows.Forms.TextBox();
+            this.button_StartStopTimer = new System.Windows.Forms.Button();
+            this.button_ResetTimer = new System.Windows.Forms.Button();
+            this.textBox_SetTimerTime = new System.Windows.Forms.TextBox();
+            this.groupBox_Stopwatch = new System.Windows.Forms.GroupBox();
+            this.button_TimerLog = new System.Windows.Forms.Button();
+            this.button_Stopwatch_Start_Stop = new System.Windows.Forms.Button();
+            this.button_StopwatchReset = new System.Windows.Forms.Button();
+            this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.checkBox_RxHex = new System.Windows.Forms.CheckBox();
             this.button_OpenFolder = new System.Windows.Forms.Button();
             this.textBox_SerialPortRecognizePattern3 = new System.Windows.Forms.TextBox();
@@ -956,16 +955,17 @@ namespace SocketServer
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
             this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
+            this.button_OpenPort = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox_Timer.SuspendLayout();
-            this.groupBox_Stopwatch.SuspendLayout();
             this.groupBox_SendSerialOrMonitorCommands.SuspendLayout();
             this.gbPortSettings.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox_Timer.SuspendLayout();
+            this.groupBox_Stopwatch.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox38.SuspendLayout();
             this.groupBox_LoadedConfig.SuspendLayout();
@@ -1242,121 +1242,6 @@ namespace SocketServer
             this.tabPage2.Text = "Serial Port";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox_Timer
-            // 
-            this.groupBox_Timer.Controls.Add(this.textBox_TimerTime);
-            this.groupBox_Timer.Controls.Add(this.button_StartStopTimer);
-            this.groupBox_Timer.Controls.Add(this.button_ResetTimer);
-            this.groupBox_Timer.Controls.Add(this.textBox_SetTimerTime);
-            this.groupBox_Timer.Location = new System.Drawing.Point(41, 727);
-            this.groupBox_Timer.Name = "groupBox_Timer";
-            this.groupBox_Timer.Size = new System.Drawing.Size(270, 111);
-            this.groupBox_Timer.TabIndex = 107;
-            this.groupBox_Timer.TabStop = false;
-            this.groupBox_Timer.Text = "Timer";
-            this.groupBox_Timer.Visible = false;
-            // 
-            // textBox_TimerTime
-            // 
-            this.textBox_TimerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_TimerTime.Location = new System.Drawing.Point(119, 66);
-            this.textBox_TimerTime.Name = "textBox_TimerTime";
-            this.textBox_TimerTime.ReadOnly = true;
-            this.textBox_TimerTime.Size = new System.Drawing.Size(70, 31);
-            this.textBox_TimerTime.TabIndex = 106;
-            this.textBox_TimerTime.Text = "0";
-            // 
-            // button_StartStopTimer
-            // 
-            this.button_StartStopTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_StartStopTimer.Location = new System.Drawing.Point(9, 23);
-            this.button_StartStopTimer.Name = "button_StartStopTimer";
-            this.button_StartStopTimer.Size = new System.Drawing.Size(110, 37);
-            this.button_StartStopTimer.TabIndex = 104;
-            this.button_StartStopTimer.Text = "Start/Stop";
-            this.button_StartStopTimer.UseVisualStyleBackColor = true;
-            this.button_StartStopTimer.Click += new System.EventHandler(this.button_StartStopTimer_Click);
-            // 
-            // button_ResetTimer
-            // 
-            this.button_ResetTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ResetTimer.Location = new System.Drawing.Point(119, 23);
-            this.button_ResetTimer.Name = "button_ResetTimer";
-            this.button_ResetTimer.Size = new System.Drawing.Size(110, 37);
-            this.button_ResetTimer.TabIndex = 105;
-            this.button_ResetTimer.Text = "Reset (0)";
-            this.button_ResetTimer.UseVisualStyleBackColor = true;
-            this.button_ResetTimer.Click += new System.EventHandler(this.button_ResetTimer_Click);
-            // 
-            // textBox_SetTimerTime
-            // 
-            this.textBox_SetTimerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_SetTimerTime.Location = new System.Drawing.Point(9, 66);
-            this.textBox_SetTimerTime.Name = "textBox_SetTimerTime";
-            this.textBox_SetTimerTime.Size = new System.Drawing.Size(104, 31);
-            this.textBox_SetTimerTime.TabIndex = 103;
-            this.textBox_SetTimerTime.Text = "0";
-            // 
-            // groupBox_Stopwatch
-            // 
-            this.groupBox_Stopwatch.Controls.Add(this.button_TimerLog);
-            this.groupBox_Stopwatch.Controls.Add(this.button_Stopwatch_Start_Stop);
-            this.groupBox_Stopwatch.Controls.Add(this.button_StopwatchReset);
-            this.groupBox_Stopwatch.Controls.Add(this.textBox_StopWatch);
-            this.groupBox_Stopwatch.Location = new System.Drawing.Point(41, 609);
-            this.groupBox_Stopwatch.Name = "groupBox_Stopwatch";
-            this.groupBox_Stopwatch.Size = new System.Drawing.Size(270, 111);
-            this.groupBox_Stopwatch.TabIndex = 106;
-            this.groupBox_Stopwatch.TabStop = false;
-            this.groupBox_Stopwatch.Text = "Stopwatch";
-            this.groupBox_Stopwatch.Visible = false;
-            // 
-            // button_TimerLog
-            // 
-            this.button_TimerLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_TimerLog.Location = new System.Drawing.Point(189, 23);
-            this.button_TimerLog.Name = "button_TimerLog";
-            this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
-            this.button_TimerLog.TabIndex = 106;
-            this.button_TimerLog.Text = "Log ->";
-            this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
-            this.button_TimerLog.UseVisualStyleBackColor = true;
-            this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
-            // 
-            // button_Stopwatch_Start_Stop
-            // 
-            this.button_Stopwatch_Start_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Stopwatch_Start_Stop.Location = new System.Drawing.Point(9, 23);
-            this.button_Stopwatch_Start_Stop.Name = "button_Stopwatch_Start_Stop";
-            this.button_Stopwatch_Start_Stop.Size = new System.Drawing.Size(110, 37);
-            this.button_Stopwatch_Start_Stop.TabIndex = 104;
-            this.button_Stopwatch_Start_Stop.Text = "Start/Stop";
-            this.button_Stopwatch_Start_Stop.UseVisualStyleBackColor = true;
-            this.button_Stopwatch_Start_Stop.Click += new System.EventHandler(this.button_Stopwatch_Start_Stop_Click);
-            // 
-            // button_StopwatchReset
-            // 
-            this.button_StopwatchReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_StopwatchReset.Location = new System.Drawing.Point(119, 23);
-            this.button_StopwatchReset.Name = "button_StopwatchReset";
-            this.button_StopwatchReset.Size = new System.Drawing.Size(70, 37);
-            this.button_StopwatchReset.TabIndex = 105;
-            this.button_StopwatchReset.Text = "Reset";
-            this.button_StopwatchReset.UseVisualStyleBackColor = true;
-            this.button_StopwatchReset.Click += new System.EventHandler(this.button_StopwatchReset_Click);
-            // 
-            // textBox_StopWatch
-            // 
-            this.textBox_StopWatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_StopWatch.Location = new System.Drawing.Point(9, 66);
-            this.textBox_StopWatch.Name = "textBox_StopWatch";
-            this.textBox_StopWatch.ReadOnly = true;
-            this.textBox_StopWatch.Size = new System.Drawing.Size(200, 31);
-            this.textBox_StopWatch.TabIndex = 103;
-            this.textBox_StopWatch.Text = "0";
-            this.textBox_StopWatch.TextChanged += new System.EventHandler(this.textBox_StopWatch_TextChanged);
-            // 
             // groupBox_SendSerialOrMonitorCommands
             // 
             this.groupBox_SendSerialOrMonitorCommands.Controls.Add(this.checkBox_SendHexdata);
@@ -1419,8 +1304,8 @@ namespace SocketServer
             // 
             // gbPortSettings
             // 
+            this.gbPortSettings.Controls.Add(this.button_OpenPort);
             this.gbPortSettings.Controls.Add(this.button_ReScanComPort);
-            this.gbPortSettings.Controls.Add(this.checkBox_ComportOpen);
             this.gbPortSettings.Controls.Add(this.cmbPortName);
             this.gbPortSettings.Controls.Add(this.cmbBaudRate);
             this.gbPortSettings.Controls.Add(this.cmbStopBits);
@@ -1433,7 +1318,7 @@ namespace SocketServer
             this.gbPortSettings.Controls.Add(this.label3);
             this.gbPortSettings.Location = new System.Drawing.Point(636, 6);
             this.gbPortSettings.Name = "gbPortSettings";
-            this.gbPortSettings.Size = new System.Drawing.Size(598, 92);
+            this.gbPortSettings.Size = new System.Drawing.Size(612, 92);
             this.gbPortSettings.TabIndex = 10;
             this.gbPortSettings.TabStop = false;
             this.gbPortSettings.Text = "COM Serial Port Settings";
@@ -1442,26 +1327,13 @@ namespace SocketServer
             // 
             this.button_ReScanComPort.AutoSize = true;
             this.button_ReScanComPort.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ReScanComPort.Location = new System.Drawing.Point(414, 35);
+            this.button_ReScanComPort.Location = new System.Drawing.Point(414, 34);
             this.button_ReScanComPort.Name = "button_ReScanComPort";
-            this.button_ReScanComPort.Size = new System.Drawing.Size(87, 29);
+            this.button_ReScanComPort.Size = new System.Drawing.Size(87, 32);
             this.button_ReScanComPort.TabIndex = 10;
             this.button_ReScanComPort.Text = "ReScan";
             this.button_ReScanComPort.UseVisualStyleBackColor = true;
             this.button_ReScanComPort.Click += new System.EventHandler(this.button_ReScanComPort_Click);
-            // 
-            // checkBox_ComportOpen
-            // 
-            this.checkBox_ComportOpen.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_ComportOpen.AutoSize = true;
-            this.checkBox_ComportOpen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_ComportOpen.Location = new System.Drawing.Point(507, 35);
-            this.checkBox_ComportOpen.Name = "checkBox_ComportOpen";
-            this.checkBox_ComportOpen.Size = new System.Drawing.Size(84, 29);
-            this.checkBox_ComportOpen.TabIndex = 8;
-            this.checkBox_ComportOpen.Text = "Open Port";
-            this.checkBox_ComportOpen.UseVisualStyleBackColor = true;
-            this.checkBox_ComportOpen.CheckedChanged += new System.EventHandler(this.checkBox_ComportOpen_CheckedChanged);
             // 
             // cmbPortName
             // 
@@ -1608,6 +1480,121 @@ namespace SocketServer
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // groupBox_Timer
+            // 
+            this.groupBox_Timer.Controls.Add(this.textBox_TimerTime);
+            this.groupBox_Timer.Controls.Add(this.button_StartStopTimer);
+            this.groupBox_Timer.Controls.Add(this.button_ResetTimer);
+            this.groupBox_Timer.Controls.Add(this.textBox_SetTimerTime);
+            this.groupBox_Timer.Location = new System.Drawing.Point(41, 727);
+            this.groupBox_Timer.Name = "groupBox_Timer";
+            this.groupBox_Timer.Size = new System.Drawing.Size(270, 111);
+            this.groupBox_Timer.TabIndex = 107;
+            this.groupBox_Timer.TabStop = false;
+            this.groupBox_Timer.Text = "Timer";
+            this.groupBox_Timer.Visible = false;
+            // 
+            // textBox_TimerTime
+            // 
+            this.textBox_TimerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_TimerTime.Location = new System.Drawing.Point(119, 66);
+            this.textBox_TimerTime.Name = "textBox_TimerTime";
+            this.textBox_TimerTime.ReadOnly = true;
+            this.textBox_TimerTime.Size = new System.Drawing.Size(70, 31);
+            this.textBox_TimerTime.TabIndex = 106;
+            this.textBox_TimerTime.Text = "0";
+            // 
+            // button_StartStopTimer
+            // 
+            this.button_StartStopTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_StartStopTimer.Location = new System.Drawing.Point(9, 23);
+            this.button_StartStopTimer.Name = "button_StartStopTimer";
+            this.button_StartStopTimer.Size = new System.Drawing.Size(110, 37);
+            this.button_StartStopTimer.TabIndex = 104;
+            this.button_StartStopTimer.Text = "Start/Stop";
+            this.button_StartStopTimer.UseVisualStyleBackColor = true;
+            this.button_StartStopTimer.Click += new System.EventHandler(this.button_StartStopTimer_Click);
+            // 
+            // button_ResetTimer
+            // 
+            this.button_ResetTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ResetTimer.Location = new System.Drawing.Point(119, 23);
+            this.button_ResetTimer.Name = "button_ResetTimer";
+            this.button_ResetTimer.Size = new System.Drawing.Size(110, 37);
+            this.button_ResetTimer.TabIndex = 105;
+            this.button_ResetTimer.Text = "Reset (0)";
+            this.button_ResetTimer.UseVisualStyleBackColor = true;
+            this.button_ResetTimer.Click += new System.EventHandler(this.button_ResetTimer_Click);
+            // 
+            // textBox_SetTimerTime
+            // 
+            this.textBox_SetTimerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_SetTimerTime.Location = new System.Drawing.Point(9, 66);
+            this.textBox_SetTimerTime.Name = "textBox_SetTimerTime";
+            this.textBox_SetTimerTime.Size = new System.Drawing.Size(104, 31);
+            this.textBox_SetTimerTime.TabIndex = 103;
+            this.textBox_SetTimerTime.Text = "0";
+            // 
+            // groupBox_Stopwatch
+            // 
+            this.groupBox_Stopwatch.Controls.Add(this.button_TimerLog);
+            this.groupBox_Stopwatch.Controls.Add(this.button_Stopwatch_Start_Stop);
+            this.groupBox_Stopwatch.Controls.Add(this.button_StopwatchReset);
+            this.groupBox_Stopwatch.Controls.Add(this.textBox_StopWatch);
+            this.groupBox_Stopwatch.Location = new System.Drawing.Point(41, 609);
+            this.groupBox_Stopwatch.Name = "groupBox_Stopwatch";
+            this.groupBox_Stopwatch.Size = new System.Drawing.Size(270, 111);
+            this.groupBox_Stopwatch.TabIndex = 106;
+            this.groupBox_Stopwatch.TabStop = false;
+            this.groupBox_Stopwatch.Text = "Stopwatch";
+            this.groupBox_Stopwatch.Visible = false;
+            // 
+            // button_TimerLog
+            // 
+            this.button_TimerLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_TimerLog.Location = new System.Drawing.Point(189, 23);
+            this.button_TimerLog.Name = "button_TimerLog";
+            this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
+            this.button_TimerLog.TabIndex = 106;
+            this.button_TimerLog.Text = "Log ->";
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
+            this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.button_TimerLog.UseVisualStyleBackColor = true;
+            this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
+            // 
+            // button_Stopwatch_Start_Stop
+            // 
+            this.button_Stopwatch_Start_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Stopwatch_Start_Stop.Location = new System.Drawing.Point(9, 23);
+            this.button_Stopwatch_Start_Stop.Name = "button_Stopwatch_Start_Stop";
+            this.button_Stopwatch_Start_Stop.Size = new System.Drawing.Size(110, 37);
+            this.button_Stopwatch_Start_Stop.TabIndex = 104;
+            this.button_Stopwatch_Start_Stop.Text = "Start/Stop";
+            this.button_Stopwatch_Start_Stop.UseVisualStyleBackColor = true;
+            this.button_Stopwatch_Start_Stop.Click += new System.EventHandler(this.button_Stopwatch_Start_Stop_Click);
+            // 
+            // button_StopwatchReset
+            // 
+            this.button_StopwatchReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_StopwatchReset.Location = new System.Drawing.Point(119, 23);
+            this.button_StopwatchReset.Name = "button_StopwatchReset";
+            this.button_StopwatchReset.Size = new System.Drawing.Size(70, 37);
+            this.button_StopwatchReset.TabIndex = 105;
+            this.button_StopwatchReset.Text = "Reset";
+            this.button_StopwatchReset.UseVisualStyleBackColor = true;
+            this.button_StopwatchReset.Click += new System.EventHandler(this.button_StopwatchReset_Click);
+            // 
+            // textBox_StopWatch
+            // 
+            this.textBox_StopWatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_StopWatch.Location = new System.Drawing.Point(9, 66);
+            this.textBox_StopWatch.Name = "textBox_StopWatch";
+            this.textBox_StopWatch.ReadOnly = true;
+            this.textBox_StopWatch.Size = new System.Drawing.Size(200, 31);
+            this.textBox_StopWatch.TabIndex = 103;
+            this.textBox_StopWatch.Text = "0";
+            this.textBox_StopWatch.TextChanged += new System.EventHandler(this.textBox_StopWatch_TextChanged);
             // 
             // checkBox_RxHex
             // 
@@ -3631,8 +3618,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3732,8 +3719,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3744,8 +3731,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3960,16 +3947,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5365,6 +5352,16 @@ namespace SocketServer
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
             // 
+            // button_OpenPort
+            // 
+            this.button_OpenPort.Location = new System.Drawing.Point(507, 34);
+            this.button_OpenPort.Name = "button_OpenPort";
+            this.button_OpenPort.Size = new System.Drawing.Size(91, 33);
+            this.button_OpenPort.TabIndex = 11;
+            this.button_OpenPort.Text = "Open ";
+            this.button_OpenPort.UseVisualStyleBackColor = true;
+            this.button_OpenPort.Click += new System.EventHandler(this.button_OpenPort_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
@@ -5389,16 +5386,16 @@ namespace SocketServer
             this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.groupBox_Timer.ResumeLayout(false);
-            this.groupBox_Timer.PerformLayout();
-            this.groupBox_Stopwatch.ResumeLayout(false);
-            this.groupBox_Stopwatch.PerformLayout();
             this.groupBox_SendSerialOrMonitorCommands.ResumeLayout(false);
             this.groupBox_SendSerialOrMonitorCommands.PerformLayout();
             this.gbPortSettings.ResumeLayout(false);
             this.gbPortSettings.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox_Timer.ResumeLayout(false);
+            this.groupBox_Timer.PerformLayout();
+            this.groupBox_Stopwatch.ResumeLayout(false);
+            this.groupBox_Stopwatch.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
             this.groupBox_LoadedConfig.ResumeLayout(false);
@@ -8192,105 +8189,105 @@ namespace SocketServer
 
         //    richTextBox_GetConfig.Text = ConfigText;
         //}
-        private void checkBox_ComportOpen_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void checkBox_ComportOpen_CheckedChanged(object sender, EventArgs e)
+        //{
 
-            if (checkBox_ComportOpen.Checked)
-            {
-                try
-                {
-                    checkBox_ComportOpen.BackColor = Color.Yellow;
-                    label_SerialPortConnected.BackColor = Color.Yellow;
+        //    if (checkBox_ComportOpen.Checked)
+        //    {
+        //        try
+        //        {
+        //            checkBox_ComportOpen.BackColor = Color.Yellow;
+        //            label_SerialPortConnected.BackColor = Color.Yellow;
 
-                    ComPortClosing = false;
+        //            ComPortClosing = false;
 
-                    CloseSerialPortTimer = false;
-
-
-
-                    // Set the port's settings
-
-                    serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
-
-                    if (cmbBaudRate.Items.Contains(cmbBaudRate.Text) == false)
-                    {
-                        cmbBaudRate.Items.Add(cmbBaudRate.Text);
-                    }
-
-                    serialPort.DataBits = int.Parse(cmbDataBits.Text);
-                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
-                    serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
-                    serialPort.PortName = cmbPortName.Text;
+        //            CloseSerialPortTimer = false;
 
 
 
+        //            // Set the port's settings
 
-                    serialPort.WriteTimeout = 500;
-                    serialPort.Open();
+        //            serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
 
-                    //ListenBox.Checked = false;
-                    //groupBox_ServerSettings.Enabled = false;
-                    IsTimedOutTimerEnabled = false;
+        //            if (cmbBaudRate.Items.Contains(cmbBaudRate.Text) == false)
+        //            {
+        //                cmbBaudRate.Items.Add(cmbBaudRate.Text);
+        //            }
 
-                    SerialPortLogger.LogMessage(Color.Green, Color.LightGray,
-                     " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
-                     + " ,BaudRate = " + serialPort.BaudRate +
-                     " ,DataBits = " + serialPort.DataBits +
-                     " ,StopBits = " + serialPort.StopBits +
-                     " ,Parity = " + serialPort.Parity,
-                     New_Line = true, Show_Time = true);
-
-                    checkBox_ComportOpen.BackColor = Color.LightGreen;
-                    label_SerialPortConnected.BackColor = Color.LightGreen;
-
-
-                    cmbBaudRate.Enabled = false;
-                    cmbDataBits.Enabled = false;
-                    cmbParity.Enabled = false;
-                    cmbPortName.Enabled = false;
-                    cmbStopBits.Enabled = false;
-
-                    Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
-
-                    Spetrotec.Properties.Settings.Default.Save();
-
-
-                }
-                catch (Exception ex)
-                {
-                    checkBox_ComportOpen.Checked = false;
-
-                    //SerialException = true;
-
-                    SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
-                    return;
-                }
+        //            serialPort.DataBits = int.Parse(cmbDataBits.Text);
+        //            serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
+        //            serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
+        //            serialPort.PortName = cmbPortName.Text;
 
 
 
 
-            }
-            else
-            {
+        //            serialPort.WriteTimeout = 500;
+        //            serialPort.Open();
 
-                ComPortClosing = true;
-                checkBox_ComportOpen.BackColor = default(Color);
-                label_SerialPortConnected.BackColor = default(Color);
-                //checkBox_ComportOpen.Enabled = false;
+        //            //ListenBox.Checked = false;
+        //            //groupBox_ServerSettings.Enabled = false;
+        //            IsTimedOutTimerEnabled = false;
 
-                CloseSerialPortTimer = true;
-                CloseSerialPortConter = 0;
+        //            SerialPortLogger.LogMessage(Color.Green, Color.LightGray,
+        //             " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
+        //             + " ,BaudRate = " + serialPort.BaudRate +
+        //             " ,DataBits = " + serialPort.DataBits +
+        //             " ,StopBits = " + serialPort.StopBits +
+        //             " ,Parity = " + serialPort.Parity,
+        //             New_Line = true, Show_Time = true);
+
+        //            checkBox_ComportOpen.BackColor = Color.LightGreen;
+        //            label_SerialPortConnected.BackColor = Color.LightGreen;
+
+
+        //            cmbBaudRate.Enabled = false;
+        //            cmbDataBits.Enabled = false;
+        //            cmbParity.Enabled = false;
+        //            cmbPortName.Enabled = false;
+        //            cmbStopBits.Enabled = false;
+
+        //            Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
+        //            Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
+        //            Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+        //            Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
+        //            Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
+
+        //            Spetrotec.Properties.Settings.Default.Save();
+
+
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            checkBox_ComportOpen.Checked = false;
+
+        //            //SerialException = true;
+
+        //            SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
+        //            return;
+        //        }
 
 
 
 
-                //groupBox_ServerSettings.Enabled = true;
-            }
-        }
+        //    }
+        //    else
+        //    {
+
+        //        ComPortClosing = true;
+        //        checkBox_ComportOpen.BackColor = default(Color);
+        //        label_SerialPortConnected.BackColor = default(Color);
+        //        //checkBox_ComportOpen.Enabled = false;
+
+        //        CloseSerialPortTimer = true;
+        //        CloseSerialPortConter = 0;
+
+
+
+
+        //        //groupBox_ServerSettings.Enabled = true;
+        //    }
+        //}
 
         bool CloseSerialPortTimer = false;
 
@@ -8313,10 +8310,11 @@ namespace SocketServer
 
                 cmbBaudRate.Invoke(new EventHandler(delegate
                  {
-                     checkBox_ComportOpen.Checked = false;
-                     checkBox_ComportOpen.Enabled = true;
+                     //button_OpenPort.Checked = false;
+                     button_OpenPort.Enabled = true;
+                     gbPortSettings.Enabled = true;
 
-                     checkBox_ComportOpen.BackColor = default(Color);
+                     button_OpenPort.BackColor = default(Color);
                      label_SerialPortConnected.BackColor = default(Color);
 
                      cmbBaudRate.Enabled = true;
@@ -12817,6 +12815,110 @@ namespace SocketServer
             catch (Exception ex)
             {
                 SerialPortLogger.LogMessage(Color.Blue, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
+            }
+        }
+
+         
+        private void button_OpenPort_Click(object sender, EventArgs e)
+        {
+
+            if (serialPort.IsOpen == false)
+            {
+                try
+                {
+                    button_OpenPort.BackColor = Color.Yellow;
+                    label_SerialPortConnected.BackColor = Color.Yellow;
+
+                    ComPortClosing = false;
+
+                    CloseSerialPortTimer = false;
+
+
+
+                    // Set the port's settings
+
+                    serialPort.BaudRate = int.Parse(cmbBaudRate.Text);
+
+                    if (cmbBaudRate.Items.Contains(cmbBaudRate.Text) == false)
+                    {
+                        cmbBaudRate.Items.Add(cmbBaudRate.Text);
+                    }
+
+                    serialPort.DataBits = int.Parse(cmbDataBits.Text);
+                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
+                    serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
+                    serialPort.PortName = cmbPortName.Text;
+
+
+
+
+                    serialPort.WriteTimeout = 500;
+                    serialPort.Open();
+
+                    //ListenBox.Checked = false;
+                    //groupBox_ServerSettings.Enabled = false;
+                    IsTimedOutTimerEnabled = false;
+
+                    SerialPortLogger.LogMessage(Color.Green, Color.LightGray,
+                     " Serial port Opened with  " + " ,PortName = " + serialPort.PortName
+                     + " ,BaudRate = " + serialPort.BaudRate +
+                     " ,DataBits = " + serialPort.DataBits +
+                     " ,StopBits = " + serialPort.StopBits +
+                     " ,Parity = " + serialPort.Parity,
+                     New_Line = true, Show_Time = true);
+
+                    button_OpenPort.Text = "Close";
+                    button_OpenPort.BackColor = Color.LightGreen;
+                    label_SerialPortConnected.BackColor = Color.LightGreen;
+
+
+                    cmbBaudRate.Enabled = false;
+                    cmbDataBits.Enabled = false;
+                    cmbParity.Enabled = false;
+                    cmbPortName.Enabled = false;
+                    cmbStopBits.Enabled = false;
+
+                    Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
+                    Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
+
+                    Spetrotec.Properties.Settings.Default.Save();
+
+
+                }
+                catch (Exception ex)
+                {
+                    //checkBox_ComportOpen.Checked = false;
+
+                    //SerialException = true;
+
+                    SerialPortLogger.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
+                    return;
+                }
+
+
+
+
+            }
+            else
+            {
+
+                ComPortClosing = true;
+                button_OpenPort.BackColor = default(Color);
+                label_SerialPortConnected.BackColor = default(Color);
+                gbPortSettings.Enabled = false;
+                //checkBox_ComportOpen.Enabled = false;
+                button_OpenPort.Text = "Open";
+
+                CloseSerialPortTimer = true;
+                CloseSerialPortConter = 0;
+
+
+
+
+                //groupBox_ServerSettings.Enabled = true;
             }
         }
 
