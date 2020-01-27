@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
 
+
 namespace SocketServer
 {
 
@@ -7103,7 +7104,7 @@ namespace SocketServer
 
                 UpdateSerialPortComboBox();
 
-                ShowHidePages();
+                //ShowHidePages();
 
 
                 TimeSpan TimeFromLastSave = DateTime.Now - Spetrotec.Properties.Settings.Default.LastSaveSMSTime;
@@ -7269,30 +7270,30 @@ namespace SocketServer
 
         }
 
-        void ShowHidePages()
-        {
-            if (Spetrotec.Properties.Settings.Default.RemovePages != null)
-            {
-                int i = 0;
-                foreach (string str in Spetrotec.Properties.Settings.Default.RemovePages)
-                {
-                    try
-                    {
-                        // comboBox_SerialPortHistory.Items.Add((object)str);
-                        // comboBox_SMSCommands.Items.Add(str);
-                        Int32 indexToRemove = Int32.Parse(str);
+        //void ShowHidePages()
+        //{
+        //    if (Spetrotec.Properties.Settings.Default.RemovePages != null)
+        //    {
+        //        int i = 0;
+        //        foreach (string str in Spetrotec.Properties.Settings.Default.RemovePages)
+        //        {
+        //            try
+        //            {
+        //                // comboBox_SerialPortHistory.Items.Add((object)str);
+        //                // comboBox_SMSCommands.Items.Add(str);
+        //                Int32 indexToRemove = Int32.Parse(str);
 
-                        tabControl1.TabPages.RemoveAt(indexToRemove - i);
-                        i++;
-                    }
-                    catch
-                    {
-                        break;
-                    }
+        //                tabControl1.TabPages.RemoveAt(indexToRemove - i);
+        //                i++;
+        //            }
+        //            catch
+        //            {
+        //                break;
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         // Dictionary<string, TextBox> Dictionary_ConfigurationTextBoxes;
         List<TextBox> List_ConfigurationTextBoxes = new List<TextBox>();
@@ -12715,6 +12716,10 @@ namespace SocketServer
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.F1:
+                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F1 function reads all commands to history", New_Line = true, Show_Time = true);
+                        break;
+
                     case Keys.ControlKey:
                         SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
                         if (SelfMonitorCommandsMode == true)
@@ -12775,7 +12780,6 @@ namespace SocketServer
                         }
                         break;
 
-                    case Keys.Right:
                     case Keys.Tab:
                         List<String> Strlist = new List<String>();
                         foreach (String str in CommandsHistoy)
@@ -12821,7 +12825,6 @@ namespace SocketServer
          
         private void button_OpenPort_Click(object sender, EventArgs e)
         {
-
             if (serialPort.IsOpen == false)
             {
                 try
