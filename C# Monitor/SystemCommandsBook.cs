@@ -33,51 +33,51 @@ namespace Spetrotec
             ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
         }
 
-        public void AddCommand(String i_name, String i_Format, String i_help)
+        public void AddCommand(String i_Name, String i_Format, String i_Help)
         {
             OneSystemCommand NewCommand = new OneSystemCommand();
-            NewCommand.Name = i_name;
+            NewCommand.Name = i_Name;
             NewCommand.Format = i_Format;
-            NewCommand.Help = i_help;
+            NewCommand.Help = i_Help;
             ALLCommandsList.Add(NewCommand);
         }
 
-        int HistoryIndex = -1;
-        public String GetUpCommand(bool IsEmptyTextbox)
-        {
-            if (HistoryIndex > ALLCommandsList.Count - 1 || HistoryIndex < 0)
-            {
-                HistoryIndex = ALLCommandsList.Count;
-            }
+        //int HistoryIndex = -1;
+        //public String GetUpCommand(bool IsEmptyTextbox)
+        //{
+        //    if (HistoryIndex > ALLCommandsList.Count - 1 || HistoryIndex < 0)
+        //    {
+        //        HistoryIndex = ALLCommandsList.Count;
+        //    }
 
-            //if (textBox_SendSerialPort.Text == string.Empty)
-            //{
-            //    HistoryIndex = CommandsHistoy.Count;
-            //}
+        //    //if (textBox_SendSerialPort.Text == string.Empty)
+        //    //{
+        //    //    HistoryIndex = CommandsHistoy.Count;
+        //    //}
 
-            if(IsEmptyTextbox == true)
-            {
-                HistoryIndex = ALLCommandsList.Count;
-            }
-
-
-            if (HistoryIndex > 0)
-            {
-                HistoryIndex--;
-            }
-            return ALLCommandsList[HistoryIndex].Format;
-        }
+        //    if(IsEmptyTextbox == true)
+        //    {
+        //        HistoryIndex = ALLCommandsList.Count;
+        //    }
 
 
-        public String GetDownCommand(bool IsEmptyTextbox)
-        {
-            String ret = ALLCommandsList[HistoryIndex].Format;
-            if (HistoryIndex < ALLCommandsList.Count - 1)
-            {
-                HistoryIndex++;
-            }
-            return ret;
-        }
+        //    if (HistoryIndex > 0)
+        //    {
+        //        HistoryIndex--;
+        //    }
+        //    return ALLCommandsList[HistoryIndex].Format;
+        //}
+
+
+        //public String GetDownCommand(bool IsEmptyTextbox)
+        //{
+        //    String ret = ALLCommandsList[HistoryIndex].Format;
+        //    if (HistoryIndex < ALLCommandsList.Count - 1)
+        //    {
+        //        HistoryIndex++;
+        //    }
+        //    return ret;
+        //}
 
         public List<String> SerializeCommandsToStringList()
         {
@@ -118,6 +118,48 @@ namespace Spetrotec
             }
             return ret;
         }
+
+        public String GetHelpCommandWithName(String i_Name)
+        {
+            String ret = String.Empty;
+            foreach (OneSystemCommand cmd in ALLCommandsList)
+            {
+                if (cmd.Name == i_Name)
+                {
+                    ret = cmd.Help;
+                }
+            }
+            return ret;
+        }
+
+        public String GetHelpCommandWithFormat(String i_Format)
+        {
+            String ret = String.Empty;
+            foreach (OneSystemCommand cmd in ALLCommandsList)
+            {
+                if (cmd.Format == i_Format)
+                {
+                    ret = cmd.Help;
+                }
+            }
+            return ret;
+        }
+
+
+        public String GetFormatCommandWithName(String i_Name)
+        {
+            String ret = String.Empty;
+            foreach (OneSystemCommand cmd in ALLCommandsList)
+            {
+                if (cmd.Name == i_Name)
+                {
+                    ret = cmd.Format;
+                }
+            }
+            return ret;
+        }
+
+
 
     }
 }
