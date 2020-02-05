@@ -7130,7 +7130,7 @@ namespace SocketServer
 
                 }
 
-                SerialPortLogger.LogMessage(Color.Yellow, Color.LightGray, "Press Control key for switch to monitor commands", New_Line = true, Show_Time = true);
+                SerialPortLogger.LogMessage(Color.Yellow, Color.LightGray, "Press F1 for help", New_Line = true, Show_Time = true);
 
             }
             catch (Exception ex)
@@ -12717,37 +12717,41 @@ namespace SocketServer
                 switch (e.KeyCode)
                 {
                     case Keys.F1:
-                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F1 function reads all commands to history", New_Line = true, Show_Time = true);
+                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F1 function - Help", New_Line = true, Show_Time = true);
                         break;
 
-                    case Keys.ControlKey:
-                        SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
-                        if (SelfMonitorCommandsMode == true)
-                        {
-                            textBox_SendSerialPort.BackColor = SystemColors.Info;
-                            groupBox_SendSerialOrMonitorCommands.BackColor = SystemColors.Info;
-                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Monitor commands mode", New_Line = true, Show_Time = true);
-                        }
-                        else
-                        {
-                            groupBox_SendSerialOrMonitorCommands.BackColor = default(Color);
-                            textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
-                            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Send to serial port mode", New_Line = true, Show_Time = true);
-
-
-                        }
+                    case Keys.F2:
+                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F2 function reads all commands to history", New_Line = true, Show_Time = true);
                         break;
+
+                    //case Keys.ControlKey:
+                    //    SelfMonitorCommandsMode = !SelfMonitorCommandsMode;
+                    //    if (SelfMonitorCommandsMode == true)
+                    //    {
+                    //        textBox_SendSerialPort.BackColor = SystemColors.Info;
+                    //        groupBox_SendSerialOrMonitorCommands.BackColor = SystemColors.Info;
+                    //        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Monitor commands mode", New_Line = true, Show_Time = true);
+                    //    }
+                    //    else
+                    //    {
+                    //        groupBox_SendSerialOrMonitorCommands.BackColor = default(Color);
+                    //        textBox_SendSerialPort.BackColor = SystemColors.ActiveCaption;
+                    //        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "Change to Send to serial port mode", New_Line = true, Show_Time = true);
+
+
+                    //    }
+                    //    break;
 
 
                     case Keys.Enter:
-                        if (SelfMonitorCommandsMode == true)
-                        {
+                        //if (SelfMonitorCommandsMode == true)
+                        //{
 
-                        }
-                        else
-                        {
+                        //}
+                        //else
+                        //{
                             button_SendSerialPort.PerformClick();
-                        }
+                        //}
 
                         break;
 
