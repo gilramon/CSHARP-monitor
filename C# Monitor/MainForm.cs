@@ -573,9 +573,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1229,6 +1229,7 @@ namespace SocketServer
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1813, 976);
             this.tabControl1.TabIndex = 8;
+            this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             // 
             // tabPage2
             // 
@@ -3958,16 +3959,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -12710,6 +12711,11 @@ namespace SocketServer
 
         }
 
+        void SerialTerminalPrintHelp()
+        {
+            SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F1 function - Help", New_Line = true, Show_Time = true);
+        }
+
         private void textBox_SendSerialPort_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -12717,7 +12723,8 @@ namespace SocketServer
                 switch (e.KeyCode)
                 {
                     case Keys.F1:
-                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F1 function - Help", New_Line = true, Show_Time = true);
+                        SerialTerminalPrintHelp();
+                        
                         break;
 
                     case Keys.F2:
@@ -12927,6 +12934,29 @@ namespace SocketServer
 
                 //groupBox_ServerSettings.Enabled = true;
             }
+        }
+
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.F1:
+                        SerialTerminalPrintHelp();
+
+                        break;
+
+                    case Keys.F2:
+                        SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F2 function reads all commands to history", New_Line = true, Show_Time = true);
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                SerialPortLogger.LogMessage(Color.Black, Color.Red, ex.Message , New_Line = true, Show_Time = true);
+            }
+
         }
 
         private void button_ClearRx_Click(object sender, EventArgs e)
