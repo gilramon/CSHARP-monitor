@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace SocketServer
 {
@@ -368,6 +369,7 @@ namespace SocketServer
                                                 m_txtBox.Clear();
                                                 NumOfPrints = 0;
                                             }
+                                            Thread.Sleep(10);
                                         }
                                         catch (Exception ex)
                                         {
