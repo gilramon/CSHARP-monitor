@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Spetrotec
 {
@@ -19,7 +20,7 @@ namespace Spetrotec
 
         public String Help;
 
-        public String Format;
+        public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
     }
 
     class SystemCommandsBook
@@ -40,6 +41,45 @@ namespace Spetrotec
             NewCommand.Format = i_Format;
             NewCommand.Help = i_Help;
             ALLCommandsList.Add(NewCommand);
+        }
+
+
+//Only letters:
+//Regex.IsMatch(input, @"^[a-zA-Z]+$");
+
+//Only letters and numbers:
+//Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
+
+//Only letters, numbers and underscore:
+//Regex.IsMatch(input, @"^[a-zA-Z0-9_]+$");
+
+        
+        public static bool CheckGeneralFormatOfCommand(String i_Format)
+        {
+            Regex ValidCommandFormat = new Regex(@"[0-9a-zA-Z]{3,15}=\{[0-9]\},[0-9a-zA-Z,]{0,100};"); // OPCODE=[Num_Of_Argument],[arg1,arg2...;
+            bool ret = ValidCommandFormat.IsMatch(i_Format);
+            return ret;
+        }
+
+        public static string CheckInputToCommandFormat(String i_Input)
+        {
+            string ret = "";
+            //1. find the current command in the list
+            //2. Get the format of the command.
+            //3. compare the format to input.
+            return ret;
+        }
+
+
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
 
         //int HistoryIndex = -1;

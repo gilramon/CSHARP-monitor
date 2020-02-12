@@ -429,6 +429,7 @@ namespace SocketServer
         private CheckBox checkBox_RxHex;
         private CheckBox checkBox_SendHexdata;
         private Button button_OpenPort;
+        private ComboBox comboBox_ChartUpdateTime;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -573,9 +574,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -957,6 +958,7 @@ namespace SocketServer
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
             this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
+            this.comboBox_ChartUpdateTime = new System.Windows.Forms.ComboBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1710,9 +1712,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 27);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1805, 950);
+            this.tabPage6.Size = new System.Drawing.Size(1805, 945);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3860,6 +3862,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.comboBox_ChartUpdateTime);
             this.tabPage3.Controls.Add(this.button28);
             this.tabPage3.Controls.Add(this.listBox_Charts);
             this.tabPage3.Controls.Add(this.button_OpenFolder2);
@@ -3869,18 +3872,18 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
+            this.tabPage3.Size = new System.Drawing.Size(1805, 945);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(4, 76);
+            this.button28.Location = new System.Drawing.Point(3, 393);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(123, 23);
+            this.button28.Size = new System.Drawing.Size(186, 23);
             this.button28.TabIndex = 79;
             this.button28.Text = "Reset X point";
             this.button28.UseVisualStyleBackColor = true;
@@ -3890,7 +3893,7 @@ namespace SocketServer
             // 
             this.listBox_Charts.FormattingEnabled = true;
             this.listBox_Charts.ItemHeight = 18;
-            this.listBox_Charts.Location = new System.Drawing.Point(5, 266);
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 82);
             this.listBox_Charts.Name = "listBox_Charts";
             this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
@@ -3899,19 +3902,19 @@ namespace SocketServer
             // 
             // button_OpenFolder2
             // 
-            this.button_OpenFolder2.Location = new System.Drawing.Point(5, 204);
+            this.button_OpenFolder2.Location = new System.Drawing.Point(4, 272);
             this.button_OpenFolder2.Name = "button_OpenFolder2";
-            this.button_OpenFolder2.Size = new System.Drawing.Size(108, 26);
+            this.button_OpenFolder2.Size = new System.Drawing.Size(185, 26);
             this.button_OpenFolder2.TabIndex = 77;
-            this.button_OpenFolder2.Text = "Open Folder";
+            this.button_OpenFolder2.Text = "Open Local Folder";
             this.button_OpenFolder2.UseVisualStyleBackColor = true;
             this.button_OpenFolder2.Click += new System.EventHandler(this.button_OpenFolder2_Click);
             // 
             // button_GraphPause
             // 
-            this.button_GraphPause.Location = new System.Drawing.Point(4, 104);
+            this.button_GraphPause.Location = new System.Drawing.Point(3, 421);
             this.button_GraphPause.Name = "button_GraphPause";
-            this.button_GraphPause.Size = new System.Drawing.Size(123, 23);
+            this.button_GraphPause.Size = new System.Drawing.Size(186, 23);
             this.button_GraphPause.TabIndex = 8;
             this.button_GraphPause.Text = "Pause";
             this.button_GraphPause.UseVisualStyleBackColor = true;
@@ -3919,9 +3922,9 @@ namespace SocketServer
             // 
             // Button_Export_excel
             // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(4, 236);
+            this.Button_Export_excel.Location = new System.Drawing.Point(3, 304);
             this.Button_Export_excel.Name = "Button_Export_excel";
-            this.Button_Export_excel.Size = new System.Drawing.Size(123, 23);
+            this.Button_Export_excel.Size = new System.Drawing.Size(186, 23);
             this.Button_Export_excel.TabIndex = 7;
             this.Button_Export_excel.Text = "Export to excel";
             this.Button_Export_excel.UseVisualStyleBackColor = true;
@@ -3929,9 +3932,9 @@ namespace SocketServer
             // 
             // button_ResetGraphs
             // 
-            this.button_ResetGraphs.Location = new System.Drawing.Point(4, 46);
+            this.button_ResetGraphs.Location = new System.Drawing.Point(3, 363);
             this.button_ResetGraphs.Name = "button_ResetGraphs";
-            this.button_ResetGraphs.Size = new System.Drawing.Size(123, 23);
+            this.button_ResetGraphs.Size = new System.Drawing.Size(186, 23);
             this.button_ResetGraphs.TabIndex = 6;
             this.button_ResetGraphs.Text = "Reset chart data";
             this.button_ResetGraphs.UseVisualStyleBackColor = true;
@@ -3940,18 +3943,20 @@ namespace SocketServer
             // textBox_graph_XY
             // 
             this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_graph_XY.Location = new System.Drawing.Point(5, 130);
+            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 8);
             this.textBox_graph_XY.Multiline = true;
             this.textBox_graph_XY.Name = "textBox_graph_XY";
+            this.textBox_graph_XY.ReadOnly = true;
             this.textBox_graph_XY.Size = new System.Drawing.Size(185, 68);
             this.textBox_graph_XY.TabIndex = 4;
+            this.textBox_graph_XY.Text = "Message box ";
             this.textBox_graph_XY.TextChanged += new System.EventHandler(this.textBox_graph_XY_TextChanged);
             // 
             // button_ScreenShot
             // 
-            this.button_ScreenShot.Location = new System.Drawing.Point(4, 15);
+            this.button_ScreenShot.Location = new System.Drawing.Point(3, 332);
             this.button_ScreenShot.Name = "button_ScreenShot";
-            this.button_ScreenShot.Size = new System.Drawing.Size(123, 23);
+            this.button_ScreenShot.Size = new System.Drawing.Size(186, 23);
             this.button_ScreenShot.TabIndex = 1;
             this.button_ScreenShot.Text = "Take screen shot";
             this.button_ScreenShot.UseVisualStyleBackColor = true;
@@ -3959,16 +3964,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea11.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.chart1.Legends.Add(legend11);
             this.chart1.Location = new System.Drawing.Point(195, 0);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.chart1.Series.Add(series11);
             this.chart1.Size = new System.Drawing.Size(1688, 917);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -5363,6 +5368,24 @@ namespace SocketServer
             this.groupBox_SerialPort.TabIndex = 111;
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
+            // 
+            // comboBox_ChartUpdateTime
+            // 
+            this.comboBox_ChartUpdateTime.FormattingEnabled = true;
+            this.comboBox_ChartUpdateTime.Items.AddRange(new object[] {
+            "100",
+            "200",
+            "500",
+            "1000",
+            "2000",
+            "5000",
+            "10000"});
+            this.comboBox_ChartUpdateTime.Location = new System.Drawing.Point(5, 450);
+            this.comboBox_ChartUpdateTime.Name = "comboBox_ChartUpdateTime";
+            this.comboBox_ChartUpdateTime.Size = new System.Drawing.Size(184, 26);
+            this.comboBox_ChartUpdateTime.TabIndex = 80;
+            this.comboBox_ChartUpdateTime.Text = "Update time ms";
+            this.comboBox_ChartUpdateTime.SelectedIndexChanged += new System.EventHandler(this.comboBox_ChartUpdateTime_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -7803,7 +7826,11 @@ namespace SocketServer
 
             if (IsPauseGraphs == false)
             {
-                GraphPrint();
+
+                if (Timer_100ms % (ChartUpdateTime/100) == 0)
+                {
+                    GraphPrint();
+                }
             }
 
             if (RxLabelTimerBlink > 0)
@@ -12957,6 +12984,15 @@ namespace SocketServer
             {
                 SerialPortLogger.LogMessage(Color.Black, Color.Red, ex.Message , New_Line = true, Show_Time = true);
             }
+
+        }
+        int ChartUpdateTime = 100;
+        private void comboBox_ChartUpdateTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int UpdateTime;
+            int.TryParse(comboBox_ChartUpdateTime.Text, out UpdateTime);
+            ChartUpdateTime = UpdateTime;
+
 
         }
 
