@@ -44,19 +44,20 @@ namespace Spetrotec
         }
 
 
-//Only letters:
-//Regex.IsMatch(input, @"^[a-zA-Z]+$");
+        //Only letters:
+        //Regex.IsMatch(input, @"^[a-zA-Z]+$");
 
-//Only letters and numbers:
-//Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
+        //Only letters and numbers:
+        //Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
 
-//Only letters, numbers and underscore:
-//Regex.IsMatch(input, @"^[a-zA-Z0-9_]+$");
+        //Only letters, numbers and underscore:
+        //Regex.IsMatch(input, @"^[a-zA-Z0-9_]+$");
 
-        
+        //Gil Ramon: There is General format for the commands ^[0-9a-zA-Z]{3,15}=\{[0-9]\},([0-9a-zA-Z,]){0,100};$; and internal format for each command;
+
         public static bool CheckGeneralFormatOfCommand(String i_Format)
         {
-            Regex ValidCommandFormat = new Regex(@"[0-9a-zA-Z]{3,15}=\{[0-9]\},[0-9a-zA-Z,]{0,100};"); // OPCODE=[Num_Of_Argument],[arg1,arg2...;
+            Regex ValidCommandFormat = new Regex(@"^[0-9a-zA-Z]{3,15}=\{[0-9]\},([0-9a-zA-Z,]){0,100};$"); // OPCODE=[Num_Of_Argument],[arg1,arg2...;
             bool ret = ValidCommandFormat.IsMatch(i_Format);
             return ret;
         }
