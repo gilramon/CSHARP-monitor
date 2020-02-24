@@ -47,6 +47,9 @@ namespace Spetrotec
         //Only letters:
         //Regex.IsMatch(input, @"^[a-zA-Z]+$");
 
+        //Only numbers:
+        //Regex.IsMatch(input, @"^[0-9]+$");
+
         //Only letters and numbers:
         //Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
 
