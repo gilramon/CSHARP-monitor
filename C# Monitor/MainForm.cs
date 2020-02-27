@@ -7893,79 +7893,85 @@ namespace SocketServer
         void GraphPrint()
         {
 
-
-
-            ChartCntY2 = 0;
-
-            if(OppositeCount == true)
+            try
             {
-                ChartCntY3++;
-                ChartCntY3 *= 1.1;
-                if (ChartCntY3 >= 100)
+
+                ChartCntY2 = 0;
+
+                if (OppositeCount == true)
                 {
-                    OppositeCount = false;
+                    ChartCntY3++;
+                    ChartCntY3 *= 1.1;
+                    if (ChartCntY3 >= 100)
+                    {
+                        OppositeCount = false;
+                    }
                 }
-            }
-            else
-            {
-                ChartCntY3--;
-                ChartCntY3 *= 0.9;
-                if (ChartCntY3 <= 0)
+                else
                 {
-                    OppositeCount = true;
+                    ChartCntY3--;
+                    ChartCntY3 *= 0.9;
+                    if (ChartCntY3 <= 0)
+                    {
+                        OppositeCount = true;
+                    }
                 }
-            }
 
 
-            int cnt = 0;
-            for (int i = series1.Points.Count - 1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
-            {
-                cnt++;
-                ChartCntY2 += (int)series1.Points[i].YValues[0];
-            }
-            ChartCntY2 = ChartCntY2 / cnt;
+                int cnt = 0;
+                for (int i = series1.Points.Count - 1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
+                {
+                    cnt++;
+                    ChartCntY2 += (int)series1.Points[i].YValues[0];
+                }
+                ChartCntY2 = ChartCntY2 / cnt;
 
-            if (IsPauseGraphs == false)
-            {
-                series1.Points.AddXY(ChartCntX, ChartCntY);
-                series2.Points.AddXY(ChartCntX, ChartCntY2);
-                series3.Points.AddXY(ChartCntX, ChartCntY3);
-            }
-            else
-            {
-                ChartMem.Add(ChartCntY);
-                ChartMem2.Add(ChartCntY2);
-            }
+                if (IsPauseGraphs == false)
+                {
+                    series1.Points.AddXY(ChartCntX, ChartCntY);
+                    series2.Points.AddXY(ChartCntX, ChartCntY2);
+                    series3.Points.AddXY(ChartCntX, ChartCntY3);
+                }
+                else
+                {
+                    ChartMem.Add(ChartCntY);
+                    ChartMem2.Add(ChartCntY2);
+                }
 
-            ChartCntX++;
-            double temp = rand.Next(-1, 2);
-            temp = temp * rand.NextDouble();
-            ChartCntY = ChartCntY + temp;
+                ChartCntX++;
+                double temp = rand.Next(-1, 2);
+                temp = temp * rand.NextDouble();
+                ChartCntY = ChartCntY + temp;
 
-            if(ChartCntY > ChartCntY2)
-            {
-                chart1.BackColor = Color.LightGreen;
-                GreenCnt++;
-            }
-            else
-            {
-                chart1.BackColor = Color.Red;
-                RedCnt++;
-            }
-            if (Timer_100ms % 50 == 0)
-            {
-                textBox_graph_XY.Text = "Green = " + GreenCnt + "  Red = " + RedCnt;
-            }
-            //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
+                if (ChartCntY > ChartCntY2)
+                {
+                    chart1.BackColor = Color.LightGreen;
+                    GreenCnt++;
+                }
+                else
+                {
+                    chart1.BackColor = Color.Red;
+                    RedCnt++;
+                }
+                if (Timer_100ms % 50 == 0)
+                {
+                    textBox_graph_XY.Text = "Green = " + GreenCnt + "  Red = " + RedCnt;
+                }
+                //  ChartCntY2 = ChartCntY2 + rnd.Next(-1, 2);
 
-            if (ChartCntX % 1000 == 0)
-            {
-                chart1.ChartAreas[0].AxisX.Minimum = ChartCntX;
-            }
+                if (ChartCntX % 1000 == 0)
+                {
+                    chart1.ChartAreas[0].AxisX.Minimum = ChartCntX;
+                }
 
 
-            chart1.Refresh();
+                chart1.Refresh();
                 chart1.Invalidate();
+            }
+            catch(Exception ex)
+            {
+                textBox_graph_XY.Text = ex.Message;
+            }
             
         }
 
@@ -12464,7 +12470,7 @@ namespace SocketServer
 
         private void button_ResetGraphs_Click(object sender, EventArgs e)
         {
-
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
             ChartCntX = 0;
             foreach (var ser in chart1.Series)
             {
