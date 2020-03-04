@@ -10,7 +10,7 @@ using System.Text;
 using System.IO;
 using System.IO.Ports;
 using System.Text.RegularExpressions;
-using Spetrotec;
+using Monitor;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -1269,6 +1269,7 @@ namespace SocketServer
             this.checkBox_SendHexdata.Text = "Send Hex data";
             this.toolTip1.SetToolTip(this.checkBox_SendHexdata, "Example:\r\n11 22 33 44 is 0x11 0x22 0x33 0x44\r\n");
             this.checkBox_SendHexdata.UseVisualStyleBackColor = true;
+            this.checkBox_SendHexdata.CheckedChanged += new System.EventHandler(this.checkBox_SendHexdata_CheckedChanged);
             // 
             // textBox_SendSerialPort
             // 
@@ -1572,8 +1573,8 @@ namespace SocketServer
             this.button_TimerLog.Size = new System.Drawing.Size(75, 37);
             this.button_TimerLog.TabIndex = 106;
             this.button_TimerLog.Text = "Log ->";
-            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.toolTip1.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal ");
+            this.toolTip2.SetToolTip(this.button_TimerLog, "Print the elapsed time to the terminal");
             this.button_TimerLog.UseVisualStyleBackColor = true;
             this.button_TimerLog.Click += new System.EventHandler(this.button_TimerLog_Click);
             // 
@@ -1712,9 +1713,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button30);
             this.tabPage6.Controls.Add(this.comboBox_SystemConfigType);
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.Location = new System.Drawing.Point(4, 27);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1805, 945);
+            this.tabPage6.Size = new System.Drawing.Size(1805, 950);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -2364,10 +2365,10 @@ namespace SocketServer
             this.textBox_Config31.Size = new System.Drawing.Size(119, 27);
             this.textBox_Config31.TabIndex = 31;
             this.toolTip2.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
-        " activating by accessory device of Spetrotec Company or by original key of the v" +
+        " activating by accessory device of Monitor Company or by original key of the v" +
         "ehicle. \r\nValid data:\r\n2-300\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config31, "Description:\r\nan option to configure time of entering to Arm state in case of not" +
-        " activating by accessory device of Spetrotec Company or by original key of the v" +
+        " activating by accessory device of Monitor Company or by original key of the v" +
         "ehicle. \r\nValid data:\r\n2-300");
             this.textBox_Config31.TextChanged += new System.EventHandler(this.textBox_Config31_TextChanged);
             // 
@@ -3632,8 +3633,8 @@ namespace SocketServer
             this.button_Ring.Size = new System.Drawing.Size(141, 23);
             this.button_Ring.TabIndex = 14;
             this.button_Ring.Text = "Ring";
-            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.toolTip1.SetToolTip(this.button_Ring, "Ring to contact");
+            this.toolTip2.SetToolTip(this.button_Ring, "Ring to contact");
             this.button_Ring.UseVisualStyleBackColor = true;
             this.button_Ring.Click += new System.EventHandler(this.button_Ring_Click);
             // 
@@ -3733,8 +3734,8 @@ namespace SocketServer
             this.button_SendSelectedSMS.Size = new System.Drawing.Size(107, 23);
             this.button_SendSelectedSMS.TabIndex = 8;
             this.button_SendSelectedSMS.Text = "Send SMS One";
-            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.toolTip1.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
+            this.toolTip2.SetToolTip(this.button_SendSelectedSMS, "Send SMS to the selected contact");
             this.button_SendSelectedSMS.UseVisualStyleBackColor = true;
             this.button_SendSelectedSMS.Click += new System.EventHandler(this.button_SendSelectedSMS_Click);
             // 
@@ -3745,8 +3746,8 @@ namespace SocketServer
             this.button_SendAllCheckedSMS.Size = new System.Drawing.Size(123, 23);
             this.button_SendAllCheckedSMS.TabIndex = 7;
             this.button_SendAllCheckedSMS.Text = "Send SMS Multi";
-            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.toolTip1.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
+            this.toolTip2.SetToolTip(this.button_SendAllCheckedSMS, "Send SMS to all the checked contacts");
             this.button_SendAllCheckedSMS.UseVisualStyleBackColor = true;
             this.button_SendAllCheckedSMS.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -3872,9 +3873,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1805, 945);
+            this.tabPage3.Size = new System.Drawing.Size(1805, 950);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -6480,7 +6481,7 @@ namespace SocketServer
 
         private void txtDataTx_TextChanged(object sender, EventArgs e)
         {
-            Spetrotec.Properties.Settings.Default.Default_Server_Message = txtDataTx.Text;
+            Monitor.Properties.Settings.Default.Default_Server_Message = txtDataTx.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -6715,39 +6716,39 @@ namespace SocketServer
 
         void UpdateDefaultsContacts()
         {
-            Spetrotec.Properties.Settings.Default.PhoneBook.Clear();
+            Monitor.Properties.Settings.Default.PhoneBook.Clear();
 
             List<PhoneBookContact> ContactsList = MyPhoneBook.GetContacts();
             foreach (PhoneBookContact PhoneBookContact in ContactsList)
             {
-                Spetrotec.Properties.Settings.Default.PhoneBook.Add(PhoneBookContact.Phone + ";;;;" + PhoneBookContact.Name + ";;;;" + PhoneBookContact.Notes + ";;;;" + PhoneBookContact.Password + ";;;;" + PhoneBookContact.UnitID);
+                Monitor.Properties.Settings.Default.PhoneBook.Add(PhoneBookContact.Phone + ";;;;" + PhoneBookContact.Name + ";;;;" + PhoneBookContact.Notes + ";;;;" + PhoneBookContact.Password + ";;;;" + PhoneBookContact.UnitID);
             }
 
-            Spetrotec.Properties.Settings.Default.Save();
+            Monitor.Properties.Settings.Default.Save();
         }
 
         void UpdateDefaultsCommands()
         {
 
-            Spetrotec.Properties.Settings.Default.SMS_Commands.Clear();
+            Monitor.Properties.Settings.Default.SMS_Commands.Clear();
 
             foreach (string str in listBox_SMSCommands.Items)
             {
-                Spetrotec.Properties.Settings.Default.SMS_Commands.Add(str);
+                Monitor.Properties.Settings.Default.SMS_Commands.Add(str);
             }
 
-            Spetrotec.Properties.Settings.Default.Save();
+            Monitor.Properties.Settings.Default.Save();
         }
 
         void UpdateSMSCommands()
         {
-            //string[] strArray = new string[Spetrotec.Properties.Settings.Default.SMS_Commands.Count];
-            //Spetrotec.Properties.Settings.Default.PhoneBook.CopyTo(strArray, 0);
+            //string[] strArray = new string[Monitor.Properties.Settings.Default.SMS_Commands.Count];
+            //Monitor.Properties.Settings.Default.PhoneBook.CopyTo(strArray, 0);
 
             listBox_SMSCommands.Invoke(new EventHandler(delegate
             {
                 listBox_SMSCommands.Items.Clear();
-                foreach (string str in Spetrotec.Properties.Settings.Default.SMS_Commands)
+                foreach (string str in Monitor.Properties.Settings.Default.SMS_Commands)
                 {
                     listBox_SMSCommands.Items.Add((object)str);
                     // comboBox_SMSCommands.Items.Add(str);
@@ -6764,8 +6765,8 @@ namespace SocketServer
 
         void UpdatePhoneBook()
         {
-            string[] strArray = new string[Spetrotec.Properties.Settings.Default.PhoneBook.Count];
-            Spetrotec.Properties.Settings.Default.PhoneBook.CopyTo(strArray, 0);
+            string[] strArray = new string[Monitor.Properties.Settings.Default.PhoneBook.Count];
+            Monitor.Properties.Settings.Default.PhoneBook.CopyTo(strArray, 0);
             MyPhoneBook = new PhoneBook(strArray);
 
             MyPhoneBook.SortPhoneBookByNotes();
@@ -6956,14 +6957,14 @@ namespace SocketServer
                 //}
                 //MessageBox.Show(temp);
 
-                //Spetrotec.Properties.Settings.Default.PhoneBook.Add(DateTime.Now.ToString());
+                //Monitor.Properties.Settings.Default.PhoneBook.Add(DateTime.Now.ToString());
 
-                //Spetrotec.Properties.Settings.Default.Save();
+                //Monitor.Properties.Settings.Default.Save();
 
-                //    txtDataTx.Text = string.Format(";<{0}>STAT?,;", Spetrotec.Properties.Settings.Default.SystemPassword);
+                //    txtDataTx.Text = string.Format(";<{0}>STAT?,;", Monitor.Properties.Settings.Default.SystemPassword);
 
-                txtPortNo.Text = Spetrotec.Properties.Settings.Default.Start_Port;
-                txtDataTx.Text = Spetrotec.Properties.Settings.Default.Default_Server_Message;
+                txtPortNo.Text = Monitor.Properties.Settings.Default.Start_Port;
+                txtDataTx.Text = Monitor.Properties.Settings.Default.Default_Server_Message;
 
 
 
@@ -6994,11 +6995,11 @@ namespace SocketServer
 
                 //cmbDataBits.DataSource = Enum.GetValues(typeof(Data));
 
-                cmbBaudRate.Text = Spetrotec.Properties.Settings.Default.Comport_BaudRate ;
-                cmbDataBits.Text = Spetrotec.Properties.Settings.Default.Comport_DataBits  ;
-                cmbStopBits.Text = Spetrotec.Properties.Settings.Default.Comport_StopBit ;
-                cmbParity.Text = Spetrotec.Properties.Settings.Default.Comport_Parity ;
-                cmbPortName.Text = Spetrotec.Properties.Settings.Default.Comport_Port ;
+                cmbBaudRate.Text = Monitor.Properties.Settings.Default.Comport_BaudRate ;
+                cmbDataBits.Text = Monitor.Properties.Settings.Default.Comport_DataBits  ;
+                cmbStopBits.Text = Monitor.Properties.Settings.Default.Comport_StopBit ;
+                cmbParity.Text = Monitor.Properties.Settings.Default.Comport_Parity ;
+                cmbPortName.Text = Monitor.Properties.Settings.Default.Comport_Port ;
 
 
 
@@ -7006,11 +7007,11 @@ namespace SocketServer
                 
 
 
-                //cmbBaudRate.Text = Spetrotec.Properties.Settings.Default.Comport_BaudRate;
-                //cmbDataBits.Text = Spetrotec.Properties.Settings.Default.Comport_DataBits;
-                //cmbStopBits.Text = Spetrotec.Properties.Settings.Default.Comport_StopBit;
-                //cmbParity.Text = Spetrotec.Properties.Settings.Default.Comport_Parity;
-                //cmbPortName.Text = Spetrotec.Properties.Settings.Default.Comport_Port;
+                //cmbBaudRate.Text = Monitor.Properties.Settings.Default.Comport_BaudRate;
+                //cmbDataBits.Text = Monitor.Properties.Settings.Default.Comport_DataBits;
+                //cmbStopBits.Text = Monitor.Properties.Settings.Default.Comport_StopBit;
+                //cmbParity.Text = Monitor.Properties.Settings.Default.Comport_Parity;
+                //cmbPortName.Text = Monitor.Properties.Settings.Default.Comport_Port;
 
 
                 //Gil: Set Versions Names
@@ -7131,14 +7132,14 @@ namespace SocketServer
                 //ShowHidePages();
 
 
-                TimeSpan TimeFromLastSave = DateTime.Now - Spetrotec.Properties.Settings.Default.LastSaveSMSTime;
+                TimeSpan TimeFromLastSave = DateTime.Now - Monitor.Properties.Settings.Default.LastSaveSMSTime;
 
 
-                TimeSpan TimeFromLastRunTime = DateTime.Now - Spetrotec.Properties.Settings.Default.LastRunTime;
+                TimeSpan TimeFromLastRunTime = DateTime.Now - Monitor.Properties.Settings.Default.LastRunTime;
                 //      TimeSpan TimeFromCompilation = DateTime.Now - RetrieveLinkerTimestamp();
                 TimeSpan TimeForRunPhoneBookAtTime = DateTime.Now - RetrieveLinkerTimestamp();
-                Spetrotec.Properties.Settings.Default.LastRunTime = DateTime.Now;
-                Spetrotec.Properties.Settings.Default.Save();
+                Monitor.Properties.Settings.Default.LastRunTime = DateTime.Now;
+                Monitor.Properties.Settings.Default.Save();
 
                 ///////////////////////////////// Leonid: Compilation time span (Remember this!!!!!!!!)
                 if (TimeForRunPhoneBookAtTime.Days > 90)
@@ -7286,8 +7287,8 @@ namespace SocketServer
                 myStream.Close();
             }
 
-            Spetrotec.Properties.Settings.Default.LastSaveSMSTime = DateTime.Now;
-            Spetrotec.Properties.Settings.Default.Save();
+            Monitor.Properties.Settings.Default.LastSaveSMSTime = DateTime.Now;
+            Monitor.Properties.Settings.Default.Save();
 
             LogSMS.LogMessage(Color.Brown, Color.White, " 2 Backup files of contacts and commands Created at \n" + subPath + "\n" + filesName, New_Line = true, Show_Time = true);
 
@@ -7296,10 +7297,10 @@ namespace SocketServer
 
         //void ShowHidePages()
         //{
-        //    if (Spetrotec.Properties.Settings.Default.RemovePages != null)
+        //    if (Monitor.Properties.Settings.Default.RemovePages != null)
         //    {
         //        int i = 0;
-        //        foreach (string str in Spetrotec.Properties.Settings.Default.RemovePages)
+        //        foreach (string str in Monitor.Properties.Settings.Default.RemovePages)
         //        {
         //            try
         //            {
@@ -8282,13 +8283,13 @@ namespace SocketServer
         //            cmbPortName.Enabled = false;
         //            cmbStopBits.Enabled = false;
 
-        //            Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
-        //            Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
-        //            Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
-        //            Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
-        //            Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
+        //            Monitor.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
+        //            Monitor.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
+        //            Monitor.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+        //            Monitor.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
+        //            Monitor.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
 
-        //            Spetrotec.Properties.Settings.Default.Save();
+        //            Monitor.Properties.Settings.Default.Save();
 
 
         //        }
@@ -9465,8 +9466,8 @@ namespace SocketServer
         {
             //if (textBox_TotalFrames1280Bytes.Text.Length > 0 && textBox_TotalFileLength.Text.Length > 0)
             //{
-            //    //txtDataTx.Text = ";<" + Spetrotec.Properties.Settings.Default.SystemPassword + ">STARTFOTA=," + textBox_TotalFrames1280Bytes.Text + "," + textBox_TotalFileLength.Text + ",;";
-            //    txtDataTx.Text = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Spetrotec.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);           
+            //    //txtDataTx.Text = ";<" + Monitor.Properties.Settings.Default.SystemPassword + ">STARTFOTA=," + textBox_TotalFrames1280Bytes.Text + "," + textBox_TotalFileLength.Text + ",;";
+            //    txtDataTx.Text = string.Format(";<{0}>STARTFOTA=,{1},{2},;", Monitor.Properties.Settings.Default.SystemPassword, textBox_TotalFrames1280Bytes.Text, textBox_TotalFileLength.Text);           
             //}
 
 
@@ -9545,7 +9546,7 @@ namespace SocketServer
         {
             Boolean Found = false;
 
-            foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+            foreach (string str in Monitor.Properties.Settings.Default.SerialPort_History)
             {
                 //comboBox_SerialPortHistory.Items.Add((object)str);
                 // comboBox_SMSCommands.Items.Add(str);
@@ -9557,8 +9558,8 @@ namespace SocketServer
 
             if (Found == false)
             {
-                Spetrotec.Properties.Settings.Default.SerialPort_History.Add(i_SendString);
-                Spetrotec.Properties.Settings.Default.Save();
+                Monitor.Properties.Settings.Default.SerialPort_History.Add(i_SendString);
+                Monitor.Properties.Settings.Default.Save();
             }
 
             if (CommandsHistoy.Count > 0)
@@ -9574,10 +9575,10 @@ namespace SocketServer
             
 
 
-            //if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
+            //if (Monitor.Properties.Settings.Default.SerialPort_History != null)
             //{
             //    CommandsHistoy.Clear();
-            //    foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+            //    foreach (string str in Monitor.Properties.Settings.Default.SerialPort_History)
             //    {
             //        CommandsHistoy.Add(str);
             //        // comboBox_SMSCommands.Items.Add(str);
@@ -9587,10 +9588,10 @@ namespace SocketServer
 
         void UpdateSerialPortComboBox()
         {
-            if (Spetrotec.Properties.Settings.Default.SerialPort_History != null)
+            if (Monitor.Properties.Settings.Default.SerialPort_History != null)
             {
                 CommandsHistoy.Clear();
-                foreach (string str in Spetrotec.Properties.Settings.Default.SerialPort_History)
+                foreach (string str in Monitor.Properties.Settings.Default.SerialPort_History)
                 {
                     CommandsHistoy.Add(str);
                     // comboBox_SMSCommands.Items.Add(str);
@@ -10378,9 +10379,9 @@ namespace SocketServer
                     string val = form.Password;            //values preserved after close
                                                            //Do something here with these values
 
-                    //      Spetrotec.Properties.Settings.Default.SystemPassword = val;
+                    //      Monitor.Properties.Settings.Default.SystemPassword = val;
 
-                    Spetrotec.Properties.Settings.Default.Save();
+                    Monitor.Properties.Settings.Default.Save();
 
                     string Sendstr = string.Format("<{0}>READ?,;", val);
 
@@ -11193,9 +11194,9 @@ namespace SocketServer
 
         private void txtPortNo_TextChanged(object sender, EventArgs e)
         {
-            Spetrotec.Properties.Settings.Default.Start_Port = txtPortNo.Text.ToString();
+            Monitor.Properties.Settings.Default.Start_Port = txtPortNo.Text.ToString();
 
-            Spetrotec.Properties.Settings.Default.Save();
+            Monitor.Properties.Settings.Default.Save();
         }
 
         private void button33_Click_1(object sender, EventArgs e)
@@ -11373,7 +11374,7 @@ namespace SocketServer
         void AddCommandToCommands(string i_SMSText)
         {
             Boolean IsExist = false;
-            foreach (string str in Spetrotec.Properties.Settings.Default.SMS_Commands)
+            foreach (string str in Monitor.Properties.Settings.Default.SMS_Commands)
             {
                 if (i_SMSText == str)
                 {
@@ -11383,13 +11384,13 @@ namespace SocketServer
 
             if (IsExist == false)
             {
-                if (Spetrotec.Properties.Settings.Default.SMS_Commands.Count >= 100)
+                if (Monitor.Properties.Settings.Default.SMS_Commands.Count >= 100)
                 {
-                    Spetrotec.Properties.Settings.Default.SMS_Commands.RemoveAt(Spetrotec.Properties.Settings.Default.SMS_Commands.Count - 40);
+                    Monitor.Properties.Settings.Default.SMS_Commands.RemoveAt(Monitor.Properties.Settings.Default.SMS_Commands.Count - 40);
                 }
 
-                Spetrotec.Properties.Settings.Default.SMS_Commands.Add(i_SMSText);
-                Spetrotec.Properties.Settings.Default.Save();
+                Monitor.Properties.Settings.Default.SMS_Commands.Add(i_SMSText);
+                Monitor.Properties.Settings.Default.Save();
             }
         }
 
@@ -11740,7 +11741,7 @@ namespace SocketServer
                     {
                         Command = form.Command;            //values preserved after close
 
-                        Spetrotec.Properties.Settings.Default.SMS_Commands.Remove((string)listBox_SMSCommands.SelectedItem);
+                        Monitor.Properties.Settings.Default.SMS_Commands.Remove((string)listBox_SMSCommands.SelectedItem);
                         AddCommandToCommands(Command);
 
                         SortSMSCommands();
@@ -11862,7 +11863,7 @@ namespace SocketServer
                     ImportedCommands = (List<string>)deserializer.Deserialize(textReader);
                     textReader.Close();
 
-                    Spetrotec.Properties.Settings.Default.SMS_Commands.Clear();
+                    Monitor.Properties.Settings.Default.SMS_Commands.Clear();
                     listBox_SMSCommands.Items.Clear();
                     foreach (string str in ImportedCommands)
                     {
@@ -12926,13 +12927,13 @@ namespace SocketServer
                     cmbPortName.Enabled = false;
                     cmbStopBits.Enabled = false;
 
-                    Spetrotec.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
-                    Spetrotec.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
+                    Monitor.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
+                    Monitor.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
+                    Monitor.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+                    Monitor.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
+                    Monitor.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
 
-                    Spetrotec.Properties.Settings.Default.Save();
+                    Monitor.Properties.Settings.Default.Save();
 
 
                 }
@@ -12999,6 +13000,11 @@ namespace SocketServer
             int.TryParse(comboBox_ChartUpdateTime.Text, out UpdateTime);
             ChartUpdateTime = UpdateTime;
 
+
+        }
+
+        private void checkBox_SendHexdata_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 

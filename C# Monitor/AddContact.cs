@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace Spetrotec
+namespace Monitor
 {
     public partial class AddContact : Form
     {

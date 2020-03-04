@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Spetrotec
+namespace Monitor
 {
     class OneSystemCommand
     {
@@ -28,6 +28,7 @@ namespace Spetrotec
         List<OneSystemCommand> ALLCommandsList = new List<OneSystemCommand>();
         public SystemCommandsBook(List<String> i_InputList)
         {
+//            var commandsList = ALLCommandsList.Where(c => c.Name.Length > 4);
             ALLCommandsList = DeSerializeStringListToCommandsList(i_InputList);
 
             //Gil: Sort the list by ABC

@@ -1,4 +1,4 @@
-﻿namespace Spetrotec
+﻿namespace Monitor
 {
     /// <summary>
     /// 
