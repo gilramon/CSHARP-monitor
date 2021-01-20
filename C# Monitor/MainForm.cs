@@ -574,9 +574,9 @@ namespace SocketServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -1153,9 +1153,9 @@ namespace SocketServer
             this.groupBox3.Controls.Add(this.PauseCheck);
             this.groupBox3.Controls.Add(this.Clear_btn);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(322, 79);
+            this.groupBox3.Location = new System.Drawing.Point(322, 86);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(753, 805);
+            this.groupBox3.Size = new System.Drawing.Size(753, 611);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "General Console";
@@ -1175,9 +1175,9 @@ namespace SocketServer
             // txtGeneral
             // 
             this.txtGeneral.EnableAutoDragDrop = true;
-            this.txtGeneral.Location = new System.Drawing.Point(7, 19);
+            this.txtGeneral.Location = new System.Drawing.Point(8, 24);
             this.txtGeneral.Name = "txtGeneral";
-            this.txtGeneral.Size = new System.Drawing.Size(739, 735);
+            this.txtGeneral.Size = new System.Drawing.Size(739, 581);
             this.txtGeneral.TabIndex = 0;
             this.txtGeneral.Text = "";
             this.txtGeneral.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -1716,7 +1716,7 @@ namespace SocketServer
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage6.Location = new System.Drawing.Point(4, 32);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage6.Size = new System.Drawing.Size(1489, 815);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1924,9 +1924,9 @@ namespace SocketServer
             this.groupBox_Configuration.Controls.Add(this.textBox_Config4);
             this.groupBox_Configuration.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Configuration.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.groupBox_Configuration.Location = new System.Drawing.Point(11, 19);
+            this.groupBox_Configuration.Location = new System.Drawing.Point(7, 26);
             this.groupBox_Configuration.Name = "groupBox_Configuration";
-            this.groupBox_Configuration.Size = new System.Drawing.Size(1858, 873);
+            this.groupBox_Configuration.Size = new System.Drawing.Size(1432, 556);
             this.groupBox_Configuration.TabIndex = 28;
             this.groupBox_Configuration.TabStop = false;
             this.groupBox_Configuration.Enter += new System.EventHandler(this.groupBox_Configuration_Enter);
@@ -3205,7 +3205,7 @@ namespace SocketServer
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage1.Size = new System.Drawing.Size(1489, 815);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Server";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3249,9 +3249,9 @@ namespace SocketServer
             this.groupBox_FOTA.Controls.Add(this.textBox_TotalFrames1280Bytes);
             this.groupBox_FOTA.Controls.Add(this.textBox_FOTA);
             this.groupBox_FOTA.Controls.Add(this.button5);
-            this.groupBox_FOTA.Location = new System.Drawing.Point(6, 473);
+            this.groupBox_FOTA.Location = new System.Drawing.Point(3, 441);
             this.groupBox_FOTA.Name = "groupBox_FOTA";
-            this.groupBox_FOTA.Size = new System.Drawing.Size(307, 401);
+            this.groupBox_FOTA.Size = new System.Drawing.Size(307, 257);
             this.groupBox_FOTA.TabIndex = 12;
             this.groupBox_FOTA.TabStop = false;
             this.groupBox_FOTA.Text = "FOTA";
@@ -3280,9 +3280,9 @@ namespace SocketServer
             // textBox_MaximumNumberReceivedRequest
             // 
             this.textBox_MaximumNumberReceivedRequest.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_MaximumNumberReceivedRequest.Location = new System.Drawing.Point(5, 130);
+            this.textBox_MaximumNumberReceivedRequest.Location = new System.Drawing.Point(4, 128);
             this.textBox_MaximumNumberReceivedRequest.Name = "textBox_MaximumNumberReceivedRequest";
-            this.textBox_MaximumNumberReceivedRequest.Size = new System.Drawing.Size(224, 263);
+            this.textBox_MaximumNumberReceivedRequest.Size = new System.Drawing.Size(224, 108);
             this.textBox_MaximumNumberReceivedRequest.TabIndex = 19;
             this.textBox_MaximumNumberReceivedRequest.Text = "";
             // 
@@ -3397,7 +3397,7 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.groupBox33);
             this.tabPage7.Location = new System.Drawing.Point(4, 32);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage7.Size = new System.Drawing.Size(1489, 815);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "SMS";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3876,7 +3876,7 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage3.Size = new System.Drawing.Size(1489, 815);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3984,17 +3984,17 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea17.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea17);
-            legend17.Name = "Legend1";
-            this.chart1.Legends.Add(legend17);
-            this.chart1.Location = new System.Drawing.Point(223, 0);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(222, 3);
             this.chart1.Name = "chart1";
-            series17.ChartArea = "ChartArea1";
-            series17.Legend = "Legend1";
-            series17.Name = "Series1";
-            this.chart1.Series.Add(series17);
-            this.chart1.Size = new System.Drawing.Size(1836, 1110);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(1220, 804);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -4002,7 +4002,7 @@ namespace SocketServer
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 32);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage8.Size = new System.Drawing.Size(1489, 815);
             this.tabPage8.TabIndex = 8;
             this.tabPage8.Text = "Errors";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -4024,7 +4024,7 @@ namespace SocketServer
             this.tabPage9.Controls.Add(this.label7);
             this.tabPage9.Location = new System.Drawing.Point(4, 32);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(2064, 1146);
+            this.tabPage9.Size = new System.Drawing.Size(1445, 815);
             this.tabPage9.TabIndex = 9;
             this.tabPage9.Text = "Client";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -4051,7 +4051,7 @@ namespace SocketServer
             // 
             // button_ClearRx
             // 
-            this.button_ClearRx.Location = new System.Drawing.Point(1387, 404);
+            this.button_ClearRx.Location = new System.Drawing.Point(1355, 403);
             this.button_ClearRx.Name = "button_ClearRx";
             this.button_ClearRx.Size = new System.Drawing.Size(86, 28);
             this.button_ClearRx.TabIndex = 11;
@@ -4064,13 +4064,13 @@ namespace SocketServer
             this.richTextBox_ClientRx.Location = new System.Drawing.Point(39, 404);
             this.richTextBox_ClientRx.Name = "richTextBox_ClientRx";
             this.richTextBox_ClientRx.ReadOnly = true;
-            this.richTextBox_ClientRx.Size = new System.Drawing.Size(1342, 202);
+            this.richTextBox_ClientRx.Size = new System.Drawing.Size(1310, 202);
             this.richTextBox_ClientRx.TabIndex = 9;
             this.richTextBox_ClientRx.Text = "";
             // 
             // button43
             // 
-            this.button43.Location = new System.Drawing.Point(1389, 177);
+            this.button43.Location = new System.Drawing.Point(1357, 176);
             this.button43.Name = "button43";
             this.button43.Size = new System.Drawing.Size(85, 28);
             this.button43.TabIndex = 8;
@@ -4100,7 +4100,7 @@ namespace SocketServer
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1389, 142);
+            this.button3.Location = new System.Drawing.Point(1357, 141);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 27);
             this.button3.TabIndex = 5;
@@ -4112,7 +4112,7 @@ namespace SocketServer
             // 
             this.richTextBox_ClientTx.Location = new System.Drawing.Point(39, 142);
             this.richTextBox_ClientTx.Name = "richTextBox_ClientTx";
-            this.richTextBox_ClientTx.Size = new System.Drawing.Size(1342, 202);
+            this.richTextBox_ClientTx.Size = new System.Drawing.Size(1312, 202);
             this.richTextBox_ClientTx.TabIndex = 4;
             this.richTextBox_ClientTx.Text = "Send Data to Server";
             // 
