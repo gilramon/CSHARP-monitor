@@ -12315,8 +12315,11 @@ namespace SocketServer
                 cmbPortName.Items.Add(port);
                 comboBox_ComportSMS.Items.Add(port);
             }
-            cmbPortName.SelectedIndex = 0;
-            comboBox_ComportSMS.SelectedIndex = 0;
+            if (ports.Length > 0)
+            {
+                cmbPortName.SelectedIndex = 0;
+                comboBox_ComportSMS.SelectedIndex = 0;
+            }
         }
 
         private void button_ReScanComPort_Click(object sender, EventArgs e)
