@@ -1611,7 +1611,7 @@ namespace SocketServer
             this.txtS1_Clear.Font = new System.Drawing.Font("Calibri", 12F);
             this.txtS1_Clear.Location = new System.Drawing.Point(1180, 17);
             this.txtS1_Clear.Name = "txtS1_Clear";
-            this.txtS1_Clear.Size = new System.Drawing.Size(68, 27);
+            this.txtS1_Clear.Size = new System.Drawing.Size(62, 26);
             this.txtS1_Clear.TabIndex = 69;
             this.txtS1_Clear.Text = "Clear";
             this.txtS1_Clear.UseVisualStyleBackColor = true;
