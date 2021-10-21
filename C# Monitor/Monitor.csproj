@@ -142,7 +142,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Logger.cs" />
+    <Compile Include="TextBox_Logger.cs" />
     <Compile Include="PhoneBook.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace SocketServer
 {
-    class Logger
+    class TextBox_Logger
     {
         class LogClass
         {
@@ -37,7 +37,7 @@ namespace SocketServer
         bool m_PauseText = false;
        // bool m_ExitLog = false;
 
-        public Logger(string i_LoggerName, RichTextBox i_txtBox, Button i_ClearTextBoxButton, CheckBox i_PauseCheckBox, CheckBox i_RecordTofile, TextBox i_RecognizePatternTextBox, TextBox i_RecognizePatternTextBox2, TextBox i_RecognizePatternTextBox3, CheckBox i_StopLogging)
+        public TextBox_Logger(string i_LoggerName, RichTextBox i_txtBox, Button i_ClearTextBoxButton, CheckBox i_PauseCheckBox, CheckBox i_RecordTofile, TextBox i_RecognizePatternTextBox, TextBox i_RecognizePatternTextBox2, TextBox i_RecognizePatternTextBox3, CheckBox i_StopLogging)
         {
             m_LoggerName = i_LoggerName;
             m_txtBox = i_txtBox;

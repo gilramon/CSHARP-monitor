@@ -6139,10 +6139,10 @@ namespace SocketServer
             System.Windows.Forms.Application.Exit();
         }
 
-        Logger ServerLogger;
-        Logger SerialPortLogger;
+        TextBox_Logger ServerLogger;
+        TextBox_Logger SerialPortLogger;
         //   Logger LogIWatcher;
-        Logger LogSMS;
+        TextBox_Logger LogSMS;
         PhoneBook MyPhoneBook;
 
         List<Series> List_SeriesCharts = new List<Series>();
@@ -6321,10 +6321,10 @@ namespace SocketServer
                 //pictureBox_logo.BringToFront();
 
                 //Gil: Generate all the loggers
-                ServerLogger = new Logger("Server", txtGeneral, Clear_btn, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
-                SerialPortLogger = new Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
+                ServerLogger = new TextBox_Logger("Server", txtGeneral, Clear_btn, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
+                SerialPortLogger = new TextBox_Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
 
-                LogSMS = new Logger("Log_SMS", richTextBox_SMSConsole, button_ClearSMSConsole, checkBox_PauseSMSConsole, checkBox_RecordSMSConsole, null, null, null, null);
+                LogSMS = new TextBox_Logger("Log_SMS", richTextBox_SMSConsole, button_ClearSMSConsole, checkBox_PauseSMSConsole, checkBox_RecordSMSConsole, null, null, null, null);
 
                 //Gil: Active All the recorders
                 checkBox_RecordGeneral.Checked = !checkBox_RecordGeneral.Checked;
