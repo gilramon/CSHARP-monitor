@@ -7,7 +7,7 @@
     <ProjectGuid>{CF77DA73-EF59-409A-9BF3-8E26451D2593}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>powermat_logo_70O_icon.ico</ApplicationIcon>
+    <ApplicationIcon>powermat logo small.ico</ApplicationIcon>
     <AssemblyKeyContainerName />
     <AssemblyName>Monitor</AssemblyName>
     <AssemblyOriginatorKeyFile />
@@ -248,6 +248,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="powermat logo small.ico" />
     <Content Include="Powermat logo.jpg" />
     <Content Include="powermat_logo_70O_icon.ico" />
   </ItemGroup>
