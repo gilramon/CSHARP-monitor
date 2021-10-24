@@ -24,7 +24,25 @@ namespace Monitor
 
         public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
 
-        public delegate void Operation_Callback(int i_NumOfArguments, List<String> i_Arguments);
+        public class CommandArgs : EventArgs
+        {
+            public int NumOfArguments { get; set; }
+            public String[] Args { get; set; }
+        }
+
+        public event EventHandler<CommandArgs> Operation_Callback;
+        public void Run_Operation(String[] i_list)
+        {
+            CommandArgs ArgsInput =  new CommandArgs();
+
+            ArgsInput.NumOfArguments = i_list.Length;
+
+            int indexToRemove = 0;
+            ArgsInput.Args = i_list.Where((source, index) => index != indexToRemove).ToArray();
+
+            Operation_Callback?.Invoke(this, ArgsInput);
+            
+        }
     }
 
     class CLI_Parser
@@ -39,13 +57,32 @@ namespace Monitor
             ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
         }
 
-        public void parse(String i_InputString)
+        public String parse(String i_InputString)
         {
+            String ret = String.Empty;
+            String[] tempStr = i_InputString.Split(' ');
 
+            String Opcode_name = tempStr[0];
+            //Gil Check if Opcode exists;
             foreach (OneSystemCommand cmd in ALLCommandsList)
             {
-                
+                if(Opcode_name == cmd.Name)
+                {
+                    cmd.Run_Operation(tempStr);
+                }
             }
+
+
+            ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
+            for (int i =1; i < tempStr.Length;i++)
+            {
+                ret += tempStr[i] + "  \n\r";
+            }
+            //foreach (OneSystemCommand cmd in ALLCommandsList)
+            //{
+                
+            //}
+            return ret;
         }
 
         public void AddCommand(String i_Name, String i_Format, String i_Help)
