@@ -1204,6 +1204,7 @@ namespace SocketServer
             this.textBox_SendSerialPort.Size = new System.Drawing.Size(611, 31);
             this.textBox_SendSerialPort.TabIndex = 0;
             this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
+            this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.textBox_SendSerialPort_TextChanged_1);
             this.textBox_SendSerialPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_SendSerialPort_KeyDown);
             // 
             // checkBox_DeleteCommand
@@ -11817,10 +11818,10 @@ namespace SocketServer
                             HistoryIndex = CommandsHistoy.Count;
                         }
 
-                        if(textBox_SendSerialPort.Text == string.Empty)
-                        {
-                            HistoryIndex = CommandsHistoy.Count;
-                        }
+                        //if(textBox_SendSerialPort.Text == string.Empty)
+                        //{
+                        //    HistoryIndex = CommandsHistoy.Count;
+                        //}
 
 
                         if (HistoryIndex > 0)
@@ -12039,6 +12040,11 @@ namespace SocketServer
                 }
 
                 
+        }
+
+        private void textBox_SendSerialPort_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
 
         private void button_ClearRx_Click(object sender, EventArgs e)

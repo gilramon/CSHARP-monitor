@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 
 namespace Monitor
 {
+
+
     class OneSystemCommand
     {
         //     [XmlElement("Contact_Name")]
@@ -21,18 +23,29 @@ namespace Monitor
         public String Help;
 
         public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
+
+        public delegate void Operation_Callback(int i_NumOfArguments, List<String> i_Arguments);
     }
 
-    class SystemCommandsBook
+    class CLI_Parser
     {
         List<OneSystemCommand> ALLCommandsList = new List<OneSystemCommand>();
-        public SystemCommandsBook(List<String> i_InputList)
+        public CLI_Parser(List<String> i_InputList)
         {
 //            var commandsList = ALLCommandsList.Where(c => c.Name.Length > 4);
             ALLCommandsList = DeSerializeStringListToCommandsList(i_InputList);
 
             //Gil: Sort the list by ABC
             ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
+        }
+
+        public void parse(String i_InputString)
+        {
+
+            foreach (OneSystemCommand cmd in ALLCommandsList)
+            {
+                
+            }
         }
 
         public void AddCommand(String i_Name, String i_Format, String i_Help)
