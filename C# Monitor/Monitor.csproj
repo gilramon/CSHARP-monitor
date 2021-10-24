@@ -7,8 +7,7 @@
     <ProjectGuid>{CF77DA73-EF59-409A-9BF3-8E26451D2593}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>powermat_logo_70O_icon.ico</ApplicationIcon>
     <AssemblyKeyContainerName />
     <AssemblyName>Monitor</AssemblyName>
     <AssemblyOriginatorKeyFile />
@@ -41,7 +40,7 @@
     <ProductName>ComCenterGilProductName</ProductName>
     <PublisherName>Gil Ramon</PublisherName>
     <SuiteName>ComCenterGilsuite</SuiteName>
-    <ApplicationRevision>215</ApplicationRevision>
+    <ApplicationRevision>216</ApplicationRevision>
     <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -249,7 +248,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HX_logo.ico" />
+    <Content Include="Powermat logo.jpg" />
+    <Content Include="powermat_logo_70O_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
