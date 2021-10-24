@@ -389,6 +389,7 @@ namespace SocketServer
         private TextBox textBox_InternalCLIoutput;
         private GroupBox groupBox4;
         private TextBox textBox_SystemStatus;
+        private PictureBox pictureBox1;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -532,9 +533,9 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -877,6 +878,7 @@ namespace SocketServer
             this.textBox_InternalCLIoutput = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox_SystemStatus = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -935,6 +937,7 @@ namespace SocketServer
             this.groupBox_SerialPort.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -3078,16 +3081,16 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1068, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -4682,7 +4685,7 @@ namespace SocketServer
             this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortTx);
             this.groupBox_SerialPort.Controls.Add(this.label_SerialPortConnected);
             this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortRx);
-            this.groupBox_SerialPort.Location = new System.Drawing.Point(1565, 32);
+            this.groupBox_SerialPort.Location = new System.Drawing.Point(1561, 77);
             this.groupBox_SerialPort.Name = "groupBox_SerialPort";
             this.groupBox_SerialPort.Size = new System.Drawing.Size(115, 106);
             this.groupBox_SerialPort.TabIndex = 111;
@@ -4701,7 +4704,7 @@ namespace SocketServer
             // 
             this.groupBox1.Controls.Add(this.textBox_InternalCLIoutput);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1565, 316);
+            this.groupBox1.Location = new System.Drawing.Point(1561, 361);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 160);
             this.groupBox1.TabIndex = 112;
@@ -4720,7 +4723,7 @@ namespace SocketServer
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox_SystemStatus);
-            this.groupBox4.Location = new System.Drawing.Point(1565, 150);
+            this.groupBox4.Location = new System.Drawing.Point(1561, 195);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(120, 160);
             this.groupBox4.TabIndex = 114;
@@ -4736,12 +4739,22 @@ namespace SocketServer
             this.textBox_SystemStatus.Size = new System.Drawing.Size(105, 130);
             this.textBox_SystemStatus.TabIndex = 113;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1561, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(191, 38);
+            this.pictureBox1.TabIndex = 115;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1692, 737);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox_SerialPort);
@@ -4851,6 +4864,7 @@ namespace SocketServer
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
