@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -8,7 +9,7 @@ namespace Monitor
 {
 
 
-    class OneSystemCommand
+    public class OneSystemCommand
     {
         //     [XmlElement("Contact_Name")]
         /// <summary>
@@ -30,24 +31,24 @@ namespace Monitor
             public String[] Args { get; set; }
         }
 
-        public event EventHandler<CommandArgs> Operation_Callback;
-        public void Run_Operation(String[] i_list)
-        {
-            CommandArgs ArgsInput =  new CommandArgs();
+        //public event EventHandler<CommandArgs> Operation_Callback;
+        //public void Run_Operation(String[] i_list)
+        //{
+        //    CommandArgs ArgsInput =  new CommandArgs();
 
-            ArgsInput.NumOfArguments = i_list.Length;
+        //    ArgsInput.NumOfArguments = i_list.Length;
 
-            int indexToRemove = 0;
-            ArgsInput.Args = i_list.Where((source, index) => index != indexToRemove).ToArray();
+        //    int indexToRemove = 0;
+        //    ArgsInput.Args = i_list.Where((source, index) => index != indexToRemove).ToArray();
 
-            Operation_Callback?.Invoke(this, ArgsInput);
+        //    Operation_Callback?.Invoke(this, ArgsInput);
             
-        }
+        //}
     }
 
     class CLI_Parser
     {
-        List<OneSystemCommand> ALLCommandsList = new List<OneSystemCommand>();
+        public List<OneSystemCommand> ALLCommandsList = new List<OneSystemCommand>();
         public CLI_Parser(List<String> i_InputList)
         {
 //            var commandsList = ALLCommandsList.Where(c => c.Name.Length > 4);
@@ -57,33 +58,76 @@ namespace Monitor
             ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
         }
 
-        public String parse(String i_InputString)
+        public CLI_Parser()
         {
-            String ret = String.Empty;
-            String[] tempStr = i_InputString.Split(' ');
+            ////            var commandsList = ALLCommandsList.Where(c => c.Name.Length > 4);
+            //ALLCommandsList = DeSerializeStringListToCommandsList(i_InputList);
 
-            String Opcode_name = tempStr[0];
-            //Gil Check if Opcode exists;
-            foreach (OneSystemCommand cmd in ALLCommandsList)
-            {
-                if(Opcode_name == cmd.Name)
-                {
-                    cmd.Run_Operation(tempStr);
-                }
-            }
-
-
-            ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
-            for (int i =1; i < tempStr.Length;i++)
-            {
-                ret += tempStr[i] + "  \n\r";
-            }
-            //foreach (OneSystemCommand cmd in ALLCommandsList)
-            //{
-                
-            //}
-            return ret;
+            ////Gil: Sort the list by ABC
+            //ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
         }
+
+        //public void  parse_and_call_CB(String i_InputString)
+        //{
+        //    String ret = String.Empty;
+        //    String[] tempStr = i_InputString.Split(' ');
+
+        //    String Opcode_name = tempStr[0];
+        //    //Gil Check if Opcode exists;
+        //    foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    {
+        //        if(Opcode_name == cmd.Name)
+        //        {
+        //            cmd.Run_Operation(tempStr);
+        //        }
+        //    }
+
+
+        //    //ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
+        //    //for (int i =1; i < tempStr.Length;i++)
+        //    //{
+        //    //    ret += tempStr[i] + "  \n\r";
+        //    //}
+        //    //foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    //{
+
+        //    //}
+        //}
+        public virtual void Parse(object sender, String i_InputString)
+        {
+
+        }
+        //public void virtual parse(String i_InputString)
+        //{
+        //    String ret = String.Empty;
+        //    String[] tempStr = i_InputString.Split(' ');
+
+        //    String Opcode_name = tempStr[0];
+        //    //Gil Check if Opcode exists;
+        //    foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    {
+        //        if (Opcode_name == cmd.Name)
+        //        {
+
+        //            //cmd.Run_Operation(tempStr);
+        //            String MethodName = Opcode_name + "_CB";
+        //            Type thisType = this.GetType();
+        //            MethodInfo theMethod = thisType.GetMethod(MethodName);
+        //            theMethod.Invoke(this, tempStr);
+        //        }
+        //    }
+
+
+        //ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
+        //for (int i =1; i < tempStr.Length;i++)
+        //{
+        //    ret += tempStr[i] + "  \n\r";
+        //}
+        //foreach (OneSystemCommand cmd in ALLCommandsList)
+        //{
+
+        //}
+    
 
         public void AddCommand(String i_Name, String i_Format, String i_Help)
         {
@@ -188,15 +232,17 @@ namespace Monitor
         public List<OneSystemCommand> DeSerializeStringListToCommandsList(List<String> i_InputList)
         {
             List<OneSystemCommand> ret = new List<OneSystemCommand>();
-
-            foreach (String cmd in i_InputList)
+            if (i_InputList != null)
             {
-                string[] Output = cmd.Split(new string[] { "|||" }, StringSplitOptions.None);
-                OneSystemCommand NewCmd = new OneSystemCommand();
-                NewCmd.Name = Output[1];
-                NewCmd.Format = Output[2];
-                NewCmd.Help = Output[3];
-                ret.Add(NewCmd);
+                foreach (String cmd in i_InputList)
+                {
+                    string[] Output = cmd.Split(new string[] { "|||" }, StringSplitOptions.None);
+                    OneSystemCommand NewCmd = new OneSystemCommand();
+                    NewCmd.Name = Output[1];
+                    NewCmd.Format = Output[2];
+                    NewCmd.Help = Output[3];
+                    ret.Add(NewCmd);
+                }
             }
             return ret;
         }

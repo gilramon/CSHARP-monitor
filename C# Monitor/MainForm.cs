@@ -15,7 +15,7 @@ using System.Xml.Serialization;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
-
+using System.Reflection;
 
 namespace SocketServer
 {
@@ -6271,11 +6271,78 @@ namespace SocketServer
             }
         }
 
+
+        public void sum_CB(OneSystemCommand i_cmd, String[] tempStr)
+        {
+            int sum = 0;
+            if (tempStr[0] == "?")
+            {
+                SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "Sum CB: " + i_cmd.Help, New_Line = true, Show_Time = true);
+            }
+            else
+            {
+                foreach (String str in tempStr)
+                {
+                    sum += Int32.Parse(str);
+
+                }
+
+                SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "Sum CB: sum = " + sum, New_Line = true, Show_Time = true);
+            } 
+        }
+
+        class System1_parser : CLI_Parser
+        {
+
+
+            public override void Parse(object sender,String i_InputString)
+            {
+                String[] tempStr = i_InputString.Split(' ');
+
+                String Opcode_name = tempStr[0];
+
+
+                //Gil: remove the first Opcode
+                int indexToRemove = 0;
+                tempStr = tempStr.Where((source, index) => index != indexToRemove).ToArray();
+
+                //Gil Check if Opcode exists;
+                foreach (OneSystemCommand cmd in ALLCommandsList)
+                {
+                    if (Opcode_name == cmd.Name)
+                    {
+
+                        //cmd.Run_Operation(tempStr);
+                        String MethodName = Opcode_name + "_CB";
+
+                        //Get the method information using the method info class
+                        var method = sender.GetType().GetMethod(MethodName);
+                        var parameters = new object[] { cmd, tempStr };
+
+
+                        //Invoke the method
+                        // (null- no parameter for the method call
+                        // or you can pass the array of parameters...)
+                        method.Invoke(sender, parameters);
+
+                        //Type thisType = this.GetType();
+                        //MethodInfo theMethod = thisType.GetMethod(MethodName);
+                        //theMethod.Invoke(this, tempStr);
+                    }
+                }
+            }
+        }
+
+        System1_parser system1_Parser = new System1_parser();
+
+
         // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
+                system1_Parser.AddCommand("sum", "sum 1 2 3", " summ all the elements");
+                //System1_parser.AddCommand("sum", "sum args", "sum all the numbers");
                 List_SeriesCharts.Add(series1);
                 List_SeriesCharts.Add(series2);
                 List_SeriesCharts.Add(series3);
@@ -12068,7 +12135,7 @@ namespace SocketServer
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //textBox_InternalCLIoutput.Text = CLI_Parser.parse(textBox1.Text);
+                system1_Parser.Parse(this,textBox1.Text);
             }
         }
 
