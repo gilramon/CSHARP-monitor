@@ -15,7 +15,7 @@ namespace Monitor
         /// <summary>
         /// 
         /// </summary>
-        public String Name;
+        public String Opcode;
         /// <summary>
         /// 
         /// </summary>
@@ -25,25 +25,6 @@ namespace Monitor
 
         public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
 
-        public class CommandArgs : EventArgs
-        {
-            public int NumOfArguments { get; set; }
-            public String[] Args { get; set; }
-        }
-
-        //public event EventHandler<CommandArgs> Operation_Callback;
-        //public void Run_Operation(String[] i_list)
-        //{
-        //    CommandArgs ArgsInput =  new CommandArgs();
-
-        //    ArgsInput.NumOfArguments = i_list.Length;
-
-        //    int indexToRemove = 0;
-        //    ArgsInput.Args = i_list.Where((source, index) => index != indexToRemove).ToArray();
-
-        //    Operation_Callback?.Invoke(this, ArgsInput);
-            
-        //}
     }
 
     class CLI_Parser
@@ -55,7 +36,7 @@ namespace Monitor
             ALLCommandsList = DeSerializeStringListToCommandsList(i_InputList);
 
             //Gil: Sort the list by ABC
-            ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
+            ALLCommandsList = ALLCommandsList.OrderBy(o => o.Opcode).ToList();
         }
 
         public CLI_Parser()
@@ -67,72 +48,20 @@ namespace Monitor
             //ALLCommandsList = ALLCommandsList.OrderBy(o => o.Name).ToList();
         }
 
-        //public void  parse_and_call_CB(String i_InputString)
-        //{
-        //    String ret = String.Empty;
-        //    String[] tempStr = i_InputString.Split(' ');
-
-        //    String Opcode_name = tempStr[0];
-        //    //Gil Check if Opcode exists;
-        //    foreach (OneSystemCommand cmd in ALLCommandsList)
-        //    {
-        //        if(Opcode_name == cmd.Name)
-        //        {
-        //            cmd.Run_Operation(tempStr);
-        //        }
-        //    }
-
-
-        //    //ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
-        //    //for (int i =1; i < tempStr.Length;i++)
-        //    //{
-        //    //    ret += tempStr[i] + "  \n\r";
-        //    //}
-        //    //foreach (OneSystemCommand cmd in ALLCommandsList)
-        //    //{
-
-        //    //}
-        //}
         public virtual void Parse(object sender, String i_InputString)
         {
 
         }
-        //public void virtual parse(String i_InputString)
-        //{
-        //    String ret = String.Empty;
-        //    String[] tempStr = i_InputString.Split(' ');
 
-        //    String Opcode_name = tempStr[0];
-        //    //Gil Check if Opcode exists;
-        //    foreach (OneSystemCommand cmd in ALLCommandsList)
-        //    {
-        //        if (Opcode_name == cmd.Name)
-        //        {
-
-        //            //cmd.Run_Operation(tempStr);
-        //            String MethodName = Opcode_name + "_CB";
-        //            Type thisType = this.GetType();
-        //            MethodInfo theMethod = thisType.GetMethod(MethodName);
-        //            theMethod.Invoke(this, tempStr);
-        //        }
-        //    }
-
-
-        //ret = "Num of Args  " + tempStr.Length.ToString() + "  \n\r";
-        //for (int i =1; i < tempStr.Length;i++)
-        //{
-        //    ret += tempStr[i] + "  \n\r";
-        //}
-        //foreach (OneSystemCommand cmd in ALLCommandsList)
-        //{
-
-        //}
-    
+        public void AddCommand(OneSystemCommand i_NewCommand)
+        {
+            ALLCommandsList.Add(i_NewCommand);
+        }
 
         public void AddCommand(String i_Name, String i_Format, String i_Help)
         {
             OneSystemCommand NewCommand = new OneSystemCommand();
-            NewCommand.Name = i_Name;
+            NewCommand.Opcode = i_Name;
             NewCommand.Format = i_Format;
             NewCommand.Help = i_Help;
             ALLCommandsList.Add(NewCommand);
@@ -224,7 +153,7 @@ namespace Monitor
             
             foreach (OneSystemCommand cmd in ALLCommandsList)
             {
-                ret.Add(String.Format("{0}|||{1}|||{2}", cmd.Name, cmd.Format, cmd.Help));
+                ret.Add(String.Format("{0}|||{1}|||{2}", cmd.Opcode, cmd.Format, cmd.Help));
             }
             return ret;
         }
@@ -238,7 +167,7 @@ namespace Monitor
                 {
                     string[] Output = cmd.Split(new string[] { "|||" }, StringSplitOptions.None);
                     OneSystemCommand NewCmd = new OneSystemCommand();
-                    NewCmd.Name = Output[1];
+                    NewCmd.Opcode = Output[1];
                     NewCmd.Format = Output[2];
                     NewCmd.Help = Output[3];
                     ret.Add(NewCmd);
@@ -265,7 +194,7 @@ namespace Monitor
             String ret = String.Empty;
             foreach (OneSystemCommand cmd in ALLCommandsList)
             {
-                if (cmd.Name == i_Name)
+                if (cmd.Opcode == i_Name)
                 {
                     ret = cmd.Help;
                 }
@@ -292,7 +221,7 @@ namespace Monitor
             String ret = String.Empty;
             foreach (OneSystemCommand cmd in ALLCommandsList)
             {
-                if (cmd.Name == i_Name)
+                if (cmd.Opcode == i_Name)
                 {
                     ret = cmd.Format;
                 }

@@ -6271,17 +6271,16 @@ namespace SocketServer
             }
         }
 
-
-        public void sum_CB(OneSystemCommand i_cmd, String[] tempStr)
+        public void System1_parser_sum_CB(OneSystemCommand i_cmd, String[] i_InputArgs)
         {
             int sum = 0;
-            if (tempStr[0] == "?")
+            if (i_InputArgs[0] == "?")
             {
                 SerialPortLogger.LogMessage(Color.Blue, Color.LightGray, "Sum CB: " + i_cmd.Help, New_Line = true, Show_Time = true);
             }
             else
             {
-                foreach (String str in tempStr)
+                foreach (String str in i_InputArgs)
                 {
                     sum += Int32.Parse(str);
 
@@ -6309,11 +6308,11 @@ namespace SocketServer
                 //Gil Check if Opcode exists;
                 foreach (OneSystemCommand cmd in ALLCommandsList)
                 {
-                    if (Opcode_name == cmd.Name)
+                    if (Opcode_name == cmd.Opcode)
                     {
 
                         //cmd.Run_Operation(tempStr);
-                        String MethodName = Opcode_name + "_CB";
+                        String MethodName = this.GetType().Name+ "_" + Opcode_name + "_CB" ;
 
                         //Get the method information using the method info class
                         var method = sender.GetType().GetMethod(MethodName);
