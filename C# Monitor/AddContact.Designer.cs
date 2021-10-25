@@ -74,7 +74,7 @@
             this.richTextBox_Phone.Size = new System.Drawing.Size(240, 32);
             this.richTextBox_Phone.TabIndex = 4;
             this.richTextBox_Phone.Text = "";
-            this.richTextBox_Phone.TextChanged += new System.EventHandler(this.richTextBox_Phone_TextChanged_1);
+            this.richTextBox_Phone.TextChanged += new System.EventHandler(this.RichTextBox_Phone_TextChanged_1);
             // 
             // label2
             // 
@@ -95,7 +95,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -106,7 +106,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // richTextBox_Notes
             // 
@@ -157,7 +157,7 @@
             this.richTextBox_IMEI.Size = new System.Drawing.Size(240, 32);
             this.richTextBox_IMEI.TabIndex = 9;
             this.richTextBox_IMEI.Text = "";
-            this.richTextBox_IMEI.TextChanged += new System.EventHandler(this.richTextBox_IMEI_TextChanged);
+            this.richTextBox_IMEI.TextChanged += new System.EventHandler(this.RichTextBox_IMEI_TextChanged);
             // 
             // label5
             // 

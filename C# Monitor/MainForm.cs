@@ -298,7 +298,6 @@ namespace SocketServer
         private Button Button_Export_excel;
         private Button button_GraphPause;
         private Button button_OpenFolder2;
-        private HelpProvider helpProvider1;
         private TabPage tabPage9;
         private Button button43;
         private Button button_ClientClose;
@@ -394,66 +393,66 @@ namespace SocketServer
 
         //bool m_Exit = false;
 
-        /// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
-        /// <param name="s"> The string containing the hex digits (with or without spaces). </param>
-        /// <returns> Returns an array of bytes. </returns>
-        private byte[] HexStringToByteArray(string s)
-        {
-            s = s.Replace(" ", "");
-            byte[] buffer = new byte[s.Length / 2];
-            for (int i = 0; i < s.Length; i += 2)
-            {
-                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
-            }
-            return buffer;
-        }
+        ///// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
+        ///// <param name="s"> The string containing the hex digits (with or without spaces). </param>
+        ///// <returns> Returns an array of bytes. </returns>
+        //private byte[] HexStringToByteArray(string s)
+        //{
+        //    s = s.Replace(" ", "");
+        //    byte[] buffer = new byte[s.Length / 2];
+        //    for (int i = 0; i < s.Length; i += 2)
+        //    {
+        //        buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+        //    }
+        //    return buffer;
+        //}
 
-        /// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
-        /// <param name="data"> The array of bytes to be translated into a string of hex digits. </param>
-        /// <returns> Returns a well formatted string of hex digits with spacing. </returns>
-        private string ByteArrayToHexString(byte[] data)
-        {
-            StringBuilder sb = new StringBuilder(data.Length * 3);
-            foreach (byte b in data)
-            {
-                if (b == 0)
-                {
-                    //sb.Append("00 ");
-                }
-                else
-                {
-                    sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
-                }
-            }
-            return sb.ToString().ToUpper();
-        }
+        ///// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
+        ///// <param name="data"> The array of bytes to be translated into a string of hex digits. </param>
+        ///// <returns> Returns a well formatted string of hex digits with spacing. </returns>
+        //private string ByteArrayToHexString(byte[] data)
+        //{
+        //    StringBuilder sb = new StringBuilder(data.Length * 3);
+        //    foreach (byte b in data)
+        //    {
+        //        if (b == 0)
+        //        {
+        //            //sb.Append("00 ");
+        //        }
+        //        else
+        //        {
+        //            sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
+        //        }
+        //    }
+        //    return sb.ToString().ToUpper();
+        //}
 
 
         class LogClass
         {
-            public string msg { get; set; }
-            public Color i_Color { get; set; }
-            public Color i_TextBackgroundColor { get; set; }
+            public string Msg { get; set; }
+            public Color Log_Color { get; set; }
+            public Color Log_TextBackgroundColor { get; set; }
         }
 
-        private void Show_WebBrowserUrl(string i_Url)
-        {
-            try
-            {
-                Uri url = new Uri(i_Url);
+        //private void Show_WebBrowserUrl(string i_Url)
+        //{
+        //    try
+        //    {
+        //        Uri url = new Uri(i_Url);
 
 
 
-            }
-            catch (Exception ex)
-            {
-                ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
 
-            }
+        //    }
 
-            return;
+        //    return;
 
-        }
+        //}
 
 
 
@@ -868,7 +867,6 @@ namespace SocketServer
             this.groupBox_PhoneNumber = new System.Windows.Forms.GroupBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.serialPort_SMS = new System.IO.Ports.SerialPort(this.components);
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.Label_SerialPortRx = new System.Windows.Forms.Label();
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
@@ -989,7 +987,7 @@ namespace SocketServer
             this.txtPortNo.Size = new System.Drawing.Size(40, 23);
             this.txtPortNo.TabIndex = 1;
             this.txtPortNo.Text = "2002";
-            this.txtPortNo.TextChanged += new System.EventHandler(this.txtPortNo_TextChanged);
+            this.txtPortNo.TextChanged += new System.EventHandler(this.TxtPortNo_TextChanged);
             // 
             // textBox_NumberOfOpenConnections
             // 
@@ -1000,7 +998,7 @@ namespace SocketServer
             this.textBox_NumberOfOpenConnections.Size = new System.Drawing.Size(25, 23);
             this.textBox_NumberOfOpenConnections.TabIndex = 5;
             this.toolTip1.SetToolTip(this.textBox_NumberOfOpenConnections, "Number of open connections");
-            this.textBox_NumberOfOpenConnections.TextChanged += new System.EventHandler(this.textBox_NumberOfOpenConnections_TextChanged);
+            this.textBox_NumberOfOpenConnections.TextChanged += new System.EventHandler(this.TextBox_NumberOfOpenConnections_TextChanged);
             // 
             // ListenBox
             // 
@@ -1043,7 +1041,7 @@ namespace SocketServer
             this.comboBox_ConnectionNumber.Name = "comboBox_ConnectionNumber";
             this.comboBox_ConnectionNumber.Size = new System.Drawing.Size(170, 26);
             this.comboBox_ConnectionNumber.TabIndex = 2;
-            this.comboBox_ConnectionNumber.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox_ConnectionNumber.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -1053,7 +1051,7 @@ namespace SocketServer
             this.button1.Size = new System.Drawing.Size(64, 24);
             this.button1.TabIndex = 1;
             this.button1.Text = "Send";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // txtDataTx
             // 
@@ -1065,7 +1063,7 @@ namespace SocketServer
             this.txtDataTx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDataTx.Size = new System.Drawing.Size(257, 162);
             this.txtDataTx.TabIndex = 0;
-            this.txtDataTx.TextChanged += new System.EventHandler(this.txtDataTx_TextChanged);
+            this.txtDataTx.TextChanged += new System.EventHandler(this.TxtDataTx_TextChanged);
             // 
             // groupBox3
             // 
@@ -1102,7 +1100,7 @@ namespace SocketServer
             this.txtGeneral.Size = new System.Drawing.Size(647, 480);
             this.txtGeneral.TabIndex = 0;
             this.txtGeneral.Text = "";
-            this.txtGeneral.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.txtGeneral.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
             // checkBox_RecordGeneral
             // 
@@ -1115,7 +1113,7 @@ namespace SocketServer
             this.checkBox_RecordGeneral.TabIndex = 7;
             this.checkBox_RecordGeneral.Text = "Record Log";
             this.checkBox_RecordGeneral.UseVisualStyleBackColor = true;
-            this.checkBox_RecordGeneral.CheckedChanged += new System.EventHandler(this.checkBox_RecordGeneral_CheckedChanged);
+            this.checkBox_RecordGeneral.CheckedChanged += new System.EventHandler(this.CheckBox_RecordGeneral_CheckedChanged);
             // 
             // PauseCheck
             // 
@@ -1231,7 +1229,7 @@ namespace SocketServer
             this.button_SendSerialPort.Size = new System.Drawing.Size(105, 24);
             this.button_SendSerialPort.TabIndex = 1;
             this.button_SendSerialPort.Text = "Send";
-            this.button_SendSerialPort.Click += new System.EventHandler(this.button2_Click_1);
+            this.button_SendSerialPort.Click += new System.EventHandler(this.Button2_Click_1);
             // 
             // gbPortSettings
             // 
@@ -1645,7 +1643,7 @@ namespace SocketServer
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
-            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
+            this.tabPage6.Click += new System.EventHandler(this.TabPage6_Click);
             // 
             // tabControl_systems
             // 
@@ -1754,7 +1752,7 @@ namespace SocketServer
             this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
             this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\n\r\nValid Input Data:\r\nstring  Max" +
         " 15\r\n\r\n\r\n");
-            this.textBox_Config4.TextChanged += new System.EventHandler(this.textBox_Config4_TextChanged);
+            this.textBox_Config4.TextChanged += new System.EventHandler(this.TextBox_Config4_TextChanged);
             // 
             // textBox_Config42
             // 
@@ -1780,7 +1778,7 @@ namespace SocketServer
         "lid Port 0-99999");
             this.toolTip1.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
         "lid Port 0-99999\r\n\r\n");
-            this.textBox_Config6.TextChanged += new System.EventHandler(this.textBox_Config6_TextChanged);
+            this.textBox_Config6.TextChanged += new System.EventHandler(this.TextBox_Config6_TextChanged);
             // 
             // textBox_Config8
             // 
@@ -1793,7 +1791,7 @@ namespace SocketServer
         " to remote server. \r\nValid data:\r\nnumber\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
         " to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.textBox_Config8.TextChanged += new System.EventHandler(this.textBox_Config8_TextChanged);
+            this.textBox_Config8.TextChanged += new System.EventHandler(this.TextBox_Config8_TextChanged);
             // 
             // textBox_Config9
             // 
@@ -1806,7 +1804,7 @@ namespace SocketServer
         "erator. \r\nValid Data:\r\nstring");
             this.toolTip1.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
         "erator. \r\nValid Data:\r\nstring");
-            this.textBox_Config9.TextChanged += new System.EventHandler(this.textBox_Config9_TextChanged);
+            this.textBox_Config9.TextChanged += new System.EventHandler(this.TextBox_Config9_TextChanged);
             // 
             // textBox_Config10
             // 
@@ -1819,7 +1817,7 @@ namespace SocketServer
         "P address\r\n\r\n\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
         "P address\r\n\r\n");
-            this.textBox_Config10.TextChanged += new System.EventHandler(this.textBox_Config10_TextChanged);
+            this.textBox_Config10.TextChanged += new System.EventHandler(this.TextBox_Config10_TextChanged);
             // 
             // textBox_Config11
             // 
@@ -1832,7 +1830,7 @@ namespace SocketServer
         "P address");
             this.toolTip1.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
         "P address\r\n");
-            this.textBox_Config11.TextChanged += new System.EventHandler(this.textBox_Config11_TextChanged);
+            this.textBox_Config11.TextChanged += new System.EventHandler(this.TextBox_Config11_TextChanged);
             // 
             // textBox_Config12
             // 
@@ -1845,7 +1843,7 @@ namespace SocketServer
         "lid Port 0-99999\r\n\r\n\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
         "lid Port 0-99999\r\n\r\n");
-            this.textBox_Config12.TextChanged += new System.EventHandler(this.textBox_Config12_TextChanged);
+            this.textBox_Config12.TextChanged += new System.EventHandler(this.TextBox_Config12_TextChanged);
             // 
             // textBox_Config20
             // 
@@ -1858,7 +1856,7 @@ namespace SocketServer
         "it will send position message. \r\nValid data:\r\n0-360\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
         "it will send position message. \r\nValid data:\r\n0-360");
-            this.textBox_Config20.TextChanged += new System.EventHandler(this.textBox_Config20_TextChanged);
+            this.textBox_Config20.TextChanged += new System.EventHandler(this.TextBox_Config20_TextChanged);
             // 
             // textBox_Config21
             // 
@@ -1871,7 +1869,7 @@ namespace SocketServer
         "lid data:\r\nnumber");
             this.toolTip1.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
         "lid data:\r\nnumber");
-            this.textBox_Config21.TextChanged += new System.EventHandler(this.textBox_Config21_TextChanged);
+            this.textBox_Config21.TextChanged += new System.EventHandler(this.TextBox_Config21_TextChanged);
             // 
             // textBox_Config22
             // 
@@ -1884,7 +1882,7 @@ namespace SocketServer
         "nt to remote server. \r\nValid data:\r\nnumber");
             this.toolTip1.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
         "nt to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.textBox_Config22.TextChanged += new System.EventHandler(this.textBox_Config22_TextChanged);
+            this.textBox_Config22.TextChanged += new System.EventHandler(this.TextBox_Config22_TextChanged);
             // 
             // textBox_SpeedLimit3
             // 
@@ -2095,7 +2093,7 @@ namespace SocketServer
         "\r\nValid data:\r\n0-9\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config5, "Description:\r\nan option to configure vehicle\'s thresholds for low level battery. " +
         "\r\nValid data:\r\n0-9\r\n");
-            this.textBox_Config5.TextChanged += new System.EventHandler(this.textBox_Config5_TextChanged);
+            this.textBox_Config5.TextChanged += new System.EventHandler(this.TextBox_Config5_TextChanged);
             // 
             // textBox_Config14
             // 
@@ -2106,7 +2104,7 @@ namespace SocketServer
             this.textBox_Config14.TabIndex = 15;
             this.toolTip2.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360");
             this.toolTip1.SetToolTip(this.textBox_Config14, "Description:\r\nangle (in degrees unit) for tilt detection. \r\nValid data:\r\n0-360\r\n");
-            this.textBox_Config14.TextChanged += new System.EventHandler(this.textBox_Config14_TextChanged);
+            this.textBox_Config14.TextChanged += new System.EventHandler(this.TextBox_Config14_TextChanged);
             // 
             // textBox_Config15
             // 
@@ -2117,7 +2115,7 @@ namespace SocketServer
             this.textBox_Config15.TabIndex = 16;
             this.toolTip2.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.toolTip1.SetToolTip(this.textBox_Config15, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
-            this.textBox_Config15.TextChanged += new System.EventHandler(this.textBox_Config15_TextChanged);
+            this.textBox_Config15.TextChanged += new System.EventHandler(this.TextBox_Config15_TextChanged);
             // 
             // textBox_Config16
             // 
@@ -2130,7 +2128,7 @@ namespace SocketServer
         "ddle sensitivity \r\n 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
             this.toolTip1.SetToolTip(this.textBox_Config16, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
         "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const");
-            this.textBox_Config16.TextChanged += new System.EventHandler(this.textBox_Config16_TextChanged);
+            this.textBox_Config16.TextChanged += new System.EventHandler(this.TextBox_Config16_TextChanged);
             // 
             // textBox_Config23
             // 
@@ -2141,7 +2139,7 @@ namespace SocketServer
             this.textBox_Config23.TabIndex = 21;
             this.toolTip2.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config23, "Description:\r\nIs Logger mode enable\r\nValid data:\r\n0-1\r\n");
-            this.textBox_Config23.TextChanged += new System.EventHandler(this.textBox_Config23_TextChanged);
+            this.textBox_Config23.TextChanged += new System.EventHandler(this.TextBox_Config23_TextChanged);
             // 
             // textBox_Config24
             // 
@@ -2154,7 +2152,7 @@ namespace SocketServer
         "t 1 will be activated. \r\nValid data:\r\n0-1\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config24, "Description:\r\nan option enable/disable anti jamming detection. In this case outpu" +
         "t 1 will be activated. \r\nValid data:\r\n0-1");
-            this.textBox_Config24.TextChanged += new System.EventHandler(this.textBox_Config24_TextChanged);
+            this.textBox_Config24.TextChanged += new System.EventHandler(this.TextBox_Config24_TextChanged);
             // 
             // textBox_Config17
             // 
@@ -2165,7 +2163,7 @@ namespace SocketServer
             this.textBox_Config17.TabIndex = 18;
             this.toolTip2.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config17, "Description:\r\nangle (in degrees unit) for tow detection. \r\nValid data:\r\n0-360\r\n");
-            this.textBox_Config17.TextChanged += new System.EventHandler(this.textBox_Config17_TextChanged);
+            this.textBox_Config17.TextChanged += new System.EventHandler(this.TextBox_Config17_TextChanged);
             // 
             // textBox_Config18
             // 
@@ -2176,7 +2174,7 @@ namespace SocketServer
             this.textBox_Config18.TabIndex = 19;
             this.toolTip2.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
             this.toolTip1.SetToolTip(this.textBox_Config18, "Description:\r\nThe default value should not be changed. \r\nValid data:\r\nnumber");
-            this.textBox_Config18.TextChanged += new System.EventHandler(this.textBox_Config18_TextChanged);
+            this.textBox_Config18.TextChanged += new System.EventHandler(this.TextBox_Config18_TextChanged);
             // 
             // textBox_Config19
             // 
@@ -2189,7 +2187,7 @@ namespace SocketServer
         "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config19, "Description:\r\nThe sensitivity of the sensor. \r\n· 1 - High sensitivity \r\n· 25 - Mi" +
         "ddle sensitivity \r\n· 49 - Low sensitivity \r\nValid data:\r\nnumber < Tilt Const\r\n");
-            this.textBox_Config19.TextChanged += new System.EventHandler(this.textBox_Config19_TextChanged);
+            this.textBox_Config19.TextChanged += new System.EventHandler(this.TextBox_Config19_TextChanged);
             // 
             // textBox_Config25
             // 
@@ -2202,7 +2200,7 @@ namespace SocketServer
         "t number\r\n");
             this.toolTip1.SetToolTip(this.textBox_Config25, "Description:\r\nan option to set the value of initial odometer. \r\nValid data:\r\nFloa" +
         "t number\r\n\r\n");
-            this.textBox_Config25.TextChanged += new System.EventHandler(this.textBox_Config25_TextChanged);
+            this.textBox_Config25.TextChanged += new System.EventHandler(this.TextBox_Config25_TextChanged);
             // 
             // textBox_Config26
             // 
@@ -2215,7 +2213,7 @@ namespace SocketServer
         "n. \r\nValid data:\r\n20-70");
             this.toolTip1.SetToolTip(this.textBox_Config26, "Description:\r\nan option to configure the sensitivity of the Anti Jamming detectio" +
         "n. \r\nValid data:\r\n20-70");
-            this.textBox_Config26.TextChanged += new System.EventHandler(this.textBox_Config26_TextChanged);
+            this.textBox_Config26.TextChanged += new System.EventHandler(this.TextBox_Config26_TextChanged);
             // 
             // label_Config7
             // 
@@ -2237,7 +2235,7 @@ namespace SocketServer
             this.label_Config14.Size = new System.Drawing.Size(56, 15);
             this.label_Config14.TabIndex = 73;
             this.label_Config14.Text = "Tilt angle";
-            this.label_Config14.Click += new System.EventHandler(this.label26_Click);
+            this.label_Config14.Click += new System.EventHandler(this.Label26_Click);
             // 
             // label_Config15
             // 
@@ -2411,7 +2409,7 @@ namespace SocketServer
             this.button29.TabIndex = 63;
             this.button29.Text = "Save File";
             this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.Button29_Click);
             // 
             // button6
             // 
@@ -2422,7 +2420,7 @@ namespace SocketServer
             this.button6.TabIndex = 25;
             this.button6.Text = "Get Serial Port";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click_2);
+            this.button6.Click += new System.EventHandler(this.Button6_Click_2);
             // 
             // button2
             // 
@@ -2434,7 +2432,7 @@ namespace SocketServer
             this.button2.TabIndex = 62;
             this.button2.Text = "Set Serial Port";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
+            this.button2.Click += new System.EventHandler(this.Button2_Click_2);
             // 
             // button31
             // 
@@ -2445,7 +2443,7 @@ namespace SocketServer
             this.button31.TabIndex = 22;
             this.button31.Text = "Load File";
             this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.button31.Click += new System.EventHandler(this.Button31_Click);
             // 
             // textBox_SourceConfig
             // 
@@ -2937,7 +2935,7 @@ namespace SocketServer
             this.button_AddContact.TabIndex = 1;
             this.button_AddContact.Text = "Add";
             this.button_AddContact.UseVisualStyleBackColor = true;
-            this.button_AddContact.Click += new System.EventHandler(this.button33_Click_1);
+            this.button_AddContact.Click += new System.EventHandler(this.Button33_Click_1);
             // 
             // checkedListBox_PhoneBook
             // 
@@ -2947,8 +2945,8 @@ namespace SocketServer
             this.checkedListBox_PhoneBook.Size = new System.Drawing.Size(279, 298);
             this.checkedListBox_PhoneBook.TabIndex = 0;
             this.checkedListBox_PhoneBook.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_PhoneBook_SelectedIndexChanged);
-            this.checkedListBox_PhoneBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedListBox_PhoneBook_KeyDown);
-            this.checkedListBox_PhoneBook.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedListBox_PhoneBook_MouseDown);
+            this.checkedListBox_PhoneBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CheckedListBox_PhoneBook_KeyDown);
+            this.checkedListBox_PhoneBook.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CheckedListBox_PhoneBook_MouseDown);
             // 
             // tabPage8
             // 
@@ -3216,7 +3214,7 @@ namespace SocketServer
             this.button35.TabIndex = 18;
             this.button35.Text = "Clear";
             this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
+            this.button35.Click += new System.EventHandler(this.Button35_Click);
             // 
             // button_StartFOTA
             // 
@@ -3227,7 +3225,7 @@ namespace SocketServer
             this.button_StartFOTA.TabIndex = 16;
             this.button_StartFOTA.Text = "--->";
             this.button_StartFOTA.UseVisualStyleBackColor = true;
-            this.button_StartFOTA.Click += new System.EventHandler(this.button33_Click);
+            this.button_StartFOTA.Click += new System.EventHandler(this.Button33_Click);
             // 
             // textBox_TotalFrames1280Bytes
             // 
@@ -3238,7 +3236,7 @@ namespace SocketServer
             this.textBox_TotalFrames1280Bytes.TabIndex = 14;
             this.toolTip2.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
             this.toolTip1.SetToolTip(this.textBox_TotalFrames1280Bytes, "Total Frames 1280 Bytes");
-            this.textBox_TotalFrames1280Bytes.TextChanged += new System.EventHandler(this.textBox_TotalFrames256Bytes_TextChanged);
+            this.textBox_TotalFrames1280Bytes.TextChanged += new System.EventHandler(this.TextBox_TotalFrames256Bytes_TextChanged);
             // 
             // textBox_FOTA
             // 
@@ -3247,7 +3245,7 @@ namespace SocketServer
             this.textBox_FOTA.Name = "textBox_FOTA";
             this.textBox_FOTA.Size = new System.Drawing.Size(193, 52);
             this.textBox_FOTA.TabIndex = 13;
-            this.textBox_FOTA.TextChanged += new System.EventHandler(this.textBox_FOTA_TextChanged);
+            this.textBox_FOTA.TextChanged += new System.EventHandler(this.TextBox_FOTA_TextChanged);
             // 
             // button5
             // 
@@ -3257,7 +3255,7 @@ namespace SocketServer
             this.button5.TabIndex = 0;
             this.button5.Text = "Choose File";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // checkBox_EchoResponse
             // 
@@ -3268,7 +3266,7 @@ namespace SocketServer
             this.checkBox_EchoResponse.TabIndex = 10;
             this.checkBox_EchoResponse.Text = "Send ACK Back";
             this.checkBox_EchoResponse.UseVisualStyleBackColor = true;
-            this.checkBox_EchoResponse.CheckedChanged += new System.EventHandler(this.checkBox_EchoResponse_CheckedChanged);
+            this.checkBox_EchoResponse.CheckedChanged += new System.EventHandler(this.CheckBox_EchoResponse_CheckedChanged);
             // 
             // groupBox_ConnectionTimedOut
             // 
@@ -3300,7 +3298,7 @@ namespace SocketServer
             this.button_SetTimedOut.Text = "Set";
             this.toolTip1.SetToolTip(this.button_SetTimedOut, "Set Timed Out");
             this.button_SetTimedOut.UseVisualStyleBackColor = true;
-            this.button_SetTimedOut.Click += new System.EventHandler(this.button_SetTimedOut_Click);
+            this.button_SetTimedOut.Click += new System.EventHandler(this.Button_SetTimedOut_Click);
             // 
             // textBox_ConnectionTimedOut
             // 
@@ -3519,7 +3517,7 @@ namespace SocketServer
             this.button13.TabIndex = 49;
             this.button13.Text = "RF Pairing";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
             // 
             // groupBox22
             // 
@@ -3548,7 +3546,7 @@ namespace SocketServer
             this.button19.TabIndex = 63;
             this.button19.Text = "Odometer Config";
             this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
             // 
             // groupBox28
             // 
@@ -3598,7 +3596,7 @@ namespace SocketServer
             this.button25.TabIndex = 44;
             this.button25.Text = "Config Modem";
             this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button25.Click += new System.EventHandler(this.Button25_Click);
             // 
             // textBox_ModemPrimeryPort
             // 
@@ -3648,7 +3646,7 @@ namespace SocketServer
             this.button27.TabIndex = 44;
             this.button27.Text = "Config Forgin Net";
             this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.Click += new System.EventHandler(this.Button27_Click);
             // 
             // textBox_ForginAcessPoint
             // 
@@ -3714,7 +3712,7 @@ namespace SocketServer
             this.button26.TabIndex = 44;
             this.button26.Text = "Config Home Net";
             this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.button26.Click += new System.EventHandler(this.Button26_Click);
             // 
             // textBox_HomeAcessPoint
             // 
@@ -3776,7 +3774,7 @@ namespace SocketServer
             this.button24.TabIndex = 70;
             this.button24.Text = "Duration sleep";
             this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.button24.Click += new System.EventHandler(this.Button24_Click);
             // 
             // groupBox26
             // 
@@ -3806,7 +3804,7 @@ namespace SocketServer
             this.button23.Text = "Set Duration";
             this.toolTip1.SetToolTip(this.button23, "Normal Status Duration");
             this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.button23.Click += new System.EventHandler(this.Button23_Click);
             // 
             // groupBox25
             // 
@@ -3851,7 +3849,7 @@ namespace SocketServer
             this.button22.TabIndex = 65;
             this.button22.Text = "Speed Limit Alert";
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.Click += new System.EventHandler(this.Button22_Click);
             // 
             // groupBox24
             // 
@@ -3886,7 +3884,7 @@ namespace SocketServer
             this.button21.TabIndex = 64;
             this.button21.Text = "Dispatch Speed";
             this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // groupBox23
             // 
@@ -3921,7 +3919,7 @@ namespace SocketServer
             this.button20.TabIndex = 64;
             this.button20.Text = "Kill Engine";
             this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.button20.Click += new System.EventHandler(this.Button20_Click);
             // 
             // groupBox21
             // 
@@ -3964,7 +3962,7 @@ namespace SocketServer
             this.button18.TabIndex = 61;
             this.button18.Text = "Tilt/Tow Sensitivity";
             this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.Button18_Click);
             // 
             // groupBox20
             // 
@@ -4007,7 +4005,7 @@ namespace SocketServer
             this.button17.TabIndex = 61;
             this.button17.Text = "Hit Sensitivity";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
             // 
             // groupBox19
             // 
@@ -4058,7 +4056,7 @@ namespace SocketServer
             this.button16.TabIndex = 42;
             this.button16.Text = "Config Shock";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
             // groupBox18
             // 
@@ -4117,7 +4115,7 @@ namespace SocketServer
             this.button15.TabIndex = 42;
             this.button15.Text = "Config Tilt";
             this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // groupBox17
             // 
@@ -4162,7 +4160,7 @@ namespace SocketServer
             this.button14.TabIndex = 42;
             this.button14.Text = "Config Tow";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // groupBox11
             // 
@@ -4199,7 +4197,7 @@ namespace SocketServer
             this.button12.TabIndex = 48;
             this.button12.Text = "Set Sleep Policy";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
             // groupBox10
             // 
@@ -4236,7 +4234,7 @@ namespace SocketServer
             this.button11.TabIndex = 43;
             this.button11.Text = "Set Alarm Policy";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.Button11_Click);
             // 
             // groupBox9
             // 
@@ -4268,7 +4266,7 @@ namespace SocketServer
             this.button10.TabIndex = 40;
             this.button10.Text = "Time Date Config";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // groupBox8
             // 
@@ -4315,7 +4313,7 @@ namespace SocketServer
             this.button9.TabIndex = 38;
             this.button9.Text = "Vehicle Battery";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
             // groupBox7
             // 
@@ -4375,7 +4373,7 @@ namespace SocketServer
             this.button8.TabIndex = 36;
             this.button8.Text = "Set Output Config";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // comboBox_OutputPulseLevel
             // 
@@ -4445,7 +4443,7 @@ namespace SocketServer
             this.button7.TabIndex = 32;
             this.button7.Text = "Set Input Config";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // groupBox13
             // 
@@ -4509,7 +4507,7 @@ namespace SocketServer
             this.button_SMSControl.TabIndex = 26;
             this.button_SMSControl.Text = "SMS Control";
             this.button_SMSControl.UseVisualStyleBackColor = true;
-            this.button_SMSControl.Click += new System.EventHandler(this.button_SMSControl_Click);
+            this.button_SMSControl.Click += new System.EventHandler(this.Button_SMSControl_Click);
             // 
             // groupBox15
             // 
@@ -4624,13 +4622,13 @@ namespace SocketServer
             // timer_General_100ms
             // 
             this.timer_General_100ms.Enabled = true;
-            this.timer_General_100ms.Tick += new System.EventHandler(this.timer_ConectionKeepAlive_Tick);
+            this.timer_General_100ms.Tick += new System.EventHandler(this.Timer_ConectionKeepAlive_Tick);
             // 
             // timer_General_1Second
             // 
             this.timer_General_1Second.Enabled = true;
             this.timer_General_1Second.Interval = 1000;
-            this.timer_General_1Second.Tick += new System.EventHandler(this.timer_General_Tick);
+            this.timer_General_1Second.Tick += new System.EventHandler(this.Timer_General_Tick);
             // 
             // groupBox36
             // 
@@ -4870,7 +4868,7 @@ namespace SocketServer
 
         }
 
-        List<String> CommandsHistoy = new List<String>();
+        readonly List<String> CommandsHistoy = new List<String>();
         int HistoryIndex = -1;
        // bool SelfMonitorCommandsMode = false;
         
@@ -4887,8 +4885,10 @@ namespace SocketServer
             e.Graphics.FillRectangle(backBrush, e.Bounds);
 
             //You may need to write the label here also?
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Center
+            };
 
             Rectangle r = e.Bounds;
             r = new Rectangle(r.X, r.Y + 3, r.Width, r.Height - 3);
@@ -4923,7 +4923,7 @@ namespace SocketServer
             e.DrawFocusRectangle();
         }
 
-        void listBox_SMSCommands_KeyDown(object sender, KeyEventArgs e)
+        void ListBox_SMSCommands_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
@@ -4931,7 +4931,7 @@ namespace SocketServer
             }
         }
 
-        void checkedListBox_PhoneBook_KeyDown(object sender, KeyEventArgs e)
+        void CheckedListBox_PhoneBook_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
@@ -4940,7 +4940,7 @@ namespace SocketServer
         }
 
         static Boolean PhoneBookIsChecked = false;
-        void checkedListBox_PhoneBook_MouseDown(object sender, MouseEventArgs e)
+        void CheckedListBox_PhoneBook_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -4964,7 +4964,7 @@ namespace SocketServer
             }
         }
 
-        void textBox_GeneralMessage_KeyPress(object sender, KeyPressEventArgs e)
+        void TextBox_GeneralMessage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -4988,78 +4988,78 @@ namespace SocketServer
 
         }
 
-        enum eComSource
+        enum EComSource
         {
             SerialPort = 0,
             GPRS,
             SMS
         }
-        private void GuiHandleData(eComSource i_ComSource, byte[] i_Data)
-        {
+        //private void GuiHandleData(EComSource i_ComSource, byte[] i_Data)
+        //{
 
-            try
-            {
-                GetDataIntervalCounter = 0;
+        //    try
+        //    {
+        //        GetDataIntervalCounter = 0;
 
-                //message has successfully been received
-                ASCIIEncoding encoder = new ASCIIEncoding();
-                byte[] data = null;
-                //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(i_Data);
-                if (data != null)
-                {
+        //        //message has successfully been received
+        //        ASCIIEncoding encoder = new ASCIIEncoding();
+        //        byte[] data = null;
+        //        //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(i_Data);
+        //        if (data != null)
+        //        {
 
-                    //ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    //ServerLogger.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                    //ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+        //            //ServerLogger.LogMessage(Color.Blue, Color.White, "["+ i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.Black, Color.White, " Type: ", New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageType.ToString(), New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.DarkGray, Color.White, data.MessageLength.ToString(), New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+        //            //ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(data.Data_Payload), New_Line = true, Show_Time = false);
 
-                    ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    ServerLogger.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+        //            ServerLogger.LogMessage(Color.Blue, Color.White, "[" + i_ComSource.ToString() + "]" + "  SSP Message Received ", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.Black, Color.White, " Data: ", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
 
-                    //switch (data)
-                    //{
-                    //    case SSP_Protocol.eMessegeType.CONFIG:
-                    //        HandleConfigMessage(i_ComSource,data);
-                    //        break;
+        //            //switch (data)
+        //            //{
+        //            //    case SSP_Protocol.eMessegeType.CONFIG:
+        //            //        HandleConfigMessage(i_ComSource,data);
+        //            //        break;
 
-                    //    case SSP_Protocol.eMessegeType.TRACE:
-                    //        HandleTraceMessage(i_ComSource, data);
-                    //        break;
+        //            //    case SSP_Protocol.eMessegeType.TRACE:
+        //            //        HandleTraceMessage(i_ComSource, data);
+        //            //        break;
 
-                    //    case SSP_Protocol.eMessegeType.ACK:
-                    //        HandleAckMessage(i_ComSource, data);
-                    //        break;
+        //            //    case SSP_Protocol.eMessegeType.ACK:
+        //            //        HandleAckMessage(i_ComSource, data);
+        //            //        break;
 
-                    //    case SSP_Protocol.eMessegeType.TEST:
-                    //        HandleTestMessage(i_ComSource, data);
-                    //        break;
-                    //}
+        //            //    case SSP_Protocol.eMessegeType.TEST:
+        //            //        HandleTestMessage(i_ComSource, data);
+        //            //        break;
+        //            //}
 
-                }
-                else
-                {
-                    // Gil: Not SSP Message
-                    ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    ServerLogger.LogMessage(Color.Blue, Color.White, "[ " + i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
-                    ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
-                }
+        //        }
+        //        else
+        //        {
+        //            // Gil: Not SSP Message
+        //            ServerLogger.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+        //            ServerLogger.LogMessage(Color.Blue, Color.White, "[ " + i_ComSource.ToString() + "]" + "  Non SSP Message Received", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.DarkGray, Color.White, encoder.GetString(i_Data, 0, i_Data.Length), New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.Black, Color.White, " \" ", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.Black, Color.White, " Payload: ", New_Line = false, Show_Time = false);
+        //            ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_Data), New_Line = true, Show_Time = false);
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                ServerLogger.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ServerLogger.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+        //    }
+        //}
 
 
 
@@ -5073,7 +5073,7 @@ namespace SocketServer
         // static int NumOfPositionMessage = 0;
 
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void Button1_Click(object sender, System.EventArgs e)
         {
             if (comboBox_ConnectionNumber.Text == "None")
             {
@@ -5162,7 +5162,7 @@ namespace SocketServer
 
                     m_Server = new Gil_Server.Server(txtPortNo.Text);
                     m_Server.DataRecievedNotifyDelegate += new EventHandler(GilServer_DataRecievedNotifyDelegate);
-                    m_Server.InformationNotifyDelegate += new EventHandler(m_Server_InformationNotifyDelegate);
+                    m_Server.InformationNotifyDelegate += new EventHandler(Server_InformationNotifyDelegate);
 
                     m_Server.Open_Server();
 
@@ -5178,7 +5178,7 @@ namespace SocketServer
             }
             else
             {
-                ListenBox.BackColor = default(Color);
+                ListenBox.BackColor = default;
 
                 m_Server.Close_Server();
 
@@ -5187,7 +5187,7 @@ namespace SocketServer
             }
         }
 
-        void m_Server_InformationNotifyDelegate(object sender, EventArgs e)
+        void Server_InformationNotifyDelegate(object sender, EventArgs e)
         {
             Gil_Server.Server.stringEventArgs mye = (Gil_Server.Server.stringEventArgs)e;
 
@@ -5198,9 +5198,10 @@ namespace SocketServer
 
         static int LastIgn = 1;
         static int TimerStatusRingWait = 0;
+
         //string[] UnitNumberToConnections = new string[30];
-        Dictionary<string, string> ConnectionToIDdictionary = new Dictionary<string, string>();
-        Dictionary<string, string> IDToFOTA_Status = new Dictionary<string, string>();
+        readonly Dictionary<string, string> ConnectionToIDdictionary = new Dictionary<string, string>();
+        readonly Dictionary<string, string> IDToFOTA_Status = new Dictionary<string, string>();
         void GilServer_DataRecievedNotifyDelegate(object sender, EventArgs e)
         {
 
@@ -5813,7 +5814,7 @@ namespace SocketServer
 
         void SendDataToServer(string i_Connection, byte[] i_Data)
         {
-            bool Issent = false;
+            bool Issent;
 
             Issent = WriteDataToServer(i_Connection, i_Data);
 
@@ -5839,18 +5840,18 @@ namespace SocketServer
             }
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
 
-        private void txtDataTx_TextChanged(object sender, EventArgs e)
+        private void TxtDataTx_TextChanged(object sender, EventArgs e)
         {
             Monitor.Properties.Settings.Default.Default_Server_Message = txtDataTx.Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -5888,17 +5889,17 @@ namespace SocketServer
 
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="i_S1frameArray"></param>
-        /// <returns>return bool if sent or not</returns>
-        bool SendS1Message(List<string> i_S1frameArray)
-        {
-            bool ret = false;
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="i_S1frameArray"></param>
+        ///// <returns>return bool if sent or not</returns>
+        //bool SendS1Message(List<string> i_S1frameArray)
+        //{
+        //    bool ret = false;
 
-            return ret;
-        }
+        //    return ret;
+        //}
 
         private bool WriteDataToServer(string i_ConnectionNumber, byte[] i_Data)
         {
@@ -5913,126 +5914,126 @@ namespace SocketServer
 
 
 
-        private void comboBox_InputIndex_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_InputIndex_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
 
 
-        private void button23_Click(object sender, EventArgs e)
+        private void Button23_Click(object sender, EventArgs e)
         {
 
         }
 
 
-        private void button24_Click(object sender, EventArgs e)
+        private void Button24_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button_SMSControl_Click(object sender, EventArgs e)
+        private void Button_SMSControl_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void Button9_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void Button10_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Button7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void Button13_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void Button12_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void Button11_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button19_Click(object sender, EventArgs e)
+        private void Button19_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        private void Button22_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Button8_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button21_Click(object sender, EventArgs e)
+        private void Button21_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void Button14_Click(object sender, EventArgs e)
         {
 
         }
 
 
-        private void button15_Click(object sender, EventArgs e)
+        private void Button15_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void Button16_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void Button17_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void Button18_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button26_Click(object sender, EventArgs e)
+        private void Button26_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button27_Click(object sender, EventArgs e)
+        private void Button27_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button25_Click(object sender, EventArgs e)
+        private void Button25_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        private void Button20_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtS1_Clear_Click_1(object sender, EventArgs e)
+        private void TxtS1_Clear_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -6048,34 +6049,34 @@ namespace SocketServer
             }
         }
 
-        private void btn_GetPosition_Click(object sender, EventArgs e)
+        private void Btn_GetPosition_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_ResetUnit_Click(object sender, EventArgs e)
+        private void Btn_ResetUnit_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button_GetTripInfo_Click(object sender, EventArgs e)
+        private void Button_GetTripInfo_Click(object sender, EventArgs e)
         {
 
         }
 
 
 
-        private void btn_GetSet1_Click(object sender, EventArgs e)
+        private void Btn_GetSet1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_GetSet2_Click(object sender, EventArgs e)
+        private void Btn_GetSet2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
 
         }
@@ -6150,20 +6151,18 @@ namespace SocketServer
 
         }
 
-        void ClacPhoneBookTimeForPeriodOfSystem()
-        {
-            System.Windows.Forms.Application.Exit();
-        }
+        //void ClacPhoneBookTimeForPeriodOfSystem()
+        //{
+        //    System.Windows.Forms.Application.Exit();
+        //}
 
         TextBox_Logger ServerLogger;
         TextBox_Logger SerialPortLogger;
         //   Logger LogIWatcher;
         TextBox_Logger LogSMS;
         PhoneBook MyPhoneBook;
-
-        List<Series> List_SeriesCharts = new List<Series>();
-        
-        Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
+        readonly List<Series> List_SeriesCharts = new List<Series>();
+        readonly Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "Raw Data",
             //    Color = System.Drawing.Color.Green,
@@ -6172,8 +6171,7 @@ namespace SocketServer
             ChartType = SeriesChartType.Line,
             MarkerStyle = MarkerStyle.Diamond
     };
-
-        Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
+        readonly Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "Moving Avarage 30",
             //    Color = System.Drawing.Color.Blue,
@@ -6181,8 +6179,7 @@ namespace SocketServer
             IsXValueIndexed = false,
             ChartType = SeriesChartType.Line
         };
-
-        Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series
+        readonly Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series
         {
             Name = "0-100",
             //    Color = System.Drawing.Color.Blue,
@@ -6193,7 +6190,7 @@ namespace SocketServer
         };
 
         Point? prevPosition = null;
-        ToolTip tooltip = new ToolTip();
+        readonly ToolTip tooltip = new ToolTip();
 
         void Chart1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -6208,8 +6205,7 @@ namespace SocketServer
             {
                 if (result.ChartElementType == ChartElementType.DataPoint)
                 {
-                    var prop = result.Object as DataPoint;
-                    if (prop != null)
+                    if (result.Object is DataPoint prop)
                     {
                         var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
                         var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
@@ -6221,7 +6217,7 @@ namespace SocketServer
                             textBox_graph_XY.Text = "Chart=" + result.Series.Name + "\n, X=" + prop.XValue.ToString() + ", Y=" + prop.YValues[0].ToString();
 
                             tooltip.Show("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
-                                            pos.X, pos.Y - 15,9999999);
+                                            pos.X, pos.Y - 15, 9999999);
                         }
                     }
                 }
@@ -6241,8 +6237,7 @@ namespace SocketServer
             {
                 if (result.ChartElementType == ChartElementType.DataPoint)
                 {
-                    var prop = result.Object as DataPoint;
-                    if (prop != null)
+                    if (result.Object is DataPoint prop)
                     {
                         var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
                         var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
@@ -6337,7 +6332,7 @@ namespace SocketServer
             }
         }
 
-        System1_parser system1_Parser = new System1_parser();
+        readonly System1_parser system1_Parser = new System1_parser();
 
 
         // List<S1_Protocol.S1_Messege_Builder.Command_Description> CommandsDescription;
@@ -6421,7 +6416,7 @@ namespace SocketServer
                 //        checkBox_RecordTrace.Checked = !checkBox_RecordTrace.Checked;
 
                 //Gil: Initialize the serial ports
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPort_DataReceived);
 
                 scanComports();
                 cmbStopBits.DataSource = Enum.GetValues(typeof(StopBits));
@@ -6603,7 +6598,7 @@ namespace SocketServer
 
         private void Txtbx_GotFocus(object sender, EventArgs e)
         {
-            TextBox txtbx = (TextBox)sender;
+          //  TextBox txtbx = (TextBox)sender;
             // textBox_ConfigurationHelp.Text = "";
             //textBox_ConfigurationHelp.Text = txtbx.Name + "\n" + toolTip1.GetToolTip(txtbx);
 
@@ -6633,10 +6628,10 @@ namespace SocketServer
             CloseClentConnection();
         }
 
-        Color Tab0Color = default(Color);
-        Color Tab1Color = default(Color);
-        Color Tab2Color = default(Color);
-        Color Tab3Color = default(Color);
+        //Color Tab0Color;
+        //Color Tab1Color;
+        //Color Tab2Color;
+        //Color Tab3Color;
         private void TabControl1_DrawItem1(object sender, DrawItemEventArgs e)
         {
             TabPage page = tabControl_Main.TabPages[e.Index];
@@ -6647,7 +6642,7 @@ namespace SocketServer
             }
             else
             {
-                TabColor = default(Color);
+                TabColor = default;
             }
 
             //switch (e.Index)
@@ -6757,7 +6752,7 @@ namespace SocketServer
         //}
 
         // Dictionary<string, TextBox> Dictionary_ConfigurationTextBoxes;
-        List<TextBox> List_ConfigurationTextBoxes = new List<TextBox>();
+        readonly List<TextBox> List_ConfigurationTextBoxes = new List<TextBox>();
 
 
         //static public List<string> GetAllCommands()
@@ -6796,7 +6791,7 @@ namespace SocketServer
 
 
 
-        private void txtbox_Password_TextChanged(object sender, EventArgs e)
+        private void Txtbox_Password_TextChanged(object sender, EventArgs e)
         {
             //if (txtbox_Password.Text.Length < 4)
             //{
@@ -6810,7 +6805,7 @@ namespace SocketServer
 
 
         string ConfigFileName;
-        private void button28_Click(object sender, EventArgs e)
+        private void Button28_Click(object sender, EventArgs e)
         {
 
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
@@ -6829,7 +6824,7 @@ namespace SocketServer
 
 
         int NumOfRemainCommands = 0;
-        private void backgroundWorker_ConfigSystem_DoWork(object sender, DoWorkEventArgs e)
+        private void BackgroundWorker_ConfigSystem_DoWork(object sender, DoWorkEventArgs e)
         {
             var worker = sender as BackgroundWorker;
 
@@ -6935,7 +6930,7 @@ namespace SocketServer
 
         //}
 
-        enum eACKMessageReceived
+        enum ACKMessageReceived
         {
             UNDEFINED,
             ACK,
@@ -7048,10 +7043,10 @@ namespace SocketServer
 
         //Color originColor_LatLong;
         //string log_file_S1_LatLong;
-        List<string> KMl_text = new List<string>();
+      //  readonly List<string> KMl_text = new List<string>();
         //       int KML_Index = 0;
         //   int DrivingNumber = 0;
-        private void checkBox1_CheckedChanged_2(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged_2(object sender, EventArgs e)
         {
             //if (checkBox_RecordLatLong.Checked)
             //{
@@ -7097,14 +7092,12 @@ namespace SocketServer
             //}
         }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        private void WebBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
         }
 
-
-        List<List<string>> CommandsToSend = new List<List<string>>();
-
+        readonly List<List<string>> CommandsToSend = new List<List<string>>();
 
 
 
@@ -7116,12 +7109,13 @@ namespace SocketServer
 
 
 
-        private void button29_Click_1(object sender, EventArgs e)
+
+        private void Button29_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox_GeneralMessage_TextChanged(object sender, EventArgs e)
+        private void TextBox_GeneralMessage_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -7169,7 +7163,7 @@ namespace SocketServer
             {
                 if (ClientSocket == null)
                 {
-                    button_ClientConnect.BackColor = default(Color);
+                    button_ClientConnect.BackColor = default;
                 }
                 else
                     if (ClientSocket.Connected && ClientSocket.Client.Connected && ClientSocket.GetStream() != null)
@@ -7178,7 +7172,7 @@ namespace SocketServer
                     }
                     else
                     {
-                        button_ClientConnect.BackColor = default(Color);
+                        button_ClientConnect.BackColor = default;
                     }
 
 
@@ -7187,14 +7181,14 @@ namespace SocketServer
             }
             catch
             {
-                button_ClientConnect.BackColor = default(Color);
+                button_ClientConnect.BackColor = default;
             }
 
         }
 
         private int TimeOutKeepAlivein100ms = 3000000;
         private int RxLabelTimerBlink = 0, TxLabelTimerBlink = 0;
-        private void timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
+        private void Timer_ConectionKeepAlive_Tick(object sender, EventArgs e)
         {
             Timer_100ms++;
 
@@ -7232,7 +7226,7 @@ namespace SocketServer
                     }
                     else
                     {
-                        textBox_ServerActive.BackColor = default(Color);
+                        textBox_ServerActive.BackColor = default;
                     }
 
 
@@ -7245,7 +7239,7 @@ namespace SocketServer
                     else
                     {
                         IsTimedOutTimerEnabled = false;
-                        textBox_ServerOpen.BackColor = default(Color);
+                        textBox_ServerOpen.BackColor = default;
                         // ListenBox.BackColor = Color.Yellow;
                     }
 
@@ -7282,14 +7276,14 @@ namespace SocketServer
                     }
                     else
                     {
-                        Label_SerialPortRx.BackColor = default(Color);
+                        Label_SerialPortRx.BackColor = default;
                     }
                 }
             }
             else
             if (RxLabelTimerBlink == 0)
             {
-                Label_SerialPortRx.BackColor = default(Color);
+                Label_SerialPortRx.BackColor = default;
             }
 
             if (TxLabelTimerBlink > 0)
@@ -7304,14 +7298,14 @@ namespace SocketServer
                     }
                     else
                     {
-                        Label_SerialPortTx.BackColor = default(Color);
+                        Label_SerialPortTx.BackColor = default;
                     }
                 }
             }
             else
             if (TxLabelTimerBlink == 0)
             {
-                Label_SerialPortTx.BackColor = default(Color);
+                Label_SerialPortTx.BackColor = default;
             }
 
 
@@ -7322,9 +7316,9 @@ namespace SocketServer
 
             }
 
-        List<double> ChartMem = new List<double>();
-        List<double> ChartMem2 = new List<double>();
-        Random rand = new Random();
+        readonly List<double> ChartMem = new List<double>();
+        readonly List<double> ChartMem2 = new List<double>();
+        readonly Random rand = new Random();
         int GreenCnt = 0, RedCnt = 0;
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
@@ -7361,7 +7355,7 @@ namespace SocketServer
                     cnt++;
                     ChartCntY2 += (int)series1.Points[i].YValues[0];
                 }
-                ChartCntY2 = ChartCntY2 / cnt;
+                ChartCntY2 /= cnt;
 
                 if (IsPauseGraphs == false)
                 {
@@ -7377,8 +7371,8 @@ namespace SocketServer
 
                 ChartCntX++;
                 double temp = rand.Next(-1, 2);
-                temp = temp * rand.NextDouble();
-                ChartCntY = ChartCntY + temp;
+                temp *= rand.NextDouble();
+                ChartCntY += temp;
 
                 if (ChartCntY > ChartCntY2)
                 {
@@ -7412,13 +7406,13 @@ namespace SocketServer
             
         }
 
-        static float NextFloat(Random random)
-        {
-            double mantissa = (random.NextDouble() * 2.0) - 1.0;
-            // choose -149 instead of -126 to also generate subnormal floats (*)
-            double exponent = Math.Pow(2.0, random.Next(-126, 128));
-            return (float)(mantissa * exponent);
-        }
+        //static float NextFloat(Random random)
+        //{
+        //    double mantissa = (random.NextDouble() * 2.0) - 1.0;
+        //    // choose -149 instead of -126 to also generate subnormal floats (*)
+        //    double exponent = Math.Pow(2.0, random.Next(-126, 128));
+        //    return (float)(mantissa * exponent);
+        //}
 
         private void TakeCroppedScreenShot()
         {
@@ -7438,22 +7432,22 @@ namespace SocketServer
         }
 
 
-        private void tabPage6_Click(object sender, EventArgs e)
+        private void TabPage6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button_Set2_Click(object sender, EventArgs e)
+        private void Button_Set2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button_GenerateConfigFile_Click(object sender, EventArgs e)
+        private void Button_GenerateConfigFile_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button_Set1_Click(object sender, EventArgs e)
+        private void Button_Set1_Click(object sender, EventArgs e)
         {
 
 
@@ -7464,29 +7458,28 @@ namespace SocketServer
 
         //bool timer_General_TranssmitionPeriodicallyEnable = false;
         //uint NumbeOfTransmmitions = 0;
-        int TimerCounter100ms = 0, TimerClearModemStatus = 0, TimerExportContactsCommandsToFile = 0;
+         int  TimerClearModemStatus = 0;
         //uint IntervalTimeBetweenTransmitions = 1;
-        private void timer_General_Tick(object sender, EventArgs e)
+        private void Timer_General_Tick(object sender, EventArgs e)
         {
 
 
-            Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            Tab0Color = randomColor;
+            //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            //Tab0Color = randomColor;
 
-            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            Tab1Color = randomColor;
+            //randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            //Tab1Color = randomColor;
 
-            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            Tab2Color = randomColor;
+            //randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            //Tab2Color = randomColor;
 
-            randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            Tab3Color = randomColor;
+            //randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            //Tab3Color = randomColor;
             tabControl_Main.Invalidate();
 
             if (IsTimerRunning == true)
             {
-                int Result = 0;
-                int.TryParse(textBox_TimerTime.Text, out Result);
+                int.TryParse(textBox_TimerTime.Text, out int Result);
                 if (Result != 0)
                 {
                     Result--;
@@ -7518,21 +7511,21 @@ namespace SocketServer
             }
             else
             {
-                button_Ring.BackColor = default(Color);
+                button_Ring.BackColor = default;
                 button_Ring.Text = "Ring";
             }
 
-            TimerCounter100ms++;
+          //  TimerCounter100ms++;
 
             TimerClearModemStatus++;
 
-            TimerExportContactsCommandsToFile++;
+            //TimerExportContactsCommandsToFile++;
 
             if (TimerClearModemStatus % 60 == 0)
             {
                 richTextBox_ModemStatus.Invoke(new EventHandler(delegate
                 {
-                    richTextBox_ModemStatus.BackColor = default(Color);
+                    richTextBox_ModemStatus.BackColor = default;
                     richTextBox_ModemStatus.Text = "";
                 }));
             }
@@ -7552,7 +7545,7 @@ namespace SocketServer
                 CloseSerialPortConter++;
                 if (CloseSerialPortConter > 1)
                 {
-                    serialPort_DataReceived(null, null);
+                    SerialPort_DataReceived(null, null);
                     CloseSerialPortConter = 0;
                 }
             }
@@ -7563,8 +7556,10 @@ namespace SocketServer
 
                     if (m_Server.NumberOfOpenConnections == 0)
                     {
-                        var dataSource = new List<string>();
-                        dataSource.Add("None");
+                        var dataSource = new List<string>
+                        {
+                            "None"
+                        };
                         comboBox_ConnectionNumber.DataSource = dataSource;
                         LastConNum = m_Server.NumberOfOpenConnections;
 
@@ -7765,7 +7760,7 @@ namespace SocketServer
 
         bool ComPortClosing = false;
         //List<byte> temp_serialBuff = new List<byte>();
-        void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
 
             // If the com port has been closed, do nothing
@@ -7786,8 +7781,8 @@ namespace SocketServer
                      button_OpenPort.Enabled = true;
                      gbPortSettings.Enabled = true;
 
-                     button_OpenPort.BackColor = default(Color);
-                     label_SerialPortConnected.BackColor = default(Color);
+                     button_OpenPort.BackColor = default;
+                     label_SerialPortConnected.BackColor = default;
 
                      cmbBaudRate.Enabled = true;
                      cmbDataBits.Enabled = true;
@@ -7889,7 +7884,7 @@ namespace SocketServer
             Server
         };
 
-        void ParseStatuPos(string IncomingString, SourceMessage i_SourceMessage, PhoneBookContact i_Contact)
+        void ParseStatuPos(string IncomingString)
         {
             string[] ParseStrings = { "" };
             string[] Key = { "" };
@@ -7926,7 +7921,7 @@ namespace SocketServer
                     //}
                     //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nPOSITION Message Received: ", New_Line = false, Show_Time = false);
 
-                    string PositionString =
+                    _ =
                         "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
                         "\n STATE = " + Key[1] +
                         "\n GSM LINK QUALITY = " + ParseStrings[2] +
@@ -8015,7 +8010,7 @@ namespace SocketServer
                     //}
                     //LogIWatcher.LogMessage(Color.DarkOrange, Color.White, "\nSTATUS Message Received: ", New_Line = false, Show_Time = false);
 
-                    string PositionString =
+                    _ =
                         "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
                         "\n SYSTEM STATE = " + Key[1] +
                         "\n IGN STATE = " + ParseStrings[2] +
@@ -8061,7 +8056,7 @@ namespace SocketServer
 
                     // ,,, ,N/A,N/A;
 
-                    string PositionString =
+                    _ =
                         "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
                         "\n SUBSCRIBER 1 = " + ParseStrings[2] +
                         "\n SUBSCRIBER 2 = " + ParseStrings[3] +
@@ -8104,7 +8099,7 @@ namespace SocketServer
 
                     //  , , , ,  fota access point name, N/A ,software version, GPS num of used satellites,GPS last timestamp,;
 
-                    string PositionString =
+                    _ =
                         "\n UNIT ID = " + ParseStrings[0].Replace(";", "") +
                         "\n password = " + ParseStrings[2] +
                         "\n primary host address + port = " + ParseStrings[3] +
@@ -8119,7 +8114,7 @@ namespace SocketServer
                 }
             }
         }
-        private static Mutex mutexACKSMSReceived = new Mutex();
+        private static readonly Mutex mutexACKSMSReceived = new Mutex();
 
         void ParseSerialPortSMSString(string IncomingString)
         {
@@ -8146,7 +8141,7 @@ namespace SocketServer
                 ParseConfigCommand(IncomingString);
                 //ret = ParseSMSCommand(IncomingString);
 
-                ParseStatuPos(IncomingString, SourceMessage.SerialPort, null);
+                ParseStatuPos(IncomingString);
 
                 // ParseUnitVersion(IncomingString);
 
@@ -8281,14 +8276,13 @@ namespace SocketServer
             i_Subscriber = i_Subscriber.Replace("\"", "");
             PhoneBookContact ContactFound = MyPhoneBook.IsNumberExist(i_Subscriber);
 
-            string[] ParseStrings = { "" };
             string ReceivedUnitID = String.Empty;
             try
             {
                 if (i_SMSText.Contains(","))
                 {
-                    ParseStrings = i_SMSText.Split(',');
-                    ReceivedUnitID = ParseStrings[0].Replace(";", "");
+                    //ParseStrings = i_SMSText.Split(',');
+                   // ReceivedUnitID = ParseStrings[0].Replace(";", "");
                 }
             }
             catch (Exception ex)
@@ -8328,10 +8322,12 @@ namespace SocketServer
 
 
 
-                PhoneBookContact NewContact = new PhoneBookContact();
-                NewContact.Name = "";            //values preserved after close
-                NewContact.Phone = i_Subscriber;
-                NewContact.Notes = "";
+                PhoneBookContact NewContact = new PhoneBookContact
+                {
+                    Name = "",            //values preserved after close
+                    Phone = i_Subscriber,
+                    Notes = ""
+                };
 
                 if (ReceivedUnitID != String.Empty)
                 {
@@ -8352,7 +8348,7 @@ namespace SocketServer
 
 
 
-            ParseStatuPos(i_SMSText, SourceMessage.SMS, ContactFound);
+            ParseStatuPos(i_SMSText);
 
 
 
@@ -8385,7 +8381,7 @@ namespace SocketServer
 
                 if (ConfigString.Contains("CONFIGOK"))
                 {
-                    textBox_GenerateConfigFile_Text("CONFIG OK Received", Color.LightGreen);
+                    TextBox_GenerateConfigFile_Text("CONFIG OK Received", Color.LightGreen);
                 }
                 else
                 {
@@ -8394,17 +8390,17 @@ namespace SocketServer
             }
         }
 
-        void Serial_TerminalDataLost(byte[] i_data)
-        {
+        //void Serial_TerminalDataLost(byte[] i_data)
+        //{
 
-            ServerLogger.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
-            ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
-            ServerLogger.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
-            ServerLogger.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
-            ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
-        }
+        //    ServerLogger.LogMessage(Color.Orange, Color.White, "[SerialPort]: Some Data Have been lost. ", New_Line = false, Show_Time = true);
+        //    ServerLogger.LogMessage(Color.Black, Color.White, " Length: ", New_Line = false, Show_Time = false);
+        //    ServerLogger.LogMessage(Color.DarkGray, Color.White, i_data.Length.ToString(), New_Line = false, Show_Time = false);
+        //    ServerLogger.LogMessage(Color.Black, Color.White, " DATA: ", New_Line = false, Show_Time = false);
+        //    ServerLogger.LogMessage(Color.DarkGray, Color.White, ByteArrayToHexString(i_data), New_Line = true, Show_Time = false);
+        //}
 
-        private void button_StopPeriodaclly_Click(object sender, EventArgs e)
+        private void Button_StopPeriodaclly_Click(object sender, EventArgs e)
         {
             //timer_General_TranssmitionPeriodicallyEnable = false;
 
@@ -8445,7 +8441,7 @@ namespace SocketServer
         }
 
 
-        private void button_SetTimedOut_Click(object sender, EventArgs e)
+        private void Button_SetTimedOut_Click(object sender, EventArgs e)
         {
 
             try
@@ -8468,7 +8464,7 @@ namespace SocketServer
         }
 
         //  static int LastNumOfConnections = 0;
-        private void textBox_NumberOfOpenConnections_TextChanged(object sender, EventArgs e)
+        private void TextBox_NumberOfOpenConnections_TextChanged(object sender, EventArgs e)
         {
 
             if (m_Server != null)
@@ -8493,7 +8489,7 @@ namespace SocketServer
                 else
                 {
                     // IsTimedOutTimerEnabled = false;
-                    textBox_NumberOfOpenConnections.BackColor = default(Color);
+                    textBox_NumberOfOpenConnections.BackColor = default;
                 }
 
                 GetDataIntervalCounter = 0;
@@ -8509,7 +8505,7 @@ namespace SocketServer
 
         }
 
-        private void button_AddDendSingleCommand_Click(object sender, EventArgs e)
+        private void Button_AddDendSingleCommand_Click(object sender, EventArgs e)
         {
             try
             {
@@ -8520,7 +8516,7 @@ namespace SocketServer
             }
         }
 
-        private void comboBox_AddSendSingleCommand_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_AddSendSingleCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
             //  textBox_AddSendSingleCommand.Text = comboBox_AddSendSingleCommand.Text;
             //textBox_ValidCommand.BackColor = default(Color);
@@ -8546,8 +8542,8 @@ namespace SocketServer
 
         }
 
-        List<string> S1CommandsForConfig = new List<string>();
-        private void button_ValidateCommand_Click(object sender, EventArgs e)
+       // readonly List<string> S1CommandsForConfig = new List<string>();
+        private void Button_ValidateCommand_Click(object sender, EventArgs e)
         {
 
 
@@ -8557,7 +8553,7 @@ namespace SocketServer
 
             //string[] Command = textBox_AddSendSingleCommand.Text.Split(',');
 
-            List<string> parms = new List<string>();
+           // List<string> parms = new List<string>();
             // object[] parameters = new object[6];
             //for (int j = 1; j < Command.Length; j++)
             //{
@@ -8703,12 +8699,12 @@ namespace SocketServer
         }
 
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             //button_ValidateCommand.Enabled = true;
         }
 
-        private void button6_Click_1(object sender, EventArgs e)
+        private void Button6_Click_1(object sender, EventArgs e)
         {
             //Config_Sys.Enabled = true;
             ConfigProcessExit = true;
@@ -8779,18 +8775,18 @@ namespace SocketServer
         //    ResumeTrace();
         //}
 
-        private void checkBox_EchoResponse_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_EchoResponse_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
         BinaryReader m_BinaryReader;
-        Dictionary<int, string> FOTAData = new Dictionary<int, string>();
-        private void button5_Click(object sender, EventArgs e)
+        readonly Dictionary<int, string> FOTAData = new Dictionary<int, string>();
+        private void Button5_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
@@ -8873,7 +8869,7 @@ namespace SocketServer
             }
         }
 
-        private void textBox_FOTA_TextChanged(object sender, EventArgs e)
+        private void TextBox_FOTA_TextChanged(object sender, EventArgs e)
         {
             if (textBox_FOTA.Text.Length > 0)
             {
@@ -8881,7 +8877,7 @@ namespace SocketServer
             }
         }
 
-        private void textBox_MaximumNumberReceivedRequest_TextChanged(object sender, EventArgs e)
+        private void TextBox_MaximumNumberReceivedRequest_TextChanged(object sender, EventArgs e)
         {
             if (textBox_MaximumNumberReceivedRequest.Text.Length > 0)
             {
@@ -8889,7 +8885,7 @@ namespace SocketServer
             }
         }
 
-        private void textBox_TotalFrames256Bytes_TextChanged(object sender, EventArgs e)
+        private void TextBox_TotalFrames256Bytes_TextChanged(object sender, EventArgs e)
         {
             //if (textBox_TotalFrames256Bytes.Text.Length > 0)
             //{
@@ -8897,7 +8893,7 @@ namespace SocketServer
             //}
         }
 
-        private void button33_Click(object sender, EventArgs e)
+        private void Button33_Click(object sender, EventArgs e)
         {
             //if (textBox_TotalFrames1280Bytes.Text.Length > 0 && textBox_TotalFileLength.Text.Length > 0)
             //{
@@ -8914,7 +8910,7 @@ namespace SocketServer
             }
         }
 
-        private void button35_Click(object sender, EventArgs e)
+        private void Button35_Click(object sender, EventArgs e)
         {
             //textBox_MaximumNumberReceivedRequest.Text = "";
             IDToFOTA_Status.Clear();
@@ -8923,7 +8919,7 @@ namespace SocketServer
             //textBox_FOTAEnd.Text = "";
         }
 
-        private void button34_Click(object sender, EventArgs e)
+        private void Button34_Click(object sender, EventArgs e)
         {
             int NumOfSendingPackets = 0, NumOfMissingPackets = 0;
             string[] StringSplt = textBox_MaximumNumberReceivedRequest.Text.Split(',');
@@ -8972,7 +8968,7 @@ namespace SocketServer
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -9034,7 +9030,7 @@ namespace SocketServer
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Button2_Click_1(object sender, EventArgs e)
         {
             bool IsSent = false;
             if (checkBox_SendHexdata.Checked == true)
@@ -9043,7 +9039,14 @@ namespace SocketServer
 
                 byte[] buffer = StringToByteArray(tempStr);
 
-                IsSent = SerialPortSendData(buffer);
+                if (buffer != null)
+                {
+                    IsSent = SerialPortSendData(buffer);
+                }
+                else
+                {
+                    SerialPortLogger.LogMessage(Color.Red, Color.LightGray, "Not Hex data format for example: aabbcc is 0xAA 0xBB 0xCC", New_Line = true, Show_Time = false);
+                }
 
                 if (IsSent == true)
                 {
@@ -9106,11 +9109,11 @@ namespace SocketServer
 
         }
 
-        private void button29_Click(object sender, EventArgs e)
+        private void Button29_Click(object sender, EventArgs e)
         {
             try
             {
-                textBox_GenerateConfigFile_Clear();
+                TextBox_GenerateConfigFile_Clear();
                 bool IsAllGreen = CheckAllTextboxConfig();
 
                 if (IsAllGreen == false)
@@ -9128,11 +9131,12 @@ namespace SocketServer
                 string UnitID = "00000000000"; 
                 string Config_file_name = "Config_Date-" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_UnitID-" + UnitID + ".txt";
 
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-                saveFileDialog1.Filter = "Text Files | *.txt";
-                saveFileDialog1.FilterIndex = 1;
-                saveFileDialog1.RestoreDirectory = true;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog
+                {
+                    Filter = "Text Files | *.txt",
+                    FilterIndex = 1,
+                    RestoreDirectory = true
+                };
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -9177,9 +9181,9 @@ namespace SocketServer
             }
         }
 
-        private void button31_Click(object sender, EventArgs e)
+        private void Button31_Click(object sender, EventArgs e)
         {
-            textBox_SourceConfig_Clear();
+            TextBox_SourceConfig_Clear();
 
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
@@ -9289,15 +9293,15 @@ namespace SocketServer
             }
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void Button3_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void button6_Click_2(object sender, EventArgs e)
+        private void Button6_Click_2(object sender, EventArgs e)
         {
             //   textBox_SendSerialPort.Text = "<1234>READ?,;";
-            textBox_SourceConfig_Clear();
+            TextBox_SourceConfig_Clear();
 
             string Sendstr = string.Format(";READ?,;");
             byte[] buffer = Encoding.ASCII.GetBytes(Sendstr);
@@ -9311,7 +9315,7 @@ namespace SocketServer
 
         }
 
-        private void textBox_GenerateConfigFile_TextChanged(object sender, EventArgs e)
+        private void TextBox_GenerateConfigFile_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -9353,7 +9357,7 @@ namespace SocketServer
         };
         bool CheckSubscriberValid(string i_String, ConfigDataType i_DataType)
         {
-            bool ret = false;
+            bool ret;
             try
             {
 
@@ -9715,7 +9719,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-                textBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
+                TextBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
                 ret = false;
             }
 
@@ -9740,17 +9744,17 @@ namespace SocketServer
             return true;
         }
 
-        private void textBox_Config1_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config1_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
         }
 
-        private void textBox_Config2_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config2_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
         }
 
-        private void textBox_Config3_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config3_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Subscriber);
         }
@@ -9763,7 +9767,7 @@ namespace SocketServer
                 if (i_TextBox.Text == "" || i_TextBox.Text == "@%@")
                 {
                     i_TextBox.Text = "";
-                    i_TextBox.BackColor = default(Color);
+                    i_TextBox.BackColor = default;
                 }
                 else
                     if (CheckSubscriberValid(i_TextBox.Text, i_ConfigDataType) == true)
@@ -9778,27 +9782,27 @@ namespace SocketServer
             }));
         }
 
-        private void textBox_Config4_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config4_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Password);
         }
 
-        private void textBox_Config5_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config5_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.BatLevel);
         }
 
-        void textBox_SourceConfig_Clear()
+        void TextBox_SourceConfig_Clear()
         {
-            textBox_SourceConfig.BackColor = default(Color);
+            textBox_SourceConfig.BackColor = default;
             textBox_SourceConfig.Text = "";
         }
 
-        private void button3_Click_2(object sender, EventArgs e)
+        private void Button3_Click_2(object sender, EventArgs e)
         {
             //   textBox_SendSerialPort.Text = "<1234>READ?,;"
 
-            textBox_SourceConfig_Clear();
+            TextBox_SourceConfig_Clear();
 
             using (var form = new System_Password())
             {
@@ -9881,11 +9885,11 @@ namespace SocketServer
         //    textBox_GenerateConfigFile.BackColor = default(Color);
         //}
 
-        private void button28_Click_1(object sender, EventArgs e)
+        private void Button28_Click_1(object sender, EventArgs e)
         {
             try
             {
-                textBox_GenerateConfigFile_Clear();
+                TextBox_GenerateConfigFile_Clear();
 
                 bool IsAllGreen = CheckAllTextboxConfig();
 
@@ -9965,11 +9969,11 @@ namespace SocketServer
             }
         }
 
-        private void button2_Click_2(object sender, EventArgs e)
+        private void Button2_Click_2(object sender, EventArgs e)
         {
             try
             {
-                textBox_GenerateConfigFile_Clear();
+                TextBox_GenerateConfigFile_Clear();
                 bool IsAllGreen = CheckAllTextboxConfig();
 
                 if (IsAllGreen == false)
@@ -10022,7 +10026,7 @@ namespace SocketServer
             }
         }
 
-        private void button30_Click(object sender, EventArgs e)
+        private void Button30_Click(object sender, EventArgs e)
         {
             using (var form = new System_Password())
             {
@@ -10041,7 +10045,7 @@ namespace SocketServer
         //textBox_UnitVersion
 
 
-        void textBox_GenerateConfigFile_Text(string i_Text, Color i_BackColor)
+        void TextBox_GenerateConfigFile_Text(string i_Text, Color i_BackColor)
         {
             //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
             //{
@@ -10050,7 +10054,7 @@ namespace SocketServer
             //}));
         }
 
-        void textBox_GenerateConfigFile_Clear()
+        void TextBox_GenerateConfigFile_Clear()
         {
             //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
             //    {
@@ -10067,12 +10071,12 @@ namespace SocketServer
         }
 
 
-        private void textBox_ConfigUnitID_TextChanged(object sender, EventArgs e)
+        private void TextBox_ConfigUnitID_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             //List<string> list = new List<string>(Dictionary_ConfigurationTextBoxes.Keys);
             //// Loop through list
@@ -10085,32 +10089,32 @@ namespace SocketServer
 
         }
 
-        private void label26_Click(object sender, EventArgs e)
+        private void Label26_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox_LoadedConfig_Enter(object sender, EventArgs e)
+        private void GroupBox_LoadedConfig_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateTextBox13();
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox3_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void textBox_Config13_TextChanged(object sender, EventArgs e)
+        private void CheckBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateTextBox13();
+        }
+
+        private void TextBox_Config13_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.AlarmViaSMS);
 
@@ -10121,7 +10125,7 @@ namespace SocketServer
             
         }
 
-        private void checkBox_config_Bit0_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit0_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
@@ -10133,97 +10137,97 @@ namespace SocketServer
 
         }
 
-        private void checkBox_config_Bit4_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit4_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit5_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit5_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit6_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit6_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit7_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit7_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit8_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit8_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit9_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit9_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void checkBox_config_Bit10_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_config_Bit10_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void button32_Click(object sender, EventArgs e)
+        private void Button32_Click(object sender, EventArgs e)
         {
             UpdateTextBox13();
         }
 
-        private void textBox_Config10_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config10_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.IpAddress);
         }
 
-        private void textBox_Config11_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config11_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.IpAddress);
         }
 
-        private void textBox_Config12_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config12_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Port);
         }
 
-        private void textBox_Config24_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config24_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Boolean);
         }
 
-        private void textBox_Config23_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config23_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Boolean);
         }
 
-        private void textBox_Config27_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config27_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.GPRSDisconnectNum);
         }
 
-        private void textBox_Config9_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config9_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.EveryThing);
         }
 
-        private void textBox_Config29_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config29_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Boolean);
         }
 
-        private void textBox_Config26_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config26_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.JammingSens);
         }
 
-        private void textBox_Config6_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config6_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Port);
         }
 
-        private void textBox_Config7_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config7_TextChanged(object sender, EventArgs e)
         {
 
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.SpeedLimit);
@@ -10231,91 +10235,91 @@ namespace SocketServer
 
         }
 
-        private void textBox_Config8_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config8_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.PeriodStatus);
         }
 
-        private void textBox_Config14_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config14_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Angel);
         }
 
-        private void textBox_Config15_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config15_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config16_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config16_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config17_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config17_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Angel);
         }
 
-        private void textBox_Config18_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config18_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config19_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config19_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config20_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config20_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Angel);
         }
 
-        private void textBox_Config21_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config21_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config22_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config22_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.PosPeriod5Sec);
         }
 
-        private void textBox_Config28_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config28_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config30_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config30_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Number);
         }
 
-        private void textBox_Config25_TextChanged(object sender, EventArgs e)
+        private void TextBox_Config25_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((TextBox)sender, ConfigDataType.Float);
         }
 
-        private void checkBox_RecordGeneral_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_RecordGeneral_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
 
 
-        private void textBox_IDKey_TextChanged(object sender, EventArgs e)
+        private void TextBox_IDKey_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtPortNo_TextChanged(object sender, EventArgs e)
+        private void TxtPortNo_TextChanged(object sender, EventArgs e)
         {
             Monitor.Properties.Settings.Default.Start_Port = txtPortNo.Text.ToString();
 
             Monitor.Properties.Settings.Default.Save();
         }
 
-        private void button33_Click_1(object sender, EventArgs e)
+        private void Button33_Click_1(object sender, EventArgs e)
         {
             using (var form = new AddContact())
             {
@@ -11223,7 +11227,7 @@ namespace SocketServer
 
         void SetSpeedThreeSpeedLimit()
         {
-            int Speed1 = 0, Speed2 = 0, Speed3 = 0;
+            int Speed1 , Speed2 , Speed3 ;
 
             Int32.TryParse(textBox_SpeedLimit1.Text, out Speed1);
             Int32.TryParse(textBox_SpeedLimit2.Text, out Speed2);
@@ -11658,10 +11662,10 @@ namespace SocketServer
 
         }
 
-        private void button3_Click_3(object sender, EventArgs e)
+        private void Button3_Click_3(object sender, EventArgs e)
         {
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            Tab0Color = randomColor;
+            //Tab0Color = randomColor;
         }
 
         bool IsPauseGraphs = false;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Monitor
 {
@@ -62,9 +63,11 @@ namespace Monitor
 
         public void AddCommand(String i_Name, String i_Help)
         {
-            OneSystemCommand NewCommand = new OneSystemCommand();
-            NewCommand.Opcode = i_Name;
-            NewCommand.Help = i_Help;
+            OneSystemCommand NewCommand = new OneSystemCommand
+            {
+                Opcode = i_Name,
+                Help = i_Help
+            };
             ALLCommandsList.Add(NewCommand);
         }
 
@@ -90,26 +93,26 @@ namespace Monitor
             return ret;
         }
 
-        public static string CheckInputToCommandFormat(String i_Input)
-        {
-            string ret = "";
-            //1. find the current command in the list
-            //2. Get the format of the command.
-            //3. compare the format to input.
-            return ret;
-        }
+        //public static string CheckInputToCommandFormat(String i_Input)
+        //{
+        //    string ret = "";
+        //    //1. find the current command in the list
+        //    //2. Get the format of the command.
+        //    //3. compare the format to input.
+        //    return ret;
+        //}
 
 
-        bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
+        //bool IsDigitsOnly(string str)
+        //{
+        //    foreach (char c in str)
+        //    {
+        //        if (c < '0' || c > '9')
+        //            return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         //int HistoryIndex = -1;
         //public String GetUpCommand(bool IsEmptyTextbox)
@@ -167,9 +170,11 @@ namespace Monitor
                 foreach (String cmd in i_InputList)
                 {
                     string[] Output = cmd.Split(new string[] { "|||" }, StringSplitOptions.None);
-                    OneSystemCommand NewCmd = new OneSystemCommand();
-                    NewCmd.Opcode = Output[1];
-                    NewCmd.Help = Output[2];
+                    OneSystemCommand NewCmd = new OneSystemCommand
+                    {
+                        Opcode = Output[1],
+                        Help = Output[2]
+                    };
                     ret.Add(NewCmd);
                 }
             }
@@ -202,32 +207,28 @@ namespace Monitor
             return ret;
         }
 
-        //public String GetHelpCommandWithFormat(String i_Format)
-        //{
-        //    String ret = String.Empty;
-        //    foreach (OneSystemCommand cmd in ALLCommandsList)
-        //    {
-        //        if (cmd.Format == i_Format)
-        //        {
-        //            ret = cmd.Help;
-        //        }
-        //    }
-        //    return ret;
-        //}
+        public void ExportToXML(Stream myStream)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<OneSystemCommand>));
+            TextWriter textWriter = new StreamWriter(myStream);
+            serializer.Serialize(textWriter, ALLCommandsList);
+            textWriter.Close();
+        }
 
+        public void ImportFromXML(string i_Name)
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(List<PhoneBookContact>));
+            TextReader textReader = new StreamReader(i_Name);
+            List<OneSystemCommand> ImportedCommands;
+            ImportedCommands = (List<OneSystemCommand>)deserializer.Deserialize(textReader);
+            textReader.Close();
 
-        //public String GetFormatCommandWithName(String i_Name)
-        //{
-        //    String ret = String.Empty;
-        //    foreach (OneSystemCommand cmd in ALLCommandsList)
-        //    {
-        //        if (cmd.Opcode == i_Name)
-        //        {
-        //            ret = cmd.Format;
-        //        }
-        //    }
-        //    return ret;
-        //}
+            foreach (OneSystemCommand cmd in ImportedCommands)
+            {
+                ALLCommandsList.Add(cmd);
+            }
+
+        }
 
 
 

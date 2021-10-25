@@ -86,7 +86,7 @@ namespace Monitor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (richTextBox_Phone.BackColor == Color.Red)
             {
@@ -104,7 +104,7 @@ namespace Monitor
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             this.ContactName = null;
             this.ContactPhone = null;
@@ -137,7 +137,7 @@ namespace Monitor
 
                bool CheckSubscriberValid(string i_String,ConfigDataType i_DataType)
        {
-           bool ret = false;
+           bool ret;
            try
            {
                
@@ -184,7 +184,7 @@ namespace Monitor
                 if (i_TextBox.Text == "" || i_TextBox.Text == "@%@")
                 {
                     i_TextBox.Text = "";
-                    i_TextBox.BackColor = default(Color);
+                    i_TextBox.BackColor = default;
                 }
                 else
                     if (CheckSubscriberValid(i_TextBox.Text, i_ConfigDataType) == true)
@@ -199,22 +199,22 @@ namespace Monitor
             }));
         }
 
-        private void richTextBox_Name_TextChanged(object sender, EventArgs e)
+        private void RichTextBox_Name_TextChanged(object sender, EventArgs e)
         {
             
         }
 
-        private void richTextBox_Phone_TextChanged(object sender, EventArgs e)
+        private void RichTextBox_Phone_TextChanged(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((RichTextBox)sender, ConfigDataType.Subscriber);
         }
 
-        private void richTextBox_Phone_TextChanged_1(object sender, EventArgs e)
+        private void RichTextBox_Phone_TextChanged_1(object sender, EventArgs e)
         {
             CheckConfigTextboxValidData((RichTextBox)sender, ConfigDataType.Subscriber);
         }
 
-        private void richTextBox_IMEI_TextChanged(object sender, EventArgs e)
+        private void RichTextBox_IMEI_TextChanged(object sender, EventArgs e)
         {
             
         }
