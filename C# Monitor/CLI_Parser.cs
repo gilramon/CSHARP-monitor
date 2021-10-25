@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 using System.Text.RegularExpressions;
 
 namespace Monitor
 {
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class OneSystemCommand
     {
-        //     [XmlElement("Contact_Name")]
         /// <summary>
         /// 
         /// </summary>
+        [XmlElement("Opcode")]
         public String Opcode;
         /// <summary>
         /// 
         /// </summary>
-        //     [XmlElement("Contact_Phone")]
+        [XmlElement("Help")]
 
         public String Help;
 
-        public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
+        //public String Format; // OPCODE={Num_Of_Argument},[arg1,Arg2...;
 
     }
 
@@ -58,11 +60,10 @@ namespace Monitor
             ALLCommandsList.Add(i_NewCommand);
         }
 
-        public void AddCommand(String i_Name, String i_Format, String i_Help)
+        public void AddCommand(String i_Name, String i_Help)
         {
             OneSystemCommand NewCommand = new OneSystemCommand();
             NewCommand.Opcode = i_Name;
-            NewCommand.Format = i_Format;
             NewCommand.Help = i_Help;
             ALLCommandsList.Add(NewCommand);
         }
@@ -153,7 +154,7 @@ namespace Monitor
             
             foreach (OneSystemCommand cmd in ALLCommandsList)
             {
-                ret.Add(String.Format("{0}|||{1}|||{2}", cmd.Opcode, cmd.Format, cmd.Help));
+                ret.Add(String.Format("{0}|||{1}", cmd.Opcode, cmd.Help));
             }
             return ret;
         }
@@ -168,26 +169,25 @@ namespace Monitor
                     string[] Output = cmd.Split(new string[] { "|||" }, StringSplitOptions.None);
                     OneSystemCommand NewCmd = new OneSystemCommand();
                     NewCmd.Opcode = Output[1];
-                    NewCmd.Format = Output[2];
-                    NewCmd.Help = Output[3];
+                    NewCmd.Help = Output[2];
                     ret.Add(NewCmd);
                 }
             }
             return ret;
         }
 
-        public List<String> GetAllCommadsFormatStartWith(String i_StartString)
-        {
-            List<String> ret = new List<String>();
-            foreach (OneSystemCommand cmd in ALLCommandsList)
-            {
-                if(cmd.Format.StartsWith(i_StartString) == true)
-                {
-                    ret.Add(cmd.Format);
-                }
-            }
-            return ret;
-        }
+        //public List<String> GetAllCommadsFormatStartWith(String i_StartString)
+        //{
+        //    List<String> ret = new List<String>();
+        //    foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    {
+        //        if(cmd.Format.StartsWith(i_StartString) == true)
+        //        {
+        //            ret.Add(cmd.Format);
+        //        }
+        //    }
+        //    return ret;
+        //}
 
         public String GetHelpCommandWithName(String i_Name)
         {
@@ -202,32 +202,32 @@ namespace Monitor
             return ret;
         }
 
-        public String GetHelpCommandWithFormat(String i_Format)
-        {
-            String ret = String.Empty;
-            foreach (OneSystemCommand cmd in ALLCommandsList)
-            {
-                if (cmd.Format == i_Format)
-                {
-                    ret = cmd.Help;
-                }
-            }
-            return ret;
-        }
+        //public String GetHelpCommandWithFormat(String i_Format)
+        //{
+        //    String ret = String.Empty;
+        //    foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    {
+        //        if (cmd.Format == i_Format)
+        //        {
+        //            ret = cmd.Help;
+        //        }
+        //    }
+        //    return ret;
+        //}
 
 
-        public String GetFormatCommandWithName(String i_Name)
-        {
-            String ret = String.Empty;
-            foreach (OneSystemCommand cmd in ALLCommandsList)
-            {
-                if (cmd.Opcode == i_Name)
-                {
-                    ret = cmd.Format;
-                }
-            }
-            return ret;
-        }
+        //public String GetFormatCommandWithName(String i_Name)
+        //{
+        //    String ret = String.Empty;
+        //    foreach (OneSystemCommand cmd in ALLCommandsList)
+        //    {
+        //        if (cmd.Opcode == i_Name)
+        //        {
+        //            ret = cmd.Format;
+        //        }
+        //    }
+        //    return ret;
+        //}
 
 
 

@@ -4872,7 +4872,7 @@ namespace SocketServer
 
         List<String> CommandsHistoy = new List<String>();
         int HistoryIndex = -1;
-        bool SelfMonitorCommandsMode = false;
+       // bool SelfMonitorCommandsMode = false;
         
 
         private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -6271,6 +6271,11 @@ namespace SocketServer
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i_cmd"></param>
+        /// <param name="i_InputArgs"></param>
         public void System1_parser_sum_CB(OneSystemCommand i_cmd, String[] i_InputArgs)
         {
             int sum = 0;
@@ -6340,7 +6345,7 @@ namespace SocketServer
         {
             try
             {
-                system1_Parser.AddCommand("sum", "sum 1 2 3", " summ all the elements");
+                system1_Parser.AddCommand("sum" , " sum all the elements \n Format: sum 1 2 3");
                 //System1_parser.AddCommand("sum", "sum args", "sum all the numbers");
                 List_SeriesCharts.Add(series1);
                 List_SeriesCharts.Add(series2);
@@ -9166,6 +9171,8 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
+
+                ex.ToString(); //Gil: just remove warning.
                 //textBox_GenerateConfigFile.Text = ex.ToString();
             }
         }
@@ -9927,6 +9934,7 @@ namespace SocketServer
                         }
                         catch (Exception ex)
                         {
+                            ex.ToString(); //Gil: just remove warning.
                             //textBox_GenerateConfigFile.Text = ex.ToString();
                             //textBox_GenerateConfigFile.BackColor = Color.Red;
                         }
@@ -9952,6 +9960,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
+                ex.ToString(); //Gil: just remove warning.
                 //textBox_GenerateConfigFile.Text = ex.ToString();
             }
         }
@@ -10008,6 +10017,7 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
+                ex.ToString(); //Gil: just remove warning.
                 //textBox_GenerateConfigFile.Text = ex.ToString();
             }
         }
@@ -10118,7 +10128,6 @@ namespace SocketServer
 
         void UpdateTextBox13()
         {
-            int AlarmValue = 0;
 
             
 
@@ -11754,6 +11763,7 @@ namespace SocketServer
             }
             catch (System.Net.Sockets.SocketException se)
             {
+                se.ToString(); //Gil: just remove warning.
                 //MessageBox.Show(se.Message);
             }
         }

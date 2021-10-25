@@ -10,19 +10,26 @@
 
 namespace Monitor.Properties {
     
-    
+    /// <summary>
+    /// 
+    /// </summary>
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
+        /// <summary>
+        /// 
+        /// </summary>
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2002")]
@@ -34,7 +41,9 @@ namespace Monitor.Properties {
                 this["Start_Port"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -46,7 +55,9 @@ namespace Monitor.Properties {
                 this["Default_Server_Message"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -59,7 +70,9 @@ namespace Monitor.Properties {
                 this["PhoneBook"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
@@ -71,7 +84,9 @@ namespace Monitor.Properties {
                 this["Comport_Port"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("115200")]
@@ -83,7 +98,9 @@ namespace Monitor.Properties {
                 this["Comport_BaudRate"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("None")]
@@ -95,7 +112,9 @@ namespace Monitor.Properties {
                 this["Comport_Parity"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("8")]
@@ -107,7 +126,9 @@ namespace Monitor.Properties {
                 this["Comport_DataBits"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("One")]
@@ -119,7 +140,9 @@ namespace Monitor.Properties {
                 this["Comport_StopBit"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -151,7 +174,9 @@ namespace Monitor.Properties {
                 this["SMS_Commands"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -165,7 +190,9 @@ namespace Monitor.Properties {
                 this["SerialPort_History"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -177,7 +204,9 @@ namespace Monitor.Properties {
                 this["Setting"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.DateTime LastRunTime {
@@ -188,7 +217,9 @@ namespace Monitor.Properties {
                 this["LastRunTime"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.DateTime LastSaveSMSTime {
@@ -199,7 +230,9 @@ namespace Monitor.Properties {
                 this["LastSaveSMSTime"] = value;
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
