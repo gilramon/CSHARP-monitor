@@ -46,7 +46,7 @@ namespace SocketServer
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (comboBox_ConnectionNumber.SelectedItem != null)
             {
@@ -57,7 +57,7 @@ namespace SocketServer
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             this.Password = null;
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;

@@ -14,23 +14,22 @@ namespace SocketServer
     {
         class LogClass
         {
-            public string msg { get; set; }
-            public Color i_Color { get; set; }
-            public Color i_TextBackgroundColor { get; set; }
-            public DateTime datetimeCreated;
+            public string Msg { get; set; }
+            public Color Msg_Color { get; set; }
+            public Color Msg_TextBackgroundColor { get; set; }
+            public DateTime Msg_DatetimeCreated;
         }
 
         List<LogClass> LogClassArray = new List<LogClass>();
-
-        string m_LoggerName;
-        RichTextBox m_txtBox;
-        Button m_ClearTextBoxButton;
-        CheckBox m_PauseCheckBox;
-        CheckBox m_RecordTofile;
-        CheckBox m_StopLogging ; 
-        TextBox m_RecognizePatternTextBox;
-        TextBox m_RecognizePatternTextBox2;
-        TextBox m_RecognizePatternTextBox3;
+        readonly string m_LoggerName;
+        readonly RichTextBox m_txtBox;
+        readonly Button m_ClearTextBoxButton;
+        readonly CheckBox m_PauseCheckBox;
+        readonly CheckBox m_RecordTofile;
+        readonly CheckBox m_StopLogging ;
+        readonly TextBox m_RecognizePatternTextBox;
+        readonly TextBox m_RecognizePatternTextBox2;
+        readonly TextBox m_RecognizePatternTextBox3;
 
         string m_log_file_name;
 
@@ -53,17 +52,17 @@ namespace SocketServer
 
             if (m_ClearTextBoxButton != null)
             {
-                m_ClearTextBoxButton.Click += new EventHandler(m_ClearTextBoxButton_Click);
+                m_ClearTextBoxButton.Click += new EventHandler(ClearTextBoxButton_Click);
             }
 
             if (m_PauseCheckBox != null)
             {
-                m_PauseCheckBox.CheckedChanged += new EventHandler(m_PauseCheckBox_CheckedChanged);
+                m_PauseCheckBox.CheckedChanged += new EventHandler(PauseCheckBox_CheckedChanged);
             }
 
             if (m_RecordTofile != null)
             {
-                m_RecordTofile.CheckedChanged += new EventHandler(m_RecordTofile_CheckedChanged);
+                m_RecordTofile.CheckedChanged += new EventHandler(RecordTofile_CheckedChanged);
             }
 
             //if (m_RecognizePatternCheckbox != null)
@@ -78,10 +77,10 @@ namespace SocketServer
 
             if (m_StopLogging != null)
             {
-                m_StopLogging.CheckedChanged += new EventHandler(m_StopLogging_CheckedChanged);
+                m_StopLogging.CheckedChanged += new EventHandler(StopLogging_CheckedChanged);
             }
 
-            i_txtBox.MouseUp += richTextBox1_MouseUp;
+            i_txtBox.MouseUp += RichTextBox1_MouseUp;
             i_txtBox.KeyDown += I_txtBox_KeyDown;
 
         }
@@ -94,7 +93,7 @@ namespace SocketServer
             }
         }
 
-        private void richTextBox1_MouseUp(object sender, MouseEventArgs e)
+        private void RichTextBox1_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {   //click event
@@ -131,7 +130,7 @@ namespace SocketServer
             }
         }
 
-        void m_RecognizePatternCheckbox2_CheckedChanged(object sender, EventArgs e)
+        void RecognizePatternCheckbox2_CheckedChanged(object sender, EventArgs e)
         {
             //if (m_RecognizePatternCheckbox2.Checked)
             //{
@@ -143,7 +142,7 @@ namespace SocketServer
             //}
         }
 
-        void m_StopLogging_CheckedChanged(object sender, EventArgs e)
+        void StopLogging_CheckedChanged(object sender, EventArgs e)
         {
             if (m_StopLogging.Checked)
             {
@@ -151,11 +150,11 @@ namespace SocketServer
             }
             else
             {
-                m_StopLogging.BackColor = default(Color);
+                m_StopLogging.BackColor = default;
             }
         }
 
-        void m_RecognizePatternCheckbox_CheckedChanged(object sender, EventArgs e)
+        void RecognizePatternCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             //if (m_RecognizePatternCheckbox.Checked)
             //{
@@ -167,7 +166,7 @@ namespace SocketServer
             //}
         }
 
-        void m_ClearTextBoxButton_Click(object sender, EventArgs e)
+        void ClearTextBoxButton_Click(object sender, EventArgs e)
         {
             m_txtBox.Invoke(new EventHandler(delegate
             {
@@ -175,7 +174,7 @@ namespace SocketServer
             }));
         }
 
-        void m_PauseCheckBox_CheckedChanged(object sender, EventArgs e)
+        void PauseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (m_PauseCheckBox.Checked)
             {
@@ -189,7 +188,7 @@ namespace SocketServer
             }
             else
             {
-                m_PauseCheckBox.BackColor = default(Color);
+                m_PauseCheckBox.BackColor = default;
                 m_txtBox.BackColor = Color.LightGray;
                 m_PauseText = false;
 
@@ -197,7 +196,7 @@ namespace SocketServer
             }
         }
 
-        void m_RecordTofile_CheckedChanged(object sender, EventArgs e)
+        void RecordTofile_CheckedChanged(object sender, EventArgs e)
         {
             if (m_RecordTofile.Checked)
             {
@@ -225,7 +224,7 @@ namespace SocketServer
             }
             else
             {
-                m_RecordTofile.BackColor = default(Color);
+                m_RecordTofile.BackColor = default;
 
                 LogMessage(Color.Brown, m_txtBox.BackColor, "File " + m_log_file_name + " closed \n\n", true, true);
             }
@@ -252,7 +251,7 @@ namespace SocketServer
 
                 if (i_NewLine == true)
                 {
-                    i_msg = i_msg + "\n";
+                    i_msg += "\n";
                 }
 
 
@@ -293,18 +292,20 @@ namespace SocketServer
                     }
                 }
 
-                LogClass logclass = new LogClass();
-                logclass.msg = i_msg;
-                logclass.i_TextBackgroundColor = i_TextBackgroundColor;
-                logclass.i_Color = i_Color;
-                logclass.datetimeCreated = DateTime.Now;
+                LogClass logclass = new LogClass
+                {
+                    Msg = i_msg,
+                    Msg_TextBackgroundColor = i_TextBackgroundColor,
+                    Msg_Color = i_Color,
+                    Msg_DatetimeCreated = DateTime.Now
+                };
                 LogClassArray.Add(logclass);
 
                 if (LogClassArray.Count > 1000)
                 {
                     //PrintMesseges = false;
                     //LogClassArray.Clear();
-                    LogClassArray = LogClassArray.OrderBy(x => x.datetimeCreated).Take(50).ToList();
+                    LogClassArray = LogClassArray.OrderBy(x => x.Msg_DatetimeCreated).Take(50).ToList();
                 }
 
                 if (m_RecordTofile.Checked)
@@ -321,7 +322,7 @@ namespace SocketServer
                     // if it is not deleted. 
                     using (StreamWriter sw = File.AppendText(subPath + m_log_file_name))
                     {
-                        sw.Write(logclass.msg);
+                        sw.Write(logclass.Msg);
                     }
                 }
 
@@ -358,9 +359,9 @@ namespace SocketServer
                                         try
                                         {
                                           //  m_txtBox.SelectionFont = new Font("",10,FontStyle.Regular);
-                                            m_txtBox.SelectionColor = log.i_Color;
-                                            m_txtBox.SelectionBackColor = log.i_TextBackgroundColor;
-                                            m_txtBox.AppendText(log.msg);
+                                            m_txtBox.SelectionColor = log.Msg_Color;
+                                            m_txtBox.SelectionBackColor = log.Msg_TextBackgroundColor;
+                                            m_txtBox.AppendText(log.Msg);
                                             m_txtBox.ScrollToCaret();
 
                                             NumOfPrints++;
@@ -401,7 +402,7 @@ namespace SocketServer
             }
         }
 
-        string subPath = Directory.GetCurrentDirectory() + "\\Logs\\";
+        readonly string subPath = Directory.GetCurrentDirectory() + "\\Logs\\";
         private void Clear_Log(object sender, EventArgs e)
         {
             m_txtBox.Invoke(new EventHandler(delegate
