@@ -10045,7 +10045,7 @@ namespace SocketServer
         //textBox_UnitVersion
 
 
-        void TextBox_GenerateConfigFile_Text(String i_ErrorMessage, Color i_BackColor)
+        void TextBox_GenerateConfigFile_Text(String i_ErrorMessage = "", Color i_BackColor = default)
         {
             //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
             //{
