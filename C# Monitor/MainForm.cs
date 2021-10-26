@@ -532,9 +532,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -1737,9 +1739,9 @@ namespace SocketServer
             this.label_Config42.Size = new System.Drawing.Size(67, 15);
             this.label_Config42.TabIndex = 124;
             this.label_Config42.Text = "Uart Listen";
-            this.toolTip2.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
-        "00\r\n38400\r\n115200");
             this.toolTip1.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
+        "00\r\n38400\r\n115200");
+            this.toolTip2.SetToolTip(this.label_Config42, "Description:\r\nConfig UART baudrate in listen mode\r\nFormat:\r\nnumber\r\nExamples:\r\n96" +
         "00\r\n38400\r\n115200");
             // 
             // textBox_Config4
@@ -1997,10 +1999,10 @@ namespace SocketServer
             this.label_Config20.Size = new System.Drawing.Size(83, 15);
             this.label_Config20.TabIndex = 79;
             this.label_Config20.Text = "Position angle";
-            this.toolTip2.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
-        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
             this.toolTip1.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
         "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n");
+            this.toolTip2.SetToolTip(this.label_Config20, "Position Angel\r\nDescription:\r\nangel to transmit position message when turning\r\nFo" +
+        "rmat:\r\n0.360\r\nExamples:\r\n0\r\n30\r\n\r\n");
             // 
             // label_Config36
             // 
@@ -2021,10 +2023,10 @@ namespace SocketServer
             this.label_Config21.Size = new System.Drawing.Size(99, 15);
             this.label_Config21.TabIndex = 80;
             this.label_Config21.Text = "Position distance";
-            this.toolTip2.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
-        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
             this.toolTip1.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
         "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000");
+            this.toolTip2.SetToolTip(this.label_Config21, "Position Distance:\r\nDescription:\r\nPosition distance to transmit position message\r" +
+        "\nFormat:\r\nnumber\r\nExamples:\r\n0\r\n1000\r\n");
             // 
             // label_Config35
             // 
@@ -2268,10 +2270,10 @@ namespace SocketServer
             this.label_Config17.Size = new System.Drawing.Size(61, 15);
             this.label_Config17.TabIndex = 76;
             this.label_Config17.Text = "Tow angle";
-            this.toolTip2.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
-        "Examples:\r\n0\r\n90\r\n\r\n");
             this.toolTip1.SetToolTip(this.label_Config17, "Tow Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\nE" +
         "xamples:\r\n0\r\n90\r\n\r\n");
+            this.toolTip2.SetToolTip(this.label_Config17, "Tilt Angel\r\nDescription:\r\ngenerate event bigger than this angel\r\nFormat:\r\n0-360\r\n" +
+        "Examples:\r\n0\r\n90\r\n\r\n");
             // 
             // label_Config18
             // 
@@ -2969,9 +2971,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.textBox_graph_XY);
             this.tabPage3.Controls.Add(this.button_ScreenShot);
             this.tabPage3.Controls.Add(this.chart1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1547, 704);
+            this.tabPage3.Size = new System.Drawing.Size(1547, 699);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2987,7 +2989,7 @@ namespace SocketServer
             "2000",
             "5000",
             "10000"});
-            this.comboBox_ChartUpdateTime.Location = new System.Drawing.Point(5, 450);
+            this.comboBox_ChartUpdateTime.Location = new System.Drawing.Point(5, 612);
             this.comboBox_ChartUpdateTime.Name = "comboBox_ChartUpdateTime";
             this.comboBox_ChartUpdateTime.Size = new System.Drawing.Size(184, 26);
             this.comboBox_ChartUpdateTime.TabIndex = 80;
@@ -2996,7 +2998,7 @@ namespace SocketServer
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(3, 393);
+            this.button28.Location = new System.Drawing.Point(3, 555);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(186, 23);
             this.button28.TabIndex = 79;
@@ -3008,16 +3010,16 @@ namespace SocketServer
             // 
             this.listBox_Charts.FormattingEnabled = true;
             this.listBox_Charts.ItemHeight = 18;
-            this.listBox_Charts.Location = new System.Drawing.Point(5, 82);
+            this.listBox_Charts.Location = new System.Drawing.Point(5, 244);
             this.listBox_Charts.Name = "listBox_Charts";
             this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_Charts.Size = new System.Drawing.Size(184, 148);
+            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
             this.listBox_Charts.TabIndex = 78;
             this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.ListBox_Charts_SelectedIndexChanged);
             // 
             // button_OpenFolder2
             // 
-            this.button_OpenFolder2.Location = new System.Drawing.Point(4, 272);
+            this.button_OpenFolder2.Location = new System.Drawing.Point(4, 434);
             this.button_OpenFolder2.Name = "button_OpenFolder2";
             this.button_OpenFolder2.Size = new System.Drawing.Size(185, 26);
             this.button_OpenFolder2.TabIndex = 77;
@@ -3027,7 +3029,7 @@ namespace SocketServer
             // 
             // button_GraphPause
             // 
-            this.button_GraphPause.Location = new System.Drawing.Point(3, 421);
+            this.button_GraphPause.Location = new System.Drawing.Point(3, 583);
             this.button_GraphPause.Name = "button_GraphPause";
             this.button_GraphPause.Size = new System.Drawing.Size(186, 23);
             this.button_GraphPause.TabIndex = 8;
@@ -3037,7 +3039,7 @@ namespace SocketServer
             // 
             // Button_Export_excel
             // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(3, 304);
+            this.Button_Export_excel.Location = new System.Drawing.Point(3, 466);
             this.Button_Export_excel.Name = "Button_Export_excel";
             this.Button_Export_excel.Size = new System.Drawing.Size(186, 23);
             this.Button_Export_excel.TabIndex = 7;
@@ -3047,7 +3049,7 @@ namespace SocketServer
             // 
             // button_ResetGraphs
             // 
-            this.button_ResetGraphs.Location = new System.Drawing.Point(3, 363);
+            this.button_ResetGraphs.Location = new System.Drawing.Point(3, 525);
             this.button_ResetGraphs.Name = "button_ResetGraphs";
             this.button_ResetGraphs.Size = new System.Drawing.Size(186, 23);
             this.button_ResetGraphs.TabIndex = 6;
@@ -3062,14 +3064,14 @@ namespace SocketServer
             this.textBox_graph_XY.Multiline = true;
             this.textBox_graph_XY.Name = "textBox_graph_XY";
             this.textBox_graph_XY.ReadOnly = true;
-            this.textBox_graph_XY.Size = new System.Drawing.Size(185, 68);
+            this.textBox_graph_XY.Size = new System.Drawing.Size(185, 232);
             this.textBox_graph_XY.TabIndex = 4;
             this.textBox_graph_XY.Text = "Message box ";
             this.textBox_graph_XY.TextChanged += new System.EventHandler(this.TextBox_graph_XY_TextChanged);
             // 
             // button_ScreenShot
             // 
-            this.button_ScreenShot.Location = new System.Drawing.Point(3, 332);
+            this.button_ScreenShot.Location = new System.Drawing.Point(3, 494);
             this.button_ScreenShot.Name = "button_ScreenShot";
             this.button_ScreenShot.Size = new System.Drawing.Size(186, 23);
             this.button_ScreenShot.TabIndex = 1;
@@ -3079,17 +3081,33 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Data 1";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Font = new System.Drawing.Font("Calibri", 14.25F);
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Data 2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series3.Legend = "Legend1";
+            series3.Name = "Data 3";
+            this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(1068, 665);
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -6161,33 +6179,34 @@ namespace SocketServer
         //   Logger LogIWatcher;
         TextBox_Logger LogSMS;
         PhoneBook MyPhoneBook;
-        readonly List<Series> List_SeriesCharts = new List<Series>();
-        readonly Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
-        {
-            Name = "Raw Data",
-            //    Color = System.Drawing.Color.Green,
-            IsVisibleInLegend = true,
-            IsXValueIndexed = false,
-            ChartType = SeriesChartType.Line,
-            MarkerStyle = MarkerStyle.Diamond
-    };
-        readonly Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
-        {
-            Name = "Moving Avarage 30",
-            //    Color = System.Drawing.Color.Blue,
-            IsVisibleInLegend = true,
-            IsXValueIndexed = false,
-            ChartType = SeriesChartType.Line
-        };
-        readonly Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series
-        {
-            Name = "0-100",
-            //    Color = System.Drawing.Color.Blue,
-            IsVisibleInLegend = true,
-            IsXValueIndexed = false,
-            ChartType = SeriesChartType.Line,
-            MarkerStyle = MarkerStyle.Circle
-        };
+    //    readonly List<Series> List_SeriesCharts = new List<Series>();
+    //    readonly Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
+    //    {
+    //        Name = "Raw Data",
+    //        //    Color = System.Drawing.Color.Green,
+    //        IsVisibleInLegend = true,
+    //        IsXValueIndexed = false,
+    //        ChartType = SeriesChartType.Line,
+    //        MarkerStyle = MarkerStyle.Diamond
+        
+    //};
+    //    readonly Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series
+    //    {
+    //        Name = "Moving Avarage 30",
+    //        //    Color = System.Drawing.Color.Blue,
+    //        IsVisibleInLegend = true,
+    //        IsXValueIndexed = false,
+    //        ChartType = SeriesChartType.Line
+    //    };
+    //    readonly Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series
+    //    {
+    //        Name = "0-100",
+    //        //    Color = System.Drawing.Color.Blue,
+    //        IsVisibleInLegend = true,
+    //        IsXValueIndexed = false,
+    //        ChartType = SeriesChartType.Line,
+    //        MarkerStyle = MarkerStyle.Circle
+    //    };
 
         Point? prevPosition = null;
         readonly ToolTip tooltip = new ToolTip();
@@ -6342,26 +6361,24 @@ namespace SocketServer
             {
                 system1_Parser.AddCommand("sum" , " sum all the elements \n Format: sum 1 2 3");
                 //System1_parser.AddCommand("sum", "sum args", "sum all the numbers");
-                List_SeriesCharts.Add(series1);
-                List_SeriesCharts.Add(series2);
-                List_SeriesCharts.Add(series3);
-
+                //List_SeriesCharts.Add(series1);
+                //List_SeriesCharts.Add(series2);
+                //List_SeriesCharts.Add(series3);
                 // this.TopMost = true;
                 //// this.FormBorderStyle = FormBorderStyle.None;
                 // this.WindowState = FormWindowState.Maximized;
-                foreach(Series ser in List_SeriesCharts)
+                foreach(Series ser in chart1.Series)
                 {
                     listBox_Charts.Items.Add(ser.Name);
                 }
-
                 textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
                 this.FormClosed += MainForm_FormClosed;
-                chart1.Series.Clear();
-                chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                //   chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
-                chart1.Series.Add(series1);
-                chart1.Series.Add(series2);
-                chart1.Series.Add(series3);
+               // chart1.Series.Clear();
+                // chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                // chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+                //chart1.Series.Add(series1);
+                //chart1.Series.Add(series2);
+                //chart1.Series.Add(series3);
                 //chart1.Series[0].BorderWidth = 2;
                 //chart1.Series[1].BorderWidth = 2;
 
@@ -7327,7 +7344,7 @@ namespace SocketServer
             try
             {
 
-                ChartCntY2 = 0;
+                
 
                 if (OppositeCount == true)
                 {
@@ -7348,20 +7365,25 @@ namespace SocketServer
                     }
                 }
 
-
+                ChartCntY2 = 0;
                 int cnt = 0;
-                for (int i = series1.Points.Count - 1; i >= (series1.Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
+                for (int i = chart1.Series[0].Points.Count - 1; i >= (chart1.Series[0].Points.Count - MOVING_AVARAGE_SIZE) && i >= 0; i--)
                 {
                     cnt++;
-                    ChartCntY2 += (int)series1.Points[i].YValues[0];
+                    ChartCntY2 += (int)chart1.Series[0].Points[i].YValues[0];
                 }
                 ChartCntY2 /= cnt;
 
                 if (IsPauseGraphs == false)
                 {
-                    series1.Points.AddXY(ChartCntX, ChartCntY);
-                    series2.Points.AddXY(ChartCntX, ChartCntY2);
-                    series3.Points.AddXY(ChartCntX, ChartCntY3);
+                    chart1.Series[0].Points.AddXY(ChartCntX, ChartCntY);
+                    chart1.Series[0].Name = $"Data 1 [{ChartCntY}]";
+
+                    chart1.Series[1].Points.AddXY(ChartCntX, ChartCntY2);
+                    chart1.Series[1].Name = $"Data 2 [{ChartCntY2}]";
+
+                    chart1.Series[2].Points.AddXY(ChartCntX, ChartCntY3);
+                    chart1.Series[2].Name = $"Data 3 [{ChartCntY3}]";
                 }
                 else
                 {
@@ -7402,6 +7424,7 @@ namespace SocketServer
             catch(Exception ex)
             {
                 textBox_graph_XY.Text = ex.Message;
+                textBox_graph_XY.BackColor = Color.Red;
             }
             
         }
@@ -12182,13 +12205,14 @@ namespace SocketServer
         {
             for (int i = 0; i < listBox_Charts.Items.Count; i++)
             {
+                
                 if (listBox_Charts.GetSelected(i) == true)
                 {
-                    chart1.Series[listBox_Charts.Items[i].ToString()].Enabled = true;
+                    chart1.Series[i].Enabled = true;
                 }
                 else
                 {
-                    chart1.Series[listBox_Charts.Items[i].ToString()].Enabled = false;
+                    chart1.Series[i].Enabled = false;
                 }
             }
         }
