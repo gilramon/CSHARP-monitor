@@ -492,11 +492,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -557,6 +557,19 @@ namespace SocketServer
             this.SerialPortLogger_TextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl_systems = new System.Windows.Forms.TabControl();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.textBox_Config4 = new System.Windows.Forms.TextBox();
+            this.textBox_Config6 = new System.Windows.Forms.TextBox();
+            this.textBox_Config8 = new System.Windows.Forms.TextBox();
+            this.textBox_Config9 = new System.Windows.Forms.TextBox();
+            this.textBox_Config10 = new System.Windows.Forms.TextBox();
+            this.textBox_Config11 = new System.Windows.Forms.TextBox();
+            this.textBox_Config12 = new System.Windows.Forms.TextBox();
+            this.textBox_Config20 = new System.Windows.Forms.TextBox();
+            this.textBox_Config21 = new System.Windows.Forms.TextBox();
+            this.textBox_Config22 = new System.Windows.Forms.TextBox();
+            this.textBox_Config36 = new System.Windows.Forms.TextBox();
+            this.textBox_Config35 = new System.Windows.Forms.TextBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.button32 = new System.Windows.Forms.Button();
@@ -786,19 +799,6 @@ namespace SocketServer
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox_SystemStatus = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox_Config35 = new System.Windows.Forms.TextBox();
-            this.textBox_Config36 = new System.Windows.Forms.TextBox();
-            this.textBox_Config22 = new System.Windows.Forms.TextBox();
-            this.textBox_Config21 = new System.Windows.Forms.TextBox();
-            this.textBox_Config20 = new System.Windows.Forms.TextBox();
-            this.textBox_Config12 = new System.Windows.Forms.TextBox();
-            this.textBox_Config11 = new System.Windows.Forms.TextBox();
-            this.textBox_Config10 = new System.Windows.Forms.TextBox();
-            this.textBox_Config9 = new System.Windows.Forms.TextBox();
-            this.textBox_Config8 = new System.Windows.Forms.TextBox();
-            this.textBox_Config6 = new System.Windows.Forms.TextBox();
-            this.textBox_Config4 = new System.Windows.Forms.TextBox();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -811,6 +811,7 @@ namespace SocketServer
             this.groupBox_Stopwatch.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabControl_systems.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.groupBox38.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox39.SuspendLayout();
@@ -857,7 +858,6 @@ namespace SocketServer
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1074,7 +1074,7 @@ namespace SocketServer
             this.tabControl_Main.Location = new System.Drawing.Point(4, 5);
             this.tabControl_Main.Name = "tabControl_Main";
             this.tabControl_Main.SelectedIndex = 0;
-            this.tabControl_Main.Size = new System.Drawing.Size(1555, 730);
+            this.tabControl_Main.Size = new System.Drawing.Size(1555, 759);
             this.tabControl_Main.TabIndex = 8;
             this.tabControl_Main.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabControl1_KeyDown);
             // 
@@ -1086,7 +1086,7 @@ namespace SocketServer
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1547, 699);
+            this.tabPage2.Size = new System.Drawing.Size(1547, 728);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Serial Port";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1336,7 +1336,7 @@ namespace SocketServer
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(4, 105);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1537, 560);
+            this.groupBox5.Size = new System.Drawing.Size(1537, 620);
             this.groupBox5.TabIndex = 68;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
@@ -1547,7 +1547,7 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(4, 49);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1536, 511);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1536, 568);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             this.SerialPortLogger_TextBox.TextChanged += new System.EventHandler(this.SerialPortLogger_TextBox_TextChanged);
@@ -1561,7 +1561,7 @@ namespace SocketServer
             this.tabPage6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage6.Location = new System.Drawing.Point(4, 27);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1547, 699);
+            this.tabPage6.Size = new System.Drawing.Size(1547, 728);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Configuration";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1575,8 +1575,185 @@ namespace SocketServer
             this.tabControl_systems.Location = new System.Drawing.Point(5, 183);
             this.tabControl_systems.Name = "tabControl_systems";
             this.tabControl_systems.SelectedIndex = 0;
-            this.tabControl_systems.Size = new System.Drawing.Size(1539, 480);
+            this.tabControl_systems.Size = new System.Drawing.Size(1539, 545);
             this.tabControl_systems.TabIndex = 125;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.textBox_Config4);
+            this.tabPage10.Controls.Add(this.textBox_Config6);
+            this.tabPage10.Controls.Add(this.textBox_Config8);
+            this.tabPage10.Controls.Add(this.textBox_Config9);
+            this.tabPage10.Controls.Add(this.textBox_Config10);
+            this.tabPage10.Controls.Add(this.textBox_Config11);
+            this.tabPage10.Controls.Add(this.textBox_Config12);
+            this.tabPage10.Controls.Add(this.textBox_Config20);
+            this.tabPage10.Controls.Add(this.textBox_Config21);
+            this.tabPage10.Controls.Add(this.textBox_Config22);
+            this.tabPage10.Controls.Add(this.textBox_Config36);
+            this.tabPage10.Controls.Add(this.textBox_Config35);
+            this.tabPage10.Location = new System.Drawing.Point(4, 28);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(1531, 513);
+            this.tabPage10.TabIndex = 0;
+            this.tabPage10.Text = "System 1";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // textBox_Config4
+            // 
+            this.textBox_Config4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config4.Location = new System.Drawing.Point(131, 11);
+            this.textBox_Config4.Name = "textBox_Config4";
+            this.textBox_Config4.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config4.TabIndex = 0;
+            this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
+            this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\n\r\nValid Input Data:\r\nstring  Max" +
+        " 15\r\n\r\n\r\n");
+            this.textBox_Config4.TextChanged += new System.EventHandler(this.TextBox_Config4_TextChanged);
+            // 
+            // textBox_Config6
+            // 
+            this.textBox_Config6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config6.Location = new System.Drawing.Point(131, 244);
+            this.textBox_Config6.Name = "textBox_Config6";
+            this.textBox_Config6.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config6.TabIndex = 5;
+            this.toolTip2.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999");
+            this.toolTip1.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999\r\n\r\n");
+            this.textBox_Config6.TextChanged += new System.EventHandler(this.TextBox_Config6_TextChanged);
+            // 
+            // textBox_Config8
+            // 
+            this.textBox_Config8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config8.Location = new System.Drawing.Point(131, 378);
+            this.textBox_Config8.Name = "textBox_Config8";
+            this.textBox_Config8.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config8.TabIndex = 9;
+            this.toolTip2.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
+        " to remote server. \r\nValid data:\r\nnumber\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
+        " to remote server. \r\nValid data:\r\nnumber\r\n");
+            this.textBox_Config8.TextChanged += new System.EventHandler(this.TextBox_Config8_TextChanged);
+            // 
+            // textBox_Config9
+            // 
+            this.textBox_Config9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config9.Location = new System.Drawing.Point(131, 44);
+            this.textBox_Config9.Name = "textBox_Config9";
+            this.textBox_Config9.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config9.TabIndex = 1;
+            this.toolTip2.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
+        "erator. \r\nValid Data:\r\nstring");
+            this.toolTip1.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
+        "erator. \r\nValid Data:\r\nstring");
+            this.textBox_Config9.TextChanged += new System.EventHandler(this.TextBox_Config9_TextChanged);
+            // 
+            // textBox_Config10
+            // 
+            this.textBox_Config10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config10.Location = new System.Drawing.Point(131, 141);
+            this.textBox_Config10.Name = "textBox_Config10";
+            this.textBox_Config10.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config10.TabIndex = 2;
+            this.toolTip2.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address\r\n\r\n");
+            this.textBox_Config10.TextChanged += new System.EventHandler(this.TextBox_Config10_TextChanged);
+            // 
+            // textBox_Config11
+            // 
+            this.textBox_Config11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config11.Location = new System.Drawing.Point(131, 208);
+            this.textBox_Config11.Name = "textBox_Config11";
+            this.textBox_Config11.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config11.TabIndex = 4;
+            this.toolTip2.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address");
+            this.toolTip1.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
+        "P address\r\n");
+            this.textBox_Config11.TextChanged += new System.EventHandler(this.TextBox_Config11_TextChanged);
+            // 
+            // textBox_Config12
+            // 
+            this.textBox_Config12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config12.Location = new System.Drawing.Point(131, 174);
+            this.textBox_Config12.Name = "textBox_Config12";
+            this.textBox_Config12.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config12.TabIndex = 3;
+            this.toolTip2.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999\r\n\r\n\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
+        "lid Port 0-99999\r\n\r\n");
+            this.textBox_Config12.TextChanged += new System.EventHandler(this.TextBox_Config12_TextChanged);
+            // 
+            // textBox_Config20
+            // 
+            this.textBox_Config20.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config20.Location = new System.Drawing.Point(131, 344);
+            this.textBox_Config20.Name = "textBox_Config20";
+            this.textBox_Config20.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config20.TabIndex = 8;
+            this.toolTip2.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
+        "it will send position message. \r\nValid data:\r\n0-360\r\n");
+            this.toolTip1.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
+        "it will send position message. \r\nValid data:\r\n0-360");
+            this.textBox_Config20.TextChanged += new System.EventHandler(this.TextBox_Config20_TextChanged);
+            // 
+            // textBox_Config21
+            // 
+            this.textBox_Config21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config21.Location = new System.Drawing.Point(131, 312);
+            this.textBox_Config21.Name = "textBox_Config21";
+            this.textBox_Config21.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config21.TabIndex = 7;
+            this.toolTip2.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
+        "lid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
+        "lid data:\r\nnumber");
+            this.textBox_Config21.TextChanged += new System.EventHandler(this.TextBox_Config21_TextChanged);
+            // 
+            // textBox_Config22
+            // 
+            this.textBox_Config22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config22.Location = new System.Drawing.Point(132, 279);
+            this.textBox_Config22.Name = "textBox_Config22";
+            this.textBox_Config22.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config22.TabIndex = 6;
+            this.toolTip2.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
+        "nt to remote server. \r\nValid data:\r\nnumber");
+            this.toolTip1.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
+        "nt to remote server. \r\nValid data:\r\nnumber\r\n");
+            this.textBox_Config22.TextChanged += new System.EventHandler(this.TextBox_Config22_TextChanged);
+            // 
+            // textBox_Config36
+            // 
+            this.textBox_Config36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config36.Location = new System.Drawing.Point(131, 108);
+            this.textBox_Config36.Name = "textBox_Config36";
+            this.textBox_Config36.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config36.TabIndex = 105;
+            this.toolTip2.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
+        "lar provider operator. \r\nValid Data:\r\nstring");
+            this.toolTip1.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
+        "lar provider operator. \r\nValid Data:\r\nstring");
+            this.textBox_Config36.TextChanged += new System.EventHandler(this.TextBox_Config36_TextChanged);
+            // 
+            // textBox_Config35
+            // 
+            this.textBox_Config35.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Config35.Location = new System.Drawing.Point(131, 75);
+            this.textBox_Config35.Name = "textBox_Config35";
+            this.textBox_Config35.Size = new System.Drawing.Size(119, 27);
+            this.textBox_Config35.TabIndex = 104;
+            this.toolTip2.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
+        "lar provider operator. \r\nValid Data:\r\nstring");
+            this.toolTip1.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
+        "lar provider operator. \r\nValid Data:\r\nstring\r\n");
+            this.textBox_Config35.TextChanged += new System.EventHandler(this.TextBox_Config35_TextChanged);
             // 
             // tabPage11
             // 
@@ -2216,7 +2393,7 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1547, 699);
+            this.tabPage3.Size = new System.Drawing.Size(1547, 728);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2324,41 +2501,41 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "Data 1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series2.Legend = "Legend1";
-            series2.Name = "Data 2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series3.Legend = "Legend1";
-            series3.Name = "Data 3";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.Legend = "Legend1";
+            series4.Name = "Data 1";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series5.Legend = "Legend1";
+            series5.Name = "Data 2";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series6.Legend = "Legend1";
+            series6.Name = "Data 3";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage14
             // 
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Location = new System.Drawing.Point(4, 27);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(1547, 704);
+            this.tabPage14.Size = new System.Drawing.Size(1547, 728);
             this.tabPage14.TabIndex = 11;
             this.tabPage14.Text = "ATE";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -3946,7 +4123,7 @@ namespace SocketServer
             this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortRx);
             this.groupBox_SerialPort.Location = new System.Drawing.Point(1561, 77);
             this.groupBox_SerialPort.Name = "groupBox_SerialPort";
-            this.groupBox_SerialPort.Size = new System.Drawing.Size(115, 106);
+            this.groupBox_SerialPort.Size = new System.Drawing.Size(191, 106);
             this.groupBox_SerialPort.TabIndex = 111;
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
@@ -3955,7 +4132,7 @@ namespace SocketServer
             // 
             this.textBox1.Location = new System.Drawing.Point(5, 25);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 26);
+            this.textBox1.Size = new System.Drawing.Size(180, 26);
             this.textBox1.TabIndex = 112;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_3);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
@@ -3964,9 +4141,9 @@ namespace SocketServer
             // 
             this.groupBox1.Controls.Add(this.textBox_InternalCLIoutput);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1561, 361);
+            this.groupBox1.Location = new System.Drawing.Point(1561, 455);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 160);
+            this.groupBox1.Size = new System.Drawing.Size(191, 160);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Internal CLI";
@@ -3977,7 +4154,7 @@ namespace SocketServer
             this.textBox_InternalCLIoutput.Multiline = true;
             this.textBox_InternalCLIoutput.Name = "textBox_InternalCLIoutput";
             this.textBox_InternalCLIoutput.ReadOnly = true;
-            this.textBox_InternalCLIoutput.Size = new System.Drawing.Size(115, 87);
+            this.textBox_InternalCLIoutput.Size = new System.Drawing.Size(180, 87);
             this.textBox_InternalCLIoutput.TabIndex = 113;
             // 
             // groupBox4
@@ -3985,7 +4162,7 @@ namespace SocketServer
             this.groupBox4.Controls.Add(this.textBox_SystemStatus);
             this.groupBox4.Location = new System.Drawing.Point(1561, 195);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(120, 160);
+            this.groupBox4.Size = new System.Drawing.Size(191, 261);
             this.groupBox4.TabIndex = 114;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "System status";
@@ -3996,7 +4173,7 @@ namespace SocketServer
             this.textBox_SystemStatus.Multiline = true;
             this.textBox_SystemStatus.Name = "textBox_SystemStatus";
             this.textBox_SystemStatus.ReadOnly = true;
-            this.textBox_SystemStatus.Size = new System.Drawing.Size(105, 130);
+            this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 235);
             this.textBox_SystemStatus.TabIndex = 113;
             // 
             // pictureBox1
@@ -4008,189 +4185,12 @@ namespace SocketServer
             this.pictureBox1.TabIndex = 115;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox_Config35
-            // 
-            this.textBox_Config35.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config35.Location = new System.Drawing.Point(131, 75);
-            this.textBox_Config35.Name = "textBox_Config35";
-            this.textBox_Config35.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config35.TabIndex = 104;
-            this.toolTip2.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring");
-            this.toolTip1.SetToolTip(this.textBox_Config35, "Description:\r\nAPN username.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring\r\n");
-            this.textBox_Config35.TextChanged += new System.EventHandler(this.TextBox_Config35_TextChanged);
-            // 
-            // textBox_Config36
-            // 
-            this.textBox_Config36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config36.Location = new System.Drawing.Point(131, 108);
-            this.textBox_Config36.Name = "textBox_Config36";
-            this.textBox_Config36.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config36.TabIndex = 105;
-            this.toolTip2.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring");
-            this.toolTip1.SetToolTip(this.textBox_Config36, "Description:\r\nAPN password.\r\nan option to set SIM card details according to cellu" +
-        "lar provider operator. \r\nValid Data:\r\nstring");
-            this.textBox_Config36.TextChanged += new System.EventHandler(this.TextBox_Config36_TextChanged);
-            // 
-            // textBox_Config22
-            // 
-            this.textBox_Config22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config22.Location = new System.Drawing.Point(132, 279);
-            this.textBox_Config22.Name = "textBox_Config22";
-            this.textBox_Config22.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config22.TabIndex = 6;
-            this.toolTip2.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
-        "nt to remote server. \r\nValid data:\r\nnumber");
-            this.toolTip1.SetToolTip(this.textBox_Config22, "Description:\r\nan option to set time interval of position message which will be se" +
-        "nt to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.textBox_Config22.TextChanged += new System.EventHandler(this.TextBox_Config22_TextChanged);
-            // 
-            // textBox_Config21
-            // 
-            this.textBox_Config21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config21.Location = new System.Drawing.Point(131, 312);
-            this.textBox_Config21.Name = "textBox_Config21";
-            this.textBox_Config21.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config21.TabIndex = 7;
-            this.toolTip2.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
-        "lid data:\r\nnumber");
-            this.toolTip1.SetToolTip(this.textBox_Config21, "Description:\r\nan option to send POS message every predefined distance value. \r\nVa" +
-        "lid data:\r\nnumber");
-            this.textBox_Config21.TextChanged += new System.EventHandler(this.TextBox_Config21_TextChanged);
-            // 
-            // textBox_Config20
-            // 
-            this.textBox_Config20.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config20.Location = new System.Drawing.Point(131, 344);
-            this.textBox_Config20.Name = "textBox_Config20";
-            this.textBox_Config20.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config20.TabIndex = 8;
-            this.toolTip2.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
-        "it will send position message. \r\nValid data:\r\n0-360\r\n");
-            this.toolTip1.SetToolTip(this.textBox_Config20, "Description:\r\nIn case of deviation from traffic lane to preconfigured degrees, un" +
-        "it will send position message. \r\nValid data:\r\n0-360");
-            this.textBox_Config20.TextChanged += new System.EventHandler(this.TextBox_Config20_TextChanged);
-            // 
-            // textBox_Config12
-            // 
-            this.textBox_Config12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config12.Location = new System.Drawing.Point(131, 174);
-            this.textBox_Config12.Name = "textBox_Config12";
-            this.textBox_Config12.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config12.TabIndex = 3;
-            this.toolTip2.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n\r\n");
-            this.toolTip1.SetToolTip(this.textBox_Config12, "Description:\r\nModem Port for IP1 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n");
-            this.textBox_Config12.TextChanged += new System.EventHandler(this.TextBox_Config12_TextChanged);
-            // 
-            // textBox_Config11
-            // 
-            this.textBox_Config11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config11.Location = new System.Drawing.Point(131, 208);
-            this.textBox_Config11.Name = "textBox_Config11";
-            this.textBox_Config11.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config11.TabIndex = 4;
-            this.toolTip2.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address");
-            this.toolTip1.SetToolTip(this.textBox_Config11, "Description:\r\nModem IP2 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n");
-            this.textBox_Config11.TextChanged += new System.EventHandler(this.TextBox_Config11_TextChanged);
-            // 
-            // textBox_Config10
-            // 
-            this.textBox_Config10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config10.Location = new System.Drawing.Point(131, 141);
-            this.textBox_Config10.Name = "textBox_Config10";
-            this.textBox_Config10.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config10.TabIndex = 2;
-            this.toolTip2.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n\r\n\r\n");
-            this.toolTip1.SetToolTip(this.textBox_Config10, "Description:\r\nModem IP1 For communicate with the Server\r\nValid data:\r\nValid TCP/I" +
-        "P address\r\n\r\n");
-            this.textBox_Config10.TextChanged += new System.EventHandler(this.TextBox_Config10_TextChanged);
-            // 
-            // textBox_Config9
-            // 
-            this.textBox_Config9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config9.Location = new System.Drawing.Point(131, 44);
-            this.textBox_Config9.Name = "textBox_Config9";
-            this.textBox_Config9.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config9.TabIndex = 1;
-            this.toolTip2.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
-        "erator. \r\nValid Data:\r\nstring");
-            this.toolTip1.SetToolTip(this.textBox_Config9, "Description:\r\nan option to set SIM card details according to cellular provider op" +
-        "erator. \r\nValid Data:\r\nstring");
-            this.textBox_Config9.TextChanged += new System.EventHandler(this.TextBox_Config9_TextChanged);
-            // 
-            // textBox_Config8
-            // 
-            this.textBox_Config8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config8.Location = new System.Drawing.Point(131, 378);
-            this.textBox_Config8.Name = "textBox_Config8";
-            this.textBox_Config8.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config8.TabIndex = 9;
-            this.toolTip2.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
-        " to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.toolTip1.SetToolTip(this.textBox_Config8, "Description:\r\nan option to set time interval of status message which will be sent" +
-        " to remote server. \r\nValid data:\r\nnumber\r\n");
-            this.textBox_Config8.TextChanged += new System.EventHandler(this.TextBox_Config8_TextChanged);
-            // 
-            // textBox_Config6
-            // 
-            this.textBox_Config6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config6.Location = new System.Drawing.Point(131, 244);
-            this.textBox_Config6.Name = "textBox_Config6";
-            this.textBox_Config6.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config6.TabIndex = 5;
-            this.toolTip2.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999");
-            this.toolTip1.SetToolTip(this.textBox_Config6, "Description:\r\nModem Port for IP2 For communicate with the Server\r\nValid data:\r\nVa" +
-        "lid Port 0-99999\r\n\r\n");
-            this.textBox_Config6.TextChanged += new System.EventHandler(this.TextBox_Config6_TextChanged);
-            // 
-            // textBox_Config4
-            // 
-            this.textBox_Config4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Config4.Location = new System.Drawing.Point(131, 11);
-            this.textBox_Config4.Name = "textBox_Config4";
-            this.textBox_Config4.Size = new System.Drawing.Size(119, 27);
-            this.textBox_Config4.TabIndex = 0;
-            this.toolTip2.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\nValid Data:\r\nstring  Max 15");
-            this.toolTip1.SetToolTip(this.textBox_Config4, "Description:\r\nchange the password for the unit.\r\n\r\nValid Input Data:\r\nstring  Max" +
-        " 15\r\n\r\n\r\n");
-            this.textBox_Config4.TextChanged += new System.EventHandler(this.TextBox_Config4_TextChanged);
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.textBox_Config4);
-            this.tabPage10.Controls.Add(this.textBox_Config6);
-            this.tabPage10.Controls.Add(this.textBox_Config8);
-            this.tabPage10.Controls.Add(this.textBox_Config9);
-            this.tabPage10.Controls.Add(this.textBox_Config10);
-            this.tabPage10.Controls.Add(this.textBox_Config11);
-            this.tabPage10.Controls.Add(this.textBox_Config12);
-            this.tabPage10.Controls.Add(this.textBox_Config20);
-            this.tabPage10.Controls.Add(this.textBox_Config21);
-            this.tabPage10.Controls.Add(this.textBox_Config22);
-            this.tabPage10.Controls.Add(this.textBox_Config36);
-            this.tabPage10.Controls.Add(this.textBox_Config35);
-            this.tabPage10.Location = new System.Drawing.Point(4, 28);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1531, 448);
-            this.tabPage10.TabIndex = 0;
-            this.tabPage10.Text = "System 1";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1692, 737);
+            this.ClientSize = new System.Drawing.Size(1784, 761);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -4224,6 +4224,8 @@ namespace SocketServer
             this.groupBox_Stopwatch.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabControl_systems.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.groupBox38.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.groupBox39.ResumeLayout(false);
@@ -4300,8 +4302,6 @@ namespace SocketServer
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
 
         }
