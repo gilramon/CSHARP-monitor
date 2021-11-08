@@ -7824,7 +7824,7 @@ namespace SocketServer
 
                 if (ConfigString.Contains("CONFIGOK"))
                 {
-                    TextBox_GenerateConfigFile_Text("Config OK", Color.LightGreen);
+                    //TextBox_GenerateConfigFile_Text("Config OK", Color.LightGreen);
                 }
                 else
                 {
@@ -9124,9 +9124,9 @@ namespace SocketServer
                         break;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                TextBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
+                //TextBox_GenerateConfigFile_Text(ex.ToString(), Color.Red);
                 ret = false;
             }
 
@@ -9452,14 +9452,6 @@ namespace SocketServer
         //textBox_UnitVersion
 
 
-        void TextBox_GenerateConfigFile_Text(String i_ErrorMessage = "", Color i_BackColor = default)
-        {
-            //textBox_GenerateConfigFile.Invoke(new EventHandler(delegate
-            //{
-            //    textBox_GenerateConfigFile.Text = i_Text;
-            //    textBox_GenerateConfigFile.BackColor = i_BackColor;
-            //}));
-        }
 
         void TextBox_GenerateConfigFile_Clear()
         {
